@@ -1,0 +1,24 @@
+{
+  "name": "with-apollo-and-redux",
+  "version": "2.0.0",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "node server.js -p $PORT"
+  },
+  "dependencies": {
+    "graphql": "^0.9.3",
+    "http": "0.0.0",
+    "isomorphic-fetch": "^2.2.1",
+    "next": "latest",
+    "path-match": "^1.2.4",
+    "prop-types": "^15.5.10",
+    "react": "^15.5.4",
+    "react-apollo": "^1.1.3",
+    "react-dom": "^15.5.4",
+    "redux": "^3.6.0",
+    "url": "^0.11.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
