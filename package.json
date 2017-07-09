@@ -1,6 +1,7 @@
 {
-  "name": "with-apollo-and-redux",
-  "version": "2.0.0",
+  "name": "next-starter-kit",
+  "author": "Kaho Cheung",
+  "version": "0.0.1",
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -10,8 +11,11 @@
     "graphql": "^0.9.3",
     "http": "0.0.0",
     "isomorphic-fetch": "^2.2.1",
+    "lost": "^8.1.0",
     "next": "latest",
+    "normalize.css": "^7.0.0",
     "path-match": "^1.2.4",
+    "postcss-cssnext": "^3.0.0",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-apollo": "^1.1.3",
@@ -19,6 +23,13 @@
     "redux": "^3.6.0",
     "url": "^0.11.0"
   },
-  "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "cssnano": "^3.10.0",
+    "postcss-import": "^10.0.0",
+    "postcss-loader": "^2.0.6",
+    "postcss-modules": "^0.8.0",
+    "skeleton-loader": "^1.1.3",
+    "trash": "^4.0.1"
+  }
 }

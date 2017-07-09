@@ -1,0 +1,10 @@
+@import '../styles/variables.css';
+
+.header {
+
+
+  & a {
+    margin-right: 1em;
+    color: var(--primaryColour);
+  }
+}

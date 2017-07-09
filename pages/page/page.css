@@ -1,0 +1,22 @@
+@import '../../styles/variables.css';
+
+.paragraph {
+  /*composes: font-color from './global.css';*/
+  font-size: 20px;
+}
+
+h1 {
+  color: blue;
+}
+
+.title {
+  color: var(--primaryColour);
+
+  & span {
+    color: green;
+  }
+}
+
+.box {
+  lost-column: 1/3;
+}
