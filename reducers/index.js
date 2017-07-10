@@ -2,6 +2,8 @@ export default {
   example: (state = {}, { type, payload }) => {
     switch (type) {
       case 'EXAMPLE_ACTION':
+        console.log('EXAMPLE_ACTION', payload);
+
         return {
           ...state
         }
