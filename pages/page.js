@@ -2,10 +2,12 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { connect } from 'react-redux';
+import withRedux from 'next-redux-wrapper';
 
 import { stylesheet, classNames } from './page.css';
 import withData from '../lib/withData';
 import initRedux from '../lib/initRedux';
+import initApollo from '../lib/initApollo';
 import App from '../components/App';
 import Header from '../components/Header';
 import { exampleAction } from '../actions';
@@ -23,24 +25,22 @@ class Page extends Component {
     };
   }
 
-  static getInitialProps ({ query }) {
-    // await store.dispatch();
-    // store.dispatch(exampleAction('payload'));
-    console.log(query);
+  static getInitialProps ({ query: { id = null }, serverState, req }) {
+    const isServer = !!req;
+    const apollo = initApollo();
+    const store = initRedux(apollo, serverState);
 
-    // return {
-    //   id,
-    // }
+    store.dispatch(exampleAction('payloadsss'));
+
+    return {
+      id,
+    }
   }
 
   render() {
     const {
       id,
-      // exampleAction
     } = this.props;
-
-    console.log(this.props.test);
-    // exampleAction('test');
 
     return(
       <App>
@@ -61,19 +61,4 @@ class Page extends Component {
 
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     test: state,
-//   }
-// }
-//
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     exampleAction: payload => {
-//       dispatch(exampleAction(payload))
-//     }
-//   }
-// }
-//
-// export default withData(connect(mapStateToProps, mapDispatchToProps)(Page));
 export default withData(Page);
