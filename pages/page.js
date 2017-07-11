@@ -5,9 +5,7 @@ import { connect } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 
 import { stylesheet, classNames } from './page.css';
-import withData from '../lib/withData';
-import initRedux from '../lib/initRedux';
-import initApollo from '../lib/initApollo';
+import withData, { createApolloReduxStore } from '../lib/withData';
 import App from '../components/App';
 import Header from '../components/Header';
 import { exampleAction } from '../actions';
@@ -25,11 +23,8 @@ class Page extends Component {
     };
   }
 
-  static getInitialProps ({ query: { id = null }, serverState, req }) {
-    const isServer = !!req;
-    const apollo = initApollo();
-    const store = initRedux(apollo, serverState);
-
+  static getInitialProps ({ query: { id = null }, serverState }) {
+    const store = createApolloReduxStore(serverState);
     store.dispatch(exampleAction('payloadsss'));
 
     return {
