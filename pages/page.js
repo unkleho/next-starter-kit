@@ -25,7 +25,7 @@ class Page extends Component {
 
   static getInitialProps ({ query: { id = null }, serverState }) {
     const store = createApolloReduxStore(serverState);
-    store.dispatch(exampleAction('payloadsss'));
+    store.dispatch(exampleAction('payload'));
 
     return {
       id,
@@ -43,7 +43,7 @@ class Page extends Component {
 
         <Header />
 
-        <h1 className={classNames.title}>Page <span>blue</span></h1>
+        <h1 className={classNames.title}>Page <span>{id}</span></h1>
 
         <div>
           <div className={classNames.box}>1</div>
