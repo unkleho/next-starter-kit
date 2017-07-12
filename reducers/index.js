@@ -1,14 +1,7 @@
-export default {
-  example: (state = {}, { type, payload }) => {
-    switch (type) {
-      case 'EXAMPLE_ACTION':
-        console.log('EXAMPLE_ACTION', payload);
+import { combineReducers } from 'redux';
 
-        return {
-          ...state
-        }
-      default:
-        return state
-    }
-  }
-}
+import example from './exampleReducer';
+
+export default combineReducers({
+  example,
+})

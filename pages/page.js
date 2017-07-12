@@ -8,7 +8,7 @@ import { stylesheet, classNames } from './page.css';
 import withData, { createApolloReduxStore } from '../lib/withData';
 import App from '../components/App';
 import Header from '../components/Header';
-import { exampleAction } from '../actions';
+import { exampleAction } from '../actions/exampleActions';
 
 class Page extends Component {
 
