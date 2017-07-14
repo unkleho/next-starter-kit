@@ -8,11 +8,12 @@
     "start": "node server.js -p $PORT",
     "heroku-postbuild": "next build"
   },
-  "engines" : {
-    "node" : "~6.8.1"
+  "engines": {
+    "node": "~6.8.1"
   },
   "dependencies": {
     "babel-plugin-wrap-in-js": "^1.1.1",
+    "cssnano": "^3.10.0",
     "graphql": "^0.9.3",
     "http": "0.0.0",
     "isomorphic-fetch": "^2.2.1",
