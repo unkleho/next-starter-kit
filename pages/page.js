@@ -34,12 +34,13 @@ class Page extends Component {
   render() {
     const {
       id,
+      url,
     } = this.props;
 
     return(
       <App>
 
-        <Header />
+        <Header pathname={url.pathname} />
 
         <h1 className="title">Page <span>{id}</span></h1>
 

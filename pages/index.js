@@ -4,7 +4,8 @@ import withData from '../lib/withData';
 
 export default withData((props) => (
   <App>
-    <Header />
-    Hi
+    <Header pathname={props.url.pathname} />
+
+    <h1>Next Starter Kit</h1>
   </App>
 ))

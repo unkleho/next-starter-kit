@@ -4,5 +4,9 @@
   & a {
     margin-right: 1em;
     color: var(--primaryColour);
+
+    &.is-active {
+      color: var(--highlightColour);
+    }
   }
 }
