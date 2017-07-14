@@ -1,11 +1,9 @@
 import Link from 'next/link';
 import Head from 'next/head';
-// import { stylesheet, classNames } from './Header.css';
 import styles from './Header.css';
 
 export default ({ pathname }) => (
   <header className="header">
-    {/* <Head><style dangerouslySetInnerHTML={{__html: stylesheet}} /></Head> */}
 
     <Link prefetch href='/'>
       <a className={pathname === '/' && 'is-active'}>Home</a>
@@ -20,5 +18,6 @@ export default ({ pathname }) => (
     </Link>
 
     <style jsx>{styles}</style>
+
   </header>
 )

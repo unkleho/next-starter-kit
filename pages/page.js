@@ -1,10 +1,8 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import Head from 'next/head';
 import { connect } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 
-// import { stylesheet, classNames } from './page.css';
 import styles from './page.css';
 import withData, { createApolloReduxStore } from '../lib/withData';
 import App from '../components/App';
@@ -40,7 +38,6 @@ class Page extends Component {
 
     return(
       <App>
-        {/* <Head><style dangerouslySetInnerHTML={{__html: stylesheet}} /></Head> */}
 
         <Header />
 
@@ -54,6 +51,7 @@ class Page extends Component {
         </div>
 
         <style jsx>{styles}</style>
+
       </App>
     )
   }
