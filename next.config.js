@@ -17,26 +17,30 @@ module.exports = {
               name: 'dist/[path][name].[ext]'
             }
           },
-          {
-            loader: 'skeleton-loader',
-            options: {
-              procedure: function (content) {
-                const fileName = `${this._module.userRequest}.json`
-                const classNames = fs.readFileSync(fileName, 'utf8')
-
-                trash(fileName)
-
-                return ['module.exports = {',
-                  `classNames: ${classNames},`,
-                  `stylesheet: \`${content}\``,
-                  '}'
-                ].join('')
-              }
-            }
-          },
-          'postcss-loader'
+          // {
+          //   loader: 'skeleton-loader',
+          //   options: {
+          //     procedure: function (content) {
+          //       const fileName = `${this._module.userRequest}.json`
+          //       const classNames = fs.readFileSync(fileName, 'utf8')
+          //
+          //       trash(fileName)
+          //
+          //       return ['module.exports = {',
+          //         `classNames: ${classNames},`,
+          //         `stylesheet: \`${content}\``,
+          //         '}'
+          //       ].join('')
+          //     }
+          //   }
+          // },
+          // 'postcss-loader'
         ]
-      }
+      },
+      {
+        test: /\.css$/,
+        use: ["babel-loader", "raw-loader", "postcss-loader"]
+      }      
     )
 
     return config

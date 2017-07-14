@@ -4,7 +4,8 @@ import Head from 'next/head';
 import { connect } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 
-import { stylesheet, classNames } from './page.css';
+// import { stylesheet, classNames } from './page.css';
+import styles from './page.css';
 import withData, { createApolloReduxStore } from '../lib/withData';
 import App from '../components/App';
 import Header from '../components/Header';
@@ -39,17 +40,20 @@ class Page extends Component {
 
     return(
       <App>
-        <Head><style dangerouslySetInnerHTML={{__html: stylesheet}} /></Head>
+        {/* <Head><style dangerouslySetInnerHTML={{__html: stylesheet}} /></Head> */}
 
         <Header />
 
-        <h1 className={classNames.title}>Page <span>{id}</span></h1>
+        <h1 className="title">Page <span>{id}</span></h1>
 
+        <h2>Lost Grid Test</h2>
         <div>
-          <div className={classNames.box}>1</div>
-          <div className={classNames.box}>2</div>
-          <div className={classNames.box}>3</div>
+          <div className="box">1</div>
+          <div className="box">2</div>
+          <div className="box">3</div>
         </div>
+
+        <style jsx>{styles}</style>
       </App>
     )
   }
