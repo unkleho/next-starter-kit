@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "node server.js -p $PORT"
+    "start": "node server.js -p $PORT",
+    "heroku-postbuild": "next build"
   },
   "dependencies": {
     "graphql": "^0.9.3",
