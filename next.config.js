@@ -1,5 +1,4 @@
 const fs = require('fs')
-const trash = require('trash')
 
 module.exports = {
   webpack: (config) => {
