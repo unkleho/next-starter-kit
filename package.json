@@ -9,7 +9,7 @@
     "heroku-postbuild": "next build"
   },
   "engines" : {
-    "node" : ">=6.8.1"
+    "node" : "~6.8.1"
   },
   "dependencies": {
     "graphql": "^0.9.3",
