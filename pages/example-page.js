@@ -68,10 +68,11 @@ class ExamplePage extends Component {
           <div className="box">3</div>
         </div>
 
-        <style jsx>{styles}</style>
-
         <h2>dotenv TEST</h2>
         <p>{process.env.TEST}</p>
+
+        <style jsx>{styles}</style>
+
       </App>
     )
   }
