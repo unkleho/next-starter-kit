@@ -8,11 +8,15 @@
           {
             "extensions": ["css$"]
           }
-        ]
+        ],
+        "inline-dotenv"
       ]
     },
     "production": {
-      "presets": "next/babel"
+      "presets": "next/babel",
+      "plugins": [
+        "transform-inline-environment-variables"
+      ]
     },
     "test": {
       "presets": [

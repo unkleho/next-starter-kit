@@ -13,6 +13,8 @@
     "node": "~6.8.1"
   },
   "dependencies": {
+    "babel-plugin-inline-dotenv": "^1.1.1",
+    "babel-plugin-transform-inline-environment-variables": "^0.1.1",
     "babel-plugin-wrap-in-js": "^1.1.1",
     "cssnano": "^3.10.0",
     "graphql": "^0.9.3",
@@ -44,6 +46,8 @@
     "react-test-renderer": "^15.6.1"
   },
   "jest": {
-    "transform": {".*": "<rootDir>/node_modules/jest-css-modules"}
+    "transform": {
+      ".*": "<rootDir>/node_modules/jest-css-modules"
+    }
   }
 }

@@ -70,6 +70,8 @@ class ExamplePage extends Component {
 
         <style jsx>{styles}</style>
 
+        <h2>dotenv TEST</h2>
+        <p>{process.env.TEST}</p>
       </App>
     )
   }
