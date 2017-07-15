@@ -1,6 +1,6 @@
 .next/
 node_modules/
 npm-debug.log
-.env
+.env*
 .DS_Store
 __tests__/__snapshots__/
