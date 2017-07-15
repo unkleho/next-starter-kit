@@ -6,7 +6,8 @@
     "dev": "next",
     "build": "next build",
     "start": "node server.js -p $PORT",
-    "heroku-postbuild": "next build"
+    "heroku-postbuild": "next build",
+    "flow": "flow"
   },
   "engines": {
     "node": "~6.8.1"
