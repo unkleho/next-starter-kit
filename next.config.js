@@ -21,6 +21,12 @@ module.exports = {
       {
         test: /\.css$/,
         use: ["babel-loader", "raw-loader", "postcss-loader"]
+      },
+      {
+        enforce: "pre",
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "eslint-loader",
       }
     )
 

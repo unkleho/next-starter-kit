@@ -1,7 +1,5 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import withRedux from 'next-redux-wrapper';
 
 import styles from './example-page.css';
 import withData, { createApolloReduxStore } from '../lib/withData';
@@ -38,7 +36,7 @@ class ExamplePage extends Component {
     } = this.props;
 
     const sizes = ['xxs', 'xs', 'sm', 'md', 'lg', 'xlg', 'xxlg'];
-    const shades = ['lightest', 'lighter', 'light', '', 'dark', 'darker', 'darkest'];
+    // const shades = ['lightest', 'lighter', 'light', '', 'dark', 'darker', 'darkest'];
 
     return(
       <App>

@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Head from 'next/head';
 import styles from './Header.css';
 
 export default ({ pathname }) => {
