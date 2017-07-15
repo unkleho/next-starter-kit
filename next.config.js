@@ -1,10 +1,18 @@
 const fs = require('fs')
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
   webpack: (config) => {
     config.plugins = config.plugins.filter(
       (plugin) => (plugin.constructor.name !== 'UglifyJsPlugin')
     )
+
+    // FIXME: UnhandledPromiseRejectionWarning error
+    config.plugins.push(new StyleLintPlugin({
+      files: ['**/*.css'],
+      emitErrors: false,
+      // failOnError: false,
+    }));
 
     config.module.rules.push(
       {
