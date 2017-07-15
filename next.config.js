@@ -11,7 +11,6 @@ module.exports = {
     config.plugins.push(new StyleLintPlugin({
       files: ['**/*.css'],
       emitErrors: false,
-      // failOnError: false,
     }));
 
     config.module.rules.push(

@@ -1,5 +1,4 @@
 :root {
-
   /*
    * VARIABLES
    * ======================================================================== */
@@ -57,12 +56,16 @@
 
   /* 480px Extra small screen / phone */
   @custom-media --screen-xs (min-width: 30em);
+
   /* 768px Small screen / tablet */
   @custom-media --screen-sm (min-width: 48em);
+
   /* 1024px Medium screen / desktop */
   @custom-media --screen-md (min-width: 64em);
+
   /* 1440 Large screen / wide desktop */
   @custom-media --screen-lg (min-width: 90em);
+
   /* 1920 HD TV screen */
   @custom-media --screen-xlg (min-width: 120em);
 
@@ -75,5 +78,4 @@
   --container-width-md: 1024px;
   --container-width-lg: 1440px;
   --container-width-xlg: 1920px;
-
 }

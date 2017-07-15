@@ -1,7 +1,7 @@
 @import '../styles/variables.css';
 
 .paragraph {
-  /*composes: font-color from './global.css';*/
+  /* composes: font-color from './global.css'; */
   font-size: 20px;
 }
 
@@ -52,11 +52,10 @@ p {
 }
 
 .box {
-
   background-color: var(--colour-secondary);
   padding: var(--spacing-md);
 
-  @media(--screen-sm) {
+  @media (--screen-sm) {
     lost-column: 1/4;
   }
 }
