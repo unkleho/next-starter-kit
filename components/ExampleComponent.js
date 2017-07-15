@@ -3,5 +3,5 @@ import Head from 'next/head';
 import { stylesheet, classNames } from './ExampleComponent.css';
 
 export default ({}) => (
-  <div></div>
+  <div>Example Component</div>
 )

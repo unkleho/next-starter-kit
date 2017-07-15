@@ -1,0 +1,23 @@
+/* eslint-env jest */
+
+import { shallow } from 'enzyme'
+import React from 'react'
+import renderer from 'react-test-renderer'
+
+import ExampleComponent from '../components/ExampleComponent';
+
+describe('With Enzyme', () => {
+  it('App shows "Example Component"', () => {
+    const app = shallow(<ExampleComponent />)
+
+    expect(app.find('div').text()).toEqual('Example Component')
+  })
+})
+
+describe('With Snapshot Testing', () => {
+  it('App shows "Example Component"', () => {
+    const component = renderer.create(<ExampleComponent />)
+    const tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+})
