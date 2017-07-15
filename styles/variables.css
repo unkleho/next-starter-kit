@@ -1,4 +1,14 @@
 :root {
   --primaryColour: blue;
   --highlightColour: red;
+  --font-scale: 1.3;
+
+  --font-size-md: 1em;
+
+  --font-size-sm: calc(var(--font-size-md) / var(--font-scale));
+  --font-size-xs: calc(var(--font-size-sm) / var(--font-scale));
+
+  --font-size-lg: calc(var(--font-scale) * var(--font-size-md));
+  --font-size-xlg: calc(var(--font-scale) * var(--font-size-lg));
+  --font-size-xxlg: calc(var(--font-scale) * var(--font-size-xlg));
 }

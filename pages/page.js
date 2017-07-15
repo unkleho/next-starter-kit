@@ -37,6 +37,8 @@ class Page extends Component {
       url,
     } = this.props;
 
+    const sizes = ['xs', 'sm', 'md', 'lg', 'xlg', 'xxlg'];
+
     return(
       <App>
 
@@ -44,7 +46,13 @@ class Page extends Component {
 
         <h1 className="title">Page <span>{id}</span></h1>
 
-        <h2>Lost Grid Test</h2>
+        <h2>Style Guide</h2>
+        <h3>Type Scale</h3>
+        {sizes.map(size => (
+          <p className={`font-size-${size}`} key={`font-size-${size}`}>{`font-size-${size}`}</p>
+        ))}
+
+        <h2>Lost Grid</h2>
         <div>
           <div className="box">1</div>
           <div className="box">2</div>
@@ -52,6 +60,15 @@ class Page extends Component {
         </div>
 
         <style jsx>{styles}</style>
+        {/* <style jsx>{`
+          h1 {
+            color: red;
+          }
+
+          h1:before {
+            content: "hi";
+          }
+        `}</style> */}
 
       </App>
     )

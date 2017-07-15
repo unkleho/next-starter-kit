@@ -9,6 +9,32 @@ h1 {
   color: blue;
 }
 
+p {
+  &.font-size-xs {
+    font-size: var(--font-size-xs);
+  }
+
+  &.font-size-sm {
+    font-size: var(--font-size-sm);
+  }
+
+  &.font-size-md {
+    font-size: var(--font-size-md);
+  }
+
+  &.font-size-lg {
+    font-size: var(--font-size-lg);
+  }
+
+  &.font-size-xlg {
+    font-size: var(--font-size-xlg);
+  }
+
+  &.font-size-xxlg {
+    font-size: var(--font-size-xxlg);
+  }
+}
+
 .title {
   color: var(--primaryColour);
 

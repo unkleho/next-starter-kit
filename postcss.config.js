@@ -7,6 +7,7 @@ module.exports = {
       }
     }),
     require('lost'),
-    require('cssnano')()
+    // FIXME: cssnano messes with pseudo selectors
+    // require('cssnano')()
   ]
 }
