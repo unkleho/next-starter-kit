@@ -7,7 +7,7 @@ const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 const route = pathMatch()
-const match = route('/page/:id')
+const match = route('/example-page/:id')
 
 app.prepare()
 .then(() => {
@@ -19,10 +19,10 @@ app.prepare()
       return
     }
 
-    app.render(req, res, '/page', params)
+    app.render(req, res, '/example-page', params)
   })
   .listen(process.env.PORT || 3000, (err) => {
     if (err) throw err
-    console.log('> Ready on http://localhost:3000')
+    console.log(`> Ready on http://localhost:${process.env.PORT}`)
   })
 })

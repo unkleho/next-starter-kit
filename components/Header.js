@@ -14,8 +14,8 @@ export default ({ pathname }) => {
         <a className={pathname === '/about' && 'is-active'}>About</a>
       </Link>
 
-      <Link prefetch href='/page'>
-        <a className={pathname === '/page' && 'is-active'}>Page</a>
+      <Link prefetch href='/example-page'>
+        <a className={pathname === '/example-page' && 'is-active'}>Example Page</a>
       </Link>
 
       <style jsx>{styles}</style>

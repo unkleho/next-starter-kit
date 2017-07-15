@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 
-import styles from './page.css';
+import styles from './example-page.css';
 import withData, { createApolloReduxStore } from '../lib/withData';
 import App from '../components/App';
 import Header from '../components/Header';
 import { exampleAction } from '../actions/exampleActions';
 
-class Page extends Component {
+class ExamplePage extends Component {
 
   static propTypes = {
     id: PropTypes.string,
@@ -37,7 +37,7 @@ class Page extends Component {
       url,
     } = this.props;
 
-    const sizes = ['xs', 'sm', 'md', 'lg', 'xlg', 'xxlg'];
+    const sizes = ['xxs', 'xs', 'sm', 'md', 'lg', 'xlg', 'xxlg'];
 
     return(
       <App>
@@ -76,4 +76,4 @@ class Page extends Component {
 
 }
 
-export default withData(Page);
+export default withData(ExamplePage);
