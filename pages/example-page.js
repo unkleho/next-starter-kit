@@ -38,6 +38,7 @@ class ExamplePage extends Component {
     } = this.props;
 
     const sizes = ['xxs', 'xs', 'sm', 'md', 'lg', 'xlg', 'xxlg'];
+    const shades = ['lightest', 'lighter', 'light', '', 'dark', 'darker', 'darkest'];
 
     return(
       <App>
@@ -57,6 +58,7 @@ class ExamplePage extends Component {
           <div className="box box--colour-primary"></div>
           <div className="box box--colour-primary-dark"></div>
           <div className="box box--colour-primary-darker"></div>
+          <div className="box box--colour-primary-darkest"></div>
         </div>
 
         <h2>Lost Grid</h2>

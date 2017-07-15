@@ -15,6 +15,11 @@
 
   --colour-primary-dark: color(var(--colour-primary) shade(10%));
   --colour-primary-darker: color(var(--colour-primary) shade(20%));
+  --colour-primary-darkest: color(var(--colour-primary) shade(30%));
+
+  --colour-primary-light: color(var(--colour-primary) tint(10%));
+  --colour-primary-lighter: color(var(--colour-primary) tint(20%));
+  --colour-primary-lightest: color(var(--colour-primary) tint(30%));
 
   /*
    * Font Sizes

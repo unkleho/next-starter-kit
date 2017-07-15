@@ -8,7 +8,6 @@
       {
         "extensions": ["css$"]
       }
-    ],
-    "transform-flow-strip-types"
+    ]
   ]
 }
