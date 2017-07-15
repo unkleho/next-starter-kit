@@ -1,13 +1,14 @@
 {
+  "presets": [
+    "next/babel"
+  ],
   "plugins": [
     [
       "wrap-in-js",
       {
         "extensions": ["css$"]
       }
-    ]
-  ],
-  "presets": [
-    "next/babel"
+    ],
+    "transform-flow-strip-types"
   ]
 }

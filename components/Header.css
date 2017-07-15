@@ -3,10 +3,10 @@
 .header {
   & a {
     margin-right: 1em;
-    color: var(--primaryColour);
+    color: var(--colour-primary);
 
     &.is-active {
-      color: var(--highlightColour);
+      color: var(--colour-highlight);
     }
   }
 }

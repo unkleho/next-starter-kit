@@ -52,23 +52,21 @@ class ExamplePage extends Component {
           <p className={`font-size-${size}`} key={`font-size-${size}`}>{`font-size-${size}`}</p>
         ))}
 
+        <h3>Colours</h3>
+        <div className="boxes">
+          <div className="box box--colour-primary"></div>
+          <div className="box box--colour-primary-dark"></div>
+          <div className="box box--colour-primary-darker"></div>
+        </div>
+
         <h2>Lost Grid</h2>
-        <div>
+        <div className="boxes">
           <div className="box">1</div>
           <div className="box">2</div>
           <div className="box">3</div>
         </div>
 
         <style jsx>{styles}</style>
-        {/* <style jsx>{`
-          h1 {
-            color: red;
-          }
-
-          h1:before {
-            content: "hi";
-          }
-        `}</style> */}
 
       </App>
     )

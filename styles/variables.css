@@ -8,10 +8,13 @@
    * Colours
    * ------------------------------------------------------------------------ */
 
-  --primaryColour: blue;
-  --secondaryColour: green;
-  --tertiaryColour: yellow;
-  --highlightColour: red;
+  --colour-primary: blue;
+  --colour-secondary: green;
+  --colour-tertiary: yellow;
+  --colour-highlight: red;
+
+  --colour-primary-dark: color(var(--colour-primary) shade(10%));
+  --colour-primary-darker: color(var(--colour-primary) shade(20%));
 
   /*
    * Font Sizes
