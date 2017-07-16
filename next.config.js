@@ -7,8 +7,8 @@ module.exports = {
       (plugin) => (plugin.constructor.name !== 'UglifyJsPlugin')
     )
 
-    // FIXME: UnhandledPromiseRejectionWarning error
     config.plugins.push(new StyleLintPlugin({
+      configFile: './.stylelintrc.js',
       files: ['**/*.css'],
       emitErrors: false,
     }));

@@ -41,7 +41,7 @@ class ExamplePage extends Component {
     return(
       <App>
 
-        <Header pathname={url.pathname} />
+        <Header pathname={url.pathname}></Header>
 
         <h1 className="title">Page <span>{id}</span></h1>
 
