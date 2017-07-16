@@ -3,7 +3,7 @@
   "author": "Kaho Cheung",
   "version": "0.0.1",
   "scripts": {
-    "dev": "next",
+    "dev": "next -p 4000",
     "build": "next build",
     "start": "node server.js -p $PORT",
     "heroku-postbuild": "next build",

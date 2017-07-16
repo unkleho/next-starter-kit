@@ -36,7 +36,7 @@ class ExamplePage extends Component {
     } = this.props;
 
     const sizes = ['xxs', 'xs', 'sm', 'md', 'lg', 'xlg', 'xxlg'];
-    const shades = ['lightest', 'lighter', 'light', '', 'dark', 'darker', 'darkest'];
+    const colours = ['primary', 'secondary', 'tertiary', 'highlight'];
 
     return(
       <App>
@@ -52,24 +52,21 @@ class ExamplePage extends Component {
         ))}
 
         <h3>Colours</h3>
-        <div className="boxes">
-          {shades.map(shade => {
-            const modifier = shade === '' ? '' : `-${shade}`;
+        {colours.map(colour => (
+          <div className="boxes" key={`boxes-${colour}`}>
+            <h4>{colour}</h4>
 
-            return (
-              <div className={`box box--colour-primary${modifier}`} key={`box--colour-primary${modifier}`}></div>
-            )
-          })}
-        </div>
+            <div>
+              {[...Array(7)].map((shade, i) => {
+                return (
+                  <div className={`box box--colour-${colour}`} key={`box--colour-${colour}-${i}`}></div>
+                )
+              })}
+            </div>
+          </div>
+        ))}
 
-        <h2>Lost Grid</h2>
-        <div className="boxes">
-          <div className="box">1</div>
-          <div className="box">2</div>
-          <div className="box">3</div>
-        </div>
-
-        <h2>dotenv TEST</h2>
+        <h2>dotenv Test</h2>
         <p>{process.env.TEST}</p>
 
         <style jsx>{styles}</style>

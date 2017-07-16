@@ -12,6 +12,7 @@
   --colour-tertiary: yellow;
   --colour-highlight: red;
 
+  /* Primary */
   --colour-primary-dark: color(var(--colour-primary) shade(10%));
   --colour-primary-darker: color(var(--colour-primary) shade(20%));
   --colour-primary-darkest: color(var(--colour-primary) shade(30%));
@@ -19,6 +20,33 @@
   --colour-primary-light: color(var(--colour-primary) tint(10%));
   --colour-primary-lighter: color(var(--colour-primary) tint(20%));
   --colour-primary-lightest: color(var(--colour-primary) tint(30%));
+
+  /* Secondary */
+  --colour-secondary-dark: color(var(--colour-secondary) shade(10%));
+  --colour-secondary-darker: color(var(--colour-secondary) shade(20%));
+  --colour-secondary-darkest: color(var(--colour-secondary) shade(30%));
+
+  --colour-secondary-light: color(var(--colour-secondary) tint(10%));
+  --colour-secondary-lighter: color(var(--colour-secondary) tint(20%));
+  --colour-secondary-lightest: color(var(--colour-secondary) tint(30%));
+
+  /* Tertiary */
+  --colour-tertiary-dark: color(var(--colour-tertiary) shade(10%));
+  --colour-tertiary-darker: color(var(--colour-tertiary) shade(20%));
+  --colour-tertiary-darkest: color(var(--colour-tertiary) shade(30%));
+
+  --colour-tertiary-light: color(var(--colour-tertiary) tint(10%));
+  --colour-tertiary-lighter: color(var(--colour-tertiary) tint(20%));
+  --colour-tertiary-lightest: color(var(--colour-tertiary) tint(30%));
+
+  /* Highlight */
+  --colour-highlight-dark: color(var(--colour-highlight) shade(10%));
+  --colour-highlight-darker: color(var(--colour-highlight) shade(20%));
+  --colour-highlight-darkest: color(var(--colour-highlight) shade(30%));
+
+  --colour-highlight-light: color(var(--colour-highlight) tint(10%));
+  --colour-highlight-lighter: color(var(--colour-highlight) tint(20%));
+  --colour-highlight-lightest: color(var(--colour-highlight) tint(30%));
 
   /*
    * Font Sizes
