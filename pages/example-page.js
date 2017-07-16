@@ -36,7 +36,7 @@ class ExamplePage extends Component {
     } = this.props;
 
     const sizes = ['xxs', 'xs', 'sm', 'md', 'lg', 'xlg', 'xxlg'];
-    // const shades = ['lightest', 'lighter', 'light', '', 'dark', 'darker', 'darkest'];
+    const shades = ['lightest', 'lighter', 'light', '', 'dark', 'darker', 'darkest'];
 
     return(
       <App>
@@ -53,10 +53,13 @@ class ExamplePage extends Component {
 
         <h3>Colours</h3>
         <div className="boxes">
-          <div className="box box--colour-primary"></div>
-          <div className="box box--colour-primary-dark"></div>
-          <div className="box box--colour-primary-darker"></div>
-          <div className="box box--colour-primary-darkest"></div>
+          {shades.map(shade => {
+            const modifier = shade === '' ? '' : `-${shade}`;
+
+            return (
+              <div className={`box box--colour-primary${modifier}`} key={`box--colour-primary${modifier}`}></div>
+            )
+          })}
         </div>
 
         <h2>Lost Grid</h2>
