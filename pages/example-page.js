@@ -5,7 +5,7 @@ import styles from './example-page.css';
 import withData, { createApolloReduxStore } from '../lib/withData';
 import App from '../components/App';
 import Header from '../components/Header';
-import ExampleComponent from '../components/ExampleComponent';
+import ExampleComponent from '../components/examples/ExampleComponent';
 import { exampleAction } from '../actions/exampleActions';
 
 class ExamplePage extends Component {

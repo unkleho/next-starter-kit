@@ -3,19 +3,23 @@
     "development": {
       "presets": "next/babel",
       "plugins": [
+        // Convert css file to js for styled-jsx
         [
           "wrap-in-js",
           {
             "extensions": ["css$"]
           }
         ],
+        // Enable .env
         "inline-dotenv",
+        // Strip out flow typings
         "transform-flow-strip-types"
       ]
     },
     "production": {
       "presets": "next/babel",
       "plugins": [
+        // Enable .env
         "transform-inline-environment-variables"
       ]
     },

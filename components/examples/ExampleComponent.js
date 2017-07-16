@@ -11,7 +11,7 @@ type Props = {
 export default ({ children, title }: Props) => (
   <div>
     <h1>{title}</h1>
-    Example Component
+    <p>Example Component</p>
 
     {children}
 

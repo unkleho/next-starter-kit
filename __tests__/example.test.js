@@ -4,13 +4,13 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import ExampleComponent from '../components/ExampleComponent';
+import ExampleComponent from '../components/examples/ExampleComponent';
 
 describe('With Enzyme', () => {
   it('ExampleComponent shows "Example Component"', () => {
     const app = shallow(<ExampleComponent />)
 
-    expect(app.find('div').text()).toEqual('Example Component')
+    expect(app.find('p').text()).toEqual('Example Component')
   })
 })
 
