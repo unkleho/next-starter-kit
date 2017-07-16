@@ -1,6 +1,6 @@
 const fs = require('fs')
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-const FlowBabelWebpackPlugin = require('flow-babel-webpack-plugin');
+// const FlowBabelWebpackPlugin = require('flow-babel-webpack-plugin');
 
 module.exports = {
   webpack: (config) => {
