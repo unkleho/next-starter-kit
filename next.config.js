@@ -1,5 +1,6 @@
 const fs = require('fs')
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const FlowBabelWebpackPlugin = require('flow-babel-webpack-plugin');
 
 module.exports = {
   webpack: (config) => {
@@ -12,6 +13,10 @@ module.exports = {
       files: ['**/*.css'],
       emitErrors: false,
     }));
+
+    // FIXME: Getting hot-reloader errors if Flow catches something
+    // Commented for now
+    // config.plugins.push(new FlowBabelWebpackPlugin());
 
     config.module.rules.push(
       {

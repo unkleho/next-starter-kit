@@ -1,12 +1,5 @@
-// @flow
-
 import Link from 'next/link';
 import styles from './Header.css';
-
-type Props = {
-  children?: Element<any>,
-  pathname?: string
-}
 
 export default ({ pathname }) => {
   return (

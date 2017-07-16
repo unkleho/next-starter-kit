@@ -5,6 +5,7 @@ import styles from './example-page.css';
 import withData, { createApolloReduxStore } from '../lib/withData';
 import App from '../components/App';
 import Header from '../components/Header';
+import ExampleComponent from '../components/ExampleComponent';
 import { exampleAction } from '../actions/exampleActions';
 
 class ExamplePage extends Component {
@@ -65,6 +66,9 @@ class ExamplePage extends Component {
             </div>
           </div>
         ))}
+
+        <h2>Example Component</h2>
+        <ExampleComponent title="Title" />
 
         <h2>dotenv Test</h2>
         <p>{process.env.TEST}</p>

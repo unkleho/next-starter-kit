@@ -9,7 +9,8 @@
             "extensions": ["css$"]
           }
         ],
-        "inline-dotenv"
+        "inline-dotenv",
+        "transform-flow-strip-types"
       ]
     },
     "production": {
