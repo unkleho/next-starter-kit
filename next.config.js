@@ -1,10 +1,17 @@
 const fs = require('fs')
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
   webpack: (config) => {
     config.plugins = config.plugins.filter(
       (plugin) => (plugin.constructor.name !== 'UglifyJsPlugin')
     )
+
+    config.plugins.push(new StyleLintPlugin({
+      configFile: './.stylelintrc.js',
+      files: ['**/*.css'],
+      emitErrors: false,
+    }));
 
     config.module.rules.push(
       {
@@ -21,6 +28,12 @@ module.exports = {
       {
         test: /\.css$/,
         use: ["babel-loader", "raw-loader", "postcss-loader"]
+      },
+      {
+        enforce: "pre",
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "eslint-loader",
       }
     )
 

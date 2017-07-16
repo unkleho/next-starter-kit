@@ -1,14 +1,28 @@
 {
-  "presets": [
-    "next/babel"
-  ],
-  "plugins": [
-    [
-      "wrap-in-js",
-      {
-        "extensions": ["css$"]
-      }
-    ],
-    "transform-flow-strip-types"
-  ]
+  "env": {
+    "development": {
+      "presets": "next/babel",
+      "plugins": [
+        [
+          "wrap-in-js",
+          {
+            "extensions": ["css$"]
+          }
+        ],
+        "inline-dotenv"
+      ]
+    },
+    "production": {
+      "presets": "next/babel",
+      "plugins": [
+        "transform-inline-environment-variables"
+      ]
+    },
+    "test": {
+      "presets": [
+        ["env", { "modules": "commonjs" }],
+        "next/babel"
+      ]
+    }
+  }
 }

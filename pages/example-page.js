@@ -1,7 +1,5 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import withRedux from 'next-redux-wrapper';
 
 import styles from './example-page.css';
 import withData, { createApolloReduxStore } from '../lib/withData';
@@ -38,11 +36,12 @@ class ExamplePage extends Component {
     } = this.props;
 
     const sizes = ['xxs', 'xs', 'sm', 'md', 'lg', 'xlg', 'xxlg'];
+    const colours = ['primary', 'secondary', 'tertiary', 'highlight'];
 
     return(
       <App>
 
-        <Header pathname={url.pathname} />
+        <Header pathname={url.pathname}></Header>
 
         <h1 className="title">Page <span>{id}</span></h1>
 
@@ -53,18 +52,22 @@ class ExamplePage extends Component {
         ))}
 
         <h3>Colours</h3>
-        <div className="boxes">
-          <div className="box box--colour-primary"></div>
-          <div className="box box--colour-primary-dark"></div>
-          <div className="box box--colour-primary-darker"></div>
-        </div>
+        {colours.map(colour => (
+          <div className="boxes" key={`boxes-${colour}`}>
+            <h4>{colour}</h4>
 
-        <h2>Lost Grid</h2>
-        <div className="boxes">
-          <div className="box">1</div>
-          <div className="box">2</div>
-          <div className="box">3</div>
-        </div>
+            <div>
+              {[...Array(7)].map((shade, i) => {
+                return (
+                  <div className={`box box--colour-${colour}`} key={`box--colour-${colour}-${i}`}></div>
+                )
+              })}
+            </div>
+          </div>
+        ))}
+
+        <h2>dotenv Test</h2>
+        <p>{process.env.TEST}</p>
 
         <style jsx>{styles}</style>
 

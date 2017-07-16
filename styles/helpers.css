@@ -8,25 +8,25 @@
  * CONTAINERS
  * -------------------------------------------------------------------------- */
 
-  .container {
-    lost-utility: clearfix;
+.container {
+  lost-utility: clearfix;
 
-    width: 100%;
-    margin: 0 auto;
-  }
+  width: 100%;
+  margin: 0 auto;
+}
 
-  .container--sm {
-    max-width: $container-width-sm;
-  }
+.container--sm {
+  max-width: $container-width-sm;
+}
 
-  .container--md {
-    max-width: $container-width-md;
-  }
+.container--md {
+  max-width: $container-width-md;
+}
 
-  .container--lg {
-    max-width: $container-width-lg;
-  }
+.container--lg {
+  max-width: $container-width-lg;
+}
 
-  .container--xlg {
-    max-width: $container-width-xlg;
-  }
+.container--xlg {
+  max-width: $container-width-xlg;
+}

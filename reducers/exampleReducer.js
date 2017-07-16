@@ -4,7 +4,7 @@ export default (state = {}, { type, payload }) => {
       console.log('EXAMPLE_ACTION', payload);
 
       return {
-        ...state
+        ...state,
       }
     default:
       return state
