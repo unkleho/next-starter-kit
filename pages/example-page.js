@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './example-page.css';
 import withData, { createApolloReduxStore } from '../lib/withData';
-import App from '../components/App';
+import ExampleApp from '../components/example/ExampleApp';
 import Header from '../components/Header';
 import ExampleComponent from '../components/examples/ExampleComponent';
 import { exampleAction } from '../actions/exampleActions';
@@ -40,7 +40,7 @@ class ExamplePage extends Component {
     const colours = ['primary', 'secondary', 'tertiary', 'highlight'];
 
     return(
-      <App>
+      <ExampleApp>
 
         <Header pathname={url.pathname}></Header>
 
@@ -75,7 +75,7 @@ class ExamplePage extends Component {
 
         <style jsx>{styles}</style>
 
-      </App>
+      </ExampleApp>
     )
   }
 

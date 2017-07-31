@@ -1,5 +1,5 @@
-import baseStyles from '../styles/base.css';
-import helpersStyles from '../styles/helpers.css';
+import baseStyles from '../../styles/base.css';
+import helpersStyles from '../../styles/helpers.css';
 
 export default ({ children }) => (
   <main>
