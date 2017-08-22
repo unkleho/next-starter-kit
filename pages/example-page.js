@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './example-page.css';
 import withData, { createApolloReduxStore } from '../lib/withData';
-import ExampleApp from '../components/example/ExampleApp';
+import ExampleApp from '../components/examples/ExampleApp';
 import Header from '../components/Header';
 import ExampleComponent from '../components/examples/ExampleComponent';
 import { exampleAction } from '../actions/exampleActions';

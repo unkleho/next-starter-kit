@@ -1,10 +1,10 @@
-import App from '../components/App';
+import ExampleApp from '../components/examples/ExampleApp';
 import Header from '../components/Header';
 
 import withData from '../lib/withData';
 
 export default withData((props) => (
-  <App>
+  <ExampleApp>
     <Header pathname={props.url.pathname} />
     <article>
       <h1>The Idea Behind This Example</h1>
@@ -21,5 +21,5 @@ export default withData((props) => (
         This example relies on <a href='http://graph.cool'>graph.cool</a> for its GraphQL backend.
       </p>
     </article>
-  </App>
+  </ExampleApp>
 ))
