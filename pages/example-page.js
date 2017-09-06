@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
+import { gql, graphql } from 'react-apollo'
 
 import styles from './example-page.css';
 import withData, { createApolloReduxStore } from '../lib/withData';
@@ -35,6 +36,8 @@ class ExamplePage extends Component {
       id,
       url,
     } = this.props;
+
+    console.log(this.props.data);
 
     const sizes = ['xxs', 'xs', 'sm', 'md', 'lg', 'xlg', 'xxlg'];
     const colours = ['primary', 'secondary', 'tertiary', 'highlight'];
@@ -81,4 +84,48 @@ class ExamplePage extends Component {
 
 }
 
-export default withData(ExamplePage);
+
+const allPosts = gql`
+  query {
+    posts {
+      title
+      content
+    }
+  }
+`;
+
+// The `graphql` wrapper executes a GraphQL query and makes the results
+// available on the `data` prop of the wrapped component (PostList)
+export default withData(graphql(allPosts, {
+  options: {
+    variables: {
+      skip: 0,
+      // first: POSTS_PER_PAGE
+    }
+  },
+  props: ({ data }) => {
+
+    console.log(data);
+
+    return {
+      data,
+    }
+    // loadMorePosts: () => {
+    //   return data.fetchMore({
+    //     variables: {
+    //       skip: data.allPosts.length
+    //     },
+    //     updateQuery: (previousResult, { fetchMoreResult }) => {
+    //       if (!fetchMoreResult) {
+    //         return previousResult
+    //       }
+    //       return Object.assign({}, previousResult, {
+    //         // Append the new posts results to the old one
+    //         allPosts: [...previousResult.allPosts, ...fetchMoreResult.allPosts]
+    //       })
+    //     }
+    //   })
+    // }
+  }
+})(ExamplePage));
+// export default withData(ExamplePage);
