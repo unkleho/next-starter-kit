@@ -35,9 +35,10 @@ class ExamplePage extends Component {
     const {
       id,
       url,
+      objects,
     } = this.props;
 
-    console.log(this.props.data);
+    console.log(objects);
 
     const sizes = ['xxs', 'xs', 'sm', 'md', 'lg', 'xlg', 'xxlg'];
     const colours = ['primary', 'secondary', 'tertiary', 'highlight'];
@@ -76,6 +77,15 @@ class ExamplePage extends Component {
         <h2>dotenv Test</h2>
         <p>{process.env.TEST}</p>
 
+        <h2>GraphQL Test</h2>
+        <ul>
+          {objects.map(({ displayTitle }, i) => {
+            return (
+              <li key={i}>{displayTitle}</li>
+            )
+          })}
+        </ul>
+
         <style jsx>{styles}</style>
 
       </ExampleApp>
@@ -84,48 +94,20 @@ class ExamplePage extends Component {
 
 }
 
-
-const allPosts = gql`
+const allObjects = gql`
   query {
-    posts {
-      title
-      content
+    objects(limit: 10) {
+      displayTitle
     }
   }
 `;
 
 // The `graphql` wrapper executes a GraphQL query and makes the results
-// available on the `data` prop of the wrapped component (PostList)
-export default withData(graphql(allPosts, {
-  options: {
-    variables: {
-      skip: 0,
-      // first: POSTS_PER_PAGE
+// available on the `data` prop of the wrapped component (ExamplePage)
+export default withData(graphql(allObjects, {
+  props: ({ data }) => {
+    return {
+      ...data,
     }
   },
-  props: ({ data }) => {
-
-    console.log(data);
-
-    return {
-      data,
-    }
-    // loadMorePosts: () => {
-    //   return data.fetchMore({
-    //     variables: {
-    //       skip: data.allPosts.length
-    //     },
-    //     updateQuery: (previousResult, { fetchMoreResult }) => {
-    //       if (!fetchMoreResult) {
-    //         return previousResult
-    //       }
-    //       return Object.assign({}, previousResult, {
-    //         // Append the new posts results to the old one
-    //         allPosts: [...previousResult.allPosts, ...fetchMoreResult.allPosts]
-    //       })
-    //     }
-    //   })
-    // }
-  }
 })(ExamplePage));
-// export default withData(ExamplePage);
