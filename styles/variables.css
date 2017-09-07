@@ -1,0 +1,109 @@
+:root {
+  /*
+   * VARIABLES
+   * ======================================================================== */
+
+  /*
+   * Colours
+   * ------------------------------------------------------------------------ */
+
+  --colour-primary: blue;
+  --colour-secondary: green;
+  --colour-tertiary: yellow;
+  --colour-highlight: red;
+
+  /* Primary */
+  --colour-primary-dark: color(var(--colour-primary) shade(10%));
+  --colour-primary-darker: color(var(--colour-primary) shade(20%));
+  --colour-primary-darkest: color(var(--colour-primary) shade(30%));
+
+  --colour-primary-light: color(var(--colour-primary) tint(10%));
+  --colour-primary-lighter: color(var(--colour-primary) tint(20%));
+  --colour-primary-lightest: color(var(--colour-primary) tint(30%));
+
+  /* Secondary */
+  --colour-secondary-dark: color(var(--colour-secondary) shade(10%));
+  --colour-secondary-darker: color(var(--colour-secondary) shade(20%));
+  --colour-secondary-darkest: color(var(--colour-secondary) shade(30%));
+
+  --colour-secondary-light: color(var(--colour-secondary) tint(10%));
+  --colour-secondary-lighter: color(var(--colour-secondary) tint(20%));
+  --colour-secondary-lightest: color(var(--colour-secondary) tint(30%));
+
+  /* Tertiary */
+  --colour-tertiary-dark: color(var(--colour-tertiary) shade(10%));
+  --colour-tertiary-darker: color(var(--colour-tertiary) shade(20%));
+  --colour-tertiary-darkest: color(var(--colour-tertiary) shade(30%));
+
+  --colour-tertiary-light: color(var(--colour-tertiary) tint(10%));
+  --colour-tertiary-lighter: color(var(--colour-tertiary) tint(20%));
+  --colour-tertiary-lightest: color(var(--colour-tertiary) tint(30%));
+
+  /* Highlight */
+  --colour-highlight-dark: color(var(--colour-highlight) shade(10%));
+  --colour-highlight-darker: color(var(--colour-highlight) shade(20%));
+  --colour-highlight-darkest: color(var(--colour-highlight) shade(30%));
+
+  --colour-highlight-light: color(var(--colour-highlight) tint(10%));
+  --colour-highlight-lighter: color(var(--colour-highlight) tint(20%));
+  --colour-highlight-lightest: color(var(--colour-highlight) tint(30%));
+
+  /*
+   * Font Sizes
+   * ------------------------------------------------------------------------ */
+
+  --font-scale: 1.3;
+  --font-size-md: 1em;
+
+  --font-size-sm: calc(var(--font-size-md) / var(--font-scale));
+  --font-size-xs: calc(var(--font-size-sm) / var(--font-scale));
+  --font-size-xxs: calc(var(--font-size-xs) / var(--font-scale));
+
+  --font-size-lg: calc(var(--font-scale) * var(--font-size-md));
+  --font-size-xlg: calc(var(--font-scale) * var(--font-size-lg));
+  --font-size-xxlg: calc(var(--font-scale) * var(--font-size-xlg));
+
+  /*
+   * Spacing
+   * ------------------------------------------------------------------------ */
+
+  --spacing-scale: 1.3;
+  --spacing-md: 1em;
+
+  --spacing-sm: calc(var(--spacing-md) / var(--spacing-scale));
+  --spacing-xs: calc(var(--spacing-sm) / var(--spacing-scale));
+  --spacing-xxs: calc(var(--spacing-xs) / var(--spacing-scale));
+
+  --spacing-lg: calc(var(--spacing-scale) * var(--spacing-md));
+  --spacing-xlg: calc(var(--spacing-scale) * var(--spacing-lg));
+  --spacing-xxlg: calc(var(--spacing-scale) * var(--spacing-xlg));
+
+  /*
+   * Custom Media Queries
+   * ------------------------------------------------------------------------ */
+
+  /* 480px Extra small screen / phone */
+  @custom-media --screen-xs (min-width: 30em);
+
+  /* 768px Small screen / tablet */
+  @custom-media --screen-sm (min-width: 48em);
+
+  /* 1024px Medium screen / desktop */
+  @custom-media --screen-md (min-width: 64em);
+
+  /* 1440 Large screen / wide desktop */
+  @custom-media --screen-lg (min-width: 90em);
+
+  /* 1920 HD TV screen */
+  @custom-media --screen-xlg (min-width: 120em);
+
+  /*
+   * Containers
+   * ------------------------------------------------------------------------ */
+
+  --container-width-xs: 480px;
+  --container-width-sm: 768px;
+  --container-width-md: 1024px;
+  --container-width-lg: 1440px;
+  --container-width-xlg: 1920px;
+}

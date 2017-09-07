@@ -1,0 +1,7 @@
+.next/
+node_modules/
+npm-debug.log
+.env*
+.DS_Store
+__tests__/__snapshots__/
+.eslintcache

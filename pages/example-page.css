@@ -1,0 +1,112 @@
+@import '../styles/variables.css';
+
+.paragraph {
+  /* composes: font-color from './global.css'; */
+  font-size: 20px;
+}
+
+h1 {
+  color: var(--colour-primary);
+}
+
+p {
+  &.font-size-xxs {
+    font-size: var(--font-size-xxs);
+  }
+
+  &.font-size-xs {
+    font-size: var(--font-size-xs);
+  }
+
+  &.font-size-sm {
+    font-size: var(--font-size-sm);
+  }
+
+  &.font-size-md {
+    font-size: var(--font-size-md);
+  }
+
+  &.font-size-lg {
+    font-size: var(--font-size-lg);
+  }
+
+  &.font-size-xlg {
+    font-size: var(--font-size-xlg);
+  }
+
+  &.font-size-xxlg {
+    font-size: var(--font-size-xxlg);
+  }
+}
+
+.title {
+  color: var(--colour-primary);
+
+  & span {
+    color: green;
+  }
+}
+
+.boxes {
+  lost-utility: clearfix;
+}
+
+.box {
+  background-color: var(--colour-secondary);
+  padding: var(--spacing-md);
+
+  @media (--screen-sm) {
+    lost-column: 1/7 0 0;
+  }
+}
+
+.box--colour-primary {
+  background-color: var(--colour-primary);
+}
+
+.box--colour-secondary {
+  background-color: var(--colour-secondary);
+}
+
+.box--colour-tertiary {
+  background-color: var(--colour-tertiary);
+}
+
+.box--colour-highlight {
+  background-color: var(--colour-highlight);
+}
+
+@define-mixin create-box $colour-name, $colour, $index {
+  .box--colour-$(colour-name):nth-child($index) {
+    background-color: $colour;
+    @mixin-content;
+  }
+}
+
+@mixin create-box primary, var(--colour-primary-lightest), 1;
+@mixin create-box primary, var(--colour-primary-lighter), 2;
+@mixin create-box primary, var(--colour-primary-light), 3;
+@mixin create-box primary, var(--colour-primary-dark), 5;
+@mixin create-box primary, var(--colour-primary-darker), 6;
+@mixin create-box primary, var(--colour-primary-darkest), 7;
+
+@mixin create-box secondary, var(--colour-secondary-lightest), 1;
+@mixin create-box secondary, var(--colour-secondary-lighter), 2;
+@mixin create-box secondary, var(--colour-secondary-light), 3;
+@mixin create-box secondary, var(--colour-secondary-dark), 5;
+@mixin create-box secondary, var(--colour-secondary-darker), 6;
+@mixin create-box secondary, var(--colour-secondary-darkest), 7;
+
+@mixin create-box tertiary, var(--colour-tertiary-lightest), 1;
+@mixin create-box tertiary, var(--colour-tertiary-lighter), 2;
+@mixin create-box tertiary, var(--colour-tertiary-light), 3;
+@mixin create-box tertiary, var(--colour-tertiary-dark), 5;
+@mixin create-box tertiary, var(--colour-tertiary-darker), 6;
+@mixin create-box tertiary, var(--colour-tertiary-darkest), 7;
+
+@mixin create-box highlight, var(--colour-highlight-lightest), 1;
+@mixin create-box highlight, var(--colour-highlight-lighter), 2;
+@mixin create-box highlight, var(--colour-highlight-light), 3;
+@mixin create-box highlight, var(--colour-highlight-dark), 5;
+@mixin create-box highlight, var(--colour-highlight-darker), 6;
+@mixin create-box highlight, var(--colour-highlight-darkest), 7;

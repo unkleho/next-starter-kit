@@ -1,0 +1,32 @@
+@import './base.css';
+
+/*
+ * HELPERS
+ * ========================================================================== */
+
+/*
+ * CONTAINERS
+ * -------------------------------------------------------------------------- */
+
+.container {
+  lost-utility: clearfix;
+
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container--sm {
+  max-width: $container-width-sm;
+}
+
+.container--md {
+  max-width: $container-width-md;
+}
+
+.container--lg {
+  max-width: $container-width-lg;
+}
+
+.container--xlg {
+  max-width: $container-width-xlg;
+}

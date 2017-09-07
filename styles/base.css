@@ -1,0 +1,21 @@
+@import 'normalize.css/normalize.css';
+
+/*
+ * BASE STYLES
+ * ========================================================================== */
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+* {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+body {
+  margin: 3em;
+}
