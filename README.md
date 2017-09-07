@@ -11,7 +11,16 @@ GRAPHQL_URL=https://lskuixdqla.execute-api.ap-southeast-2.amazonaws.com/dev/grap
 
 ### Set up as upstream repo
 ```
+# Set up
 $ git remote add upstream git@github.com:unkleho/next-starter-kit.git
+
+# Merging upstream
+$ git fetch upstream
+$ git merge upstream/master --allow-unrelated-histories
+# Fix merge conflicts
+$ git add .
+$ git commit -am "Upstream merge"
+$ git push
 ```
 
 ## Based on nextjs-postcss branch
