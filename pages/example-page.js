@@ -38,7 +38,7 @@ class ExamplePage extends Component {
       objects,
     } = this.props;
 
-    console.log(objects);
+    // console.log(objects);
 
     const sizes = ['xxs', 'xs', 'sm', 'md', 'lg', 'xlg', 'xxlg'];
     const colours = ['primary', 'secondary', 'tertiary', 'highlight'];
@@ -79,7 +79,7 @@ class ExamplePage extends Component {
 
         <h2>GraphQL Test</h2>
         <ul>
-          {objects.map(({ displayTitle }, i) => {
+          {objects && objects.map(({ displayTitle }, i) => {
             return (
               <li key={i}>{displayTitle}</li>
             )
