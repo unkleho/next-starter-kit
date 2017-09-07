@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import { gql, graphql } from 'react-apollo'
+import { gql, graphql } from 'react-apollo';
 
 import styles from './example-page.css';
 import withData, { createApolloReduxStore } from '../lib/withData';
