@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const { createServer } = require('http');
 const { parse } = require('url');
 const next = require('next');
@@ -9,6 +11,14 @@ const app = next({ dev });
 const handle = app.getRequestHandler();
 const route = pathMatch();
 const match = route('/example-page/:id');
+
+console.log('----------------------------------');
+console.log('Environment Variables:');
+console.log('----------------------------------');
+console.log(`PORT=${process.env.PORT}`);
+console.log(`GRAPHQL_URL=${process.env.GRAPHQL_URL}`);
+console.log(`TEST=${process.env.TEST}`);
+console.log('----------------------------------');
 
 app.prepare()
 .then(() => {

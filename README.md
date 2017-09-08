@@ -1,12 +1,42 @@
 # Next Starter Kit
 
+Opinionated starter kit for the Next.js React framework. Next.js is great, but still needs a bit of configuring. This starter kit includes all my go-to tech for new projects.
+
+- next.js
+- React
+- Redux
+- GraphQL
+- React Apollo
+- dotenv
+- cssnext
+- Lost Grid
+- ESLint
+- Stylelint
+- Jest
+- Flow
+
 ## Getting Started
+
+```
+$ git clone git@github.com:unkleho/next-starter-kit
+$ rm -rf .git
+$ npm install
+$ npm start
+```
 
 ### ENV Variables
 ```
+# .env
+PORT=XXXX
 TEST=it works!
 GOOGLE_ANALYTICS_ID=UA-XXXXXXXX-X
-GRAPHQL_URL=https://lskuixdqla.execute-api.ap-southeast-2.amazonaws.com/dev/graphql
+GRAPHQL_URL=https://local.api.com/graphql
+
+# .env.production
+PORT=XXX
+TEST=it works on production!
+GOOGLE_ANALYTICS_ID=UA-XXXXXXXX-X
+GRAPHQL_URL=https://production.api.com/graphql
 ```
 
 ### Set up as upstream repo
@@ -21,6 +51,19 @@ $ git merge upstream/master --allow-unrelated-histories
 $ git add .
 $ git commit -am "Upstream merge"
 $ git push
+```
+
+## Deployment
+
+Using `now`:
+```
+$ now sh
+# Configuration in now.js
+```
+
+Using `heroku`:
+```
+$ git push heroku
 ```
 
 ## Based on nextjs-postcss branch
