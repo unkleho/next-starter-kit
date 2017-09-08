@@ -78,6 +78,7 @@ class ExamplePage extends Component {
         <p>{process.env.TEST}</p>
 
         <h2>GraphQL Test</h2>
+        <p>{process.env.GRAPHQL_URL}</p>
         <ul>
           {objects && objects.map(({ displayTitle }, i) => {
             return (

@@ -10,18 +10,12 @@
             "extensions": ["css$"]
           }
         ],
-        // Enable .env
-        "inline-dotenv",
         // Strip out flow typings
         "transform-flow-strip-types"
       ]
     },
     "production": {
-      "presets": "next/babel",
-      "plugins": [
-        // Enable .env
-        "transform-inline-environment-variables"
-      ]
+      "presets": "next/babel"
     },
     "test": {
       "presets": [
