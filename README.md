@@ -4,9 +4,28 @@
 
 ### ENV Variables
 ```
+# .env
 TEST=it works!
 GOOGLE_ANALYTICS_ID=UA-XXXXXXXX-X
-GRAPHQL_URL=https://lskuixdqla.execute-api.ap-southeast-2.amazonaws.com/dev/graphql
+GRAPHQL_URL=https://local.api.com/graphql
+
+# .env.production
+TEST=it works on production!
+GOOGLE_ANALYTICS_ID=UA-XXXXXXXX-X
+GRAPHQL_URL=https://production.api.com/graphql
+```
+
+### Deployment
+
+Using `now`:
+```
+$ now sh
+# Configuration in now.js
+```
+
+Using `heroko`:
+```
+$ git push heroku
 ```
 
 ### Set up as upstream repo
