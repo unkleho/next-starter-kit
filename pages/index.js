@@ -14,7 +14,7 @@ const HomePage = ({
 
     <h1>DX Lab</h1>
 
-    <Link route='/example-page/1'>
+    <Link to='/example-page/1'>
       <a>Example Page 1</a>
     </Link>
 

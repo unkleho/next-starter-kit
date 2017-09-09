@@ -14,7 +14,7 @@ export default ({ pathname }) => {
 
       {menuItems.map((item) => {
         return (
-          <Link prefetch route={item.url}>
+          <Link prefetch to={item.url} key={item.url}>
             <a className={pathname === item.url && 'is-active'}>{item.name}</a>
           </Link>
         )
