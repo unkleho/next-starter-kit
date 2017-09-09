@@ -36,6 +36,7 @@
     "isomorphic-fetch": "^2.2.1",
     "lost": "^8.1.0",
     "next": "latest",
+    "next-routes": "^1.0.40",
     "normalize.css": "^7.0.0",
     "path-match": "^1.2.4",
     "postcss-cssnext": "^3.0.0",

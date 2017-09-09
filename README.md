@@ -1,3 +1,12 @@
+# DX Lab Website
+
+## Proxies
+Express proxies the following sites:
+
+- dxlab.sl.nsw.gov.au/pano-scope/
+
+Now alias can proxy using rules.json, but doesn't seem to work for http/https connections.
+
 # Next Starter Kit
 
 Opinionated starter kit for the Next.js React framework. Next.js is great, but still needs a bit of configuring. This starter kit includes all my go-to tech for new projects.

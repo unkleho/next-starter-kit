@@ -1,5 +1,6 @@
 import { gql, graphql } from 'react-apollo';
-import Link from 'next/link';
+// import Link from 'next/link';
+import { Link } from '../routes';
 
 import withData from '../lib/withData';
 import ExampleApp from '../components/examples/ExampleApp';
@@ -13,13 +14,14 @@ const HomePage = ({
     <Header pathname={url.pathname} />
 
     <h1>DX Lab</h1>
-    {posts && posts.map(({ title }) => (
-      <div>{title}</div>
-    ))}
 
-    <Link prefetch href='/example-page/1'>
+    <Link route='/example-page/1'>
       <a>Example Page 1</a>
     </Link>
+    
+    {posts && posts.map(({ title }, i) => (
+      <div key={i}>{title}</div>
+    ))}
   </ExampleApp>
 );
 

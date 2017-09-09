@@ -1,11 +1,10 @@
 require('dotenv').config();
 
-const express = require("express");
+const express = require('express');
 const { createServer } = require('http');
 const { parse } = require('url');
 const next = require('next');
 const pathMatch = require('path-match');
-// const proxy = require('express-http-proxy');
 const proxy = require('http-proxy-middleware');
 
 const dev = process.env.NODE_ENV !== 'production' && !process.env.NOW;
@@ -14,6 +13,8 @@ const app = next({ dev });
 const handle = app.getRequestHandler();
 const route = pathMatch();
 const match = route('/example-page/:id');
+const routes = require('./routes');
+const handler = routes.getRequestHandler(app);
 
 console.log('----------------------------------');
 console.log('Environment Variables:');
@@ -22,8 +23,6 @@ console.log(`PORT=${process.env.PORT}`);
 console.log(`GRAPHQL_URL=${process.env.GRAPHQL_URL}`);
 console.log(`TEST=${process.env.TEST}`);
 console.log('----------------------------------');
-
-console.log('hi');
 
 app
   .prepare()
@@ -51,20 +50,12 @@ app
       const mergedQuery = Object.assign({}, req.query, req.params)
       return app.render(req, res, '/example-page', mergedQuery);
     })
-    
-    // server.use('/proxy', proxy('dxlab.sl.nsw.gov.au', {
-    //   proxyReqPathResolver: function(req) {
-    //     console.log(require('url').parse(req.url).path);
-    //     return require('url').parse(req.url).path;
-    //     // return '/pa';
-    //   }
-    // }));
 
-    server.all("*", (req, res) => handle(req, res));
+    server.all('*', (req, res) => handler(req, res));
 
-    server.listen(3000, err => {
+    server.listen(port, err => {
       if (err) throw err;
-      console.log("> Ready on http://localhost:3000");
+      console.log(`> Ready on http://localhost:${port}`);
     });
   })
   .catch(ex => {
