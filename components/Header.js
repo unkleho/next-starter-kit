@@ -1,21 +1,25 @@
-import Link from 'next/link';
+// import { Link } from '../routes';
+import Link from './Link';
 import styles from './Header.css';
 
 export default ({ pathname }) => {
+
+  const menuItems = [
+    { name: 'Home', url: '/' },
+    { name: 'About', url: '/about' },
+    { name: 'Example Page', url: '/example-page' },
+  ];
+
   return (
     <header className="header">
 
-      <Link prefetch href='/'>
-        <a className={pathname === '/' && 'is-active'}>Home</a>
-      </Link>
-
-      <Link prefetch href='/about'>
-        <a className={pathname === '/about' && 'is-active'}>About</a>
-      </Link>
-
-      <Link prefetch href='/example-page'>
-        <a className={pathname === '/example-page' && 'is-active'}>Example Page</a>
-      </Link>
+      {menuItems.map((item) => {
+        return (
+          <Link prefetch to={item.url} key={item.url}>
+            <a className={pathname === item.url && 'is-active'}>{item.name}</a>
+          </Link>
+        )
+      })}
 
       <style jsx>{styles}</style>
 

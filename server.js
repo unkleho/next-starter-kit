@@ -1,16 +1,12 @@
 require('dotenv').config();
 
-const { createServer } = require('http');
-const { parse } = require('url');
+const express = require('express');
 const next = require('next');
-const pathMatch = require('path-match');
 
 const dev = process.env.NODE_ENV !== 'production' && !process.env.NOW;
-const port = process.env.PORT || 3000;
 const app = next({ dev });
-const handle = app.getRequestHandler();
-const route = pathMatch();
-const match = route('/example-page/:id');
+const routes = require('./routes');
+const handler = routes.getRequestHandler(app);
 
 console.log('----------------------------------');
 console.log('Environment Variables:');
@@ -20,21 +16,26 @@ console.log(`GRAPHQL_URL=${process.env.GRAPHQL_URL}`);
 console.log(`TEST=${process.env.TEST}`);
 console.log('----------------------------------');
 
-app.prepare()
-.then(() => {
-  createServer((req, res) => {
-    const { pathname } = parse(req.url);
-    const params = match(pathname);
+const port = process.env.PORT || 3000;
 
-    if (params === false) {
-      handle(req, res);
-      return;
-    }
+app
+  .prepare()
+  .then(() => {
+    const server = express();
 
-    app.render(req, res, '/example-page', params);
+    server.get('/example-page/:id', (req, res) => {
+      const mergedQuery = Object.assign({}, req.query, req.params)
+      return app.render(req, res, '/example-page', mergedQuery);
+    })
+
+    server.all('*', (req, res) => handler(req, res));
+
+    server.listen(port, err => {
+      if (err) throw err;
+      console.log(`> Ready on http://localhost:${port}`);
+    });
   })
-  .listen(port, (err) => {
-    if (err) throw err;
-    console.log(`> Ready on http://localhost:${port}`);
-  })
-});
+  .catch(ex => {
+    console.error(ex.stack);
+    process.exit(1);
+  });

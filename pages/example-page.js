@@ -1,10 +1,11 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import { gql, graphql } from 'react-apollo'
+import { gql, graphql } from 'react-apollo';
 
 import styles from './example-page.css';
 import withData, { createApolloReduxStore } from '../lib/withData';
 import ExampleApp from '../components/examples/ExampleApp';
+import Link from '../components/Link';
 import Header from '../components/Header';
 import ExampleComponent from '../components/examples/ExampleComponent';
 import { exampleAction } from '../actions/exampleActions';
@@ -73,6 +74,10 @@ class ExamplePage extends Component {
 
         <h2>Example Component</h2>
         <ExampleComponent title="Title" />
+
+        <Link to='/example-page/1'>
+          <a>Example Page 1 Link</a>
+        </Link>
 
         <h2>dotenv Test</h2>
         <p>{process.env.TEST}</p>
