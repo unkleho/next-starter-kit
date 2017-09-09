@@ -1,5 +1,4 @@
 import { gql, graphql } from 'react-apollo';
-// import Link from 'next/link';
 import { Link } from '../routes';
 
 import withData from '../lib/withData';
@@ -18,7 +17,7 @@ const HomePage = ({
     <Link route='/example-page/1'>
       <a>Example Page 1</a>
     </Link>
-    
+
     {posts && posts.map(({ title }, i) => (
       <div key={i}>{title}</div>
     ))}

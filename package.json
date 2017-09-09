@@ -29,16 +29,13 @@
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.1.0",
     "express": "^4.15.4",
-    "express-http-proxy": "^1.0.6",
     "graphql": "^0.9.3",
-    "http": "0.0.0",
     "http-proxy-middleware": "^0.17.4",
     "isomorphic-fetch": "^2.2.1",
     "lost": "^8.1.0",
     "next": "latest",
     "next-routes": "^1.0.40",
     "normalize.css": "^7.0.0",
-    "path-match": "^1.2.4",
     "postcss-cssnext": "^3.0.0",
     "postcss-easy-import": "^2.1.0",
     "postcss-loader": "^2.0.6",
@@ -54,8 +51,7 @@
     "stylelint": "^7.13.0",
     "stylelint-config-lost": "0.0.3",
     "stylelint-config-standard": "^16.0.0",
-    "stylelint-webpack-plugin": "^0.8.0",
-    "url": "^0.11.0"
+    "stylelint-webpack-plugin": "^0.8.0"
   },
   "license": "ISC",
   "devDependencies": {
