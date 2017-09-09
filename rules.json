@@ -1,0 +1,5 @@
+{
+  "rules": [
+    { "pathname": "/index", "dest": "dxlab.sl.nsw.gov.au" }
+  ]
+}

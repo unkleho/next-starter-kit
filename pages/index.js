@@ -1,4 +1,5 @@
 import { gql, graphql } from 'react-apollo';
+import Link from 'next/link';
 
 import withData from '../lib/withData';
 import ExampleApp from '../components/examples/ExampleApp';
@@ -15,6 +16,10 @@ const HomePage = ({
     {posts && posts.map(({ title }) => (
       <div>{title}</div>
     ))}
+
+    <Link prefetch href='/example-page/1'>
+      <a>Example Page 1</a>
+    </Link>
   </ExampleApp>
 );
 
