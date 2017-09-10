@@ -1,8 +1,8 @@
 import { gql, graphql } from 'react-apollo';
-import { Link } from '../routes';
 
 import withData from '../lib/withData';
 import ExampleApp from '../components/examples/ExampleApp';
+import Link from '../components/Link';
 import Header from '../components/Header';
 
 const HomePage = ({
