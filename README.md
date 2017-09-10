@@ -57,8 +57,11 @@ $ git push
 
 Using `now`:
 ```
-$ now sh
 # Configuration in now.js
+$ now sh
+$ now alias my-website-XXXXXXX.now.sh my-website.com
+# if rules.json is set up
+$ npm run alias
 ```
 
 Using `heroku`:

@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "node server.js -p $PORT",
     "heroku-postbuild": "next build",
+    "deploy": "now",
+    "alias": "now alias next-starter-kit.now.sh -r rules.json",
     "flow": "flow",
     "test": "jest",
     "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache"

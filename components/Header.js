@@ -1,4 +1,3 @@
-// import { Link } from '../routes';
 import Link from './Link';
 import styles from './Header.css';
 

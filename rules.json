@@ -2,6 +2,6 @@
   "rules": [
     { "pathname": "/staging/graphql", "dest": "12ke3766e4.execute-api.ap-southeast-2.amazonaws.com" },
     { "pathname": "/staging/graphiql", "dest": "12ke3766e4.execute-api.ap-southeast-2.amazonaws.com" },
-    { "dest": "next-starter-kit-jajybrpjew.now.sh" }
+    { "dest": "next-starter-kit-xqolufbbhf.now.sh" }
   ]
 }
