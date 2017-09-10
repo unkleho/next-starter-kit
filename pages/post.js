@@ -26,13 +26,13 @@ const HomePage = ({
         </Link>
       </li>
     ))}
-    </ul>    
+    </ul>
   </ExampleApp>
 );
 
 const allObjects = gql`
   query {
-    posts(limit: 10) {
+    post($id: Int!) {
       title
       slug
     }
@@ -42,6 +42,11 @@ const allObjects = gql`
 // The `graphql` wrapper executes a GraphQL query and makes the results
 // available on the `data` prop of the wrapped component (ExamplePage)
 export default withData(graphql(allObjects, {
+  options: {
+    variables: {
+      skip: 0,
+    }
+  },
   props: ({ data }) => {
     return {
       ...data,
