@@ -7,25 +7,28 @@
 
 @font-face {
   font-family: CooperHewitt-Semibold;
-	src: url(/static/fonts/CooperHewitt-Semibold.eot);
-  src: url(/static/fonts/CooperHewitt-Semibold.svg) format('svg'),
-	     url(/static/fontss/CooperHewitt-Semibold.eot) format('embedded-opentype'),
-	     url(/static/fonts/CooperHewitt-Semibold.woff) format('woff'),
-	     url(/static/fonts/CooperHewitt-Semibold.ttf) format('truetype');
+  src: url(/static/fonts/CooperHewitt-Semibold.eot);
+  src:
+    url(/static/fonts/CooperHewitt-Semibold.svg) format('svg'),
+    url(/static/fontss/CooperHewitt-Semibold.eot) format('embedded-opentype'),
+    url(/static/fonts/CooperHewitt-Semibold.woff) format('woff'),
+    url(/static/fonts/CooperHewitt-Semibold.ttf) format('truetype');
 }
 
 @font-face {
   font-family: CooperHewitt-Book;
-	src: url(/static/fonts/CooperHewitt-Book.eot);
-  src: url(/static/fonts/CooperHewitt-Book.svg) format('svg'),
-	     url(/static/fonts/CooperHewitt-Book.eot) format('embedded-opentype'),
-	     url(/static/fonts/CooperHewitt-Book.woff) format('woff');
+  src: url(/static/fonts/CooperHewitt-Book.eot);
+  src:
+    url(/static/fonts/CooperHewitt-Book.svg) format('svg'),
+    url(/static/fonts/CooperHewitt-Book.eot) format('embedded-opentype'),
+    url(/static/fonts/CooperHewitt-Book.woff) format('woff');
 }
 
 @font-face {
   font-family: CooperHewitt-Light;
-	src: url(/static/fonts/CooperHewitt-Light.eot);
-  src: url(/static/fonts/CooperHewitt-Light.svg) format('svg'),
-	     url(/static/fonts/CooperHewitt-Light.eot) format('embedded-opentype'),
-	     url(/static/fonts/CooperHewitt-Light.woff) format('woff');
+  src: url(/static/fonts/CooperHewitt-Light.eot);
+  src:
+    url(/static/fonts/CooperHewitt-Light.svg) format('svg'),
+    url(/static/fonts/CooperHewitt-Light.eot) format('embedded-opentype'),
+    url(/static/fonts/CooperHewitt-Light.woff) format('woff');
 }

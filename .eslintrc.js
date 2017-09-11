@@ -2,7 +2,7 @@ module.exports = {
   "parser": "babel-eslint",
   "extends": [
     "react-app",
-    // "airbnb-base", // TODO: Enable this laters
+    "dxlab"
   ],
   "globals": {
     "document": true,

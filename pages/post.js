@@ -37,7 +37,7 @@ export default withData(graphql(postQuery, {
       variables: {
         slug,
       },
-    }
+    };
   },
   props: ({ data }) => {
 
@@ -46,6 +46,6 @@ export default withData(graphql(postQuery, {
     return {
       ...data,
       ...post,
-    }
+    };
   },
 })(PostPage));

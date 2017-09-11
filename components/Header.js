@@ -15,7 +15,7 @@ export default ({ pathname }) => {
   return (
     <header className="header">
 
-      <img src="/static/images/logo-dxlab.png" width="100" />
+      <img src="/static/images/logo-dxlab.png" width="100" alt="DX Lab Logo" />
 
       <br/>
 
@@ -24,15 +24,15 @@ export default ({ pathname }) => {
           <Link prefetch to={item.url} key={item.url}>
             <a className={pathname === item.url && 'is-active'}>{item.name}</a>
           </Link>
-        )
+        );
       })}
 
-      <img src="/static/images/logo-slnsw.png" width="70" />
+      <img src="/static/images/logo-slnsw.png" width="70" alt="State Library of NSW Logo" />
 
       <br/><br/>
 
       <style jsx>{styles}</style>
 
     </header>
-  )
-}
+  );
+};

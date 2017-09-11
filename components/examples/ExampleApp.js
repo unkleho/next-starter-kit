@@ -14,4 +14,4 @@ export default ({ children }) => (
     <style jsx global>{baseStyles}</style>
     <style jsx global>{helpersStyles}</style>
   </main>
-)
+);

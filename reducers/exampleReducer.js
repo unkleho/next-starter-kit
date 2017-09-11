@@ -5,8 +5,8 @@ export default (state = {}, { type, payload }) => {
 
       return {
         ...state,
-      }
+      };
     default:
-      return state
+      return state;
   }
-}
+};
