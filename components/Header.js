@@ -17,11 +17,11 @@ export default ({ pathname }) => {
           <Link prefetch to={item.url} key={item.url}>
             <a className={pathname === item.url && 'is-active'}>{item.name}</a>
           </Link>
-        )
+        );
       })}
 
       <style jsx>{styles}</style>
 
     </header>
-  )
-}
+  );
+};

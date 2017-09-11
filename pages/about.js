@@ -22,4 +22,4 @@ export default withData((props) => (
       </p>
     </article>
   </ExampleApp>
-))
+));

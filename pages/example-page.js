@@ -23,13 +23,13 @@ class ExamplePage extends Component {
     };
   }
 
-  static getInitialProps ({ query: { id = null }, serverState }) {
+  static getInitialProps({ query: { id = null }, serverState }) {
     const store = createApolloReduxStore(serverState);
     store.dispatch(exampleAction('payload'));
 
     return {
       id,
-    }
+    };
   }
 
   render() {
@@ -44,7 +44,7 @@ class ExamplePage extends Component {
     const sizes = ['xxs', 'xs', 'sm', 'md', 'lg', 'xlg', 'xxlg'];
     const colours = ['primary', 'secondary', 'tertiary', 'highlight'];
 
-    return(
+    return (
       <ExampleApp>
 
         <Header pathname={url.pathname}></Header>
@@ -66,7 +66,7 @@ class ExamplePage extends Component {
               {[...Array(7)].map((shade, i) => {
                 return (
                   <div className={`box box--colour-${colour}`} key={`box--colour-${colour}-${i}`}></div>
-                )
+                );
               })}
             </div>
           </div>
@@ -88,14 +88,14 @@ class ExamplePage extends Component {
           {objects && objects.map(({ displayTitle }, i) => {
             return (
               <li key={i}>{displayTitle}</li>
-            )
+            );
           })}
         </ul>
 
         <style jsx>{styles}</style>
 
       </ExampleApp>
-    )
+    );
   }
 
 }
@@ -114,6 +114,6 @@ export default withData(graphql(allObjects, {
   props: ({ data }) => {
     return {
       ...data,
-    }
+    };
   },
 })(ExamplePage));

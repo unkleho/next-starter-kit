@@ -8,4 +8,4 @@ export default withData((props) => (
 
     <h1>Next Starter Kit</h1>
   </ExampleApp>
-))
+));
