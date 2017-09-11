@@ -4,6 +4,7 @@ import withData from '../lib/withData';
 import ExampleApp from '../components/examples/ExampleApp';
 import Link from '../components/Link';
 import Header from '../components/Header';
+import proxyRoutes from '../routes/proxyRoutes';
 
 const HomePage = ({
   url,
@@ -26,7 +27,15 @@ const HomePage = ({
         </Link>
       </li>
     ))}
-    </ul>    
+    </ul>
+
+    <ul>
+      {Object.keys(proxyRoutes).map((route, i) => (
+        <li>
+            <a href={`${route}`} key={`posts-${i}`}>{route}</a>
+        </li>
+      ))}
+    </ul>
   </ExampleApp>
 );
 
