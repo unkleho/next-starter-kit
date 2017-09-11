@@ -13,21 +13,22 @@ const HomePage = ({
   <ExampleApp>
     <Header pathname={url.pathname} />
 
-    <h1>DX Lab</h1>
-
-    <Link to='/example-page/1'>
-      <a>Example Page 1</a>
-    </Link>
+    <h2>Posts</h2>
 
     <ul>
-    {posts && posts.map(({ title, slug }, i) => (
+    {posts && posts.map(({ title, slug, image }, i) => (
       <li>
-        <Link to={`/posts/${slug}`} key={`posts-${i}`}>
-          <a>{title}</a>
+        <Link to={`/post/${slug}`} key={`posts-${i}`}>
+          <a>
+            <img src={image.url} alt={image.altText} />
+            <h2>{title}</h2>
+          </a>
         </Link>
       </li>
     ))}
     </ul>
+
+    <h2>Experiments</h2>
 
     <ul>
       {Object.keys(proxyRoutes).map((route, i) => (
@@ -39,21 +40,40 @@ const HomePage = ({
   </ExampleApp>
 );
 
-const allObjects = gql`
+const homeQuery = gql`
   query {
     posts(limit: 10) {
       title
       slug
+      featuredMedia {
+        altText
+        caption
+        sizes {
+          thumbnail {
+            sourceUrl
+          }
+        }
+      }
     }
   }
 `;
 
 // The `graphql` wrapper executes a GraphQL query and makes the results
 // available on the `data` prop of the wrapped component (ExamplePage)
-export default withData(graphql(allObjects, {
+export default withData(graphql(homeQuery, {
   props: ({ data }) => {
     return {
       ...data,
+      posts: data.posts.map((post) => {
+        return {
+          title: post.title,
+          slug: post.slug,
+          image: {
+            url: post.featuredMedia.sizes.thumbnail.sourceUrl,
+            altText: post.featuredMedia.sizes.thumbnail.altText,
+          },
+        }
+      }),
     }
   },
 })(HomePage));

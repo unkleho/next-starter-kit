@@ -6,11 +6,18 @@ export default ({ pathname }) => {
   const menuItems = [
     { name: 'Home', url: '/' },
     { name: 'About', url: '/about' },
-    { name: 'Example Page', url: '/example-page' },
+    { name: 'Experiments', url: '/experiments' },
+    { name: 'Fellowships', url: '/fellowships' },
+    { name: 'Open Data', url: '/open-data' },
+    { name: 'Search', url: '/search' },
   ];
 
   return (
     <header className="header">
+
+      <img src="/static/images/logo-dxlab.png" width="100" />
+
+      <br/>
 
       {menuItems.map((item) => {
         return (
@@ -19,6 +26,10 @@ export default ({ pathname }) => {
           </Link>
         )
       })}
+
+      <img src="/static/images/logo-slnsw.png" width="70" />
+
+      <br/><br/>
 
       <style jsx>{styles}</style>
 

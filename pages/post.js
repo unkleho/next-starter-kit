@@ -2,54 +2,50 @@ import { gql, graphql } from 'react-apollo';
 
 import withData from '../lib/withData';
 import ExampleApp from '../components/examples/ExampleApp';
-import Link from '../components/Link';
+// import Link from '../components/Link';
 import Header from '../components/Header';
 
-const HomePage = ({
+const PostPage = ({
   url,
-  posts,
+  title,
+  content,
 }) => (
   <ExampleApp>
     <Header pathname={url.pathname} />
 
-    <h1>DX Lab</h1>
+    <h1>{title}</h1>
 
-    <Link to='/example-page/1'>
-      <a>Example Page 1</a>
-    </Link>
-
-    <ul>
-    {posts && posts.map(({ title, slug }, i) => (
-      <li>
-        <Link to={`/posts/${slug}`} key={`posts-${i}`}>
-          <a>{title}</a>
-        </Link>
-      </li>
-    ))}
-    </ul>
+    <div dangerouslySetInnerHTML={{ __html: content }}></div>
   </ExampleApp>
 );
 
-const allObjects = gql`
-  query {
-    post($id: Int!) {
+const postQuery = gql`
+  query Post($slug: String!) {
+    posts(slug: $slug) {
       title
-      slug
+      content
     }
   }
 `;
 
 // The `graphql` wrapper executes a GraphQL query and makes the results
 // available on the `data` prop of the wrapped component (ExamplePage)
-export default withData(graphql(allObjects, {
-  options: {
-    variables: {
-      skip: 0,
+export default withData(graphql(postQuery, {
+  options: ({ url: { query: { slug } } }) => {
+    // console.log(slug);
+    return {
+      variables: {
+        slug,
+      },
     }
   },
   props: ({ data }) => {
+
+    const post = data.posts && data.posts[0];
+
     return {
       ...data,
+      ...post,
     }
   },
-})(HomePage));
+})(PostPage));
