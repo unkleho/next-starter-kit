@@ -1,4 +1,5 @@
-import { Link } from '../routes';
+// import { Link } from '../../routes';
+import Link from '../Link';
 import styles from './Header.css';
 
 export default ({ pathname }) => {
@@ -6,10 +7,10 @@ export default ({ pathname }) => {
   const menuItems = [
     { name: 'Home', url: '/' },
     { name: 'About', url: '/about' },
-    { name: 'Experiments', url: '/experiments' },
-    { name: 'Fellowships', url: '/fellowships' },
-    { name: 'Open Data', url: '/open-data' },
-    { name: 'Search', url: '/search' },
+    // { name: 'Experiments', url: '/experiments' },
+    // { name: 'Fellowships', url: '/fellowships' },
+    // { name: 'Open Data', url: '/open-data' },
+    // { name: 'Search', url: '/search' },
   ];
 
   return (
