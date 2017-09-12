@@ -64,7 +64,7 @@ export default withData(graphql(homeQuery, {
   props: ({ data }) => {
     return {
       ...data,
-      posts: data.posts.map((post) => {
+      posts: data && data.posts && data.posts.map((post) => {
         return {
           title: post.title,
           slug: post.slug,

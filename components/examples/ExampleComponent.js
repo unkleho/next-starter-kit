@@ -1,5 +1,6 @@
 // @flow
 
+/* eslint-disable */
 import type { Element } from 'React';
 import styles from './ExampleComponent.css';
 
@@ -17,4 +18,4 @@ export default ({ children, title }: Props) => (
 
     <style jsx>{styles}</style>
   </div>
-)
+);
