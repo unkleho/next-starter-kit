@@ -23,12 +23,14 @@ PORT=XXXX
 TEST=it works!
 GOOGLE_ANALYTICS_ID=UA-XXXXXXXX-X
 GRAPHQL_URL=https://local.api.com/graphql
+DXLAB_URL=http://dxlab.sl.nsw.gov.au
 
 # .env.production
 PORT=XXX
 TEST=it works on production!
 GOOGLE_ANALYTICS_ID=UA-XXXXXXXX-X
 GRAPHQL_URL=https://production.api.com/graphql
+DXLAB_URL=http://dxlab.sl.nsw.gov.au
 ```
 
 ## Deployment

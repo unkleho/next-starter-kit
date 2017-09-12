@@ -6,6 +6,6 @@ export default (props) => {
     <Link {...props}>
       {props.children}
     </Link>
-  )
+  );
 
-}
+};

@@ -31,7 +31,7 @@ const HomePage = ({
     <h2>Experiments</h2>
 
     <ul>
-      {Object.keys(proxyRoutes).map((route, i) => (
+      {proxyRoutes && Object.keys(proxyRoutes).map((route, i) => (
         <li>
             <a href={`${route}`} key={`posts-${i}`}>{route}</a>
         </li>
@@ -72,8 +72,8 @@ export default withData(graphql(homeQuery, {
             url: post.featuredMedia.sizes.thumbnail.sourceUrl,
             altText: post.featuredMedia.sizes.thumbnail.altText,
           },
-        }
+        };
       }),
-    }
+    };
   },
 })(HomePage));

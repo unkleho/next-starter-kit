@@ -37,4 +37,4 @@ module.exports = {
     target: process.env.DXLAB_URL,
     changeOrigin: true,
   },
-}
+};
