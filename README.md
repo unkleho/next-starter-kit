@@ -37,8 +37,12 @@ DXLAB_URL=http://dxlab.sl.nsw.gov.au
 
 Using `now`:
 ```
-$ now sh
-# Configuration in now.js
+# Configuration in .env.staging
+# TODO: Remove now.json?
+$ npm run deploy
+$ npm run alias-staging # Alias to dxlab-staging.now.sh
+# or
+$ npm run alias-production # Alias to dxlab.now.sh
 ```
 
 Using `heroku`:

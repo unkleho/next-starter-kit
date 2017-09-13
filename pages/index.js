@@ -42,7 +42,7 @@ const HomePage = ({
 
 const homeQuery = gql`
   query {
-    posts(limit: 2) {
+    posts(limit: 10) {
       title
       slug
       featuredMedia {
