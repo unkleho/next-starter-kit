@@ -14,24 +14,39 @@ html {
   box-sizing: inherit;
 }
 
-* {
-  /*font-family: Helvetica, Arial, sans-serif;*/
-
-  /*font-family: 'Lekton', sans-serif;*/
-
-  /*font-family: 'Montserrat', sans-serif;*/
-  font-family: 'CooperHewitt-Book', sans-serif;
-}
-
 body {
   margin: 3em;
   background-color: var(--colour-black);
   color: var(--colour-white);
   line-height: 1.5;
   font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  /*font-family: 'Gotham A', 'Gotham B';*/
+  letter-spacing: -0.03em;
+  font-family: 'Lekton', sans-serif;
 }
 
 h1 {
   font-family: 'Lekton', sans-serif;
   font-weight: 400;
+  text-transform: uppercase;
+}
+
+h2:first-child {
+  margin-top: 0;
+}
+the-famous-seb-chan
+a:link, a:visited {
+  text-decoration: none;
+  color: var(--colour-primary);
+  /*color: var(--colour-white);*/
+  /*border-bottom: 1px solid var(--colour-primary-darkest);*/
+}
+
+p {
+  margin-bottom: var(--font-size-xlg);
+}
+
+strong {
+  font-weight: 700;
 }

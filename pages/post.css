@@ -1,0 +1,10 @@
+@import '../styles/variables.css';
+
+.post-content {
+  max-width: var(--container-width-sm);
+
+  & img {
+    max-width: 100%;
+    height: auto;
+  }
+}

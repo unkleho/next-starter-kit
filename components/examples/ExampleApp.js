@@ -7,6 +7,7 @@ export default ({ children }) => (
   <main>
     <Head>
       <link href="https://fonts.googleapis.com/css?family=Lekton:400,400i,700" rel="stylesheet" />
+      <link rel="stylesheet" href="//cloud.typography.com/6321554/773146/css/fonts.css" />
     </Head>
 
     {children}

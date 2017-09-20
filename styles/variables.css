@@ -13,7 +13,7 @@
   --colour-highlight: red;
 
   --colour-black: #111;
-  --colour-white: #eee;
+  --colour-white: #ddd;
 
   /* Primary */
   --colour-primary-dark: color(var(--colour-primary) shade(10%));
@@ -105,7 +105,7 @@
    * ------------------------------------------------------------------------ */
 
   --container-width-xs: 480px;
-  --container-width-sm: 768px;
+  --container-width-sm: 40em;
   --container-width-md: 1024px;
   --container-width-lg: 1440px;
   --container-width-xlg: 1920px;

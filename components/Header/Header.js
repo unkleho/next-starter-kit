@@ -28,7 +28,7 @@ export default ({ pathname }) => {
         );
       })}
 
-      <img src="/static/images/logo-slnsw.png" width="70" alt="State Library of NSW Logo" />
+      {/* <img src="/static/images/logo-slnsw.png" width="70" alt="State Library of NSW Logo" /> */}
 
       <br/><br/>
 

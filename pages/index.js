@@ -5,6 +5,7 @@ import ExampleApp from '../components/examples/ExampleApp';
 import Link from '../components/Link';
 import Header from '../components/Header';
 import proxyRoutes from '../routes/proxyRoutes';
+import styles from './index.css';
 
 const HomePage = ({
   url,
@@ -13,30 +14,31 @@ const HomePage = ({
   <ExampleApp>
     <Header pathname={url.pathname} />
 
-    <h2>Posts</h2>
+    <div className="posts">
+      {posts && posts.map(({ title, slug, image }, i) => (
+        <article key={`posts-${i}`}>
+          <Link to={`/post/${slug}`}>
+            <a>
+              <img src={image.url} alt={image.altText} />
+              <h2>{title}</h2>
+            </a>
+          </Link>
+        </article>
+      ))}
+    </div>
 
-    <ul>
-    {posts && posts.map(({ title, slug, image }, i) => (
-      <li>
-        <Link to={`/post/${slug}`} key={`posts-${i}`}>
-          <a>
-            <img src={image.url} alt={image.altText} />
-            <h2>{title}</h2>
-          </a>
-        </Link>
-      </li>
-    ))}
-    </ul>
 
     <h2>Experiments</h2>
 
-    <ul>
+    <div>
       {proxyRoutes && Object.keys(proxyRoutes).map((route, i) => (
         <li>
             <a href={`${route}`} key={`posts-${i}`}>{route}</a>
         </li>
       ))}
-    </ul>
+    </div>
+
+    <style jsx>{styles}</style>
   </ExampleApp>
 );
 

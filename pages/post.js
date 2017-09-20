@@ -4,6 +4,7 @@ import withData from '../lib/withData';
 import ExampleApp from '../components/examples/ExampleApp';
 // import Link from '../components/Link';
 import Header from '../components/Header';
+import styles from './post.css';
 
 const PostPage = ({
   url,
@@ -15,7 +16,9 @@ const PostPage = ({
 
     <h1>{title}</h1>
 
-    <div dangerouslySetInnerHTML={{ __html: content }}></div>
+    <article className="post-content" dangerouslySetInnerHTML={{ __html: content }}></article>
+
+    <style jsx global>{styles}</style>
   </ExampleApp>
 );
 
