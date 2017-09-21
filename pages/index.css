@@ -12,3 +12,7 @@ article {
     font-size: var(--font-size-md);
   }
 }
+
+.posts {
+  lost-utility: clearfix;
+}

@@ -30,7 +30,7 @@ const HomePage = ({
 
     <h2>Experiments</h2>
 
-    <div>
+    <div className="experiments">
       {proxyRoutes && Object.keys(proxyRoutes).map((route, i) => (
         <li>
             <a href={`${route}`} key={`posts-${i}`}>{route}</a>
