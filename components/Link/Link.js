@@ -1,4 +1,4 @@
-import { Link } from '../routes';
+import { Link } from '../../routes';
 
 export default (props) => {
   return (
