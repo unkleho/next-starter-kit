@@ -10,9 +10,9 @@
   --colour-primary: #ed0180;
   --colour-secondary: green;
   --colour-tertiary: yellow;
-  --colour-highlight: red;
+  --colour-highlight: #ed0180;
 
-  --colour-black: #111;
+  --colour-black: #120f10;
   --colour-white: #ddd;
 
   /* Primary */

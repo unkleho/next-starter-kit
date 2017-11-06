@@ -1,11 +1,40 @@
 @import '../../styles/variables.css';
 
 .header {
-  & a {
-    margin-right: 1em;
-    color: var(--colour-primary);
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
 
-    &.is-active {
+.logo {
+  height: 1.4em;
+  width: auto;
+}
+
+.logo--slnsw {
+  float: right;
+}
+
+nav {
+  margin: 0 auto;
+  font-size: var(--font-size-sm);
+
+  & ul {
+    margin: 0;
+  }
+
+  & li {
+    list-style: none;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    margin-right: var(--spacing-xxlg);
+
+    & a {
+      color: var(--colour-white);
+    }
+
+    & a.is-active {
       color: var(--colour-highlight);
     }
   }
