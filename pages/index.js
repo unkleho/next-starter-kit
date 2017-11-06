@@ -15,6 +15,8 @@ const HomePage = ({
   <ExampleApp>
     <Header pathname={url.pathname} />
 
+    <div className="masthead"></div>
+
     <div className="posts">
       {posts && posts.map(({ title, slug, image }, i) => (
         <article key={`posts-${i}`}>
