@@ -29,20 +29,56 @@ article {
     font-weight: bold;
 
     & span {
+      font-weight: 100;
       font-size: var(--font-size-xxs);
     }
 
-    & em {
-      color: var(--colour-highlight);
-
-    }
   }
 
   & h2 {
+    position: relative;
     font-weight: 500;
     font-size: var(--font-size-sm);
+
+    &::before {
+      position: absolute;
+      top: -1.6em;
+      content: "";
+      height: 1em;
+      border-left: 1px solid var(--colour-white);
+    }
   }
 }
+
+  .masthead__intro-text {
+    position: relative;
+    width: 50%;
+    margin-left: 40%;
+    border-left: 1px dashed var(--colour-white);
+    padding: 0 var(--spacing-md) 0;
+
+    &::after {
+      position: absolute;
+      content: "";
+      top: -0.6em;
+      right: 1em;
+      height: 1em;
+      width: 1em;
+      border-top: 1px solid var(--colour-white);
+      border-right: 1px solid var(--colour-white);
+    }
+  }
+
+  .masthead__intro-list {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: rotate(-90deg);
+    transform-origin: top right;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: var(--font-size-sm);
+  }
 
   .masthead__bg {
     position: absolute;

@@ -26,9 +26,9 @@ const HomePage = ({
         Innovation Lab<br/>
         <a href="https://twitter.com">#dxlab</a></h1>
 
-        <p>We build and support new ways of design thinking, experimentation and deep research with digital technologies.</p>
+        <p className="masthead__intro-text">We build and support new ways of design thinking, experimentation and deep research with digital technologies.</p>
 
-        <p>Collaborate / Experiment / Create / Engage / Be Open / Surprise</p>
+        <p className="masthead__intro-list">Collaborate / Experiment / Create / Engage / Be Open / Surprise</p>
       </div>
     </div>
 
