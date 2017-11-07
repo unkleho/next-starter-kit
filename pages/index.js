@@ -16,16 +16,20 @@ const HomePage = ({
     <Header pathname={url.pathname} />
 
     <div className="masthead">
-      <p>Welcome to the DX Lab:</p>
+      <div className="masthead__bg"></div>
 
-      <h1>The State Library of NSW's
-      Experimental<br/>
-      Innovation Lab<br/>
-      #dxlab</h1>
+      <div className="masthead__content">
+        <h2>Welcome to the DX Lab:</h2>
 
-      <p>We build and support new ways of design thinking, experimentation and deep research with digital technologies.</p>
+        <h1><span>The State Library of NSW's</span><br/>
+        Experimental<br/>
+        Innovation Lab<br/>
+        <a href="https://twitter.com">#dxlab</a></h1>
 
-      <p>Collaborate / Experiment / Create / Engage / Be Open / Surprise</p>
+        <p>We build and support new ways of design thinking, experimentation and deep research with digital technologies.</p>
+
+        <p>Collaborate / Experiment / Create / Engage / Be Open / Surprise</p>
+      </div>
     </div>
 
     <div className="posts">
