@@ -15,7 +15,18 @@ const HomePage = ({
   <ExampleApp>
     <Header pathname={url.pathname} />
 
-    <div className="masthead"></div>
+    <div className="masthead">
+      <p>Welcome to the DX Lab:</p>
+
+      <h1>The State Library of NSW's
+      Experimental<br/>
+      Innovation Lab<br/>
+      #dxlab</h1>
+
+      <p>We build and support new ways of design thinking, experimentation and deep research with digital technologies.</p>
+
+      <p>Collaborate / Experiment / Create / Engage / Be Open / Surprise</p>
+    </div>
 
     <div className="posts">
       {posts && posts.map(({ title, slug, image }, i) => (
