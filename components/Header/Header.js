@@ -1,49 +1,88 @@
-// import { Link } from '../../routes';
+import { Component } from 'react';
 import Link from '../Link';
 import styles from './Header.css';
 
-export default ({ pathname }) => {
+const menuItems = [
+  { name: 'Home', url: '/' },
+  { name: 'About', url: '/about' },
+  { name: 'Experiments', url: '/experiments' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'Fellowships', url: '/fellowships' },
+  { name: 'Code', url: '/code' },
+];
 
-  const menuItems = [
-    { name: 'Home', url: '/' },
-    { name: 'About', url: '/about' },
-    { name: 'Experiments', url: '/experiments' },
-    { name: 'Blog', url: '/blog' },
-    { name: 'Fellowships', url: '/fellowships' },
-    { name: 'Code', url: '/code' },
-  ];
+class Header extends Component {
 
-  return (
-    <header className="header">
+  constructor() {
+    super();
 
-      <img
-        className="logo logo--dxlab"
-        src="/static/images/logo-dxlab.png"
-        alt="DX Lab Logo"
-      />
+    this.state = {
+      isMenuOpen: true,
+    };
+  }
 
-      <nav>
-        <ul>
-          {menuItems.map((item) => {
-            return (
-              <li>
-                <Link prefetch to={item.url} key={item.url}>
-                  <a className={pathname === item.url && 'is-active'}>{item.name}</a>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
+  toggleMenu = () => {
+    this.setState({
+      isMenuOpen: !this.state.isMenuOpen,
+    });
+  }
 
-      <img
-        className="logo logo--slnsw"
-        src="/static/images/logo-slnsw-white.png"
-        alt="State Library Logo"
-      />
+  render() {
+    const {
+      pathname,
+    } = this.props;
 
-      <style jsx>{styles}</style>
+    return (
+      <header className="header">
 
-    </header>
-  );
-};
+        <div className="logo logo--dxlab">
+          <img
+            src="/static/images/logo-dxlab.png"
+            alt="DX Lab Logo"
+          />
+        </div>
+
+        <nav className={this.state.isMenuOpen ? 'is-active' : ''}>
+          <ul
+            id="primary-menu"
+            role="menu"
+            aria-labelledby="primary-menu-button"
+          >
+            {menuItems.map((item) => {
+              return (
+                <li role="menuitem">
+                  <Link prefetch to={item.url} key={item.url}>
+                    <a className={pathname === item.url && 'is-active'}>{item.name}</a>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+
+        <div className="logo logo--slnsw">
+          <img
+            // className="logo logo--slnsw"
+            src="/static/images/logo-slnsw-white.png"
+            alt="State Library Logo"
+          />
+        </div>
+
+        <button
+          id="primary-menu-button"
+          className="primary-menu-button"
+          aria-haspopup="true"
+          aria-controls="primary-menu"
+          aria-expanded="false"
+          onClick={this.toggleMenu}
+        >Menu</button>
+
+        <style jsx>{styles}</style>
+
+      </header>
+    );
+  }
+
+}
+
+export default Header;

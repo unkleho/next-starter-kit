@@ -15,21 +15,21 @@ html {
 }
 
 body {
-  margin: 3em;
+  margin: 1em;
   background-color: var(--colour-black);
   color: var(--colour-white);
-  line-height: 1.5;
+  font-family: 'Lekton', sans-serif;
   font-weight: 300;
+  line-height: 1.5;
 
   /*-webkit-font-smoothing: antialiased;*/
 
-  /*font-family: 'Gotham A', 'Gotham B';*/
-  /*letter-spacing: -0.03em;*/
-  font-family: 'Lekton', sans-serif;
+  @media (--screen-md) {
+    margin: 3em;
+  }
 }
 
 h1 {
-  font-family: 'Lekton', sans-serif;
   font-weight: 400;
   text-transform: uppercase;
 }
@@ -53,4 +53,12 @@ p {
 
 strong {
   font-weight: 700;
+}
+
+button {
+  background: none;
+  border: none;
+  color: var(--colour-white);
+  font-family: var(--font-primary);
+  text-transform: uppercase;
 }
