@@ -25,6 +25,11 @@
   margin-left: var(--spacing-md);
   padding-left: var(--spacing-md);
 
+  @media (--screen-sm) {
+    margin-left: 0;
+    padding-left: 0;
+  }
+
   &::before {
     content: "";
     height: 0.9em;
@@ -33,6 +38,10 @@
     left: 0;
     bottom: 0;
     border-left: 1px solid var(--colour-white);
+
+    @media(--screen-sm) {
+      display: none;
+    }
   }
 }
 
@@ -42,22 +51,31 @@ nav {
   display: none;
   z-index: 100;
   height: 100vh;
-  width: 100%;
-  margin: 0 auto;
+  width: calc(100% + 2.6em);
+  margin: 0 -1.3em;
   background-color: var(--colour-black);
   font-size: var(--font-size-sm);
+  text-align: center;
 
   @media (--screen-sm) {
+    margin: 0 auto;
     position: relative;
     display: block;
+    height: auto;
   }
 
   & ul {
     margin-top: 4em;
+    margin-bottom: 0;
     padding: 0;
+
+    @media (--screen-sm) {
+      margin-top: 0;
+    }
   }
 
   & li {
+    position: relative;
     font-size: var(--font-size-lg);
     list-style: none;
     text-transform: uppercase;
@@ -65,25 +83,65 @@ nav {
 
     @media(--screen-sm) {
       display: inline-block;
+      font-size: var(--font-size-md);
       margin-right: var(--spacing-xxlg);
     }
 
     & a {
       display: block;
-      padding: 1em;
+      padding: 1em 1em 1em 3em;
       color: var(--colour-white);
+
+      @media(--screen-sm) {
+        padding: 0;
+      }
     }
 
     & a.is-active {
       color: var(--colour-highlight);
+
+      &::before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: block;
+        content: "";
+        width: 0.3em;
+        height: 3.5em;
+        background-color: var(--colour-highlight);
+
+        @media(--screen-sm) {
+          display: none;
+        }
+      }
     }
 
+    /* Menu item decorations */
     &::before {
       position: absolute;
       content: "";
-      width: 1em;
+      left: 1em;
+      width: 0.8em;
       height: 1px;
       border-top: 1px solid var(--colour-white);
+
+      @media(--screen-sm) {
+        display: none;
+      }
+    }
+
+    /* Menu item decorations */
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      content: "";
+      width: 0.5em;
+      border-top: 1px solid var(--colour-white);
+
+      @media(--screen-sm) {
+        display: none;
+      }
     }
   }
 
