@@ -65,6 +65,7 @@
   --font-size-lg: calc(var(--font-scale) * var(--font-size-md));
   --font-size-xlg: calc(var(--font-scale) * var(--font-size-lg));
   --font-size-xxlg: calc(var(--font-scale) * var(--font-size-xlg));
+  --font-size-xxxlg: calc(var(--font-scale) * var(--font-size-xxlg));
 
   /*
    * Font Families
