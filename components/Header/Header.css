@@ -5,25 +5,27 @@
   z-index: 10;
   display: flex;
   align-items: center;
-  margin-bottom: var(--spacing-lg);
-  margin-bottom: 4em;
 }
 
 .logo {
   position: relative;
   z-index: 110;
+  height: 1em;
+
+  @media (--screen-sm) {
+    height: 1.4em;
+  }
 
   & img {
-    height: 1.4em;
+    height: 100%;
     width: auto;
-    margin-bottom: -0.5em;
+    margin-bottom: 0;
   }
 }
 
 .logo--slnsw {
-  float: right;
-  margin-left: var(--spacing-md);
-  padding-left: var(--spacing-md);
+  margin-left: var(--spacing-sm);
+  padding-left: var(--spacing-sm);
 
   @media (--screen-sm) {
     margin-left: 0;
@@ -32,14 +34,14 @@
 
   &::before {
     content: "";
-    height: 0.9em;
+    height: 0.5em;
     width: 1px;
     position: absolute;
     left: 0;
     bottom: 0;
     border-left: 1px solid var(--colour-white);
 
-    @media(--screen-sm) {
+    @media (--screen-sm) {
       display: none;
     }
   }
@@ -80,8 +82,9 @@ nav {
     list-style: none;
     text-transform: uppercase;
     letter-spacing: 0.25em;
+    text-align: left;
 
-    @media(--screen-sm) {
+    @media (--screen-sm) {
       display: inline-block;
       font-size: var(--font-size-md);
       margin-right: var(--spacing-xxlg);
@@ -92,7 +95,7 @@ nav {
       padding: 1em 1em 1em 3em;
       color: var(--colour-white);
 
-      @media(--screen-sm) {
+      @media (--screen-sm) {
         padding: 0;
       }
     }
@@ -110,7 +113,7 @@ nav {
         height: 3.5em;
         background-color: var(--colour-highlight);
 
-        @media(--screen-sm) {
+        @media (--screen-sm) {
           display: none;
         }
       }
@@ -125,7 +128,7 @@ nav {
       height: 1px;
       border-top: 1px solid var(--colour-white);
 
-      @media(--screen-sm) {
+      @media (--screen-sm) {
         display: none;
       }
     }
@@ -139,7 +142,7 @@ nav {
       width: 0.5em;
       border-top: 1px solid var(--colour-white);
 
-      @media(--screen-sm) {
+      @media (--screen-sm) {
         display: none;
       }
     }
@@ -148,15 +151,62 @@ nav {
   &.is-active {
     display: block;
   }
-
 }
 
 .primary-menu-button {
   position: absolute;
+  top: 0;
   right: 0;
   z-index: 110;
+  width: 1em;
 
   @media (--screen-sm) {
     display: none;
+  }
+
+  /* Hamburger Icon Animation */
+  & span {
+    display: block;
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    background: var(--colour-white);
+    border-radius: 2px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+  }
+
+  & span:nth-child(1) {
+    top: 0;
+  }
+
+  & span:nth-child(2), & span:nth-child(3) {
+    top: 4px;
+  }
+
+  & span:nth-child(4) {
+    top: 8px;
+  }
+
+  &.is-open span:nth-child(1) {
+    top: 8px;
+    width: 0%;
+    left: 50%;
+  }
+
+  &.is-open span:nth-child(2) {
+    transform: rotate(45deg);
+  }
+
+  &.is-open span:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+
+  &.is-open span:nth-child(4) {
+    top: 8px;
+    width: 0%;
+    left: 50%;
   }
 }

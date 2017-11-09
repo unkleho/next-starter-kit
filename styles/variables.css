@@ -13,7 +13,7 @@
   --colour-highlight: #ef0083;
 
   --colour-black: #120f10;
-  --colour-white: #ddd;
+  --colour-white: #eee;
 
   /* Primary */
   --colour-primary-dark: color(var(--colour-primary) shade(10%));

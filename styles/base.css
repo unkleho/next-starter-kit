@@ -24,8 +24,8 @@ body {
 
   /*-webkit-font-smoothing: antialiased;*/
 
-  @media (--screen-md) {
-    margin: 3em;
+  @media (--screen-sm) {
+    margin: 2em;
   }
 }
 

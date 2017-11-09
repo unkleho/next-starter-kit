@@ -2,7 +2,7 @@ import { gql, graphql } from 'react-apollo';
 // import css from 'styled-jsx/css';
 
 import withData from '../lib/withData';
-import ExampleApp from '../components/examples/ExampleApp';
+import App from '../components/App';
 import Link from '../components/Link';
 import Header from '../components/Header';
 import proxyRoutes from '../routes/proxyRoutes';
@@ -12,7 +12,7 @@ const HomePage = ({
   url,
   posts,
 }) => (
-  <ExampleApp>
+  <App>
     <Header pathname={url.pathname} />
 
     <div className="masthead">
@@ -57,7 +57,7 @@ const HomePage = ({
     </div>
 
     <style jsx>{styles}</style>
-  </ExampleApp>
+  </App>
 );
 
 const homeQuery = gql`

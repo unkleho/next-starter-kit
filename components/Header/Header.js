@@ -17,7 +17,7 @@ class Header extends Component {
     super();
 
     this.state = {
-      isMenuOpen: true,
+      isMenuOpen: false,
     };
   }
 
@@ -70,12 +70,17 @@ class Header extends Component {
 
         <button
           id="primary-menu-button"
-          className="primary-menu-button"
+          className={`primary-menu-button ${this.state.isMenuOpen ? 'is-open' : ''}`}
           aria-haspopup="true"
           aria-controls="primary-menu"
           aria-expanded="false"
           onClick={this.toggleMenu}
-        >Menu</button>
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
         <style jsx>{styles}</style>
 

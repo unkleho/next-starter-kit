@@ -12,5 +12,6 @@ module.exports = {
     "custom-property-empty-line-before": null,
     "declaration-empty-line-before": null,
     "selector-list-comma-newline-after": null,
+    "indentation": null,
   }
 }
