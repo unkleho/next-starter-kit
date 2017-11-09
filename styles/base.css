@@ -1,6 +1,7 @@
 @import 'normalize.css/normalize.css';
 @import './variables';
 @import './fonts';
+@import 'corporate-icon-library/icomoon/style.css';
 
 /*
  * BASE STYLES
@@ -18,7 +19,7 @@ body {
   margin: 1em;
   background-color: var(--colour-black);
   color: var(--colour-white);
-  font-family: 'Lekton', sans-serif;
+  font-family: var(--font-primary);
   font-weight: 300;
   line-height: 1.5;
 

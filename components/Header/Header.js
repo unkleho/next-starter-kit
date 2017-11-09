@@ -45,6 +45,7 @@ class Header extends Component {
         <nav className={this.state.isMenuOpen ? 'is-active' : ''}>
           <ul
             id="primary-menu"
+            className="primary-menu"
             role="menu"
             aria-labelledby="primary-menu-button"
           >
@@ -57,6 +58,14 @@ class Header extends Component {
                 </li>
               );
             })}
+
+            <li role="menuitem">
+              <Link prefetch to='search'>
+                <a className={pathname === 'search' && 'is-active'}>
+                  <span className="primary-menu__divider">/</span> <span className="slnsw-icon-ZoomOL2"></span>
+                </a>
+              </Link>
+            </li>
           </ul>
         </nav>
 

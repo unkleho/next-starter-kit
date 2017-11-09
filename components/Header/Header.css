@@ -90,6 +90,25 @@ nav {
       margin-right: var(--spacing-xxlg);
     }
 
+    /* Search icon */
+    &:last-child {
+      @media (--screen-sm) {
+        margin-right: 0;
+
+        & .slnsw-icon-ZoomOL2 {
+          padding-left: 1em;
+        }
+      }
+
+      & .primary-menu__divider {
+        display: none;
+
+        @media (--screen-sm) {
+          display: inline;
+        }
+      }
+    }
+
     & a {
       display: block;
       padding: 1em 1em 1em 3em;
