@@ -95,10 +95,12 @@ class Header extends Component {
           aria-expanded="false"
           onClick={this.toggleMenu}
         >
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
+          <div>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </button>
 
         <style jsx>{styles}</style>
