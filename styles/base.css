@@ -1,7 +1,8 @@
 @import 'normalize.css/normalize.css';
 @import './variables';
 @import './fonts';
-@import 'corporate-icon-library/icomoon/style.css';
+
+/*@import 'corporate-icon-library/icomoon/style.css';*/
 
 /*
  * BASE STYLES

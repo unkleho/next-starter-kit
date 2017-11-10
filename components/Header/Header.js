@@ -1,5 +1,7 @@
 import { Component } from 'react';
+
 import Link from '../Link';
+// import Menu from '../Menu';
 import styles from './Header.css';
 
 const menuItems = [
@@ -43,6 +45,14 @@ class Header extends Component {
         </div>
 
         <nav className={this.state.isMenuOpen ? 'is-active' : ''}>
+          {/* <Menu
+            id="primary-menu"
+            className="primary-menu"
+            labelledby="primary-menu-button"
+            menuItems={menuItems}
+            pathname={pathname}
+          /> */}
+
           <ul
             id="primary-menu"
             className="primary-menu"
