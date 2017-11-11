@@ -61,6 +61,7 @@
   --font-size-sm: calc(var(--font-size-md) / var(--font-scale));
   --font-size-xs: calc(var(--font-size-sm) / var(--font-scale));
   --font-size-xxs: calc(var(--font-size-xs) / var(--font-scale));
+  --font-size-xxxs: calc(var(--font-size-xxs) / var(--font-scale));
 
   --font-size-lg: calc(var(--font-scale) * var(--font-size-md));
   --font-size-xlg: calc(var(--font-scale) * var(--font-size-lg));
@@ -95,17 +96,17 @@
   /* Extra small screen / small phone */
   @custom-media --screen-xs (min-width: 20em);
 
-  /* 480px Small screen / phone */
-  @custom-media --screen-sm (min-width: 30em);
+  /* 576px Small screen / phone */
+  @custom-media --screen-sm (min-width: 36em);
 
   /* 768px Small screen / tablet */
   @custom-media --screen-md (min-width: 48em);
 
-  /* 1024px Medium screen / desktop */
-  @custom-media --screen-lg (min-width: 64em);
+  /* 992px Medium screen / desktop */
+  @custom-media --screen-lg (min-width: 62em);
 
-  /* 1440 Large screen / wide desktop */
-  @custom-media --screen-xlg (min-width: 90em);
+  /* 1200px Large screen / wide desktop */
+  @custom-media --screen-xlg (min-width: 75em);
 
   /* 1920 HD TV screen */
   @custom-media --screen-xxlg (min-width: 120em);
