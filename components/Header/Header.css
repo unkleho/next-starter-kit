@@ -152,7 +152,11 @@ nav {
       display: inline-block;
       font-size: var(--font-size-md);
       line-height: 1;
-      margin-right: var(--spacing-xxlg);
+      margin-right: var(--spacing-lg);
+    }
+
+    @media (min-width: 40em) {
+      margin-right: var(--spacing-xlg);
     }
 
     /* Search icon */
@@ -181,6 +185,10 @@ nav {
 
       @media (--screen-sm) {
         padding: 0;
+      }
+
+      &:hover {
+        border-bottom: 1px solid var(--colour-highlight);
       }
     }
 

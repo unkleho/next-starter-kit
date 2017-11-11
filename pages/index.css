@@ -85,6 +85,7 @@ article {
   .masthead__intro-text {
     position: absolute;
     bottom: 10%;
+    right: 1em;
     width: 70%;
     border-left: 1px dashed var(--colour-white);
     padding: 0 var(--spacing-md) 0;
