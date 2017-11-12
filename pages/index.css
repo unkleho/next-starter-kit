@@ -22,6 +22,7 @@ article {
   width: 100vw;
   height: 30em;
   margin-left: -1em;
+  margin-right: -1em;
   padding-top: 0;
   padding-left: 1em;
   padding-right: 1em;
@@ -29,6 +30,9 @@ article {
   @media (--screen-sm) {
     width: 100%;
     height: calc(100vh - 5.9em);
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
     padding-right: 0;
   }
 
@@ -124,10 +128,11 @@ article {
       top: 2%;
       right: 0;
       transform: rotate(-90deg);
-      transform-origin: top right;
+      transform-origin: bottom right;
       text-transform: uppercase;
       letter-spacing: 0.2em;
       font-size: var(--font-size-sm);
+      line-height: 1;
     }
   }
 
@@ -165,6 +170,6 @@ article {
 
     @media (--screen-sm) {
       margin: 0 auto;
-      max-width: var(--container-width-md);
+      max-width: var(--container-width-lg);
     }
   }

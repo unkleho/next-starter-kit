@@ -32,7 +32,7 @@ const HomePage = ({
       </div>
     </div>
 
-    <div className="posts">
+    <div className="posts container container--md">
       {posts && posts.map(({ title, slug, image }, i) => (
         <article key={`posts-${i}`}>
           <Link to={`/post/${slug}`}>

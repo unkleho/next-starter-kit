@@ -89,6 +89,10 @@
   --spacing-xlg: calc(var(--spacing-scale) * var(--spacing-lg));
   --spacing-xxlg: calc(var(--spacing-scale) * var(--spacing-xlg));
 
+  --body-spacing-sm: 1em;
+  --body-spacing-md: 2em;
+  --body-spacing-lg: 3em;
+
   /*
    * Custom Media Queries
    * ------------------------------------------------------------------------ */
@@ -115,9 +119,9 @@
    * Containers
    * ------------------------------------------------------------------------ */
 
-  --container-width-xs: 480px;
-  --container-width-sm: 40em;
-  --container-width-md: 1024px;
-  --container-width-lg: 1440px;
-  --container-width-xlg: 1920px;
+  --container-width-xs: 20em;
+  --container-width-sm: 36em;
+  --container-width-md: 48em;
+  --container-width-lg: 75em;
+  --container-width-xlg: 120em;
 }
