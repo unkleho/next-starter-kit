@@ -3,8 +3,9 @@ import { gql, graphql } from 'react-apollo';
 
 import withData from '../lib/withData';
 import App from '../components/App';
-import Link from '../components/Link';
+// import Link from '../components/Link';
 import Header from '../components/Header';
+import Tile from '../components/Tile';
 import proxyRoutes from '../routes/proxyRoutes';
 import styles from './index.css';
 
@@ -32,16 +33,15 @@ const HomePage = ({
       </div>
     </div>
 
-    <div className="posts container container--md">
-      {posts && posts.map(({ title, slug, image }, i) => (
-        <article key={`posts-${i}`}>
-          <Link to={`/post/${slug}`}>
-            <a>
-              <img src={image.url} alt={image.altText} />
-              <h2>{title}</h2>
-            </a>
-          </Link>
-        </article>
+    <div className="posts container container--lg">
+      {posts && posts.map((post) => (
+        <Tile
+          title={post.title}
+          slug={post.slug}
+          imageUrl={post.imageUrl}
+          imageAltText={post.imageAltText}
+          content={post.content}
+        />
       ))}
     </div>
 
@@ -65,11 +65,12 @@ const homeQuery = gql`
     posts(limit: 10) {
       title
       slug
+      excerpt
       featuredMedia {
         altText
         caption
         sizes {
-          thumbnail {
+          full {
             sourceUrl
           }
         }
@@ -87,11 +88,10 @@ export default withData(graphql(homeQuery, {
       posts: data && data.posts && data.posts.map((post) => {
         return {
           title: post.title,
+          content: post.excerpt,
           slug: post.slug,
-          image: {
-            url: post.featuredMedia.sizes.thumbnail.sourceUrl,
-            altText: post.featuredMedia.sizes.thumbnail.altText,
-          },
+          imageUrl: post.featuredMedia.sizes.full.sourceUrl,
+          imageAltText: post.featuredMedia.sizes.full.altText,
         };
       }),
     };

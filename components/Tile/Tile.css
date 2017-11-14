@@ -1,0 +1,64 @@
+@import '../../styles/variables.css';
+
+@lost gutter 1em;
+
+/* TODO: Remove this in data */
+.entry-more {
+  display: none;
+}
+
+.tile {
+
+  @media (--screen-sm) {
+    lost-column: 1/2;
+    margin-bottom: 2em;
+  }
+}
+
+  .tile__info {
+    position: relative;
+    display: flex;
+
+    & h2 {
+      position: absolute;
+      top: -0.25em;
+      display: inline-block;
+      padding-left: var(--spacing-xxs);
+      font-size: var(--spacing-lg);
+      font-weight: 700;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      line-height: 1.2;
+      color: var(--colour-white);
+      background-color: var(--colour-black);
+    }
+  }
+
+  .tile__content {
+    font-size: var(--font-size-sm);
+    padding-left: var(--spacing-sm);
+    padding-top: 1.4em;
+
+    @media (--screen-sm) {
+      flex: 4;
+      padding-right: 3em;
+    }
+
+    & p {
+      margin-bottom: 0;
+    }
+  }
+
+  .tile__cta {
+    font-size: var(--font-size-sm);
+
+    @media (--screen-sm) {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-bottom: 0.5em;
+    }
+  }

@@ -1,0 +1,13 @@
+@import '../../styles/variables.css';
+
+a {
+  border: 1px solid var(--colour-white);
+  line-height: 1;
+  padding: var(--spacing-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: var(--font-size-sm);
+  text-align: center;
+  width: 100%;
+  display: block;
+}
