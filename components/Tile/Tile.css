@@ -8,16 +8,17 @@
 }
 
 .tile {
+  margin-bottom: 2em;
 
   @media (--screen-sm) {
     lost-column: 1/2;
-    margin-bottom: 2em;
   }
 }
 
   .tile__info {
     position: relative;
     display: flex;
+    min-height: 4em;
 
     & h2 {
       position: absolute;
@@ -43,7 +44,7 @@
 
     @media (--screen-sm) {
       flex: 4;
-      padding-right: 3em;
+      padding-right: 4em;
     }
 
     & p {
