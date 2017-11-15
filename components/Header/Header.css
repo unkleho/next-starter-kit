@@ -180,7 +180,6 @@
     & a {
       display: block;
       padding: 1em 1em 1em 3em;
-      color: var(--colour-white);
 
       @media (--screen-sm) {
         padding: 0;

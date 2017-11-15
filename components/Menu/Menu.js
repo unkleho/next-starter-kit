@@ -39,9 +39,9 @@ class Menu extends Component {
         role="menu"
         aria-labelledby={labelledby}
       >
-        {menuItems.map((item) => {
+        {menuItems.map((item, i) => {
           return (
-            <li className={`menu__item ${menuItemClassName}`} role="menuitem">
+            <li className={`menu__item ${menuItemClassName}`} role="menuitem" key={`menu__item-${i}`}>
               <Link prefetch to={item.url} key={item.url}>
                 <a className={pathname === item.url && 'is-active'}>{item.name}</a>
               </Link>

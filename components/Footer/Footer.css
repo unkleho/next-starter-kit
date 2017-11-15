@@ -1,3 +1,35 @@
-footer {
-  margin: 0;
+@import '../../styles/variables.css';
+
+  .footer__cc {
+    transform: rotate(-90deg);
+    transform-origin: top left;
+  }
+
+.footer-menu {
+  display: flex;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: var(--font-size-sm);
+
+  & li {
+    margin-right: 1em;
+
+    &::after {
+      content: "/";
+      margin-left: 1em;
+    }
+
+    &:last-child::after {
+      content: "";
+    }
+  }
+
+}
+
+  .footer__social {
+    font-size: var(--font-size-xlg);
+  }
+
+.logo--nsw {
+  width: 5em;
 }

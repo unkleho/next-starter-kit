@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import Head from 'next/head';
 
+import Header from '../Header';
+import Footer from '../Footer';
 import baseStyles from '../../styles/base.css';
 import helpersStyles from '../../styles/helpers.css';
 
@@ -9,6 +11,7 @@ class App extends Component {
   render() {
     const {
       children,
+      pathname,
     } = this.props;
 
     return (
@@ -20,7 +23,11 @@ class App extends Component {
           <link href="https://fonts.googleapis.com/css?family=Lekton:400,400i,700" rel="stylesheet" />
         </Head>
 
+        <Header pathname={pathname} />
+
         {children}
+
+        <Footer pathname={pathname} />
 
         <style jsx global>{baseStyles}</style>
         <style jsx global>{helpersStyles}</style>

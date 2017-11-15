@@ -1,10 +1,7 @@
 import { gql, graphql } from 'react-apollo';
-// import css from 'styled-jsx/css';
 
 import withData from '../lib/withData';
 import App from '../components/App';
-// import Link from '../components/Link';
-import Header from '../components/Header';
 import Tile from '../components/Tile';
 import proxyRoutes from '../routes/proxyRoutes';
 import styles from './index.css';
@@ -13,8 +10,7 @@ const HomePage = ({
   url,
   posts,
 }) => (
-  <App>
-    <Header pathname={url.pathname} />
+  <App pathname={url.pathname}>
 
     <div className="masthead">
       <div className="masthead__bg"></div>

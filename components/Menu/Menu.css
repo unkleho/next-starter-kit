@@ -8,3 +8,7 @@ ul {
 li {
   list-style: none;
 }
+
+a:link {
+  color: var(--colour-white);
+}

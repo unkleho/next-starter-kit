@@ -41,7 +41,7 @@ class Header extends Component {
         <div className="logo logo--dxlab">
           <img
             src="/static/images/logo-dxlab.png"
-            alt="DX Lab Logo"
+            alt="DX Lab Logo."
           />
         </div>
 
@@ -78,7 +78,7 @@ class Header extends Component {
           <img
             // className="logo logo--slnsw"
             src="/static/images/logo-slnsw-white.png"
-            alt="State Library Logo"
+            alt="State Library Logo."
           />
         </div>
 
