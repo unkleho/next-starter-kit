@@ -13,7 +13,7 @@
   --colour-highlight: #ef0083;
 
   --colour-black: #120f10;
-  --colour-white: #eee;
+  --colour-white: #e6e6e6;
 
   /* Primary */
   --colour-primary-dark: color(var(--colour-primary) shade(10%));
@@ -122,6 +122,6 @@
   --container-width-xs: 20em;
   --container-width-sm: 36em;
   --container-width-md: 48em;
-  --container-width-lg: 75em;
+  --container-width-lg: 62em;
   --container-width-xlg: 120em;
 }

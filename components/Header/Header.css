@@ -36,7 +36,6 @@
     @media (--screen-sm) {
       top: -2em;
       left: -2em;
-      width: calc(100vw - 1em);
       height: calc(100% + 2.5em);
       background: linear-gradient(to bottom, var(--colour-black) 60%, rgba(0, 0, 0, 0.8));
     }
