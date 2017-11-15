@@ -9,6 +9,7 @@ class Menu extends Component {
   static propTypes = {
     id: PropTypes.string,
     className: PropTypes.string,
+    menuItemClassName: PropTypes.string,
     labelledby: PropTypes.string,
     pathname: PropTypes.string,
     menuItems: PropTypes.arrayOf(PropTypes.shape({
@@ -25,6 +26,7 @@ class Menu extends Component {
     const {
       id,
       className,
+      menuItemClassName,
       labelledby,
       menuItems,
       pathname,
@@ -39,7 +41,7 @@ class Menu extends Component {
       >
         {menuItems.map((item) => {
           return (
-            <li role="menuitem">
+            <li className={`menu__item ${menuItemClassName}`} role="menuitem">
               <Link prefetch to={item.url} key={item.url}>
                 <a className={pathname === item.url && 'is-active'}>{item.name}</a>
               </Link>

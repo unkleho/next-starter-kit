@@ -1,7 +1,7 @@
 import { Component } from 'react';
 
-import Link from '../Link';
-// import Menu from '../Menu';
+// import Link from '../Link';
+import Menu from '../Menu';
 import styles from './Header.css';
 
 const menuItems = [
@@ -11,6 +11,7 @@ const menuItems = [
   { name: 'Blog', url: '/blog' },
   { name: 'Fellowships', url: '/fellowships' },
   { name: 'Code', url: '/code' },
+  { name: <span><span className="primary-menu__divider">/</span> <span className="slnsw-icon-ZoomOL2"></span></span>, url: '/search' },
 ];
 
 class Header extends Component {
@@ -44,14 +45,15 @@ class Header extends Component {
           />
         </div>
 
-        <nav className={this.state.isMenuOpen ? 'is-active' : ''}>
-          {/* <Menu
+        <nav className={`header__nav ${this.state.isMenuOpen ? 'is-active' : ''}`}>
+          <Menu
             id="primary-menu"
             className="primary-menu"
+            menuItemClassName="primary-menu__item"
             labelledby="primary-menu-button"
             menuItems={menuItems}
             pathname={pathname}
-          /> */}
+          />
 
           <ul
             id="primary-menu"
@@ -59,23 +61,16 @@ class Header extends Component {
             role="menu"
             aria-labelledby="primary-menu-button"
           >
-            {menuItems.map((item) => {
+            {/* {menuItems.map((item) => {
               return (
-                <li role="menuitem">
-                  <Link prefetch to={item.url} key={item.url}>
+                <li role="menuitem" key={item.url}>
+                  <Link prefetch to={item.url}>
                     <a className={pathname === item.url && 'is-active'}>{item.name}</a>
                   </Link>
                 </li>
               );
-            })}
+            })} */}
 
-            <li role="menuitem">
-              <Link prefetch to='search'>
-                <a className={pathname === 'search' && 'is-active'}>
-                  <span className="primary-menu__divider">/</span> <span className="slnsw-icon-ZoomOL2"></span>
-                </a>
-              </Link>
-            </li>
           </ul>
         </nav>
 
@@ -103,7 +98,7 @@ class Header extends Component {
           </div>
         </button>
 
-        <style jsx>{styles}</style>
+        <style global jsx>{styles}</style>
 
       </header>
     );

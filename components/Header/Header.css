@@ -92,7 +92,7 @@
   }
 }
 
-nav {
+.header__nav {
   position: absolute;
   top: 0;
   display: none;
@@ -140,7 +140,7 @@ nav {
     }
   }
 
-  & li {
+  & .primary-menu__item {
     position: relative;
     font-size: var(--font-size-lg);
     text-transform: uppercase;
@@ -189,23 +189,23 @@ nav {
       &:hover {
         border-bottom: 1px solid var(--colour-highlight);
       }
-    }
 
-    & a.is-active {
-      color: var(--colour-highlight);
+      &.is-active {
+        color: var(--colour-highlight);
 
-      &::before {
-        position: absolute;
-        left: 0;
-        top: 0;
-        display: block;
-        content: "";
-        width: 0.3em;
-        height: 3.5em;
-        background-color: var(--colour-highlight);
+        &::before {
+          position: absolute;
+          left: 0;
+          top: 0;
+          display: block;
+          content: "";
+          width: 0.3em;
+          height: 3.5em;
+          background-color: var(--colour-highlight);
 
-        @media (--screen-sm) {
-          display: none;
+          @media (--screen-sm) {
+            display: none;
+          }
         }
       }
     }
