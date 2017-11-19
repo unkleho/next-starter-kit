@@ -13,6 +13,10 @@ module.exports = {
     target: process.env.DXLAB_URL,
     changeOrigin: true,
   },
+  '/meridian/': {
+    target: process.env.DXLAB_URL,
+    changeOrigin: true,
+  },
   '/muruview/': {
     target: process.env.DXLAB_URL,
     changeOrigin: true,
