@@ -6,7 +6,7 @@
   flex-direction: column;
   margin-top: 3em;
 
-  @media (--screen-md) {
+  @media (--screen-sm) {
     flex-direction: row;
     flex-flow: row wrap;
     align-items: baseline;
@@ -37,10 +37,10 @@ ul.footer-menu {
   font-size: var(--font-size-sm);
   letter-spacing: 0.2em;
 
-  @media (--screen-md) {
+  @media (--screen-sm) {
     flex-direction: row;
     order: 3;
-    flex: 1 auto;
+    width: 100%;
     text-align: left;
     margin-bottom: 0;
   }
@@ -48,7 +48,7 @@ ul.footer-menu {
   & li {
     line-height: 1.7;
 
-    @media (--screen-md) {
+    @media (--screen-sm) {
       margin-right: 1em;
 
       &::after {
@@ -72,7 +72,7 @@ ul.footer-menu {
     width: 3em;
     border-top: 1px solid var(--colour-white);
 
-    @media (--screen-md) {
+    @media (--screen-sm) {
       top: -1em;
       bottom: auto;
     }
@@ -80,10 +80,32 @@ ul.footer-menu {
 }
 
   .footer__social {
+    position: relative;
     display: flex;
     justify-content: flex-end;
     font-size: var(--font-size-xlg);
     margin-right: -0.2em;
+
+    /* Line decoration */
+    @media (--screen-md) {
+      &:before {
+        position: absolute;
+        left: 0.35em;
+        bottom: -0.7em;
+        content: "";
+        width: 2.5em;
+        border-bottom: 1px solid var(--colour-white);
+      }
+
+      &:after {
+        position: absolute;
+        top: 3em;
+        right: 0.2em;
+        content: "";
+        height: 0.5em;
+        border-right: 1px solid var(--colour-white);
+      }
+    }
 
     & a:link, & a:visited {
       color: var(--colour-white);
@@ -98,7 +120,7 @@ ul.footer-menu {
   position: relative;
   height: auto;
 
-  @media (--screen-md) {
+  @media (--screen-sm) {
     margin-left: 2em;
   }
 
@@ -107,7 +129,7 @@ ul.footer-menu {
     width: 2.5em;
     margin-bottom: 0;
 
-    @media (--screen-md) {
+    @media (--screen-sm) {
       width: 4em;
       margin-right: -0.3em;
     }
@@ -122,11 +144,15 @@ ul.footer-menu {
     height: 3.5em;
     border-right: 1px solid var(--colour-white);
 
-    @media (--screen-md) {
+    @media (--screen-sm) {
       bottom: -2.2em;
       width: var(--spacing-lg);
       border-right: none;
       border-bottom: 1px solid var(--colour-white);
+    }
+
+    @media (--screen-md) {
+      border-bottom: none;
     }
   }
 }

@@ -3,7 +3,7 @@ import { gql, graphql } from 'react-apollo';
 import withData from '../lib/withData';
 import App from '../components/App';
 import Tile from '../components/Tile';
-import proxyRoutes from '../routes/proxyRoutes';
+// import proxyRoutes from '../routes/proxyRoutes';
 import styles from './index.css';
 
 const HomePage = ({
@@ -42,7 +42,7 @@ const HomePage = ({
     </div>
 
 
-    <h2>Experiments</h2>
+    {/* <h2>Experiments</h2>
 
     <div className="experiments">
       {proxyRoutes && Object.keys(proxyRoutes).map((route, i) => (
@@ -50,7 +50,7 @@ const HomePage = ({
             <a href={`${route}`} key={`posts-${i}`}>{route}</a>
         </li>
       ))}
-    </div>
+    </div> */}
 
     <style jsx>{styles}</style>
   </App>
