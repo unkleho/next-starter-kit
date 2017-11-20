@@ -8,14 +8,14 @@
   align-items: center;
 
   @media (--screen-sm) {
-    position: sticky;
+    /*position: sticky;*/
     top: -2em;
     flex-direction: column;
     align-items: flex-start;
   }
 
   @media (--screen-lg) {
-    position: sticky;
+    /*position: sticky;*/
     top: 1em;
     flex-direction: row;
     align-items: center;
@@ -41,7 +41,8 @@
     }
 
     @media (--screen-md) {
-      height: calc(100% + 3em);
+      height: calc(100% + 4em);
+      height: 1px;
     }
   }
 }

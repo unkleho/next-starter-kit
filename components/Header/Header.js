@@ -54,24 +54,6 @@ class Header extends Component {
             menuItems={menuItems}
             pathname={pathname}
           />
-
-          <ul
-            id="primary-menu"
-            className="primary-menu"
-            role="menu"
-            aria-labelledby="primary-menu-button"
-          >
-            {/* {menuItems.map((item) => {
-              return (
-                <li role="menuitem" key={item.url}>
-                  <Link prefetch to={item.url}>
-                    <a className={pathname === item.url && 'is-active'}>{item.name}</a>
-                  </Link>
-                </li>
-              );
-            })} */}
-
-          </ul>
         </nav>
 
         <div className="logo logo--slnsw">
