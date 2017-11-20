@@ -22,17 +22,16 @@ class Footer extends Component {
         />
 
         <div className="footer__social">
-          <a href="https://www.facebook.com/statelibrarynsw"><span className="slnsw-icon-facebook"></span></a>
-          <a href="https://twitter.com/statelibrarynsw"><span className="slnsw-icon-twitter"></span></a>
-          <a href="https://www.youtube.com/statelibrarynewsouthwales"><span className="slnsw-icon-youtube"></span></a>
-          <a href="http://instagram.com/statelibrarynsw"><span className="slnsw-icon-instagram"></span></a>
-          <a href="http://www.sl.nsw.gov.au/about/collections/flickr.html"><span className="slnsw-icon-flickr"></span></a>
-          <a href="http://pinterest.com/statelibrarynsw"><span className="slnsw-icon-pinterest"></span></a>
-          <a href="http://www.vimeo.com/statelibrarynsw"><span className="slnsw-icon-vimeo"></span></a>
-          <a href="http://dxlab.sl.nsw.gov.au/feed/"><span className="slnsw-icon-rss"></span></a>
+          {socialItems.map((item, i) => (
+            <a href={item.url} aria-label={`Follow us on ${item.name}`} key={`social-item-${i}`}>
+              <span className={`slnsw-icon-${item.name.toLowerCase()}`} aria-hidden="true"></span>
+            </a>
+          ))}
         </div>
 
-        <img class="logo logo--nsw" src="/static/images/logo-nsw-white.png" alt="NSW Government logo." />
+        <div className="footer__nsw-logo">
+          <img className="" src="/static/images/logo-nsw-white.png" alt="NSW Government logo." />
+        </div>
 
         <style global jsx>{styles}</style>
       </footer>
@@ -40,5 +39,40 @@ class Footer extends Component {
   }
 
 }
+
+const socialItems = [
+  {
+    name: 'Facebook',
+    url: 'https://www.facebook.com/statelibrarynsw',
+  },
+  {
+    name: 'Twitter',
+    url: 'https://twitter.com/statelibrarynsw',
+  },
+  {
+    name: 'Youtube',
+    url: 'https://www.youtube.com/statelibrarynewsouthwales',
+  },
+  {
+    name: 'Instagram',
+    url: 'http://instagram.com/statelibrarynsw',
+  },
+  {
+    name: 'Flickr',
+    url: 'http://www.sl.nsw.gov.au/about/collections/flickr.html',
+  },
+  {
+    name: 'Pinterest',
+    url: 'http://pinterest.com/statelibrarynsw',
+  },
+  {
+    name: 'Vimeo',
+    url: 'http://www.vimeo.com/statelibrarynsw',
+  },
+  {
+    name: 'RSS',
+    url: 'http://dxlab.sl.nsw.gov.au/feed/', // TODO: Update new URL
+  },
+];
 
 export default Footer;

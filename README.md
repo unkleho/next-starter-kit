@@ -63,4 +63,4 @@ Express proxies the following sites:
 
 Now alias can proxy using rules.json, but doesn't seem to work for http/https connections.
 
-[ ] TODO: Once `dxlab.sl.nsw.gov.au` is on https, use Now's `rules.json` rather than Express to proxy as it should be faster.
+- [ ] TODO: Once `dxlab.sl.nsw.gov.au` is on https, use Now's `rules.json` rather than Express to proxy as it should be faster.

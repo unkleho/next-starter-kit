@@ -1,35 +1,132 @@
 @import '../../styles/variables.css';
 
+.footer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3em;
+
+  @media (--screen-md) {
+    flex-direction: row;
+    flex-flow: row wrap;
+    align-items: baseline;
+    justify-content: flex-end;
+    margin-top: 6em;
+  }
+}
+
   .footer__cc {
+    position: absolute;
+    left: 0;
+    top: 4.8em;
     transform: rotate(-90deg);
     transform-origin: top left;
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    line-height: 1;
   }
 
-.footer-menu {
+ul.footer-menu {
+  position: relative;
   display: flex;
+  flex-direction: column;
+  margin-bottom: var(--spacing-sm);
+  text-align: right;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
   font-size: var(--font-size-sm);
+  letter-spacing: 0.2em;
+
+  @media (--screen-md) {
+    flex-direction: row;
+    order: 3;
+    flex: 1 auto;
+    text-align: left;
+    margin-bottom: 0;
+  }
 
   & li {
-    margin-right: 1em;
+    line-height: 1.7;
 
-    &::after {
-      content: "/";
-      margin-left: 1em;
-    }
+    @media (--screen-md) {
+      margin-right: 1em;
 
-    &:last-child::after {
-      content: "";
+      &::after {
+        content: "/";
+        margin-left: 1em;
+      }
+
+      &:last-child::after {
+        content: "";
+        margin-left: 0;
+      }
     }
   }
 
+  /* Line decoration */
+  &:after {
+    position: absolute;
+    bottom: 0.5em;
+    left: -3em;
+    content: "";
+    width: 3em;
+    border-top: 1px solid var(--colour-white);
+
+    @media (--screen-md) {
+      top: -1em;
+      bottom: auto;
+    }
+  }
 }
 
   .footer__social {
+    display: flex;
+    justify-content: flex-end;
     font-size: var(--font-size-xlg);
+    margin-right: -0.2em;
+
+    & a:link, & a:visited {
+      color: var(--colour-white);
+    }
+
+    & a:hover {
+      color: var(--colour-highlight);
+    }
   }
 
-.logo--nsw {
-  width: 5em;
+.footer__nsw-logo {
+  position: relative;
+  height: auto;
+
+  @media (--screen-md) {
+    margin-left: 2em;
+  }
+
+  & img {
+    display: flex;
+    width: 2.5em;
+    margin-bottom: 0;
+
+    @media (--screen-md) {
+      width: 4em;
+      margin-right: -0.3em;
+    }
+  }
+
+  /* Line decoration */
+  &:after {
+    position: absolute;
+    bottom: -1em;
+    right: 0;
+    content: "";
+    height: 3.5em;
+    border-right: 1px solid var(--colour-white);
+
+    @media (--screen-md) {
+      bottom: -2.2em;
+      width: var(--spacing-lg);
+      border-right: none;
+      border-bottom: 1px solid var(--colour-white);
+    }
+  }
 }
