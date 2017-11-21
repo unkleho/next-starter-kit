@@ -2,36 +2,61 @@
 
 @lost gutter 1em;
 
-/* TODO: Remove this in data */
-.entry-more {
-  display: none;
-}
-
 .tile {
+  position: relative;
   margin-bottom: 2em;
 
   @media (--screen-sm) {
     lost-column: 1/2;
   }
+
+  &:not(:first-child)::before {
+    position: absolute;
+    top: -1em;
+    left: -1em;
+    content: "";
+    border-top: 1px solid var(--colour-white);
+    width: var(--spacing-xs);
+    height: 1px;
+
+    @media (--screen-sm) {
+      display: none;
+    }
+  }
 }
+
+  .tile__image {
+    width: calc(100% + 1em);
+    margin-right: -1em;
+
+    @media (--screen-sm) {
+      width: 100%;
+    }
+  }
 
   .tile__info {
     position: relative;
     display: flex;
+    flex-direction: column;
     min-height: 4em;
+
+    @media (--screen-md) {
+      flex-direction: row;
+    }
 
     & h2 {
       position: absolute;
       top: -0.25em;
       display: inline-block;
       padding-left: var(--spacing-xxs);
+      padding-right: 0.1em;
       font-size: var(--spacing-lg);
       font-weight: 700;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       text-transform: uppercase;
       letter-spacing: 0.2em;
-      line-height: 1.2;
+      line-height: 1.3;
       color: var(--colour-white);
       background-color: var(--colour-black);
     }
@@ -42,7 +67,7 @@
     padding-left: var(--spacing-sm);
     padding-top: 1.4em;
 
-    @media (--screen-sm) {
+    @media (--screen-md) {
       flex: 4;
       padding-right: 4em;
     }
@@ -53,13 +78,62 @@
   }
 
   .tile__cta {
+    display: flex;
     font-size: var(--font-size-sm);
+    margin-top: var(--spacing-xlg);
+    padding-left: var(--spacing-sm);
+    height: 3em;
 
-    @media (--screen-sm) {
+    @media (--screen-md) {
       flex: 2;
-      display: flex;
       flex-direction: column;
       justify-content: flex-end;
+      height: auto;
       padding-bottom: 0.5em;
     }
+
+    & > .button:first-child {
+      flex: 2;
+      height: auto;
+
+      @media (--screen-md) {
+        height: 3em;
+        max-height: 3em;
+      }
+    }
   }
+
+    .tile__cta__secondary {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+
+      @media (--screen-md) {
+        lost-utility: clearfix;
+
+        flex: none;
+        flex-direction: row;
+      }
+
+      /* Buttons */
+      & .button--sm:first-child {
+        margin-bottom: 0.3em;
+
+        @media (--screen-md) {
+          margin-top: 0.3em;
+          margin-bottom: 0;
+        }
+      }
+
+      /* Half size button if there are two siblings */
+      & .button--sm:first-child:nth-last-child(2), & .button--sm:first-child:nth-last-child(2) ~ .button--sm {
+        margin-left: 0.3em;
+
+        @media (--screen-md) {
+          lost-column: 1/2 0 0.3em;
+
+          margin-top: 0.3em;
+          margin-left: 0;
+        }
+      }
+    }

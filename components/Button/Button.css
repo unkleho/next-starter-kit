@@ -1,13 +1,23 @@
 @import '../../styles/variables.css';
 
-a {
+@lost gutter 0.3em;
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid var(--colour-white);
   line-height: 1;
-  padding: var(--spacing-sm);
+  height: 3em;
   text-transform: uppercase;
   letter-spacing: 0.3em;
   font-size: var(--font-size-sm);
   text-align: center;
   width: 100%;
-  display: block;
+}
+
+.button--sm {
+  height: 2em;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
 }

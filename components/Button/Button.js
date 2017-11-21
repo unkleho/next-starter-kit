@@ -9,22 +9,22 @@ class Button extends Component {
   static propTypes = {
     content: PropTypes.string,
     url: PropTypes.string,
+    size: PropTypes.string,
   }
 
   render() {
     const {
-      // content,
       url,
       content,
+      size,
     } = this.props;
 
     return (
       <Link to={url}>
-        <a>
+        <a className={`button ${size ? `button--${size}` : ''}`}>
           {content}
 
           <style jsx>{styles}</style>
-
         </a>
       </Link>
     );

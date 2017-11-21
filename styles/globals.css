@@ -30,3 +30,8 @@
 .container--xlg {
   max-width: var(--container-width-xlg);
 }
+
+/* TODO: Remove this in data */
+.entry-more {
+  display: none;
+}

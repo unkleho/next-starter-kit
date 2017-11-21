@@ -29,13 +29,14 @@ class Tile extends Component {
 
         <Link to={`/post/${slug}`}>
           <a>
-            <div style={{
-              backgroundImage: `url(${imageUrl})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              width: '100%',
-              height: '16em',
-            }}></div>
+            <div
+              className="tile__image"
+              style={{
+                backgroundImage: `url(${imageUrl})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                height: '16em',
+              }}></div>
           </a>
         </Link>
 
@@ -45,6 +46,11 @@ class Tile extends Component {
 
           <div className="tile__cta">
             <Button content="Launch" />
+
+            <div className="tile__cta__secondary">
+              <Button content="Blog" size="sm" />
+              <Button content="Code" size="sm" />
+            </div>
           </div>
         </div>
 

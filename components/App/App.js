@@ -5,7 +5,7 @@ import Header from '../Header';
 import Footer from '../Footer';
 import styles from './App.css';
 import baseStyles from '../../styles/base.css';
-import helpersStyles from '../../styles/helpers.css';
+import globalsStyles from '../../styles/globals.css';
 
 class App extends Component {
 
@@ -36,7 +36,7 @@ class App extends Component {
         <Footer pathname={pathname} />
 
         <style jsx global>{baseStyles}</style>
-        <style jsx global>{helpersStyles}</style>
+        <style jsx global>{globalsStyles}</style>
         <style jsx>{styles}</style>
       </main>
     );
