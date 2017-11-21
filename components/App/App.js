@@ -3,6 +3,7 @@ import Head from 'next/head';
 
 import Header from '../Header';
 import Footer from '../Footer';
+import styles from './App.css';
 import baseStyles from '../../styles/base.css';
 import helpersStyles from '../../styles/helpers.css';
 
@@ -24,6 +25,11 @@ class App extends Component {
         </Head>
 
         <Header pathname={pathname} />
+        {/*
+          .header-bg is needed for tricky position: sticky css
+          Includes line decoration for .primary-menu
+        */}
+        <div className="header-bg"></div>
 
         {children}
 
@@ -31,6 +37,7 @@ class App extends Component {
 
         <style jsx global>{baseStyles}</style>
         <style jsx global>{helpersStyles}</style>
+        <style jsx>{styles}</style>
       </main>
     );
   }

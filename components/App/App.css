@@ -1,0 +1,46 @@
+@import '../../styles/variables.css';
+
+/* Background Gradient */
+.header-bg {
+  position: sticky;
+  top: 0;
+  z-index: 8;
+  margin-top: -2em;
+  margin-left: -1em;
+  pointer-events: none;
+  display: block;
+  width: 100vw;
+  height: 3em;
+  background: linear-gradient(to bottom, var(--colour-black), rgba(0, 0, 0, 0.8));
+
+  @media (--screen-sm) {
+    top: -5.4em;
+    margin-left: -2em;
+    margin-top: -6em;
+    height: 7.7em;
+  }
+
+  @media (--screen-lg) {
+    top: -2em;
+    margin-top: -3.4em;
+    height: 5.5em;
+  }
+
+  /* Line decoration for primary-menu */
+  &::after {
+    @media (--screen-sm) {
+      position: absolute;
+      content: "";
+      display: block;
+      top: 4.5em;
+      left: 2em;
+      width: var(--spacing-sm);
+      height: 1px;
+      border-top: 1px solid var(--colour-white);
+    }
+
+    @media (--screen-lg) {
+      display: none;
+    }
+  }
+}

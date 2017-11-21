@@ -64,7 +64,7 @@ ul.footer-menu {
   }
 
   /* Line decoration */
-  &:after {
+  &::after {
     position: absolute;
     bottom: 0.5em;
     left: -3em;
@@ -88,7 +88,7 @@ ul.footer-menu {
 
     /* Line decoration */
     @media (--screen-md) {
-      &:before {
+      &::before {
         position: absolute;
         left: 0.35em;
         bottom: -0.7em;
@@ -97,7 +97,7 @@ ul.footer-menu {
         border-bottom: 1px solid var(--colour-white);
       }
 
-      &:after {
+      &::after {
         position: absolute;
         top: 3em;
         right: 0.2em;
@@ -136,7 +136,7 @@ ul.footer-menu {
   }
 
   /* Line decoration */
-  &:after {
+  &::after {
     position: absolute;
     bottom: -1em;
     right: 0;
