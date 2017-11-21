@@ -38,17 +38,16 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    min-height: 4em;
+    min-height: 3em;
 
     @media (--screen-md) {
       flex-direction: row;
     }
 
-    & h2 {
-      position: absolute;
-      top: -0.25em;
-      display: inline-block;
-      padding-left: var(--spacing-xxs);
+    & h2:first-child {
+      margin-top: -0.25em;
+      margin-bottom: 0;
+      display: inline-table;
       padding-right: 0.1em;
       font-size: var(--spacing-lg);
       font-weight: 700;
@@ -59,20 +58,30 @@
       line-height: 1.3;
       color: var(--colour-white);
       background-color: var(--colour-black);
+
+      @media (--screen-sm) {
+        padding-left: var(--spacing-xxs);
+      }
+
+      @media (--screen-md) {
+        position: absolute;
+      }
     }
   }
 
   .tile__content {
     font-size: var(--font-size-sm);
     padding-left: var(--spacing-sm);
-    padding-top: 1.4em;
+    padding-top: var(--spacing-md);
 
     @media (--screen-md) {
       flex: 4;
+      padding-top: 2.5em;
       padding-right: 4em;
     }
 
     & p {
+      margin-top: 0;
       margin-bottom: 0;
     }
   }
