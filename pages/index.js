@@ -3,6 +3,7 @@ import { gql, graphql } from 'react-apollo';
 import withData from '../lib/withData';
 import App from '../components/App';
 import Tile from '../components/Tile';
+import SectionTitle from '../components/SectionTitle';
 // import proxyRoutes from '../routes/proxyRoutes';
 import styles from './index.css';
 
@@ -30,15 +31,19 @@ const HomePage = ({
     </div>
 
     <div className="posts container container--lg">
-      {posts && posts.map((post) => (
-        <Tile
-          title={post.title}
-          slug={post.slug}
-          imageUrl={post.imageUrl}
-          imageAltText={post.imageAltText}
-          content={post.content}
-        />
-      ))}
+      <SectionTitle title="Featured"></SectionTitle>
+
+      <div>
+        {posts && posts.map((post) => (
+          <Tile
+            title={post.title}
+            slug={post.slug}
+            imageUrl={post.imageUrl}
+            imageAltText={post.imageAltText}
+            content={post.content}
+          />
+        ))}
+      </div>
     </div>
 
 

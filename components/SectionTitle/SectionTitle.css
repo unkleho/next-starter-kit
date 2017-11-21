@@ -1,0 +1,45 @@
+@import '../../styles/variables.css';
+
+.section-title {
+  position: relative;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.25em;
+  line-height: 1;
+  margin-bottom: var(--spacing-md);
+
+  @media (--screen-sm) {
+    margin-left: -var(--spacing-md);
+  }
+
+  /* Left line decoration */
+  &::before {
+    position: absolute;
+    top: -1.5em;
+    content: "";
+    height: var(--spacing-sm);
+    border-left: 1px solid var(--colour-primary);
+
+    @media (--screen-sm) {
+      top: 2em;
+      height: 1.5em;
+    }
+  }
+
+  /* Right line decoration */
+  &::after {
+    position: absolute;
+    top: -1.5em;
+    right: -1.3em;
+    content: "";
+    width: 3em;
+    border-top: 1px dashed var(--colour-white);
+
+    @media (--screen-sm) {
+      top: 0;
+      right: 0;
+      width: 2em;
+    }
+  }
+}

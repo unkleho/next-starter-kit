@@ -221,6 +221,7 @@ ul.primary-menu {
   }
 }
 
+/* Mobile only Hamburger */
 .primary-menu-button {
   position: absolute;
   top: 0;
