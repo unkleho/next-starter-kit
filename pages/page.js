@@ -3,6 +3,7 @@ import { gql, graphql } from 'react-apollo';
 
 import withData from '../lib/withData';
 import App from '../components/App';
+import Masthead from '../components/Masthead';
 // import Link from '../components/Link';
 import styles from './post.css';
 
@@ -14,14 +15,19 @@ class Page extends Component {
         query: {
           slug,
         },
-        // pathname,
       },
       content,
     } = this.props;
 
     return (
       <App pathname={`/${slug}`}>
-        <h1>{slug}</h1>
+        <Masthead
+          backgroundImageUrl="/static/images/masthead-loom-bg.jpg"
+        >
+          <div className="masthead__content">
+            <h1>{slug}</h1>
+          </div>
+        </Masthead>
 
         <article className="post-content antialiased container container--sm" dangerouslySetInnerHTML={{ __html: content }}></article>
 

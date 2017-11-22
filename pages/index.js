@@ -2,6 +2,7 @@ import { gql, graphql } from 'react-apollo';
 
 import withData from '../lib/withData';
 import App from '../components/App';
+import Masthead from '../components/Masthead';
 import Tile from '../components/Tile';
 import SectionTitle from '../components/SectionTitle';
 // import proxyRoutes from '../routes/proxyRoutes';
@@ -13,9 +14,9 @@ const HomePage = ({
 }) => (
   <App pathname={url.pathname}>
 
-    <div className="masthead">
-      <div className="masthead__bg"></div>
-
+    <Masthead
+      backgroundImageUrl="/static/images/masthead-background-01.gif"
+    >
       <div className="masthead__content">
         <h2>Welcome to the DX Lab:</h2>
 
@@ -28,7 +29,7 @@ const HomePage = ({
 
         <p className="masthead__intro-list">Collaborate / Experiment / Create / Engage / Be Open / Surprise</p>
       </div>
-    </div>
+    </Masthead>
 
     <div className="posts container container--lg">
       <SectionTitle title="Featured"></SectionTitle>
