@@ -23,12 +23,13 @@ main {
   margin-left: -1em;
   pointer-events: none;
   display: block;
-  width: 100vw;
+  width: calc(100% + 2em);
   height: 3em;
   background: linear-gradient(to bottom, var(--colour-black), rgba(0, 0, 0, 0.8));
 
   @media (--screen-sm) {
     top: -5.4em;
+    width: calc(100% + 4em);
     margin-left: -2em;
     margin-top: -6em;
     height: 7.7em;

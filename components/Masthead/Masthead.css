@@ -2,7 +2,7 @@
 
 .masthead {
   position: relative;
-  width: 100vw;
+  width: calc(100% + 2em);
   height: 30em;
   margin-left: -1em;
   margin-right: -1em;
@@ -11,7 +11,7 @@
   padding-right: 1em;
 
   @media (--screen-sm) {
-    width: 100%;
+    /*width: calc(100% + 2em);*/
     height: calc(100vh - 5.9em);
     margin-left: 0;
     margin-right: 0;

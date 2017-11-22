@@ -3,6 +3,10 @@
 .post-content {
   max-width: var(--container-width-sm);
 
+  font-size: var(--font-size-lg);
+  letter-spacing: -0.02em;
+  word-spacing: -0.04em;
+
   & img {
     max-width: 100%;
     height: auto;
