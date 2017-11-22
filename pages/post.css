@@ -8,3 +8,8 @@
     height: auto;
   }
 }
+
+h1 {
+  text-align: center;
+  letter-spacing: 0.3em;
+}

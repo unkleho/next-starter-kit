@@ -19,6 +19,7 @@ class Menu extends Component {
       ]),
       url: PropTypes.url,
     })),
+    onMenuItemClick: PropTypes.func,
   }
 
   static defaultProps = {
@@ -33,6 +34,7 @@ class Menu extends Component {
       labelledby,
       menuItems,
       pathname,
+      onMenuItemClick,
     } = this.props;
 
     return (
@@ -44,9 +46,18 @@ class Menu extends Component {
       >
         {menuItems.map((item, i) => {
           return (
-            <li className={`menu__item ${menuItemClassName}`} role="menuitem" key={`menu__item-${i}`}>
+            <li
+              key={`menu__item-${i}`}
+              className={`menu__item ${menuItemClassName}`}
+              role="menuitem"
+              onClick={onMenuItemClick}
+            >
               <Link prefetch to={item.url} key={item.url}>
-                <a className={pathname === item.url && 'is-active'}>{item.name}</a>
+                <a
+                  className={pathname === item.url && 'is-active'}
+                >
+                  {item.name}
+                </a>
               </Link>
             </li>
           );

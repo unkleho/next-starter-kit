@@ -23,7 +23,7 @@ class Page extends Component {
       <App pathname={`/${slug}`}>
         <h1>{slug}</h1>
 
-        <article className="post-content" dangerouslySetInnerHTML={{ __html: content }}></article>
+        <article className="post-content antialiased container container--sm" dangerouslySetInnerHTML={{ __html: content }}></article>
 
         <style jsx global>{styles}</style>
       </App>
@@ -32,23 +32,9 @@ class Page extends Component {
 
 }
 
-// const Page = ({
-//   url,
-//   // title,
-//   content,
-// }) => (
-//   <App pathname={url.pathname}>
-//     <h1>{url.pathname}</h1>
-//
-//     <article className="post-content" dangerouslySetInnerHTML={{ __html: content }}></article>
-//
-//     <style jsx global>{styles}</style>
-//   </App>
-// );
-
 const query = gql`
   query Post($slug: String!) {
-    posts(slug: $slug) {
+    pages(slug: $slug) {
       title
       content
     }
@@ -68,11 +54,11 @@ export default withData(graphql(query, {
   },
   props: ({ data }) => {
 
-    const post = data.posts && data.posts[0];
+    const page = data.pages && data.pages[0];
 
     return {
       ...data,
-      ...post,
+      ...page,
     };
   },
 })(Page));

@@ -24,7 +24,8 @@ class Header extends Component {
     };
   }
 
-  toggleMenu = () => {
+  handleMenuToggle = () => {
+    console.log('hi');
     this.setState({
       isMenuOpen: !this.state.isMenuOpen,
     });
@@ -53,6 +54,7 @@ class Header extends Component {
             labelledby="primary-menu-button"
             menuItems={menuItems}
             pathname={pathname}
+            onMenuItemClick={this.handleMenuToggle}
           />
         </nav>
 
@@ -70,7 +72,7 @@ class Header extends Component {
           aria-haspopup="true"
           aria-controls="primary-menu"
           aria-expanded="false"
-          onClick={this.toggleMenu}
+          onClick={this.handleMenuToggle}
         >
           <div>
             <span></span>
