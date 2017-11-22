@@ -13,7 +13,10 @@ class Menu extends Component {
     labelledby: PropTypes.string,
     pathname: PropTypes.string,
     menuItems: PropTypes.arrayOf(PropTypes.shape({
-      name: PropTypes.string,
+      name: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+      ]),
       url: PropTypes.url,
     })),
   }

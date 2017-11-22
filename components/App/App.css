@@ -1,5 +1,19 @@
 @import '../../styles/variables.css';
 
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 2em);
+
+  @media (--screen-sm) {
+    min-height: calc(100vh - 4.2em);
+  }
+}
+
+main {
+  flex: 1;
+}
+
 /* Background Gradient */
 .header-bg {
   position: sticky;

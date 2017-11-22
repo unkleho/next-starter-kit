@@ -9,6 +9,6 @@ li {
   list-style: none;
 }
 
-a:link {
+a:link, a:visited {
   color: var(--colour-white);
 }

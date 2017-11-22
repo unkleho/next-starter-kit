@@ -1,25 +1,22 @@
 import { gql, graphql } from 'react-apollo';
 
 import withData from '../lib/withData';
-import ExampleApp from '../components/examples/ExampleApp';
+import App from '../components/App';
 // import Link from '../components/Link';
-import Header from '../components/Header';
 import styles from './post.css';
 
 const PostPage = ({
-  url,
+  // url,
   title,
   content,
 }) => (
-  <ExampleApp>
-    <Header pathname={url.pathname} />
-
+  <App>
     <h1>{title}</h1>
 
     <article className="post-content" dangerouslySetInnerHTML={{ __html: content }}></article>
 
     <style jsx global>{styles}</style>
-  </ExampleApp>
+  </App>
 );
 
 const postQuery = gql`

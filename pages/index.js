@@ -34,7 +34,7 @@ const HomePage = ({
       <SectionTitle title="Featured"></SectionTitle>
 
       <div>
-        {posts && posts.map((post) => (
+        {posts && posts.map((post, i) => (
           <Tile
             title={post.title}
             url={post.url}
@@ -42,6 +42,7 @@ const HomePage = ({
             imageUrl={post.imageUrl}
             imageAltText={post.imageAltText}
             content={post.content}
+            key={`tile-${i}`}
           />
         ))}
       </div>

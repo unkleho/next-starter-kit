@@ -16,7 +16,7 @@ class App extends Component {
     } = this.props;
 
     return (
-      <main>
+      <div className="app">
         <Head>
           <title>Home | DX Lab - State Library of NSW</title>
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -31,14 +31,16 @@ class App extends Component {
         */}
         <div className="header-bg"></div>
 
-        {children}
+        <main>
+          {children}
+        </main>
 
         <Footer pathname={pathname} />
 
         <style jsx global>{baseStyles}</style>
         <style jsx global>{globalsStyles}</style>
         <style jsx>{styles}</style>
-      </main>
+      </div>
     );
   }
 
