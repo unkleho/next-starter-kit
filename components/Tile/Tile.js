@@ -25,7 +25,7 @@ class Tile extends Component {
     } = this.props;
 
     return (
-      <article className="tile">
+      <article className="tile tile--tall">
 
         <Link to={`/post/${slug}`}>
           <a>
@@ -33,9 +33,6 @@ class Tile extends Component {
               className="tile__image"
               style={{
                 backgroundImage: `url(${imageUrl})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                height: '16em',
               }}></div>
           </a>
         </Link>
