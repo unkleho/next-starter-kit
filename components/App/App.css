@@ -27,7 +27,9 @@ main {
   height: 3em;
 
   background: linear-gradient(to bottom, var(--colour-black), rgba(0, 0, 0, 0.8));
-  background: none;
+  opacity: 0;
+  transition: 1s;
+  /*background: none;*/
 
   @media (--screen-sm) {
     top: -5.4em;
@@ -61,6 +63,10 @@ main {
     }
   }
 }
+
+  .header-bg.is-active {
+    opacity: 1;
+  }
 
   .app__loading-screen {
     position: fixed;

@@ -9,6 +9,35 @@ import globalsStyles from '../../styles/globals.css';
 
 class App extends Component {
 
+  constructor() {
+    super();
+
+    this.state = {
+      isHeaderBackgroundActive: false,
+    };
+  }
+
+  handleOnScroll = (event) => {
+    // const scrollTop = event.srcElement.body.scrollTop;
+    // const itemTranslate = Math.min(0, (scrollTop / 3) - 60);
+
+    const scrollTop = event.srcElement.scrollingElement.scrollTop;
+
+    this.setState({
+      isHeaderBackgroundActive: (scrollTop > 100),
+    });
+
+    console.log(event.srcElement.scrollingElement.scrollTop);
+  }
+
+  componentDidMount() {
+    document.addEventListener('scroll', this.handleOnScroll);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.handleOnScroll);
+  }
+
   render() {
     const {
       children,
@@ -16,8 +45,10 @@ class App extends Component {
       isLoading,
     } = this.props;
 
+    console.log(this.state.isHeaderBackgroundActive);
+
     return (
-      <div className="app">
+      <div className="app" onScroll={this.handleOnScroll}>
         <Head>
           <title>Home | DX Lab - State Library of NSW</title>
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -30,7 +61,7 @@ class App extends Component {
           .header-bg is needed for tricky position: sticky css
           Includes line decoration for .primary-menu
         */}
-        <div className="header-bg"></div>
+        <div className={`header-bg ${this.state.isHeaderBackgroundActive && 'is-active'}`}></div>
 
         <div className={`app__loading-screen ${isLoading && 'app__loading-screen--is-active'}`}></div>
 
