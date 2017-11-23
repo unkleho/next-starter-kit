@@ -62,7 +62,6 @@
     letter-spacing: 0.25em;
     line-height: 1.2;
     font-size: var(--font-size-xlg);
-    font-weight: bold;
 
     @media (--screen-sm) {
       font-size: var(--font-size-xxlg);

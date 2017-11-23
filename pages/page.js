@@ -24,7 +24,8 @@ class Page extends Component {
         <Masthead
           title={(<div>{slug}<br/><a href="">#dxlab</a></div>)}
           // backgroundImageUrl="/static/images/masthead-pbn-home.jpg"
-          backgroundImageUrl="/static/images/masthead-meridian-f.jpg"
+          // backgroundImageUrl="/static/images/masthead-meridian-f.jpg"
+          backgroundImageUrl={images[slug]}
         >
         </Masthead>
 
@@ -52,7 +53,6 @@ const query = gql`
 // available on the `data` prop of the wrapped component (ExamplePage)
 export default withData(graphql(query, {
   options: ({ url: { query: { slug } } }) => {
-    // console.log(slug);
     return {
       variables: {
         slug,
@@ -60,7 +60,6 @@ export default withData(graphql(query, {
     };
   },
   props: ({ data }) => {
-
     const page = data.pages && data.pages[0];
 
     return {
@@ -69,3 +68,10 @@ export default withData(graphql(query, {
     };
   },
 })(Page));
+
+const images = {
+  about: '/static/images/masthead-loom-bg.jpg',
+  experiments: '/static/images/masthead-meridian-f.jpg',
+  fellowships: '/static/images/masthead-bookman.jpg',
+  code: '/static/images/masthead-portico.jpg',
+};
