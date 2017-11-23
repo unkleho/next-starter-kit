@@ -16,10 +16,14 @@ const HomePage = ({
 
     <Masthead
       subtitle="Welcome to the DX Lab:"
-      title={(<div><span>The State Library of NSW's</span><br/>
-      Experimental<br/>
-      Innovation Lab<br/>
-      <a href="https://twitter.com">#dxlab</a></div>)}
+      title={(
+        <div>
+          <span>The State Library of NSW's</span><br/>
+          Experimental<br/>
+          Innovation Lab<br/>
+          <a href="https://twitter.com">#dxlab</a>
+        </div>
+      )}
       text="We build and support new ways of design thinking, experimentation and deep research with digital technologies."
       sideText="Collaborate / Experiment / Create / Engage / Be Open / Surprise"
       backgroundImageUrl="/static/images/masthead-background-01.gif"

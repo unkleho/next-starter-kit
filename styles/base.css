@@ -31,9 +31,10 @@ body {
   }
 }
 
-h1 {
+h1, h2, h3, h4 {
   font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 0.2em;
 }
 
 h2:first-child {
@@ -55,6 +56,18 @@ p {
 
 strong {
   font-weight: 700;
+}
+
+blockquote {
+  font-style: italic;
+  border-left: 3px dashed var(--colour-white);
+  margin-left: -1rem;
+  padding-left: calc(2rem - 3px);
+
+  @media (--screen-md) {
+    border-width: 1px;
+    padding-left: calc(1rem - 1px);
+  }
 }
 
 button {

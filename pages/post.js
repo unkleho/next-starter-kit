@@ -15,8 +15,8 @@ class Post extends Component {
   }
 
   render() {
-    // console.log(this.props.featuredMedia);
     const featuredImageUrl = this.props.featuredMedia && this.props.featuredMedia.sourceUrl;
+    const featuredImageDescription = this.props.featuredMedia && this.props.featuredMedia.description;
     const authorName = this.props.author && this.props.author.name;
     const dateString = formatDate(this.props.date);
 
@@ -24,17 +24,24 @@ class Post extends Component {
       <App>
 
         <article
-          className="post-content antialiased container container--sm"
+          className="post antialiased container container--md"
         >
 
           <header>
-            <img src={featuredImageUrl} />
-            <h1>{this.props.title}</h1>
-            <div>By {authorName}</div>
-            <div>{dateString}</div>
+            <div className="post__featured-image-holder">
+              <img
+                className="post__featured-image"
+                src={featuredImageUrl}
+                alt={featuredImageDescription}
+              />
+              <div className="post__date">{dateString}</div>
+            </div>
+            <h1 className="post__title">{this.props.title}</h1>
+            <div className="post__author">By <a href="">{authorName}</a></div>
           </header>
 
           <div
+            className="post__content"
             dangerouslySetInnerHTML={{ __html: this.props.content }}>
           </div>
 
@@ -47,23 +54,6 @@ class Post extends Component {
 
 }
 
-// const Post = ({
-//   // url,
-//   title,
-//   content,
-// }) => (
-//   <App>
-//     <h1>{title}</h1>
-//
-//     <article
-//       className="post-content antialiased container container--sm"
-//       dangerouslySetInnerHTML={{ __html: content }}
-//     ></article>
-//
-//     <style jsx global>{styles}</style>
-//   </App>
-// );
-
 const postQuery = gql`
   query Post($slug: String!) {
     posts(slug: $slug) {
@@ -71,6 +61,7 @@ const postQuery = gql`
       content
       featuredMedia {
         sourceUrl
+        description
       }
       author {
         name

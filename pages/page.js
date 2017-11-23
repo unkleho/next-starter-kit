@@ -23,14 +23,12 @@ class Page extends Component {
       <App pathname={`/${slug}`}>
         <Masthead
           title={(<div>{slug}<br/><a href="">#dxlab</a></div>)}
-          // backgroundImageUrl="/static/images/masthead-pbn-home.jpg"
-          // backgroundImageUrl="/static/images/masthead-meridian-f.jpg"
           backgroundImageUrl={images[slug]}
         >
         </Masthead>
 
         <article
-          className="post-content antialiased container container--sm" dangerouslySetInnerHTML={{ __html: content }}>
+          className="post-content antialiased container container--md" dangerouslySetInnerHTML={{ __html: content }}>
         </article>
 
         <style jsx global>{styles}</style>

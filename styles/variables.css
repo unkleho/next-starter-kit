@@ -121,7 +121,12 @@
 
   --container-width-xs: 20em;
   --container-width-sm: 33.5em;
-  --container-width-md: 44em;
+  --container-width-md: 40em;
   --container-width-lg: 62em;
   --container-width-xlg: 120em;
+
+  /*
+   * Custom Properties
+   * http://cssnext.io/features/#custom-properties-set-apply
+   * ------------------------------------------------------------------------ */
 }
