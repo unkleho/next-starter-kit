@@ -21,7 +21,7 @@ class Post extends Component {
     const dateString = formatDate(this.props.date);
 
     return (
-      <App>
+      <App isLoading={this.props.loading}>
 
         <article
           className="post antialiased container container--md"

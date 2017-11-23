@@ -13,6 +13,7 @@ class App extends Component {
     const {
       children,
       pathname,
+      isLoading,
     } = this.props;
 
     return (
@@ -31,8 +32,10 @@ class App extends Component {
         */}
         <div className="header-bg"></div>
 
+        <div className={`app__loading-screen ${isLoading && 'app__loading-screen--is-active'}`}></div>
+
         <main>
-          {children}
+          {!isLoading && children}
         </main>
 
         <Footer pathname={pathname} />

@@ -13,6 +13,14 @@ article {
   }
 }
 
+.masthead__title {
+
+  /* Adjust glitch effect */
+  &.glitch::after, &.glitch::before {
+    top: 1.1em;
+  }
+}
+
 .posts {
   lost-utility: clearfix;
 }

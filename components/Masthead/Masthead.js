@@ -2,6 +2,7 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './Masthead.css';
+import glitchStyles from '../../styles/glitch.css';
 
 class Masthead extends Component {
 
@@ -26,10 +27,10 @@ class Masthead extends Component {
 
         <div className={`masthead__content container container--${this.props.size ? this.props.size : 'md'}`}>
           {this.props.subtitle && (
-            <h2 className="masthead__subtitle">{this.props.subtitle}</h2>
+            <div className="masthead__subtitle">{this.props.subtitle}</div>
           )}
 
-          <h1 className="masthead__title">{this.props.title}</h1>
+          <h1 className="masthead__title glitch" data-text={this.props.slug}>{this.props.title}</h1>
 
           {this.props.text && (
             <p className="masthead__intro-text">{this.props.text}</p>
@@ -41,6 +42,7 @@ class Masthead extends Component {
         {/* {this.props.children} */}
 
         <style global jsx>{styles}</style>
+        <style global jsx>{glitchStyles}</style>
       </div>
     );
   }

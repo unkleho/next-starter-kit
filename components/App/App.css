@@ -61,3 +61,21 @@ main {
     }
   }
 }
+
+  .app__loading-screen {
+    position: fixed;
+    z-index: 6;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    background-color: var(--colour-black);
+    transition: 0.3s;
+  }
+
+    .app__loading-screen--is-active {
+      display: block;
+      opacity: 1;
+    }

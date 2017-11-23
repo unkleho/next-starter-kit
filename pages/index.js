@@ -11,8 +11,9 @@ import styles from './index.css';
 const HomePage = ({
   url,
   posts,
+  loading: isLoading,
 }) => (
-  <App pathname={url.pathname}>
+  <App pathname={url.pathname} isLoading={isLoading}>
 
     <Masthead
       subtitle="Welcome to the DX Lab:"
@@ -27,6 +28,7 @@ const HomePage = ({
       text="We build and support new ways of design thinking, experimentation and deep research with digital technologies."
       sideText="Collaborate / Experiment / Create / Engage / Be Open / Surprise"
       backgroundImageUrl="/static/images/masthead-background-01.gif"
+      slug="Experimental Innovation Lab"
       size="lg"
     >
     </Masthead>
@@ -60,7 +62,7 @@ const HomePage = ({
       ))}
     </div> */}
 
-    <style jsx>{styles}</style>
+    <style global jsx>{styles}</style>
   </App>
 );
 

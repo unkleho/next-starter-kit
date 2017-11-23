@@ -17,13 +17,15 @@ class Page extends Component {
         },
       },
       content,
+      loading: isLoading,
     } = this.props;
 
     return (
-      <App pathname={`/${slug}`}>
+      <App pathname={`/${slug}`} isLoading={isLoading}>
         <Masthead
           title={(<div>{slug}<br/><a href="">#dxlab</a></div>)}
           backgroundImageUrl={images[slug]}
+          slug={slug}
         >
         </Masthead>
 
@@ -32,7 +34,6 @@ class Page extends Component {
             className="post__content" dangerouslySetInnerHTML={{ __html: content }}>
           </div>
         </article>
-
 
         <style jsx global>{styles}</style>
       </App>
