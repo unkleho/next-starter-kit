@@ -25,7 +25,9 @@ main {
   display: block;
   width: calc(100% + 2em);
   height: 3em;
+
   background: linear-gradient(to bottom, var(--colour-black), rgba(0, 0, 0, 0.8));
+  background: none;
 
   @media (--screen-sm) {
     top: -5.4em;

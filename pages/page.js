@@ -22,11 +22,10 @@ class Page extends Component {
     return (
       <App pathname={`/${slug}`}>
         <Masthead
-          backgroundImageUrl="/static/images/masthead-loom-bg.jpg"
+          title={(<div>{slug}<br/><a href="">#dxlab</a></div>)}
+          // backgroundImageUrl="/static/images/masthead-pbn-home.jpg"
+          backgroundImageUrl="/static/images/masthead-meridian-f.jpg"
         >
-          <div className="masthead__content">
-            <h1>{slug}</h1>
-          </div>
         </Masthead>
 
         <article

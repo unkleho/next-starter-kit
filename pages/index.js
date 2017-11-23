@@ -15,20 +15,16 @@ const HomePage = ({
   <App pathname={url.pathname}>
 
     <Masthead
+      subtitle="Welcome to the DX Lab:"
+      title={(<div><span>The State Library of NSW's</span><br/>
+      Experimental<br/>
+      Innovation Lab<br/>
+      <a href="https://twitter.com">#dxlab</a></div>)}
+      text="We build and support new ways of design thinking, experimentation and deep research with digital technologies."
+      sideText="Collaborate / Experiment / Create / Engage / Be Open / Surprise"
       backgroundImageUrl="/static/images/masthead-background-01.gif"
+      size="lg"
     >
-      <div className="masthead__content">
-        <h2>Welcome to the DX Lab:</h2>
-
-        <h1><span>The State Library of NSW's</span><br/>
-        Experimental<br/>
-        Innovation Lab<br/>
-        <a href="https://twitter.com">#dxlab</a></h1>
-
-        <p className="masthead__intro-text">We build and support new ways of design thinking, experimentation and deep research with digital technologies.</p>
-
-        <p className="masthead__intro-list">Collaborate / Experiment / Create / Engage / Be Open / Surprise</p>
-      </div>
     </Masthead>
 
     <div className="posts container container--lg">

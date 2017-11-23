@@ -3,23 +3,20 @@ import PropTypes from 'prop-types';
 
 import styles from './Masthead.css';
 
-class Button extends Component {
+class Masthead extends Component {
 
   static propTypes = {
-    content: PropTypes.string,
-    url: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string,
+    text: PropTypes.string,
+    sideText: PropTypes.string,
+    backgroundImageUrl: PropTypes.string,
     size: PropTypes.string,
   }
 
   render() {
-    // const {
-    //   url,
-    //   content,
-    //   size,
-    // } = this.props;
-
     return (
-      <div className="masthead">
+      <div className={`masthead ${this.props.size && `masthead--${this.props.size}`}`}>
         <div
           className="masthead__bg"
           style={this.props.backgroundImageUrl && {
@@ -27,7 +24,21 @@ class Button extends Component {
           }}
         ></div>
 
-        {this.props.children}
+        <div className={`masthead__content container container--${this.props.size ? this.props.size : 'md'}`}>
+          {this.props.subtitle && (
+            <h2 className="masthead__subtitle">{this.props.subtitle}</h2>
+          )}
+
+          <h1 className="masthead__title">{this.props.title}</h1>
+
+          {this.props.text && (
+            <p className="masthead__intro-text">{this.props.text}</p>
+          )}
+
+          <p className="masthead__intro-list">{this.props.sideText}</p>
+        </div>
+
+        {/* {this.props.children} */}
 
         <style global jsx>{styles}</style>
       </div>
@@ -36,4 +47,4 @@ class Button extends Component {
 
 }
 
-export default Button;
+export default Masthead;
