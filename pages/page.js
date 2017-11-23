@@ -27,9 +27,12 @@ class Page extends Component {
         >
         </Masthead>
 
-        <article
-          className="post-content antialiased container container--md" dangerouslySetInnerHTML={{ __html: content }}>
+        <article className="post antialiased container container--md">
+          <div
+            className="post__content" dangerouslySetInnerHTML={{ __html: content }}>
+          </div>
         </article>
+
 
         <style jsx global>{styles}</style>
       </App>

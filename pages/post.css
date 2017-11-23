@@ -17,6 +17,11 @@
       width: calc(100% + 2em);
       margin-left: -2em;
     }
+
+    @media (--screen-lg) {
+      width: calc(100% + 4em);
+      margin-left: -4em;
+    }
   }
 
   .post__title {
@@ -35,6 +40,11 @@
       padding-left: 3rem;
       margin-left: -2rem;
     }
+
+    @media (--screen-lg) {
+      padding-left: 5rem;
+      margin-left: -4rem;
+    }
   }
 
   .post__author {
@@ -45,7 +55,7 @@
 
   .post__date {
     position: absolute;
-    top: 0;
+    top: -1px;
     right: 1.2em;
     line-height: 1;
     padding: var(--spacing-xxs);
@@ -69,8 +79,13 @@
     }
 
     & img {
-      max-width: 100%;
+      max-width: calc(100% + 1rem);
       height: auto;
+
+      @media (--screen-sm) {
+        max-width: calc(100% + 4rem);
+        margin-left: -4rem;
+      }
     }
 
     &::before {
