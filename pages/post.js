@@ -23,7 +23,7 @@ class Post extends Component {
     const dateString = formatDate(this.props.date);
 
     return (
-      <App isLoading={this.props.loading}>
+      <App isLoading={this.props.loading} url={this.props.url.pathname}>
 
         <article
           className="post antialiased container container--md"
@@ -47,7 +47,7 @@ class Post extends Component {
             dangerouslySetInnerHTML={{ __html: this.props.content }}>
           </div>
 
-          <ShareBox />
+          <ShareBox pathname={this.props.url.pathname} />
 
         </article>
 

@@ -2,6 +2,7 @@
 
 .header {
   position: sticky;
+  position: -webkit-sticky;
   top: 1em;
   z-index: 10;
   display: flex;
@@ -42,6 +43,7 @@
 
   @media (--screen-sm) {
     position: absolute;
+    top: 0;
     right: 0;
     margin-left: 0;
     padding-left: 0;
