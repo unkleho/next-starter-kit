@@ -4,6 +4,7 @@ import { gql, graphql } from 'react-apollo';
 
 import withData from '../lib/withData';
 import App from '../components/App';
+import ShareBox from '../components/ShareBox';
 // import Link from '../components/Link';
 import styles from './post.css';
 
@@ -44,6 +45,8 @@ class Post extends Component {
             className="post__content"
             dangerouslySetInnerHTML={{ __html: this.props.content }}>
           </div>
+
+          <ShareBox />
 
         </article>
 

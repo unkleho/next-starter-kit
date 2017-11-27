@@ -83,8 +83,8 @@
       height: auto;
 
       @media (--screen-sm) {
-        max-width: calc(100% + 4rem);
-        margin-left: -4rem;
+        /*max-width: calc(100% + 4rem);*/
+        /*margin-left: -4rem;*/
       }
     }
 
