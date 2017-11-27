@@ -7,22 +7,21 @@ import Link from '../Link';
 class Button extends Component {
 
   static propTypes = {
-    content: PropTypes.string,
     url: PropTypes.string,
     size: PropTypes.string,
   }
 
   render() {
     const {
+      children,
       url,
-      content,
       size,
     } = this.props;
 
     return (
       <Link to={url}>
         <a className={`button ${size ? `button--${size}` : ''}`}>
-          {content}
+          {children}
 
           <style jsx>{styles}</style>
         </a>

@@ -135,4 +135,9 @@
     letter-spacing: 0.2em;
     font-variant-ligatures: none;
   }
+
+  --font-antialiased: {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }

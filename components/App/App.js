@@ -6,6 +6,7 @@ import Footer from '../Footer';
 import styles from './App.css';
 import baseStyles from '../../styles/base.css';
 import globalsStyles from '../../styles/globals.css';
+import loaderStyles from '../../styles/loader.css';
 
 const SCROLLTOP_THRESHOLD = 100;
 
@@ -58,7 +59,13 @@ class App extends Component {
         */}
         <div className={`header-bg ${this.state.isHeaderBackgroundActive && 'is-active'}`}></div>
 
-        <div className={`app__loading-screen ${isLoading && 'app__loading-screen--is-active'}`}></div>
+        <div className={`app__loading-screen ${isLoading && 'app__loading-screen--is-active'}`}>
+          <div className="loader-wrapper">
+            <div className="loader">
+              <div className="ball"></div>
+            </div>
+          </div>
+        </div>
 
         <main>
           {!isLoading && children}
@@ -68,6 +75,7 @@ class App extends Component {
 
         <style jsx global>{baseStyles}</style>
         <style jsx global>{globalsStyles}</style>
+        <style jsx>{loaderStyles}</style>
         <style jsx>{styles}</style>
       </div>
     );

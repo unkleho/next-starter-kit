@@ -5,6 +5,7 @@ import { gql, graphql } from 'react-apollo';
 import withData from '../lib/withData';
 import App from '../components/App';
 import ShareBox from '../components/ShareBox';
+import Button from '../components/Button';
 import { formatDate } from '../lib';
 // import Link from '../components/Link';
 import styles from './post.css';
@@ -26,7 +27,7 @@ class Post extends Component {
       <App isLoading={this.props.loading} url={this.props.url.pathname}>
 
         <article
-          className="post antialiased container container--md"
+          className="post container container--md"
         >
 
           <header>
@@ -40,6 +41,11 @@ class Post extends Component {
             </div>
             <h1 className="post__title">{this.props.title}</h1>
             <div className="post__author">By <a href="">{authorName}</a></div>
+
+            <div className="post__cta">
+              <Button href="">LAUNCH EXPERIMENT</Button>
+              <Button href="">CODE</Button>
+            </div>
           </header>
 
           <div

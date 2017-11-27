@@ -42,11 +42,11 @@ class Tile extends Component {
           <div className="tile__content" dangerouslySetInnerHTML={{ __html: content }}></div>
 
           <div className="tile__cta">
-            <Button content="Launch" />
+            <Button>Launch</Button>
 
             <div className="tile__cta__secondary">
-              <Button content="Blog" size="sm" />
-              <Button content="Code" size="sm" />
+              <Button size="sm">Blog</Button>
+              <Button size="sm">Code</Button>
             </div>
           </div>
         </div>
