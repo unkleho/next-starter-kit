@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './Tile.css';
 import Link from '../Link';
+import Button from '../Button';
 
 class Tile extends Component {
 
@@ -39,8 +40,16 @@ class Tile extends Component {
         <div className="tile__info">
           <h2>{title}</h2>
           <div className="tile__content" dangerouslySetInnerHTML={{ __html: content }}></div>
-        </div>
 
+          <div className="tile__cta">
+            <Button content="Launch" />
+
+            <div className="tile__cta__secondary">
+              <Button content="Blog" size="sm" />
+              <Button content="Code" size="sm" />
+            </div>
+          </div>
+        </div>
 
         <style global jsx>{styles}</style>
 

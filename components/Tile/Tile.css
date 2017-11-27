@@ -37,7 +37,7 @@
     }
 
     @nest .tile--tall & {
-      height: 32em;
+      height: 20em;
     }
   }
 

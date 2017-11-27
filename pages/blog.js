@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { gql, graphql } from 'react-apollo';
+import InfiniteScroll from 'react-infinite-scroller';
 
 import withData from '../lib/withData';
 import App from '../components/App';
@@ -10,15 +11,12 @@ import styles from './index.css';
 
 class Blog extends Component {
 
-  componentDidMount() {
-    this.props.loadMore();
-  }
-
   render() {
     const {
       url,
       posts,
       loading: isLoading,
+      loadMore,
     } = this.props;
 
     return (
@@ -41,20 +39,27 @@ class Blog extends Component {
         <div className="posts container container--lg">
           <SectionTitle title="Posts"></SectionTitle>
 
-          <div>
-            {posts && posts.map((post, i) => (
-              <SimpleTile
-                subtitle="17.10.2017"
-                title={post.title}
-                url={post.url}
-                slug={post.slug}
-                imageUrl={post.imageUrl}
-                imageAltText={post.imageAltText}
-                content={post.content}
-                key={`tile-${i}`}
-              />
-            ))}
-          </div>
+          {posts && (
+            <InfiniteScroll
+                pageStart={0}
+                loadMore={loadMore}
+                hasMore={posts.length < 46}
+                loader={<div className="loader">Loading ...</div>}
+            >
+              {posts.map((post, i) => (
+                <SimpleTile
+                  subtitle="17.10.2017"
+                  title={post.title}
+                  url={post.url}
+                  slug={post.slug}
+                  imageUrl={post.imageUrl}
+                  imageAltText={post.imageAltText}
+                  content={post.content}
+                  key={`tile-${i}`}
+                />
+              ))}
+            </InfiniteScroll>
+          )}
         </div>
 
         <style global jsx>{styles}</style>
@@ -64,6 +69,7 @@ class Blog extends Component {
 
 }
 
+// TODO: Remove totalPosts, hack to get all post count. Should be it's own field in GraphQL.
 const query = gql`
   query Posts($offset: Int) {
     posts(limit: 10, offset: $offset) {

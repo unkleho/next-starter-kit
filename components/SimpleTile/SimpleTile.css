@@ -47,6 +47,7 @@
 
   .simple-tile__info {
     position: relative;
+
     /*display: flex;*/
     flex: 1;
     flex-direction: column;
@@ -54,6 +55,7 @@
     margin-left: -0.2em;
     padding-top: 0.2em;
     padding-left: 0.3em;
+
     /*min-height: 3em;*/
     background-color: var(--colour-black);
     -webkit-font-smoothing: antialiased;
@@ -68,22 +70,15 @@
     margin-top: 0;
     margin-left: -0.05em;
     margin-bottom: 0;
+
     /*display: inline-table;*/
     padding-right: 0.1em;
-    font-size: var(--spacing-lg);
+    font-size: var(--spacing-md);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.2em;
     line-height: 1.2;
     color: var(--colour-white);
-
-    /*@media (--screen-sm) {
-      padding-left: var(--spacing-xxs);
-    }*/
-
-    @media (--screen-md) {
-      /*position: absolute;*/
-    }
   }
 
   .simple-tile__subtitle {
@@ -96,6 +91,7 @@
 
   .simple-tile__content {
     font-size: var(--font-size-sm);
+
     /*padding-left: var(--spacing-sm);*/
     padding-top: var(--spacing-md);
 

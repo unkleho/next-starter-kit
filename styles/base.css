@@ -71,6 +71,11 @@ blockquote {
   }
 }
 
+figcaption {
+  font-size: var(--font-size-sm);
+  opacity: 0.6;
+}
+
 button {
   background: none;
   border: none;

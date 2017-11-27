@@ -7,6 +7,8 @@ import styles from './App.css';
 import baseStyles from '../../styles/base.css';
 import globalsStyles from '../../styles/globals.css';
 
+const SCROLLTOP_THRESHOLD = 100;
+
 class App extends Component {
 
   constructor() {
@@ -18,16 +20,11 @@ class App extends Component {
   }
 
   handleOnScroll = (event) => {
-    // const scrollTop = event.srcElement.body.scrollTop;
-    // const itemTranslate = Math.min(0, (scrollTop / 3) - 60);
-
     const scrollTop = event.srcElement.scrollingElement.scrollTop;
 
     this.setState({
-      isHeaderBackgroundActive: (scrollTop > 100),
+      isHeaderBackgroundActive: (scrollTop > SCROLLTOP_THRESHOLD),
     });
-
-    // console.log(event.srcElement.scrollingElement.scrollTop);
   }
 
   componentDidMount() {
@@ -44,8 +41,6 @@ class App extends Component {
       pathname,
       isLoading,
     } = this.props;
-
-    // console.log(this.state.isHeaderBackgroundActive);
 
     return (
       <div className="app" onScroll={this.handleOnScroll}>
