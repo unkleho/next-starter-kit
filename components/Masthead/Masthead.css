@@ -3,7 +3,7 @@
 .masthead {
   position: relative;
   width: calc(100% + 2em);
-  height: 30em;
+  height: 20em;
   margin-top: -3em;
   margin-left: -1em;
   margin-right: -1em;
@@ -164,8 +164,8 @@
     z-index: 5;
     height: 100%;
 
-    @media (--screen-sm) {
+    /*@media (--screen-sm) {
       margin: 0 auto;
       max-width: var(--container-width-lg);
-    }
+    }*/
   }

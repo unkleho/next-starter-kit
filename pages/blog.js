@@ -7,7 +7,8 @@ import App from '../components/App';
 import Masthead from '../components/Masthead';
 import SimpleTile from '../components/SimpleTile';
 import SectionTitle from '../components/SectionTitle';
-import styles from './index.css';
+import { formatDate } from '../lib';
+// import styles from './index.css';
 
 class Blog extends Component {
 
@@ -48,7 +49,7 @@ class Blog extends Component {
             >
               {posts.map((post, i) => (
                 <SimpleTile
-                  subtitle="17.10.2017"
+                  subtitle={post.date}
                   title={post.title}
                   url={post.url}
                   slug={post.slug}
@@ -62,20 +63,21 @@ class Blog extends Component {
           )}
         </div>
 
-        <style global jsx>{styles}</style>
+        {/* <style global jsx>{styles}</style> */}
       </App>
     );
   }
 
 }
 
-// TODO: Remove totalPosts, hack to get all post count. Should be it's own field in GraphQL.
+// TODO: Create totalPosts field in Graphql
 const query = gql`
   query Posts($offset: Int) {
     posts(limit: 10, offset: $offset) {
       title
       slug
       excerpt
+      date
       featuredMedia {
         altText
         caption
@@ -103,6 +105,7 @@ export default withData(graphql(query, {
       posts: data && data.posts && data.posts.map((post) => {
         return {
           title: post.title,
+          date: formatDate(post.date),
           content: post.excerpt,
           slug: post.slug,
           imageUrl: post.featuredMedia.sizes.full.sourceUrl,

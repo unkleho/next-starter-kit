@@ -5,6 +5,7 @@ import { gql, graphql } from 'react-apollo';
 import withData from '../lib/withData';
 import App from '../components/App';
 import ShareBox from '../components/ShareBox';
+import { formatDate } from '../lib';
 // import Link from '../components/Link';
 import styles from './post.css';
 
@@ -95,8 +96,3 @@ export default withData(graphql(postQuery, {
     };
   },
 })(Post));
-
-const formatDate = (date) => {
-  const d = new Date(Date.parse(date));
-  return `${d.getDay()}.${d.getMonth()}.${d.getFullYear()}`;
-};
