@@ -23,9 +23,8 @@
     transform: rotate(-90deg);
     transform-origin: top left;
     font-size: var(--font-size-sm);
-    text-transform: uppercase;
     line-height: 1;
-    letter-spacing: 0.2em;
+    @apply --font-uppercase;
   }
 
   .share-box__icons {

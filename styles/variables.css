@@ -129,4 +129,10 @@
    * Custom Properties
    * http://cssnext.io/features/#custom-properties-set-apply
    * ------------------------------------------------------------------------ */
+
+  --font-uppercase: {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-variant-ligatures: none;
+  }
 }

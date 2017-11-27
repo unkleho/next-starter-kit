@@ -9,8 +9,9 @@
   border: 1px solid var(--colour-white);
   line-height: 1;
   height: 3em;
-  text-transform: uppercase;
-  letter-spacing: 0.3em;
+  @apply --font-uppercase;
+
+  letter-spacing: 0.4em;
   font-size: var(--font-size-sm);
   text-align: center;
   width: 100%;

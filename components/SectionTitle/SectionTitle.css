@@ -3,9 +3,8 @@
 .section-title {
   position: relative;
   font-weight: 100;
-  text-transform: uppercase;
   font-size: var(--font-size-sm);
-  letter-spacing: 0.25em;
+  @apply --font-uppercase;
   line-height: 1;
   margin-bottom: var(--spacing-md);
 

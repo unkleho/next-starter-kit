@@ -58,10 +58,9 @@
       padding-right: 0.1em;
       font-size: var(--spacing-lg);
       font-weight: 700;
+      @apply --font-uppercase;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
       line-height: 1.3;
       color: var(--colour-white);
       background-color: var(--colour-black);

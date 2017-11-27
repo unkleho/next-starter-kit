@@ -23,8 +23,7 @@
     transform: rotate(-90deg);
     transform-origin: top left;
     font-size: var(--font-size-sm);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+    @apply --font-uppercase;
     line-height: 1;
   }
 
@@ -33,10 +32,9 @@ ul.footer-menu {
   display: flex;
   flex-direction: column;
   margin-bottom: var(--spacing-sm);
-  text-align: right;
-  text-transform: uppercase;
   font-size: var(--font-size-sm);
-  letter-spacing: 0.2em;
+  @apply --font-uppercase;
+  text-align: right;
 
   @media (--screen-sm) {
     flex-direction: row;

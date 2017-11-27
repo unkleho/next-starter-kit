@@ -32,10 +32,8 @@ body {
 }
 
 h1, h2, h3, h4 {
+  @apply --font-uppercase;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-variant-ligatures: none;
 }
 
 h2 {

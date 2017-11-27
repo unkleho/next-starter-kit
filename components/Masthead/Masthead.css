@@ -151,9 +151,8 @@
       right: 0;
       transform: rotate(-90deg);
       transform-origin: bottom right;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
       font-size: var(--font-size-sm);
+      @apply --font-uppercase;
       line-height: 1;
       opacity: 0.3;
     }

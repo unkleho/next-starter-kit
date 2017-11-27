@@ -75,8 +75,7 @@
     padding-right: 0.1em;
     font-size: var(--spacing-md);
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
+    @apply --font-uppercase;
     line-height: 1.2;
     color: var(--colour-white);
   }
