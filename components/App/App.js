@@ -27,7 +27,7 @@ class App extends Component {
       isHeaderBackgroundActive: (scrollTop > 100),
     });
 
-    console.log(event.srcElement.scrollingElement.scrollTop);
+    // console.log(event.srcElement.scrollingElement.scrollTop);
   }
 
   componentDidMount() {
@@ -45,7 +45,7 @@ class App extends Component {
       isLoading,
     } = this.props;
 
-    console.log(this.state.isHeaderBackgroundActive);
+    // console.log(this.state.isHeaderBackgroundActive);
 
     return (
       <div className="app" onScroll={this.handleOnScroll}>

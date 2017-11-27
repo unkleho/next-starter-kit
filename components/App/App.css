@@ -29,7 +29,6 @@ main {
   background: linear-gradient(to bottom, var(--colour-black), rgba(0, 0, 0, 0.8));
   opacity: 0;
   transition: 1s;
-  /*background: none;*/
 
   @media (--screen-sm) {
     top: -5.4em;
