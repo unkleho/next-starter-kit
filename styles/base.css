@@ -44,10 +44,10 @@ h2:first-child {
 a:link, a:visited {
   text-decoration: none;
   color: var(--colour-primary);
+}
 
-  /*color: var(--colour-white);*/
-
-  /*border-bottom: 1px solid var(--colour-primary-darkest);*/
+a:hover, a:active {
+  text-decoration: underline;
 }
 
 p {

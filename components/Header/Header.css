@@ -168,9 +168,9 @@ ul.primary-menu {
       padding: 0;
     }
 
-    &:hover {
+    /*&:hover {
       border-bottom: 1px solid var(--colour-highlight);
-    }
+    }*/
 
     &.is-active {
       color: var(--colour-highlight);

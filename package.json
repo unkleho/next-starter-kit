@@ -21,7 +21,6 @@
     "babel-eslint": "^7.2.3",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-plugin-wrap-in-js": "^1.1.1",
-    "corporate-icon-library": "git+ssh://git@github.com:slnsw/corporate-icon-library#v0.0.1",
     "cssnano": "^3.10.0",
     "dotenv": "^4.0.0",
     "eslint": "^3.19.0",

@@ -1,9 +1,9 @@
 import Head from 'next/head';
 
 import baseStyles from '../../styles/base.css';
-import helpersStyles from '../../styles/helpers.css';
+import globalStyles from '../../styles/globals.css';
 
-export ({ children }) => (
+export default ({ children }) => (
   <main>
     <Head>
       <title>Home | DX Lab - State Library of NSW</title>
@@ -15,6 +15,6 @@ export ({ children }) => (
     {children}
 
     <style jsx global>{baseStyles}</style>
-    <style jsx global>{helpersStyles}</style>
+    <style jsx global>{globalStyles}</style>
   </main>
 );

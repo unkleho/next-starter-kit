@@ -1,3 +1,4 @@
+import { Component } from 'react';
 import { gql, graphql } from 'react-apollo';
 
 import withData from '../lib/withData';
@@ -7,53 +8,65 @@ import SimpleTile from '../components/SimpleTile';
 import SectionTitle from '../components/SectionTitle';
 import styles from './index.css';
 
-const HomePage = ({
-  url,
-  posts,
-  loading: isLoading,
-}) => (
-  <App pathname={url.pathname} isLoading={isLoading}>
+class Blog extends Component {
 
-    <Masthead
-      // subtitle="Welcome to the DX Lab:"
-      title={(
-        <div>
-          BLOG<br/>
-          <a href="https://twitter.com">#dxlab</a>
+  componentDidMount() {
+    this.props.loadMore();
+  }
+
+  render() {
+    const {
+      url,
+      posts,
+      loading: isLoading,
+    } = this.props;
+
+    return (
+      <App pathname={url.pathname} isLoading={isLoading}>
+
+        <Masthead
+          // subtitle="Welcome to the DX Lab:"
+          title={(
+            <div>
+              BLOG<br/>
+              <a href="https://twitter.com">#dxlab</a>
+            </div>
+          )}
+          // text="We build and support new ways of design thinking, experimentation and deep research with digital technologies."
+          backgroundImageUrl="/static/images/masthead-portico.jpg"
+          slug="BLOG"
+          size="md"
+        />
+
+        <div className="posts container container--lg">
+          <SectionTitle title="Posts"></SectionTitle>
+
+          <div>
+            {posts && posts.map((post, i) => (
+              <SimpleTile
+                subtitle="17.10.2017"
+                title={post.title}
+                url={post.url}
+                slug={post.slug}
+                imageUrl={post.imageUrl}
+                imageAltText={post.imageAltText}
+                content={post.content}
+                key={`tile-${i}`}
+              />
+            ))}
+          </div>
         </div>
-      )}
-      // text="We build and support new ways of design thinking, experimentation and deep research with digital technologies."
-      backgroundImageUrl="/static/images/masthead-portico.jpg"
-      slug="BLOG"
-      size="md"
-    />
 
-    <div className="posts container container--lg">
-      <SectionTitle title="Posts"></SectionTitle>
+        <style global jsx>{styles}</style>
+      </App>
+    );
+  }
 
-      <div>
-        {posts && posts.map((post, i) => (
-          <SimpleTile
-            subtitle="17.10.2017"
-            title={post.title}
-            url={post.url}
-            slug={post.slug}
-            imageUrl={post.imageUrl}
-            imageAltText={post.imageAltText}
-            content={post.content}
-            key={`tile-${i}`}
-          />
-        ))}
-      </div>
-    </div>
-
-    <style global jsx>{styles}</style>
-  </App>
-);
+}
 
 const query = gql`
-  query {
-    posts(limit: 10) {
+  query Posts($offset: Int) {
+    posts(limit: 10, offset: $offset) {
       title
       slug
       excerpt
@@ -70,9 +83,14 @@ const query = gql`
   }
 `;
 
-// The `graphql` wrapper executes a GraphQL query and makes the results
-// available on the `data` prop of the wrapped component (ExamplePage)
 export default withData(graphql(query, {
+  options: () => {
+    return {
+      variables: {
+        offset: 0,
+      },
+    };
+  },
   props: ({ data }) => {
     return {
       ...data,
@@ -85,6 +103,23 @@ export default withData(graphql(query, {
           imageAltText: post.featuredMedia.sizes.full.altText,
         };
       }),
+      loadMore() {
+        return data.fetchMore({
+          variables: {
+            offset: data.posts.length,
+          },
+          updateQuery: (previousResult, { fetchMoreResult }) => {
+            if (!fetchMoreResult) {
+              return previousResult;
+            }
+
+            return {
+              ...previousResult,
+              posts: [...previousResult.posts, ...fetchMoreResult.posts],
+            };
+          },
+        });
+      },
     };
   },
-})(HomePage));
+})(Blog));
