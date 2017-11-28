@@ -18,7 +18,8 @@ class Menu extends Component {
         PropTypes.object,
       ]),
       url: PropTypes.url,
-    })),
+      isActive: PropTypes.bool,
+    })).isRequired,
     onMenuItemClick: PropTypes.func,
   }
 
@@ -54,7 +55,7 @@ class Menu extends Component {
             >
               <Link prefetch to={item.url} key={item.url}>
                 <a
-                  className={pathname === item.url && 'is-active'}
+                  className={(pathname === item.url || item.isActive) && 'is-active'}
                 >
                   {item.name}
                 </a>

@@ -86,13 +86,31 @@
     margin-top: var(--spacing-xlg);
     padding-left: 1em;
 
+    @media (--screen-sm) {
+      justify-content: flex-end;
+    }
+
+    & .button {
+      white-space: nowrap;
+    }
+
     & .button:nth-child(1) {
       flex: 2;
+
+      @media (--screen-sm) {
+        flex: none;
+        width: auto;
+      }
     }
 
     & .button:nth-child(2) {
       flex: 1;
       margin-left: 3px;
+
+      @media (--screen-sm) {
+        flex: none;
+        width: auto;
+      }
     }
   }
 

@@ -24,7 +24,7 @@ class Post extends Component {
     const dateString = formatDate(this.props.date);
 
     return (
-      <App isLoading={this.props.loading} url={this.props.url.pathname}>
+      <App isLoading={this.props.loading} pathname={this.props.url.pathname}>
 
         <article
           className="post container container--md"

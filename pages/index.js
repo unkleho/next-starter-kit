@@ -40,8 +40,7 @@ const HomePage = ({
         {posts && posts.map((post, i) => (
           <Tile
             title={post.title}
-            url={post.url}
-            slug={post.slug}
+            url={`/blog/${post.slug}`}
             imageUrl={post.imageUrl}
             imageAltText={post.imageAltText}
             content={post.content}

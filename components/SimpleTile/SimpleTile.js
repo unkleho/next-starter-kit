@@ -8,28 +8,26 @@ import Link from '../Link';
 class SimpleTile extends Component {
 
   static propTypes = {
-    title: PropTypes.string,
+    title: PropTypes.string.isRequired,
     subtitle: PropTypes.string,
-    slug: PropTypes.string,
+    url: PropTypes.string.isRequired,
     imageUrl: PropTypes.string,
     imageAltText: PropTypes.string,
-    // content: PropTypes.string,
   }
 
   render() {
     const {
       title,
       subtitle,
-      slug,
+      url,
       imageUrl,
-      // content,
       // imageAltText,
     } = this.props;
 
     return (
       <article className="simple-tile simple-tile--tall">
 
-        <Link to={`/post/${slug}`}>
+        <Link to={url}>
           <a
             className="simple-tile__image"
             style={{
@@ -42,16 +40,6 @@ class SimpleTile extends Component {
         <div className="simple-tile__info">
           <p className="simple-tile__subtitle">{subtitle}</p>
           <h2 className="simple-tile__title">{title}</h2>
-          {/* <div className="simple-tile__content" dangerouslySetInnerHTML={{ __html: content }}></div> */}
-
-          {/* <div className="simple-tile__cta">
-            <Button content="Launch" />
-
-            <div className="simple-tile__cta__secondary">
-              <Button content="Blog" size="sm" />
-              <Button content="Code" size="sm" />
-            </div>
-          </div> */}
         </div>
 
         <style global jsx>{styles}</style>

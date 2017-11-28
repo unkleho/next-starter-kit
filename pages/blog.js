@@ -51,8 +51,7 @@ class Blog extends Component {
                 <SimpleTile
                   subtitle={post.date}
                   title={post.title}
-                  url={post.url}
-                  slug={post.slug}
+                  url={`/blog/${post.slug}`}
                   imageUrl={post.imageUrl}
                   imageAltText={post.imageAltText}
                   content={post.content}

@@ -9,7 +9,7 @@ class Tile extends Component {
 
   static propTypes = {
     title: PropTypes.string,
-    slug: PropTypes.string,
+    url: PropTypes.string,
     imageUrl: PropTypes.string,
     imageAltText: PropTypes.string,
     content: PropTypes.string,
@@ -18,7 +18,7 @@ class Tile extends Component {
   render() {
     const {
       title,
-      slug,
+      url,
       imageUrl,
       content,
       // imageAltText,
@@ -27,7 +27,7 @@ class Tile extends Component {
     return (
       <article className="tile tile--tall">
 
-        <Link to={`/post/${slug}`}>
+        <Link to={`${url}`}>
           <a>
             <div
               className="tile__image"

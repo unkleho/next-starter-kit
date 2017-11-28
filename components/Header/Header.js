@@ -25,7 +25,6 @@ class Header extends Component {
   }
 
   handleMenuToggle = () => {
-    console.log('hi');
     this.setState({
       isMenuOpen: !this.state.isMenuOpen,
     });
@@ -35,6 +34,8 @@ class Header extends Component {
     const {
       pathname,
     } = this.props;
+
+    console.log(pathname);
 
     return (
       <header className="header">
@@ -52,7 +53,10 @@ class Header extends Component {
             className="primary-menu"
             menuItemClassName="primary-menu__item"
             labelledby="primary-menu-button"
-            menuItems={menuItems}
+            menuItems={menuItems.map(item => ({
+              ...item,
+              isActive: pathname === '/post' && item.url === '/blog',
+            }))}
             pathname={pathname}
             onMenuItemClick={this.handleMenuToggle}
           />
