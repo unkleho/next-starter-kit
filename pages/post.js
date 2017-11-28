@@ -6,8 +6,8 @@ import withData from '../lib/withData';
 import App from '../components/App';
 import ShareBox from '../components/ShareBox';
 import Button from '../components/Button';
+import Comments from '../components/Comments';
 import { formatDate } from '../lib';
-// import Link from '../components/Link';
 import styles from './post.css';
 
 class Post extends Component {
@@ -15,16 +15,33 @@ class Post extends Component {
   static propTypes = {
     title: PropTypes.string,
     content: PropTypes.string,
+    featuredMedia: PropTypes.object,
+    author: PropTypes.object,
+    url: PropTypes.object,
+    date: PropTypes.string,
+    loading: PropTypes.bool,
+    comments: PropTypes.array,
   }
 
   render() {
-    const featuredImageUrl = this.props.featuredMedia && this.props.featuredMedia.sourceUrl;
-    const featuredImageDescription = this.props.featuredMedia && this.props.featuredMedia.description;
-    const authorName = this.props.author && this.props.author.name;
-    const dateString = formatDate(this.props.date);
+    const {
+      title,
+      content,
+      featuredMedia,
+      author,
+      url,
+      date,
+      loading,
+      comments,
+    } = this.props;
+
+    const featuredImageUrl = featuredMedia && featuredMedia.sourceUrl;
+    const featuredImageDescription = featuredMedia && featuredMedia.description;
+    const authorName = author && author.name;
+    const dateString = formatDate(date);
 
     return (
-      <App isLoading={this.props.loading} pathname={this.props.url.pathname}>
+      <App isLoading={loading} pathname={url.pathname}>
 
         <article
           className="post container container--md"
@@ -39,7 +56,7 @@ class Post extends Component {
               />
               <div className="post__date">{dateString}</div>
             </div>
-            <h1 className="post__title">{this.props.title}</h1>
+            <h1 className="post__title">{title}</h1>
             <div className="post__author">By <a href="">{authorName}</a></div>
 
             <div className="post__cta">
@@ -50,10 +67,12 @@ class Post extends Component {
 
           <div
             className="post__content"
-            dangerouslySetInnerHTML={{ __html: this.props.content }}>
+            dangerouslySetInnerHTML={{ __html: content }}>
           </div>
 
-          <ShareBox pathname={this.props.url.pathname} />
+          <ShareBox pathname={url.pathname} />
+
+          <Comments comments={comments} />
 
         </article>
 
@@ -77,6 +96,12 @@ const postQuery = gql`
         name
       }
       date
+      comments {
+        id
+        content
+        authorName
+        date
+      }
     }
   }
 `;

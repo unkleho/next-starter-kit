@@ -35,8 +35,6 @@ class Header extends Component {
       pathname,
     } = this.props;
 
-    console.log(pathname);
-
     return (
       <header className="header">
 
