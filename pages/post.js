@@ -26,7 +26,7 @@ class Post extends Component {
   render() {
     const {
       title,
-      content,
+      // content,
       featuredMedia,
       author,
       url,
@@ -65,10 +65,10 @@ class Post extends Component {
             </div>
           </header>
 
-          <div
+          {/* <div
             className="post__content"
             dangerouslySetInnerHTML={{ __html: content }}>
-          </div>
+          </div> */}
 
           <ShareBox pathname={url.pathname} />
 

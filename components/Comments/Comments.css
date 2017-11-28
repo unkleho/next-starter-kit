@@ -1,0 +1,22 @@
+@import '../../styles/variables.css';
+
+.comments {
+  display: block;
+
+  & article {
+    display: flex;
+
+    & header {
+      min-width: 10em;
+    }
+  }
+}
+
+  .comments__author {
+    @apply --font-uppercase;
+  }
+
+  .comments__date {
+    font-size: var(--font-size-sm);
+    @apply --font-uppercase;
+  }
