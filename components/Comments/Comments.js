@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
+import { gql, graphql } from 'react-apollo';
 
 import { formatDate } from '../../lib';
 import styles from './Comments.css';
@@ -39,4 +40,48 @@ class Comments extends Component {
 
 }
 
-export default Comments;
+const query = gql`
+  mutation createComment(
+    $authorEmail: String,
+    $authorName: String!,
+    $content: String!,
+    $postId: Int!,
+    $parentId: Int
+  ) {
+    createComment(
+      authorEmail: $authorEmail,
+      authorName: $authorName,
+      content: $content,
+      postId: $postId,
+      parentId: $parentId
+    ) {
+      id
+      content
+      authorName
+      parentId
+    }
+  }
+`;
+
+export default graphql(query, {
+  props: ({ mutate }) => ({
+    submitComment: (
+      authorEmail,
+      authorName,
+      content,
+      postId,
+      parentId
+    ) => mutate({
+      variables: {
+        authorEmail,
+        authorName,
+        content,
+        postId,
+        parentId
+      },
+      // updateQueries: {
+      //   comments: ()
+      // },
+    })
+  })
+})(Comments);
