@@ -1,9 +1,10 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './Tile.css';
-import Link from '../Link';
+// import Link from '../Link';
+import TileImage from '../TileImage';
 import Button from '../Button';
+import styles from './Tile.css';
 
 class Tile extends Component {
 
@@ -27,7 +28,13 @@ class Tile extends Component {
     return (
       <article className="tile tile--tall">
 
-        <Link to={`${url}`}>
+        <TileImage
+          imageUrl={imageUrl}
+          url={url}
+          className="tile__image"
+        />
+
+        {/* <Link to={`${url}`}>
           <a>
             <div
               className="tile__image"
@@ -35,7 +42,7 @@ class Tile extends Component {
                 backgroundImage: `url(${imageUrl})`,
               }}></div>
           </a>
-        </Link>
+        </Link> */}
 
         <div className="tile__info">
           <h2>{title}</h2>

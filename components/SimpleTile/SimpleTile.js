@@ -1,9 +1,10 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './SimpleTile.css';
-import Link from '../Link';
+// import Link from '../Link';
+import TileImage from '../TileImage';
 // import Button from '../Button';
+import styles from './SimpleTile.css';
 
 class SimpleTile extends Component {
 
@@ -27,7 +28,13 @@ class SimpleTile extends Component {
     return (
       <article className="simple-tile simple-tile--tall">
 
-        <Link to={url}>
+        <TileImage 
+          imageUrl={imageUrl}
+          url={url}
+          className="simple-tile__image"
+        />
+
+        {/* <Link to={url}>
           <a
             className="simple-tile__image"
             style={{
@@ -35,7 +42,7 @@ class SimpleTile extends Component {
             }}
           >
           </a>
-        </Link>
+        </Link> */}
 
         <div className="simple-tile__info">
           <p className="simple-tile__subtitle">{subtitle}</p>

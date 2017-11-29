@@ -95,8 +95,8 @@ export default withData(graphql(homeQuery, {
           title: post.title,
           content: post.excerpt,
           slug: post.slug,
-          imageUrl: post.featuredMedia.sizes.full.sourceUrl,
-          imageAltText: post.featuredMedia.sizes.full.altText,
+          imageUrl: post.featuredMedia && post.featuredMedia.sizes.full.sourceUrl,
+          imageAltText: post.featuredMedia && post.featuredMedia.sizes.full.altText,
         };
       }),
     };
