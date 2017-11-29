@@ -12,7 +12,7 @@
     right: -1em;
     content: "";
     width: var(--spacing-xxlg);
-    border-bottom: 1px solid var(--colour-white);
+    border-bottom: 1px dashed var(--colour-white);
 
     @media (--screen-sm) {
       border: none;
@@ -65,6 +65,11 @@
 
   .comments__content {
     font-size: var(--font-size-sm);
+
+    @media (--screen-sm) {
+      font-size: var(--font-size-md);
+      @apply --font-antialiased;
+    }
   }
 
   .comments__form {
