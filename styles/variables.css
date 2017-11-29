@@ -15,6 +15,15 @@
   --colour-black: #120f10;
   --colour-white: #e6e6e6;
 
+  /* Greys */
+  --colour-grey-lightest: color(var(--colour-white) shade(20%));
+  --colour-grey-lighter: color(var(--colour-white) shade(30%));
+  --colour-grey-light: color(var(--colour-white) shade(40%));
+  --colour-grey: color(var(--colour-white) shade(50%));
+  --colour-grey-dark: color(var(--colour-white) shade(65%));
+  --colour-grey-darker: color(var(--colour-white) shade(75%));
+  --colour-grey-darkest: color(var(--colour-white) shade(82%));
+
   /* Primary */
   --colour-primary-dark: color(var(--colour-primary) shade(10%));
   --colour-primary-darker: color(var(--colour-primary) shade(20%));

@@ -89,4 +89,25 @@ button {
   color: var(--colour-white);
   font-family: var(--font-primary);
   text-transform: uppercase;
+  border-radius: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: var(--font-size-xs);
+  font-size: var(--font-size-sm);
+  @apply --font-uppercase;
+}
+
+input[type=text], input[type=email], input[type=submit], textarea {
+  width: 100%;
+  padding: var(--spacing-sm);
+  font-family: var(--font-primary);
+  color: var(--colour-white);
+  background-color: var(--colour-grey-darker);
+  border-bottom: 4px solid var(--colour-grey-darkest);
+  border-right: 2px solid var(--colour-grey-dark);
+  border-left: none;
+  border-top: none;
+  border-radius: 0;
 }

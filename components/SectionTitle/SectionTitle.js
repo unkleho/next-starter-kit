@@ -1,22 +1,19 @@
 import { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 import styles from './SectionTitle.css';
 
 class SectionTitle extends Component {
 
-  static propTypes = {
-    title: PropTypes.string,
-  }
-
   render() {
     const {
-      title,
+      children,
     } = this.props;
 
     return (
       <h2 className="section-title">
-        {title}
+        {children}
+
         <style jsx>{styles}</style>
       </h2>
     );

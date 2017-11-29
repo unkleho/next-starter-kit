@@ -23,7 +23,7 @@ class Button extends Component {
         <a className={`button ${size ? `button--${size}` : ''}`}>
           {children}
 
-          <style jsx>{styles}</style>
+          <style global jsx>{styles}</style>
         </a>
       </Link>
     );

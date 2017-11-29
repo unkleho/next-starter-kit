@@ -34,7 +34,7 @@ const HomePage = ({
     </Masthead>
 
     <div className="posts container container--lg">
-      <SectionTitle title="Featured"></SectionTitle>
+      <SectionTitle>Featured</SectionTitle>
 
       <div>
         {posts && posts.map((post, i) => (

@@ -25,6 +25,7 @@ class Post extends Component {
 
   render() {
     const {
+      postId,
       title,
       content,
       featuredMedia,
@@ -72,7 +73,10 @@ class Post extends Component {
 
           <ShareBox pathname={url.pathname} />
 
-          <Comments comments={comments} />
+          <Comments
+            postId={postId}
+            comments={comments}
+          />
 
         </article>
 
@@ -86,6 +90,7 @@ class Post extends Component {
 const postQuery = gql`
   query Post($slug: String!) {
     posts(slug: $slug) {
+      id
       title
       content
       featuredMedia {
@@ -124,6 +129,7 @@ export default withData(graphql(postQuery, {
     return {
       ...data,
       ...post,
+      postId: post.id,
     };
   },
 })(Post));

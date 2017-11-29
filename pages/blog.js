@@ -107,8 +107,8 @@ export default withData(graphql(query, {
           date: formatDate(post.date),
           content: post.excerpt,
           slug: post.slug,
-          imageUrl: post.featuredMedia.sizes.full.sourceUrl,
-          imageAltText: post.featuredMedia.sizes.full.altText,
+          imageUrl: post.featuredMedia && post.featuredMedia.sizes.full.sourceUrl,
+          imageAltText: post.featuredMedia && post.featuredMedia.sizes.full.altText,
         };
       }),
       loadMore() {

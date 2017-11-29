@@ -130,7 +130,7 @@
     }
 
     & img {
-      max-width: calc(100% + 1rem);
+      max-width: calc(100%);
       height: auto;
 
       @media (--screen-sm) {
