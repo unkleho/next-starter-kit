@@ -15,6 +15,8 @@ class CommentForm extends Component {
 
     this.state = {
       isFormSubmitted: false,
+      showWarning: false,
+      showSubmitError: false,
     };
   }
 
@@ -22,23 +24,37 @@ class CommentForm extends Component {
     e.preventDefault();
 
     const { email, name, content } = e.target.elements;
-    const parentId = 0;
 
-    this.props.submitComment({
-      authorEmail: email.value,
-      authorName: name.value,
-      content: content.value,
-      postId: this.props.postId,
-      parentId,
-    })
-    .then(() => {
-      this.setState({
-        isFormSubmitted: true,
+    // Check all fields are not empty
+    if (email.value && name.value && content.value) {
+
+      const parentId = 0;
+
+      this.props.submitComment({
+        authorEmail: email.value,
+        authorName: name.value,
+        content: content.value,
+        postId: this.props.postId,
+        parentId,
+      })
+      .then(() => {
+        this.setState({
+          isFormSubmitted: true,
+        });
+      })
+      .catch(() => {
+        this.setState({
+          showSubmitError: true,
+        });
       });
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+
+    } else {
+
+      this.setState({
+        showWarning: true,
+      });
+
+    }
 
     // reset form
     // e.target.elements.content.value = '';
@@ -83,7 +99,22 @@ class CommentForm extends Component {
                 ></textarea>
               </div>
 
-              <button className="button" type="submit" aria-label="Comment Submit Button.">Submit</button>
+              <button
+                className="button"
+                type="submit"
+                aria-label="Comment Submit Button."
+              >
+                Submit
+              </button>
+
+              {this.state.showWarning && (
+                <div className="warning">Please fill in all fields.</div>
+              )}
+
+              {this.state.showSubmitError && (
+                <div className="warning">There seems to be a problem, please refresh the page and try again.</div>
+              )}
+
             </form>
           </div>
         ) : (

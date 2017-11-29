@@ -31,6 +31,12 @@
   max-width: var(--container-width-xlg);
 }
 
+.warning {
+  margin-top: var(--spacing-md);
+  @apply --font-uppercase;
+  color: var(--colour-highlight);
+}
+
 /* TODO: Remove this in data */
 .entry-more {
   display: none;
