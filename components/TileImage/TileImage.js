@@ -18,6 +18,7 @@ class TileImage extends Component {
           className={`tile-image ${className}`}
           style={{
             backgroundImage: `url(${imageUrl})`,
+            // backgroundImage: 'url(/test)',
           }}
         >
           <style jsx>{styles}</style>

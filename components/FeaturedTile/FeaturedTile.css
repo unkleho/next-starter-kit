@@ -1,0 +1,52 @@
+@import '../../styles/variables.css';
+
+@lost gutter 0.2em;
+
+.featured-tile {
+  position: relative;
+  margin-bottom: 0.2em;
+
+  @media (--screen-sm) {
+    lost-column: 1/2;
+  }
+
+  /* Gradient */
+  &::after {
+    position: absolute;
+    bottom: 0;
+    content: "";
+    height: 20em;
+    width: 100%;
+    background: linear-gradient(to top, var(--colour-black), rgba(0, 0, 0, 0));
+  }
+}
+
+  .featured-tile__image {
+    height: 30em;
+  }
+
+  .featured-tile__info {
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    /*padding: var(--spacing-md);*/
+
+    & h1 {
+      font-size: var(--font-size-lg);
+      @apply --font-antialiased;
+      margin-bottom: 0;
+      background-color: var(--colour-black);
+      padding: 0 var(--spacing-xxxs);
+      display: inline-block;
+    }
+  }
+
+  .featured-tile__content {
+    font-size: var(--font-size-sm);
+    padding: 0 1em 1em;
+    max-width: 20em;
+
+    & p {
+      margin-bottom: 0;
+    }
+  }

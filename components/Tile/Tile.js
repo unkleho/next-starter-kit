@@ -34,16 +34,6 @@ class Tile extends Component {
           className="tile__image"
         />
 
-        {/* <Link to={`${url}`}>
-          <a>
-            <div
-              className="tile__image"
-              style={{
-                backgroundImage: `url(${imageUrl})`,
-              }}></div>
-          </a>
-        </Link> */}
-
         <div className="tile__info">
           <h2>{title}</h2>
           <div className="tile__content" dangerouslySetInnerHTML={{ __html: content }}></div>
@@ -58,6 +48,7 @@ class Tile extends Component {
           </div>
         </div>
 
+        {/* TODO: CSS is targeting Button, hence why it is global. Need to add appropriate styles to Button so global can be removed. */}
         <style global jsx>{styles}</style>
 
       </article>

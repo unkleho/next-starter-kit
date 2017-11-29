@@ -28,21 +28,11 @@ class SimpleTile extends Component {
     return (
       <article className="simple-tile simple-tile--tall">
 
-        <TileImage 
+        <TileImage
           imageUrl={imageUrl}
           url={url}
           className="simple-tile__image"
         />
-
-        {/* <Link to={url}>
-          <a
-            className="simple-tile__image"
-            style={{
-              backgroundImage: `url(${imageUrl})`,
-            }}
-          >
-          </a>
-        </Link> */}
 
         <div className="simple-tile__info">
           <p className="simple-tile__subtitle">{subtitle}</p>

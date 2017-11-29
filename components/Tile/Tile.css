@@ -28,8 +28,6 @@
   .tile__image {
     width: calc(100% + 1em);
     margin-right: -1em;
-    background-size: cover;
-    background-position: center;
     height: 16em;
 
     @media (--screen-sm) {

@@ -24,7 +24,7 @@ class Comments extends Component {
         <SectionTitle>Comments</SectionTitle>
 
         <div className="comments__list">
-          {comments
+          {comments && comments
             .filter((comment) => {
               return comment.parentId === 0;
             })

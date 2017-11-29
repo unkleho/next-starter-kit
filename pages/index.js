@@ -3,7 +3,7 @@ import { gql, graphql } from 'react-apollo';
 import withData from '../lib/withData';
 import App from '../components/App';
 import Masthead from '../components/Masthead';
-import Tile from '../components/Tile';
+import FeaturedTile from '../components/FeaturedTile';
 import SectionTitle from '../components/SectionTitle';
 // import proxyRoutes from '../routes/proxyRoutes';
 import styles from './index.css';
@@ -38,7 +38,7 @@ const HomePage = ({
 
       <div>
         {posts && posts.map((post, i) => (
-          <Tile
+          <FeaturedTile
             title={post.title}
             url={`/blog/${post.slug}`}
             imageUrl={post.imageUrl}

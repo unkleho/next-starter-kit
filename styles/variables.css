@@ -93,10 +93,12 @@
   --spacing-sm: calc(var(--spacing-md) / var(--spacing-scale));
   --spacing-xs: calc(var(--spacing-sm) / var(--spacing-scale));
   --spacing-xxs: calc(var(--spacing-xs) / var(--spacing-scale));
+  --spacing-xxxs: calc(var(--spacing-xxs) / var(--spacing-scale));
 
   --spacing-lg: calc(var(--spacing-scale) * var(--spacing-md));
   --spacing-xlg: calc(var(--spacing-scale) * var(--spacing-lg));
   --spacing-xxlg: calc(var(--spacing-scale) * var(--spacing-xlg));
+  --spacing-xxxlg: calc(var(--spacing-scale) * var(--spacing-xxlg));
 
   --body-spacing-sm: 1em;
   --body-spacing-md: 2em;
