@@ -90,6 +90,7 @@ button {
   font-family: var(--font-primary);
   text-transform: uppercase;
   border-radius: 0;
+  cursor: pointer;
 }
 
 label {
@@ -99,7 +100,7 @@ label {
   @apply --font-uppercase;
 }
 
-input[type=text], input[type=email], input[type=submit], textarea {
+input[type=text], input[type=email], textarea {
   width: 100%;
   padding: var(--spacing-sm);
   font-family: var(--font-primary);

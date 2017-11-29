@@ -13,6 +13,7 @@ import styles from './post.css';
 class Post extends Component {
 
   static propTypes = {
+    id: PropTypes.number,
     title: PropTypes.string,
     content: PropTypes.string,
     featuredMedia: PropTypes.object,
@@ -25,7 +26,7 @@ class Post extends Component {
 
   render() {
     const {
-      postId,
+      id,
       title,
       content,
       featuredMedia,
@@ -74,7 +75,7 @@ class Post extends Component {
           <ShareBox pathname={url.pathname} />
 
           <Comments
-            postId={postId}
+            postId={id}
             comments={comments}
           />
 
@@ -106,6 +107,7 @@ const postQuery = gql`
         content
         authorName
         date
+        parentId
       }
     }
   }
@@ -123,13 +125,11 @@ export default withData(graphql(postQuery, {
     };
   },
   props: ({ data }) => {
-
     const post = data.posts && data.posts[0];
 
     return {
       ...data,
       ...post,
-      postId: post.id,
     };
   },
 })(Post));

@@ -1,0 +1,27 @@
+@import '../../styles/variables.css';
+
+.comment-form {
+  & span {
+    color: var(--colour-highlight);
+  }
+
+  & button {
+    @media (--screen-sm) {
+      width: auto;
+    }
+  }
+}
+
+  .comment-form__intro {
+    font-size: var(--font-size-sm);
+  }
+
+  .comment-form__section {
+    margin-bottom: var(--spacing-lg);
+
+    @media (--screen-md) {
+      @nest &:nth-child(1), &:nth-child(2) {
+        lost-column: 1/2;
+      }
+    }
+  }
