@@ -14,6 +14,7 @@
 }*/
 
 .masthead__title {
+
   /* Adjust glitch effect */
   &.glitch::after, &.glitch::before {
     top: 1.1em;
@@ -21,8 +22,11 @@
 }
 
 .featured-tiles {
-  margin-left: -3px;
-  margin-right: -3px;
+
+  margin-left: -5px;
+  margin-right: -5px;
+  /*margin-left: -0.5em;
+  margin-right: -0.5em;*/
 }
 
 .posts {

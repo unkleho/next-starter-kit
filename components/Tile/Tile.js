@@ -14,6 +14,7 @@ class Tile extends Component {
     imageUrl: PropTypes.string,
     imageAltText: PropTypes.string,
     content: PropTypes.string,
+    size: PropTypes.string,
   }
 
   render() {
@@ -22,11 +23,13 @@ class Tile extends Component {
       url,
       imageUrl,
       content,
+      size,
       // imageAltText,
     } = this.props;
 
     return (
-      <article className="tile tile--tall">
+      // <article className="tile tile--tall">
+      <article className={`tile ${size && `tile--${size}`}`}>
 
         <TileImage
           imageUrl={imageUrl}

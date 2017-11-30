@@ -4,7 +4,7 @@ import Masonry from 'react-masonry-component';
 import withData from '../lib/withData';
 import App from '../components/App';
 import Masthead from '../components/Masthead';
-import FeaturedTile from '../components/FeaturedTile';
+import Tile from '../components/Tile';
 import SectionTitle from '../components/SectionTitle';
 // import proxyRoutes from '../routes/proxyRoutes';
 import styles from './index.css';
@@ -41,12 +41,12 @@ const HomePage = ({
         className="featured-tiles"
         options={{
           percentPosition: true,
-          itemSelector: '.featured-tile',
-          columnWidth: '.featured-tile',
+          itemSelector: '.tile',
+          columnWidth: '.tile',
         }}
       >
         {posts && posts.map((post, i) => (
-          <FeaturedTile
+          <Tile
             title={post.title}
             url={`/blog/${post.slug}`}
             imageUrl={post.imageUrl}
@@ -75,7 +75,7 @@ const HomePage = ({
 );
 
 function getTileSize(index) {
-  if (index === 0) {
+  if (index === 0 || index === 5) {
     return '1x2';
   } else if (index === 3) {
     return '2x1';

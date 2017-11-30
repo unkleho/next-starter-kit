@@ -1,13 +1,15 @@
 @import '../../styles/variables.css';
 
-@lost gutter 1em;
+/*@lost gutter 1em;*/
 
 .tile {
   position: relative;
+  display: flex;
+  flex-direction: column;
   margin-bottom: 2em;
 
   @media (--screen-sm) {
-    lost-column: 1/2;
+    lost-masonry-column: 1/2 10px;
   }
 
   &:not(:first-child)::before {
@@ -25,9 +27,16 @@
   }
 }
 
+.tile--1x2 {
+  @media (--screen-md) {
+    height: 44.6em;
+  }
+}
+
   .tile__image {
     width: calc(100% + 1em);
     margin-right: -1em;
+    flex: 1;
     height: 16em;
 
     @media (--screen-sm) {
