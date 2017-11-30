@@ -20,6 +20,11 @@
   }
 }
 
+.featured-tiles {
+  margin-left: -3px;
+  margin-right: -3px;
+}
+
 .posts {
   lost-utility: clearfix;
 }

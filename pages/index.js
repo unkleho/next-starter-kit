@@ -1,4 +1,5 @@
 import { gql, graphql } from 'react-apollo';
+import Masonry from 'react-masonry-component';
 
 import withData from '../lib/withData';
 import App from '../components/App';
@@ -33,10 +34,17 @@ const HomePage = ({
     >
     </Masthead>
 
-    <div className="posts container container--lg">
+    <div className="posts container container--xlg">
       <SectionTitle>Featured</SectionTitle>
 
-      <div>
+      <Masonry
+        className="featured-tiles"
+        options={{
+          percentPosition: true,
+          itemSelector: '.featured-tile',
+          columnWidth: '.featured-tile',
+        }}
+      >
         {posts && posts.map((post, i) => (
           <FeaturedTile
             title={post.title}
@@ -44,10 +52,11 @@ const HomePage = ({
             imageUrl={post.imageUrl}
             imageAltText={post.imageAltText}
             content={post.content}
+            size={getTileSize(i)}
             key={`tile-${i}`}
           />
         ))}
-      </div>
+      </Masonry>
     </div>
 
 
@@ -64,6 +73,14 @@ const HomePage = ({
     <style global jsx>{styles}</style>
   </App>
 );
+
+function getTileSize(index) {
+  if (index === 0) {
+    return '1x2';
+  } else if (index === 3) {
+    return '2x1';
+  }
+}
 
 const homeQuery = gql`
   query {

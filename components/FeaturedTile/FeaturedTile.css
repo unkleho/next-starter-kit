@@ -1,13 +1,15 @@
 @import '../../styles/variables.css';
 
-@lost gutter 0.2em;
+/*@lost gutter 0.2em;*/
 
 .featured-tile {
   position: relative;
   margin-bottom: 0.2em;
+  lost-masonry-column: 1/1 0 flex;
+  height: 20em;
 
   @media (--screen-sm) {
-    lost-column: 1/2;
+    lost-masonry-column: 1/2 4px flex;
   }
 
   /* Gradient */
@@ -17,18 +19,39 @@
     content: "";
     height: 20em;
     width: 100%;
-    background: linear-gradient(to top, var(--colour-black), rgba(0, 0, 0, 0));
+    background: linear-gradient(to top, var(--colour-black) 20%, rgba(0, 0, 0, 0));
+    pointer-events: none;
+  }
+}
+
+.featured-tile--2x1 {
+  @media (--screen-sm) {
+    lost-masonry-column: 2/2 4px flex;
+  }
+}
+
+.featured-tile--1x2 {
+  @media (--screen-sm) {
+    height: 40em;
   }
 }
 
   .featured-tile__image {
-    height: 30em;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    /*@nest .featured-tile--1x2 & {
+      height: 40em;
+    }*/
   }
 
   .featured-tile__info {
     position: absolute;
     bottom: 0;
     z-index: 1;
+    width: 100%;
+
     /*padding: var(--spacing-md);*/
 
     & h1 {
@@ -36,7 +59,10 @@
       @apply --font-antialiased;
       margin-bottom: 0;
       background-color: var(--colour-black);
-      padding: 0 var(--spacing-xxxs);
+      line-height: 1;
+
+      /*padding: 0 var(--spacing-xxxs);*/
+      padding: 0.15em 0 0 0.6em;
       display: inline-block;
     }
   }
@@ -44,9 +70,16 @@
   .featured-tile__content {
     font-size: var(--font-size-sm);
     padding: 0 1em 1em;
-    max-width: 20em;
+    max-width: 24em;
 
     & p {
       margin-bottom: 0;
     }
+  }
+
+  .featured-tile__cta {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    width: 30%;
   }

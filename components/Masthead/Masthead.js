@@ -7,7 +7,10 @@ import glitchStyles from '../../styles/glitch.css';
 class Masthead extends Component {
 
   static propTypes = {
-    title: PropTypes.string.isRequired,
+    title: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object,
+    ]).isRequired,
     subtitle: PropTypes.string,
     text: PropTypes.string,
     sideText: PropTypes.string,
