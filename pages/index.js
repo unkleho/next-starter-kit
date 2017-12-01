@@ -9,6 +9,7 @@ import SimpleTile from '../components/SimpleTile';
 import SectionTitle from '../components/SectionTitle';
 import Button from '../components/Button';
 import { experiments } from '../lib/data';
+import { formatDate } from '../lib';
 // import proxyRoutes from '../routes/proxyRoutes';
 import styles from './index.css';
 
@@ -34,8 +35,7 @@ const HomePage = ({
       backgroundImageUrl="/static/images/masthead-background-01.gif"
       slug="Experimental Innovation Lab"
       size="lg"
-    >
-    </Masthead>
+    />
 
     <div className="posts container container--xlg">
       <SectionTitle>Latest</SectionTitle>
@@ -71,6 +71,7 @@ const HomePage = ({
       <div>
         {posts && posts.slice(5, 11).map((post, i) => (
           <SimpleTile
+            subtitle={post.date}
             title={post.title}
             url={`/blog/${post.slug}`}
             imageUrl={post.imageUrl}
@@ -86,6 +87,21 @@ const HomePage = ({
       <br/>
       <br/>
       <br/>
+
+      <Masthead
+        // subtitle="We make experiments"
+        title={(
+          <div>
+            We Make Experiments<br/>
+            <a href="https://twitter.com">#dxlab</a>
+          </div>
+        )}
+        // text="We build and support new ways of design thinking, experimentation and deep research with digital technologies."
+        // sideText="Collaborate / Experiment / Create / Engage / Be Open / Surprise"
+        backgroundImageUrl="/static/images/masthead-meridian-f.jpg"
+        slug="We Make Experiments"
+        size="lg"
+      />
 
       <SectionTitle>Experiments</SectionTitle>
 
@@ -104,8 +120,8 @@ const HomePage = ({
             imageUrl={experiment.imageUrl}
             imageAltText={experiment.imageAltText}
             content={experiment.content}
-            size={getTileSize(i)}
-            experimentUrl={experiment.experimentUrl}
+            size={getExperimentTileSize(i)}
+            experimentUrl={experiment.url}
             blogUrl={`/blog/${experiment.slug}`}
             codeUrl={experiment.codeUrl}
             key={`experiment-${i}`}
@@ -140,12 +156,21 @@ function getTileSize(index) {
   }
 }
 
+function getExperimentTileSize(index) {
+  if (index === 1 || index === 5) {
+    return '1x2';
+  } else if (index === 3) {
+    return '2x1';
+  }
+}
+
 const homeQuery = gql`
   query {
     posts(limit: 13) {
       title
       slug
       excerpt
+      date
       featuredMedia {
         altText
         caption
@@ -188,6 +213,7 @@ export default withData(graphql(homeQuery, {
           experimentUrl,
           blogUrl,
           codeUrl,
+          date: formatDate(post.date),
         };
       }),
     };

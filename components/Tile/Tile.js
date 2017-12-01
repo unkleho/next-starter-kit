@@ -15,6 +15,8 @@ class Tile extends Component {
     imageAltText: PropTypes.string,
     content: PropTypes.string,
     size: PropTypes.string,
+    experimentUrl: PropTypes.string,
+    codeUrl: PropTypes.string,
   }
 
   render() {
@@ -41,7 +43,7 @@ class Tile extends Component {
         />
 
         <div className="tile__info">
-          <h2>{title}</h2>
+          <h1>{title}</h1>
           <div className="tile__content" dangerouslySetInnerHTML={{ __html: content }}></div>
 
           <div className="tile__cta">

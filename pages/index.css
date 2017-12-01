@@ -21,7 +21,7 @@
   }
 }
 
-.featured-tiles {
+.featured-tiles, .experiment-tiles {
 
   margin-left: calc(-1 * (var(--gutter-masonry)/2));
   margin-right: calc(-1 * (var(--gutter-masonry)/2));

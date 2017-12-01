@@ -3,6 +3,8 @@
 @lost gutter 0.3em;
 
 .button {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;

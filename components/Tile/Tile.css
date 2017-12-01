@@ -67,9 +67,10 @@
 
     @media (--screen-md) {
       flex-direction: row;
+      align-items: flex-end;
     }
 
-    & h2:first-child {
+    & h1:first-child {
       margin-top: -0.25em;
       margin-bottom: 0;
       display: inline-table;
@@ -89,6 +90,7 @@
 
       @media (--screen-md) {
         position: absolute;
+        top: 0;
       }
     }
   }
