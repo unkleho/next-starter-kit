@@ -104,6 +104,8 @@
   --body-spacing-md: 2em;
   --body-spacing-lg: 3em;
 
+  --gutter-masonry: 8px;
+
   /*
    * Custom Media Queries
    * ------------------------------------------------------------------------ */

@@ -110,12 +110,12 @@
 
   .masthead__intro-text {
     position: absolute;
-    bottom: 5%;
+    bottom: 10%;
     right: 0;
     width: 85%;
     border-left: 1px dashed var(--colour-white);
     padding: 0 var(--spacing-md) 0;
-    font-size: var(--font-size-md);
+    font-size: var(--font-size-sm);
 
     @media (--screen-sm) {
       bottom: 6%;

@@ -16,6 +16,17 @@
   line-height: 1;
   letter-spacing: 0.4em;
   text-align: center;
+  transition: 0.3s;
+
+  &:link, &:visited {
+    color: var(--colour-white);
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: var(--colour-highlight);
+    border: 1px solid var(--colour-highlight);
+  }
 }
 
 .button--sm {

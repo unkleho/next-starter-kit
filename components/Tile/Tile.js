@@ -24,6 +24,9 @@ class Tile extends Component {
       imageUrl,
       content,
       size,
+      experimentUrl,
+      // blogUrl,
+      codeUrl,
       // imageAltText,
     } = this.props;
 
@@ -42,11 +45,22 @@ class Tile extends Component {
           <div className="tile__content" dangerouslySetInnerHTML={{ __html: content }}></div>
 
           <div className="tile__cta">
-            <Button>Launch</Button>
+            <Button>{
+              experimentUrl ? (
+                <span>Launch</span>
+              ) : (
+                <span>Read</span>
+              )
+            }</Button>
 
             <div className="tile__cta__secondary">
-              <Button size="sm">Blog</Button>
-              <Button size="sm">Code</Button>
+              {experimentUrl && (
+                <Button size="sm">Read</Button>
+              )}
+
+              {codeUrl && (
+                <Button size="sm">Code</Button>
+              )}
             </div>
           </div>
         </div>

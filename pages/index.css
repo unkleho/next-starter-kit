@@ -23,8 +23,8 @@
 
 .featured-tiles {
 
-  margin-left: -5px;
-  margin-right: -5px;
+  margin-left: calc(-1 * (var(--gutter-masonry)/2));
+  margin-right: calc(-1 * (var(--gutter-masonry)/2));
   /*margin-left: -0.5em;
   margin-right: -0.5em;*/
 }
