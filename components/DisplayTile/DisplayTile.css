@@ -1,0 +1,113 @@
+@import '../../styles/variables.css';
+
+/*@lost gutter 0.2em;*/
+
+.display-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+  lost-masonry-column: 1/1 0;
+  height: 20em;
+
+  @media (--screen-sm) {
+    flex-direction: row;
+    /*lost-masonry-column: 1/2 4px;*/
+    margin-bottom: 3em;
+  }
+}
+
+.display-tile--lg {
+  flex-direction: column;
+  height: 30em;
+}
+
+  .display-tile__image {
+    flex: 1;
+
+    @media (--screen-sm) {
+      flex: 2;
+    }
+  }
+
+  .display-tile__info {
+    display: flex;
+    flex-direction: column;
+
+    @media (--screen-sm) {
+      flex: 1;
+    }
+
+    @nest .display-tile--lg & {
+      flex: none;
+      flex-direction: row;
+    }
+  }
+
+  .display-tile__body {
+    display: flex;
+    flex-direction: column;
+
+    @media (--screen-sm) {
+      flex: 1;
+    }
+
+    @nest .display-tile--lg & {
+      flex-direction: row;
+    }
+  }
+
+  .display-tile__title {
+    flex: 1;
+    margin-top: -0.2em;
+    margin-bottom: 1em;
+    font-size: var(--font-size-lg);
+    @apply --font-antialiased;
+    background-color: var(--colour-black);
+    line-height: 1;
+
+    /*padding: 0 var(--spacing-xxxs);*/
+    padding: 0.15em 0 0 0.6em;
+    display: inline-table;
+
+    @media (--screen-sm) {
+      flex: none;
+      margin-top: 0;
+      margin-left: -0.2em;
+      padding: 0.15em 0 0 0.2em;
+      font-size: var(--font-size-xlg);
+    }
+
+    @nest .display-tile--lg & {
+      flex: 1;
+      margin-top: -0.2em;
+      margin-bottom: 0;
+      font-size: var(--font-size-xxlg);
+    }
+  }
+
+  .display-tile__content {
+    font-size: var(--font-size-sm);
+    padding: 0 1em 1em;
+    /*max-width: 24em;*/
+
+    & p {
+      margin-bottom: 0;
+    }
+
+    @nest .display-tile--lg & {
+      flex: 1;
+      margin-top: var(--spacing-md);
+      margin-bottom: -0.4em;
+      padding: 0 1em 0 0;
+      font-size: var(--font-size-md);
+    }
+  }
+
+  .display-tile__cta {
+    align-self: flex-end;
+    max-width: 12em;
+
+    @media (--screen-sm) {
+    }
+  }

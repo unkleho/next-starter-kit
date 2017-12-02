@@ -2,7 +2,7 @@
 
 .section-title {
   position: relative;
-  font-weight: 100;
+  font-weight: 700;
   font-size: var(--font-size-sm);
   @apply --font-uppercase;
   line-height: 1;

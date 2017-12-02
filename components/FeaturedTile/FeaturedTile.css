@@ -5,11 +5,11 @@
 .featured-tile {
   position: relative;
   margin-bottom: 0.2em;
-  lost-masonry-column: 1/1 0 flex;
+  lost-masonry-column: 1/1 0;
   height: 20em;
 
   @media (--screen-sm) {
-    lost-masonry-column: 1/2 4px flex;
+    lost-masonry-column: 1/2 4px;
   }
 
   /* Gradient */

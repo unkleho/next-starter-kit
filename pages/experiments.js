@@ -5,11 +5,12 @@ import InfiniteScroll from 'react-infinite-scroller';
 import withData from '../lib/withData';
 import App from '../components/App';
 import Masthead from '../components/Masthead';
-import SimpleTile from '../components/SimpleTile';
+import DisplayTile from '../components/DisplayTile';
 import SectionTitle from '../components/SectionTitle';
 import { formatDate } from '../lib';
+import { experiments } from '../lib/data';
 
-class Blog extends Component {
+class Experiments extends Component {
 
   render() {
     const {
@@ -23,21 +24,20 @@ class Blog extends Component {
       <App pathname={url.pathname} isLoading={isLoading}>
 
         <Masthead
-          // subtitle="Welcome to the DX Lab:"
           title={(
             <div>
-              BLOG<br/>
+              EXPERIMENTS<br/>
               <a href="https://twitter.com">#dxlab</a>
             </div>
           )}
           // text="We build and support new ways of design thinking, experimentation and deep research with digital technologies."
-          backgroundImageUrl="/static/images/masthead-portico.jpg"
-          slug="BLOG"
+          backgroundImageUrl="/static/images/masthead-meridian-f.jpg"
+          slug="EXPERIMENTS"
           size="md"
         />
 
         <div className="posts container container--lg">
-          <SectionTitle title="Posts"></SectionTitle>
+          <SectionTitle>Explore our work</SectionTitle>
 
           {posts && (
             <InfiniteScroll
@@ -46,14 +46,15 @@ class Blog extends Component {
                 hasMore={posts.length < 46}
                 loader={<div className="loader">Loading ...</div>}
             >
-              {posts.map((post, i) => (
-                <SimpleTile
-                  subtitle={post.date}
-                  title={post.title}
-                  url={`/blog/${post.slug}`}
-                  imageUrl={post.imageUrl}
-                  imageAltText={post.imageAltText}
-                  content={post.content}
+              {experiments.map((item, i) => (
+                <DisplayTile
+                  subtitle={item.date}
+                  title={item.title}
+                  url={`/blog/${item.slug}`}
+                  imageUrl={item.imageUrl}
+                  imageAltText={item.imageAltText}
+                  content={item.content}
+                  size={i === 0 ? 'lg' : ''}
                   key={`tile-${i}`}
                 />
               ))}
@@ -129,4 +130,4 @@ export default withData(graphql(query, {
       },
     };
   },
-})(Blog));
+})(Experiments));

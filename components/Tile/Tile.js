@@ -43,7 +43,8 @@ class Tile extends Component {
         />
 
         <div className="tile__info">
-          <h1>{title}</h1>
+          <h1 className="tile__title">{title}</h1>
+
           <div className="tile__content" dangerouslySetInnerHTML={{ __html: content }}></div>
 
           <div className="tile__cta">
