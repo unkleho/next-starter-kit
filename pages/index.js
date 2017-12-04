@@ -151,8 +151,8 @@ const HomePage = ({
 function getTileSize(index) {
   if (index === 0 || index === 5) {
     return '1x2';
-  } else if (index === 3) {
-    return '2x1';
+  // } else if (index === 3) {
+  //   return '2x1';
   }
 }
 

@@ -13,5 +13,6 @@ module.exports = {
     "declaration-empty-line-before": null,
     "selector-list-comma-newline-after": null,
     "indentation": null,
+    "comment-empty-line-before": null,
   }
 }

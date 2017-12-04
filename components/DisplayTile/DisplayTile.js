@@ -13,6 +13,7 @@ class DisplayTile extends Component {
     url: PropTypes.string,
     imageUrl: PropTypes.string,
     content: PropTypes.string,
+    date: PropTypes.string,
     size: PropTypes.oneOf([
       '2x1',
       '1x2',
@@ -25,6 +26,7 @@ class DisplayTile extends Component {
       url,
       imageUrl,
       content,
+      date,
       size,
     } = this.props;
 
@@ -39,10 +41,14 @@ class DisplayTile extends Component {
 
         <div className="display-tile__info">
           <div className="display-tile__body">
-            <h1 className="display-tile__title">{title}</h1>
+            <header className="display-tile__header">
+              <h1 className="display-tile__title">{title}</h1>
+              <div className="display-tile__date">{date}</div>
+            </header>
 
             <div className="display-tile__content" dangerouslySetInnerHTML={{ __html: content }}></div>
           </div>
+
 
           <div className="display-tile__cta">
             <Button>LAUNCH</Button>

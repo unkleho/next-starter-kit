@@ -54,6 +54,7 @@ class Experiments extends Component {
                   imageUrl={item.imageUrl}
                   imageAltText={item.imageAltText}
                   content={item.content}
+                  date={item.date}
                   size={i === 0 ? 'lg' : ''}
                   key={`tile-${i}`}
                 />
