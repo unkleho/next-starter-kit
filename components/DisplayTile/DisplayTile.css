@@ -11,21 +11,28 @@
   height: 20em;
 
   @media (--screen-sm) {
+    height: 26em;
+  }
+
+  @media (--screen-md) {
     flex-direction: row;
-    /*lost-masonry-column: 1/2 4px;*/
-    margin-bottom: var(--spacing-xxxlg);
+    margin-bottom: 5em;
   }
 }
 
 .display-tile--lg {
   flex-direction: column;
   height: 30em;
+
+  @media (--screen-md) {
+    height: 40em;
+  }
 }
 
   .display-tile__image {
     flex: 1;
 
-    @media (--screen-sm) {
+    @media (--screen-md) {
       flex: 2;
     }
 
@@ -33,7 +40,7 @@
       margin-left: -1em;
       margin-right: -1em;
 
-      @media (--screen-sm) {
+      @media (--screen-md) {
         margin-left: 0;
         margin-right: 0;
       }
@@ -45,13 +52,13 @@
     display: flex;
     flex-direction: column;
 
-    @media (--screen-sm) {
+    @media (--screen-md) {
       flex: 1;
     }
 
     @nest .display-tile--lg & {
 
-      @media (--screen-sm) {
+      @media (--screen-md) {
         flex: none;
         flex-direction: row;
       }
@@ -62,12 +69,12 @@
     display: flex;
     flex-direction: column;
 
-    @media (--screen-sm) {
+    @media (--screen-md) {
       flex: 1;
     }
 
     @nest .display-tile--lg & {
-      @media (--screen-sm) {
+      @media (--screen-md) {
         flex: 4;
         flex-direction: row;
       }
@@ -78,12 +85,12 @@
     flex: 1;
     margin-bottom: var(--spacing-md);
 
-    @media (--screen-sm) {
+    @media (--screen-md) {
       flex: none;
     }
 
     @nest .display-tile--lg & {
-      @media (--screen-sm) {
+      @media (--screen-md) {
         flex: 1;
       }
     }
@@ -101,7 +108,7 @@
     background-color: var(--colour-black);
     line-height: 1;
 
-    @media (--screen-sm) {
+    @media (--screen-md) {
       margin-top: 0;
       margin-left: -0.2em;
       /*margin-bottom: var(--spacing-md);*/
@@ -117,7 +124,7 @@
       padding-left: var(--spacing-xs);
       font-size: var(--font-size-xlg);
 
-      @media (--screen-sm) {
+      @media (--screen-md) {
         margin-left: 0;
         padding-left: 0;
         font-size: var(--font-size-xxlg);
@@ -137,11 +144,11 @@
     @nest .display-tile--lg & {
       flex: 1;
       /*margin-top: var(--spacing-sm);*/
-      margin-bottom: var(--spacing-xs);
+      margin-bottom: var(--spacing-md);
       padding: 0 1em 0 0;
       font-size: var(--font-size-md);
 
-      @media (--screen-sm) {
+      @media (--screen-md) {
         margin-top: var(--spacing-md);
         margin-bottom: -0.4em;
         margin-right: 2em;
@@ -155,7 +162,7 @@
     color: var(--colour-grey-light);
     @apply --font-uppercase;
 
-    @media (--screen-sm) {
+    @media (--screen-md) {
       position: absolute;
       left: 1em;
       bottom: -0.4em;

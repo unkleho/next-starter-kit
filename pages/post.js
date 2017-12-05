@@ -46,7 +46,7 @@ class Post extends Component {
       <App isLoading={loading} pathname={url.pathname}>
 
         <article
-          className="post container container--md"
+          className="post container container--sm"
         >
 
           <header>

@@ -119,7 +119,7 @@
   /* TODO: Put these in global.css */
   .post__content {
     position: relative;
-    max-width: var(--container-width-sm);
+    /*max-width: var(--container-width-sm);*/
     font-size: var(--font-size-md);
     letter-spacing: -0.02em;
     word-spacing: -0.2em;

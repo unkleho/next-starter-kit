@@ -84,6 +84,11 @@ figcaption {
   opacity: 0.6;
 }
 
+figure {
+  margin: 0 0 var(--spacing-xlg) 0;
+  max-width: 100%;
+}
+
 button {
   background: none;
   border: none;
