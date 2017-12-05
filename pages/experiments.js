@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { gql, graphql } from 'react-apollo';
-import InfiniteScroll from 'react-infinite-scroller';
+// import InfiniteScroll from 'react-infinite-scroller';
 
 import withData from '../lib/withData';
 import App from '../components/App';
@@ -8,16 +8,17 @@ import Masthead from '../components/Masthead';
 import DisplayTile from '../components/DisplayTile';
 import SectionTitle from '../components/SectionTitle';
 import { formatDate } from '../lib';
-import { experiments } from '../lib/data';
+// import { experiments } from '../lib/data';
 
 class Experiments extends Component {
 
   render() {
     const {
       url,
-      posts,
+      // posts,
       loading: isLoading,
-      loadMore,
+      // loadMore,
+      experiments,
     } = this.props;
 
     return (
@@ -39,28 +40,19 @@ class Experiments extends Component {
         <div className="posts container container--lg">
           <SectionTitle>Explore our work</SectionTitle>
 
-          {posts && (
-            <InfiniteScroll
-                pageStart={0}
-                loadMore={loadMore}
-                hasMore={posts.length < 46}
-                loader={<div className="loader">Loading ...</div>}
-            >
-              {experiments.map((item, i) => (
-                <DisplayTile
-                  subtitle={item.date}
-                  title={item.title}
-                  url={`/blog/${item.slug}`}
-                  imageUrl={item.imageUrl}
-                  imageAltText={item.imageAltText}
-                  content={item.content}
-                  date={item.date}
-                  size={i === 0 ? 'lg' : ''}
-                  key={`tile-${i}`}
-                />
-              ))}
-            </InfiniteScroll>
-          )}
+          {experiments && experiments.reverse().map((item, i) => (
+            <DisplayTile
+              subtitle={item.date}
+              title={item.title}
+              url={`/blog/${item.slug}`}
+              imageUrl={item.imageUrl}
+              imageAltText={item.imageAltText}
+              content={item.content}
+              date={item.date}
+              size={i === 0 || i === 1 || i === 3 ? 'lg' : ''}
+              key={`tile-${i}`}
+            />
+          ))}
         </div>
 
         {/* <style global jsx>{styles}</style> */}
@@ -72,12 +64,14 @@ class Experiments extends Component {
 
 // TODO: Create totalPosts field in Graphql
 const query = gql`
-  query Posts($offset: Int) {
-    posts(limit: 10, offset: $offset) {
+  query Experiments($offset: Int) {
+    experiments(limit: 20, offset: $offset) {
       title
       slug
       excerpt
       date
+      url
+      githubUrl
       featuredMedia {
         altText
         caption
@@ -102,14 +96,14 @@ export default withData(graphql(query, {
   props: ({ data }) => {
     return {
       ...data,
-      posts: data && data.posts && data.posts.map((post) => {
+      experiments: data && data.experiments && data.experiments.map((item) => {
         return {
-          title: post.title,
-          date: formatDate(post.date),
-          content: post.excerpt,
-          slug: post.slug,
-          imageUrl: post.featuredMedia && post.featuredMedia.sizes.full.sourceUrl,
-          imageAltText: post.featuredMedia && post.featuredMedia.sizes.full.altText,
+          title: item.title,
+          date: formatDate(item.date),
+          content: item.excerpt,
+          slug: item.slug,
+          imageUrl: item.featuredMedia && item.featuredMedia.sizes.full.sourceUrl,
+          imageAltText: item.featuredMedia && item.featuredMedia.sizes.full.altText,
         };
       }),
       loadMore() {

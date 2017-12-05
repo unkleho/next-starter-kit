@@ -58,6 +58,7 @@ a:hover, a:active {
 }
 
 p {
+  margin-top: 0;
   margin-bottom: var(--font-size-xxlg);
 }
 

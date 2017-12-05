@@ -6,14 +6,14 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  margin-bottom: var(--spacing-xlg);
+  margin-bottom: var(--spacing-xxlg);
   lost-masonry-column: 1/1 0;
   height: 20em;
 
   @media (--screen-sm) {
     flex-direction: row;
     /*lost-masonry-column: 1/2 4px;*/
-    margin-bottom: 3em;
+    margin-bottom: var(--spacing-xxxlg);
   }
 }
 
@@ -128,7 +128,7 @@
   .display-tile__content {
     font-size: var(--font-size-sm);
     margin-bottom: var(--spacing-lg);
-    padding: 0 1em 0 0;
+    padding: 0 1em;
 
     & p {
       margin-bottom: 0;
