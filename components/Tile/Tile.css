@@ -139,7 +139,7 @@
     }
   }
 
-  .tile__cta {
+  /*.tile__cta {
     display: flex;
     font-size: var(--font-size-sm);
     margin-top: var(--spacing-xlg);
@@ -178,17 +178,17 @@
       }
 
       /* Buttons */
-      & .button--sm:first-child {
+      /*& .button--sm:first-child {
         margin-bottom: 0.3em;
 
         @media (--screen-md) {
           margin-top: 0.3em;
           margin-bottom: 0;
         }
-      }
+      }*/
 
       /* Half size button if there are two siblings */
-      & .button--sm:first-child:nth-last-child(2), & .button--sm:first-child:nth-last-child(2) ~ .button--sm {
+      /*& .button--sm:first-child:nth-last-child(2), & .button--sm:first-child:nth-last-child(2) ~ .button--sm {
         margin-left: 0.3em;
 
         @media (--screen-md) {
@@ -198,4 +198,4 @@
           margin-left: 0;
         }
       }
-    }
+    }*/

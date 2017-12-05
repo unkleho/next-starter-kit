@@ -68,6 +68,7 @@
 
     @nest .display-tile--lg & {
       @media (--screen-sm) {
+        flex: 4;
         flex-direction: row;
       }
     }
@@ -126,8 +127,8 @@
 
   .display-tile__content {
     font-size: var(--font-size-sm);
-    margin-bottom: var(--spacing-xs);
-    padding: 0 1em 1em;
+    margin-bottom: var(--spacing-lg);
+    padding: 0 1em 0 0;
 
     & p {
       margin-bottom: 0;
@@ -143,33 +144,44 @@
       @media (--screen-sm) {
         margin-top: var(--spacing-md);
         margin-bottom: -0.4em;
+        margin-right: 2em;
       }
     }
   }
 
   .display-tile__date {
-    /*position: absolute;
-    left: 1em;
-    bottom: -0.4em;*/
     padding-left: var(--spacing-md);
     font-size: var(--font-size-sm);
     color: var(--colour-grey-light);
     @apply --font-uppercase;
 
     @media (--screen-sm) {
-      padding-left: --var(--spacing-md);
+      position: absolute;
+      left: 1em;
+      bottom: -0.4em;
+      padding-left: 0;
     }
 
     @nest .display-tile--lg & {
+      position: relative;
+      left: 0;
+      bottom: 0;
       padding: 0;
     }
   }
 
   .display-tile__cta {
+    width: 80%;
     align-self: flex-end;
+    padding-left: var(--spacing-sm);
     /*font-size: var(--font-size-sm);*/
-    max-width: 14em;
 
-    /*@media (--screen-sm) {
-    }*/
+    @media (--screen-sm) {
+      width: 50%;
+    }
+
+    @nest .display-tile--lg & {
+      flex: 1;
+      padding-left: 0;
+    }
   }

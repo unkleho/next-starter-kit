@@ -1,0 +1,77 @@
+@import '../../styles/variables.css';
+
+.tile-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  height: 3em;
+  font-size: var(--font-size-sm);
+
+  @media (--screen-md) {
+    justify-content: flex-end;
+    height: auto;
+  }
+
+  /* First big button */
+  & > .button:first-child {
+    flex: 5;
+    height: auto;
+
+    @media (--screen-md) {
+      flex-basis: 100%;
+      height: 3em;
+      max-height: 3em;
+      margin-bottom: 3px;
+    }
+  }
+
+  & > .button--sm {
+    flex: 1;
+    height: auto;
+    margin-left: 3px;
+
+    @media (--screen-md) {
+      height: 2em;
+    }
+  }
+
+  & > .button--sm:nth-child(2) {
+    @media (--screen-md) {
+      margin-left: 0;
+    }
+  }
+}
+
+  /*.tile-button-group__small {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    @media (--screen-md) {
+      lost-utility: clearfix;
+
+      flex: none;
+      flex-direction: row;
+    }*/
+
+    /* Buttons */
+    /*& .button--sm:first-child {
+      margin-bottom: 0.3em;
+
+      @media (--screen-md) {
+        margin-top: 0.3em;
+        margin-bottom: 0;
+      }
+    }*/
+
+    /* Half size button if there are two siblings */
+    /*& .button--sm:first-child:nth-last-child(2), & .button--sm:first-child:nth-last-child(2) ~ .button--sm {
+      margin-left: 0.3em;
+
+      @media (--screen-md) {
+        lost-column: 1/2 0 0.3em;
+
+        margin-top: 0.3em;
+        margin-left: 0;
+      }
+    }
+  }*/

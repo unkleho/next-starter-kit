@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 // import Link from '../Link';
 import TileImage from '../TileImage';
-import Button from '../Button';
+// import Button from '../Button';
+import TileButtonGroup from '../TileButtonGroup';
 import styles from './Tile.css';
 
 class Tile extends Component {
@@ -48,23 +49,11 @@ class Tile extends Component {
           <div className="tile__content" dangerouslySetInnerHTML={{ __html: content }}></div>
 
           <div className="tile__cta">
-            <Button>{
-              experimentUrl ? (
-                <span>Launch</span>
-              ) : (
-                <span>Read</span>
-              )
-            }</Button>
-
-            <div className="tile__cta__secondary">
-              {experimentUrl && (
-                <Button size="sm">Read</Button>
-              )}
-
-              {codeUrl && (
-                <Button size="sm">Code</Button>
-              )}
-            </div>
+            <TileButtonGroup
+              primaryText={experimentUrl ? 'Launch' : 'Read'}
+              secondaryText={experimentUrl && 'Read'}
+              tertiaryText={codeUrl && 'Code'}
+            />
           </div>
         </div>
 

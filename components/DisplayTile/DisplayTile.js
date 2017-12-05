@@ -2,8 +2,9 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import TileImage from '../TileImage';
+import TileButtonGroup from '../TileButtonGroup';
 // import Link from '../Link';
-import Button from '../Button';
+// import Button from '../Button';
 import styles from './DisplayTile.css';
 
 class DisplayTile extends Component {
@@ -28,6 +29,7 @@ class DisplayTile extends Component {
       content,
       date,
       size,
+      // codeUrl,
     } = this.props;
 
     return (
@@ -51,7 +53,11 @@ class DisplayTile extends Component {
 
 
           <div className="display-tile__cta">
-            <Button>LAUNCH</Button>
+            <TileButtonGroup
+              primaryText={'Launch'}
+              secondaryText={'Read'}
+              tertiaryText={'Code'}
+            />
           </div>
         </div>
 
