@@ -4,7 +4,7 @@ import { gql, graphql } from 'react-apollo';
 
 // import withData from '../../lib/withData';
 import SimpleTile from '../SimpleTile';
-import { mapPostToTile, throttle } from '../../lib';
+import { mapPostToTile, debounce } from '../../lib';
 import styles from './SearchModal.css';
 
 class SearchModal extends Component {
@@ -16,19 +16,20 @@ class SearchModal extends Component {
   constructor() {
     super();
 
+    this.fetch = debounce(this.fetch, 300);
+
     this.state = {
       q: '',
     };
   }
 
+  fetch = (value) => {
+    this.props.searchPosts(value);
+  }
+
   handleSearchBox = (event) => {
     const q = event.target.value;
-
-    // throttle(() => {
-    //   console.log('hi');
-    // }, 500);
-    // throttle(() => this.props.searchPosts(q), 5000);
-    throttle(this.props.searchPosts(q), 5000);
+    this.fetch(q);
 
     this.setState({
       q,
