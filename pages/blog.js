@@ -7,7 +7,7 @@ import App from '../components/App';
 import Masthead from '../components/Masthead';
 import SimpleTile from '../components/SimpleTile';
 import SectionTitle from '../components/SectionTitle';
-import { formatDate } from '../lib';
+import { mapPostToTile } from '../lib';
 
 class Blog extends Component {
 
@@ -100,16 +100,7 @@ export default withData(graphql(query, {
   props: ({ data }) => {
     return {
       ...data,
-      posts: data && data.posts && data.posts.map((post) => {
-        return {
-          title: post.title,
-          date: formatDate(post.date),
-          content: post.excerpt,
-          slug: post.slug,
-          imageUrl: post.featuredMedia && post.featuredMedia.sizes.full.sourceUrl,
-          imageAltText: post.featuredMedia && post.featuredMedia.sizes.full.altText,
-        };
-      }),
+      posts: data && data.posts && data.posts.map((post) => mapPostToTile(post)),
       loadMore() {
         return data.fetchMore({
           variables: {
