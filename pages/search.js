@@ -21,6 +21,7 @@ class SearchPage extends Component {
           <SearchModal
             posts={posts}
             q={url.query.q}
+            isLoading
           />
         </div>
       </App>

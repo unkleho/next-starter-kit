@@ -13,12 +13,13 @@ class SearchModal extends Component {
   static propTypes = {
     posts: PropTypes.array,
     q: PropTypes.string,
+    isLoading: PropTypes.bool,
   }
 
   constructor(props) {
     super(props);
 
-    // this.fetch = debounce(this.fetch, 300);
+    this.fetch = debounce(this.fetch, 300);
     this.fetch(props.q);
 
     this.state = {
@@ -52,10 +53,11 @@ class SearchModal extends Component {
   render() {
     const {
       posts,
-      loading,
+      isLoading,
     } = this.props;
 
     const q = this.state.q;
+    // console.log(isLoading);
 
     return (
       <div className="search-modal">
@@ -88,11 +90,11 @@ class SearchModal extends Component {
 
         <div className="search-modal__results">
 
-          {loading && (
-            <div>Loading</div>
+          {isLoading && (
+            <div>{isLoading}</div>
           )}
 
-          {posts && posts.map((post, i) => {
+          {this.props.q && posts && posts.map((post, i) => {
             return (
               <SimpleTile
                 subtitle={post.date}
@@ -142,10 +144,12 @@ export default graphql(query, {
     };
   },
   props: ({ data, ownProps }) => {
+    console.log('props');
+    console.log(data.loading);
     return {
       ...data,
       // posts: [],
-      posts: ownProps.q && data && data.posts && data.posts.map((post) => mapPostToTile(post)),
+      posts: data && data.posts && data.posts.map((post) => mapPostToTile(post)),
       searchPosts(q) {
         // console.log(q);
         return data.fetchMore({
