@@ -1,5 +1,13 @@
 @import '../../styles/variables.css';
 
+.search-modal__title {
+  font-size: 1em;
+
+  @media (--screen-md) {
+    font-size: var(--font-size-lg);
+  }
+}
+
 .search-modal__form {
   display: flex;
 

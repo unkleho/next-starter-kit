@@ -61,7 +61,7 @@ class SearchModal extends Component {
 
     return (
       <div className="search-modal">
-        <h1>Search</h1>
+        <h1 className="search-modal__title">Search</h1>
 
         <div>
           <form
@@ -90,9 +90,9 @@ class SearchModal extends Component {
 
         <div className="search-modal__results">
 
-          {isLoading && (
+          {/* {isLoading && (
             <div>{isLoading}</div>
-          )}
+          )} */}
 
           {this.props.q && posts && posts.map((post, i) => {
             return (

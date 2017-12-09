@@ -104,7 +104,7 @@
   --body-spacing-md: 2em;
   --body-spacing-lg: 3em;
 
-  --gutter-masonry: 8px;
+  --gutter-masonry: 24px;
 
   /*
    * Custom Media Queries
@@ -136,7 +136,7 @@
   --container-width-sm: 33.5em;
   --container-width-md: 42em;
   --container-width-lg: 62em;
-  --container-width-xlg: 80em;
+  --container-width-xlg: 70em;
 
   /*
    * Custom Properties

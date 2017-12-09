@@ -16,7 +16,7 @@
   }
 
   /* Line decoration */
-  &:not(:first-child)::before {
+  /*&:not(:first-child)::before {
     position: absolute;
     top: -1em;
     left: -1em;
@@ -28,7 +28,7 @@
     @media (--screen-sm) {
       display: none;
     }
-  }
+  }*/
 }
 
 .tile--1x2 {
@@ -123,19 +123,35 @@
 
   .tile__content {
     font-size: var(--font-size-sm);
+    margin-bottom: 1em;
     padding-left: var(--spacing-sm);
     padding-top: var(--spacing-md);
     opacity: 0.7;
 
     @media (--screen-md) {
       flex: 4;
+      margin-bottom: -0.2em;
       padding-top: 2.5em;
-      padding-right: 4em;
+      padding-right: 1em;
     }
 
     & p {
       margin-top: 0;
       margin-bottom: 0;
+    }
+  }
+
+  .tile__cta {
+    margin-left: var(--spacing-xs);
+
+    @media (--screen-sm) {
+      align-self: flex-end;
+      width: 50%;
+    }
+
+    @media (--screen-md) {
+      width: 30%;
+      margin-top: 2em;
     }
   }
 

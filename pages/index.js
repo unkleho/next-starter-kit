@@ -31,13 +31,13 @@ const HomePage = ({
         </div>
       )}
       text="We build and support new ways of design thinking, experimentation and deep research with digital technologies."
-      sideText="Collaborate / Experiment / Create / Engage / Be Open / Surprise"
+      // sideText="Collaborate / Experiment / Create / Engage / Be Open / Surprise"
       backgroundImageUrl="/static/images/masthead-background-01.gif"
       slug="Experimental Innovation Lab"
       size="lg"
     />
 
-    <div className="posts container container--xlg">
+    <div className="posts container container--lg">
       <SectionTitle>Latest</SectionTitle>
 
       <Masonry
@@ -48,7 +48,7 @@ const HomePage = ({
           columnWidth: '.tile',
         }}
       >
-        {posts && posts.slice(0, 5).map((post, i) => (
+        {posts && posts.slice(0, 3).map((post, i) => (
           <Tile
             title={post.title}
             url={`/blog/${post.slug}`}
@@ -103,7 +103,7 @@ const HomePage = ({
         size="lg"
       />
 
-      <SectionTitle>Experiments</SectionTitle>
+      <SectionTitle>Checkout our work!</SectionTitle>
 
       <Masonry
         className="experiment-tiles"
@@ -196,7 +196,7 @@ export default withData(graphql(homeQuery, {
         let blogUrl;
         let codeUrl;
 
-        if (post.slug === 'building-painting-by-numbers' || post.slug === 'making-meridian') {
+        if (post.slug === 'building-painting-by-numbers-2' || post.slug === 'making-meridian') {
           experimentUrl = 'https://paintingbynumbers.dxlab.sl.nsw.gov.au';
         }
 
