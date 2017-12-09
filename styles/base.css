@@ -36,6 +36,10 @@ h1, h2, h3, h4 {
   font-weight: 700;
 }
 
+h1 {
+  font-size: var(--font-size-xxlg);
+}
+
 h2 {
   font-size: var(--font-size-lg);
 }
@@ -89,7 +93,7 @@ figure {
   max-width: 100%;
 }
 
-button {
+button, input[type=submit] {
   background: none;
   border: none;
   color: var(--colour-white);
@@ -117,4 +121,16 @@ input[type=text], input[type=email], textarea {
   border-left: none;
   border-top: none;
   border-radius: 0;
+}
+
+input[type=submit] {
+  font-size: var(--font-size-sm);
+  @apply --font-uppercase;
+  border: 1px solid var(--colour-white);
+  transition: 0.3s;
+
+  &:hover {
+    color: var(--colour-highlight);
+    border-color: var(--colour-highlight);
+  }
 }

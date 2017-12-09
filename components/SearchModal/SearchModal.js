@@ -4,6 +4,7 @@ import { gql, graphql } from 'react-apollo';
 
 // import withData from '../../lib/withData';
 import SimpleTile from '../SimpleTile';
+import Button from '../Button';
 import { mapPostToTile, debounce } from '../../lib';
 import styles from './SearchModal.css';
 
@@ -11,16 +12,23 @@ class SearchModal extends Component {
 
   static propTypes = {
     posts: PropTypes.array,
+    q: PropTypes.string,
   }
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
-    this.fetch = debounce(this.fetch, 300);
+    // this.fetch = debounce(this.fetch, 300);
+    this.fetch(props.q);
 
     this.state = {
-      q: '',
+      q: props.q ? props.q : '',
     };
+  }
+
+  componentDidMount() {
+    // console.log(this.props.q);
+    this.fetch(this.props.q);
   }
 
   fetch = (value) => {
@@ -29,34 +37,62 @@ class SearchModal extends Component {
 
   handleSearchBox = (event) => {
     const q = event.target.value;
-    this.fetch(q);
+    // this.fetch(q);
 
     this.setState({
       q,
     });
   }
 
+  handleForm = () => {
+    this.fetch(this.state.q);
+    window.location.search = `?q=${q}`;
+  }
+
   render() {
     const {
       posts,
+      loading,
     } = this.props;
 
-    const {
-      q,
-    } = this.state;
+    const q = this.state.q;
 
     return (
       <div className="search-modal">
         <h1>Search</h1>
-        <input
-          type="text"
-          name="search"
-          placeholder="Start typing..."
-          onKeyUp={this.handleSearchBox}
-        />
 
         <div>
-          {q && posts.map((post, i) => {
+          <form
+            className="search-modal__form"
+            action="/search"
+            method="get"
+            // onSubmit={this.handleForm}
+          >
+            <input
+              className="search-modal__search-box"
+              type="text"
+              name="q"
+              placeholder="Type here"
+              value={q}
+              onChange={this.handleSearchBox}
+              // onKeyUp={this.handleSearchBox}
+            />
+            <input
+              className="button"
+              type="submit"
+              value="submit"
+              aria-label="Search Submit Button."
+            />
+          </form>
+        </div>
+
+        <div className="search-modal__results">
+
+          {loading && (
+            <div>Loading</div>
+          )}
+
+          {posts && posts.map((post, i) => {
             return (
               <SimpleTile
                 subtitle={post.date}
@@ -70,7 +106,7 @@ class SearchModal extends Component {
             );
           })}
         </div>
-        <style jsx>{styles}</style>
+        <style global jsx>{styles}</style>
       </div>
     );
   }
@@ -98,19 +134,20 @@ const query = gql`
 `;
 
 export default graphql(query, {
-  options: () => {
+  options: (props) => {
     return {
       variables: {
-        search: null,
+        search: props.q ? props.q : null,
       },
     };
   },
-  props: ({ data }) => {
+  props: ({ data, ownProps }) => {
     return {
       ...data,
-      posts: data && data.posts && data.posts.map((post) => mapPostToTile(post)),
+      // posts: [],
+      posts: ownProps.q && data && data.posts && data.posts.map((post) => mapPostToTile(post)),
       searchPosts(q) {
-        console.log(q);
+        // console.log(q);
         return data.fetchMore({
           variables: {
             search: q,

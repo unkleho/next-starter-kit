@@ -99,6 +99,7 @@ class CommentForm extends Component {
                 ></textarea>
               </div>
 
+              {/* TODO: Try input type submit */}
               <button
                 className="button"
                 type="submit"

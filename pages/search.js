@@ -7,10 +7,22 @@ import withData from '../lib/withData';
 class SearchPage extends Component {
 
   render() {
+    const {
+      url,
+      posts,
+      loading: isLoading,
+    } = this.props;
+
+    // console.log(url);
 
     return (
-      <App>
-        <SearchModal posts={this.props.posts} />
+      <App pathname={url.pathname} isLoading={isLoading}>
+        <div className="search-page container container--md">
+          <SearchModal
+            posts={posts}
+            q={url.query.q}
+          />
+        </div>
       </App>
     );
   }
