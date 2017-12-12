@@ -51,7 +51,7 @@ const HomePage = ({
         {posts && posts.slice(0, 3).map((post, i) => (
           <Tile
             title={post.title}
-            subtitle="12.1.17"
+            subtitle={post.date}
             url={`/blog/${post.slug}`}
             imageUrl={post.imageUrl}
             imageAltText={post.imageAltText}
@@ -70,7 +70,7 @@ const HomePage = ({
       <SectionTitle>Blog</SectionTitle>
 
       <div>
-        {posts && posts.slice(5, 11).map((post, i) => (
+        {posts && posts.slice(3, 7).map((post, i) => (
           <SimpleTile
             subtitle={post.date}
             title={post.title}
