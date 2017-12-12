@@ -11,6 +11,7 @@ class Tile extends Component {
 
   static propTypes = {
     title: PropTypes.string,
+    subtitle: PropTypes.string,
     url: PropTypes.string,
     imageUrl: PropTypes.string,
     imageAltText: PropTypes.string,
@@ -23,6 +24,7 @@ class Tile extends Component {
   render() {
     const {
       title,
+      subtitle,
       url,
       imageUrl,
       content,
@@ -44,7 +46,10 @@ class Tile extends Component {
         />
 
         <div className="tile__info">
-          <h1 className="tile__title">{title}</h1>
+          <header>
+            <h1 className="tile__title">{title}</h1>
+            <div className="tile__subtitle">{subtitle}</div>            
+          </header>
 
           <div className="tile__content" dangerouslySetInnerHTML={{ __html: content }}></div>
 

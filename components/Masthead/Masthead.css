@@ -60,7 +60,7 @@
     position: absolute;
     top: 55%;
     letter-spacing: 0.25em;
-    line-height: 1.2;
+    line-height: 1;
     font-size: var(--font-size-xlg);
 
     @media (--screen-sm) {
@@ -68,7 +68,7 @@
     }
 
     @media (--screen-md) {
-      line-height: 1.1;
+      /*line-height: 1.1;*/
       font-size: var(--font-size-xxxlg);
     }
 

@@ -78,47 +78,60 @@
     @media (--screen-md) {
       flex-direction: row;
       align-items: flex-end;
+      flex-wrap: wrap;
     }
   }
 
-  .tile__title {
+  .tile header {
+    width: 100%;
     margin-top: -0.25em;
-    margin-bottom: 0;
+  }
+
+  .tile__title {
     display: inline-table;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0.1em;
     padding-right: 0.1em;
     font-size: var(--font-size-lg);
     font-weight: 700;
     @apply --font-uppercase;
     @apply --font-antialiased;
-    line-height: 1.3;
+    line-height: 1.2;
     color: var(--colour-white);
     background-color: var(--colour-black);
 
     @media (--screen-sm) {
-      padding-left: var(--spacing-xxs);
+      /*padding-left: var(--spacing-xxs);*/
     }
 
     @media (--screen-md) {
-      position: absolute;
-      top: 0;
+      /*position: absolute;*/
+      /*top: 0;*/
     }
 
     @nest .tile--1x2 & {
       font-size: var(--font-size-xlg);
       margin-left: calc(-1 * var(--spacing-xs));
       padding-left: var(--spacing-xs);
-      line-height: 1.2;
 
       @media (--screen-md) {
-        line-height: 1.3;
+        /*line-height: 1.3;*/
         margin-left: 0;
         padding-left: var(--spacing-xxxs);
+        padding-left: 0;
         /*margin-left: 0.5rem;*/
         /*padding-left: var(--spacing-sm);*/
       }
 
       /*margin-top: 0;*/
     }
+  }
+
+  .tile__subtitle {
+    @apply --font-uppercase;
+    font-size: var(--font-size-xs);
+    opacity: 0.6;
   }
 
   .tile__content {
@@ -131,8 +144,9 @@
     @media (--screen-md) {
       flex: 4;
       margin-bottom: -0.2em;
-      padding-top: 2.5em;
+      /*padding-top: 2.5em;*/
       padding-right: 1em;
+      padding-left: 0;
     }
 
     & p {
@@ -143,6 +157,7 @@
 
   .tile__cta {
     margin-left: var(--spacing-xs);
+    width: 66%;
 
     @media (--screen-sm) {
       align-self: flex-end;
@@ -151,7 +166,7 @@
 
     @media (--screen-md) {
       width: 30%;
-      margin-top: 2em;
+      /*margin-top: 2em;*/
     }
   }
 

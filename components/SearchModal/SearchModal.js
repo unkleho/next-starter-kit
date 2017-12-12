@@ -4,7 +4,6 @@ import { gql, graphql } from 'react-apollo';
 
 // import withData from '../../lib/withData';
 import SimpleTile from '../SimpleTile';
-import Button from '../Button';
 import { mapPostToTile, debounce } from '../../lib';
 import styles from './SearchModal.css';
 
@@ -47,13 +46,13 @@ class SearchModal extends Component {
 
   handleForm = () => {
     this.fetch(this.state.q);
-    window.location.search = `?q=${q}`;
+    // window.location.search = `?q=${q}`;
   }
 
   render() {
     const {
       posts,
-      isLoading,
+      // isLoading,
     } = this.props;
 
     const q = this.state.q;
@@ -143,9 +142,7 @@ export default graphql(query, {
       },
     };
   },
-  props: ({ data, ownProps }) => {
-    console.log('props');
-    console.log(data.loading);
+  props: ({ data }) => {
     return {
       ...data,
       // posts: [],

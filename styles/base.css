@@ -117,7 +117,7 @@ input[type=text], input[type=email], textarea {
   color: var(--colour-white);
   background-color: var(--colour-grey-darker);
   border-bottom: 4px solid var(--colour-grey-darkest);
-  border-right: 2px solid var(--colour-grey-dark);
+  border-right: 2px solid rgba(45, 45, 45);
   border-left: none;
   border-top: none;
   border-radius: 0;

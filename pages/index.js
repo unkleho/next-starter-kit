@@ -21,7 +21,7 @@ const HomePage = ({
   <App pathname={url.pathname} isLoading={isLoading}>
 
     <Masthead
-      subtitle="Welcome to the DX Lab:"
+      // subtitle="Welcome to the DX Lab:"
       title={(
         <div>
           <span>The State Library of NSW's</span><br/>
@@ -51,6 +51,7 @@ const HomePage = ({
         {posts && posts.slice(0, 3).map((post, i) => (
           <Tile
             title={post.title}
+            subtitle="12.1.17"
             url={`/blog/${post.slug}`}
             imageUrl={post.imageUrl}
             imageAltText={post.imageAltText}
