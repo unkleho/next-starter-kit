@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-// import Link from '../Link';
+import Link from '../Link';
 import TileImage from '../TileImage';
 // import Button from '../Button';
 import styles from './SimpleTile.css';
@@ -36,7 +36,11 @@ class SimpleTile extends Component {
 
         <div className="simple-tile__info">
           <p className="simple-tile__subtitle">{subtitle}</p>
-          <h2 className="simple-tile__title">{title}</h2>
+          <h2 className="simple-tile__title">
+            <Link to={url}>
+              <a>{title}</a>
+            </Link>
+          </h2>
         </div>
 
         <style global jsx>{styles}</style>

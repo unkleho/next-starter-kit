@@ -91,6 +91,10 @@
         letter-spacing: 0.3em;
       }
     }
+
+    & a:link, & a:visited {
+      color: var(--colour-highlight);
+    }
   }
 
   .masthead__subtitle {

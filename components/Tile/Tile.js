@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
-// import Link from '../Link';
+import Link from '../Link';
 import TileImage from '../TileImage';
 // import Button from '../Button';
 import TileButtonGroup from '../TileButtonGroup';
@@ -47,16 +47,21 @@ class Tile extends Component {
 
         <div className="tile__info">
           <header>
-            <h1 className="tile__title">{title}</h1>
-            <div className="tile__subtitle">{subtitle}</div>            
+            <h1 className="tile__title">
+              <Link to={url}><a>{title}</a></Link>
+            </h1>
+            <div className="tile__subtitle">{subtitle}</div>
           </header>
 
           <div className="tile__content" dangerouslySetInnerHTML={{ __html: content }}></div>
 
           <div className="tile__cta">
             <TileButtonGroup
+              primaryUrl={url}
               primaryText={experimentUrl ? 'Launch' : 'Read'}
+              secondaryUrl={experimentUrl}
               secondaryText={experimentUrl && 'Read'}
+              tertiaryUrl={codeUrl}
               tertiaryText={codeUrl && 'Code'}
             />
           </div>

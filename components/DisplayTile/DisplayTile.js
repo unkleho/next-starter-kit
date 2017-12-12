@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import TileImage from '../TileImage';
 import TileButtonGroup from '../TileButtonGroup';
-// import Link from '../Link';
+import Link from '../Link';
 // import Button from '../Button';
 import styles from './DisplayTile.css';
 
@@ -19,6 +19,8 @@ class DisplayTile extends Component {
       '2x1',
       '1x2',
     ]),
+    secondaryUrl: PropTypes.string,
+    tertiaryUrl: PropTypes.string,
   }
 
   render() {
@@ -29,7 +31,8 @@ class DisplayTile extends Component {
       content,
       date,
       size,
-      // codeUrl,
+      secondaryUrl,
+      tertiaryUrl,
     } = this.props;
 
     return (
@@ -44,7 +47,11 @@ class DisplayTile extends Component {
         <div className="display-tile__info">
           <div className="display-tile__body">
             <header className="display-tile__header">
-              <h1 className="display-tile__title">{title}</h1>
+              <h1 className="display-tile__title">
+                <Link to={url}>
+                  <a>{title}</a>
+                </Link>
+              </h1>
               <div className="display-tile__date">{date}</div>
             </header>
 
@@ -54,8 +61,11 @@ class DisplayTile extends Component {
 
           <div className="display-tile__cta">
             <TileButtonGroup
+              primaryUrl={url}
               primaryText={'Launch'}
+              secondaryUrl={secondaryUrl}
               secondaryText={'Read'}
+              tertiaryUrl={tertiaryUrl}
               tertiaryText={'Code'}
             />
           </div>

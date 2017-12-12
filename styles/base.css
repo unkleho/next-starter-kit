@@ -55,10 +55,20 @@ h2:first-child {
 a:link, a:visited {
   text-decoration: none;
   color: var(--colour-primary);
+  transition: 0.3s;
+
+  @nest h1 &, h2 & {
+    color: inherit;
+  }
 }
 
 a:hover, a:active {
   text-decoration: underline;
+
+  @nest h1 &, h2 & {
+    text-decoration: none;
+    color: var(--colour-highlight);
+  }
 }
 
 p {
