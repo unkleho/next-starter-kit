@@ -35,11 +35,14 @@ class Post extends Component {
       date,
       loading,
       comments,
+      experiments,
     } = this.props;
 
     const featuredImageUrl = featuredMedia && featuredMedia.sourceUrl;
     const featuredImageDescription = featuredMedia && featuredMedia.description;
     const authorName = author && author.name;
+    const experimentUrl = experiments && experiments[0] && experiments[0].url;
+    const githubUrl = experiments && experiments[0] && experiments[0].githubUrl;
     const dateString = formatDate(date);
 
     return (
@@ -49,7 +52,7 @@ class Post extends Component {
           className="post container container--sm"
         >
 
-          <header>
+          <header className="post__header">
             <div className="post__featured-image-holder">
               <img
                 className="post__featured-image"
@@ -62,8 +65,12 @@ class Post extends Component {
             <div className="post__author">By <a href="">{authorName}</a></div>
 
             <div className="post__cta">
-              <Button href="">LAUNCH EXPERIMENT</Button>
-              <Button href="">CODE</Button>
+              {experimentUrl && (
+                <Button href="">LAUNCH EXPERIMENT</Button>
+              )}
+              {githubUrl && (
+                <Button href="">CODE</Button>
+              )}
             </div>
           </header>
 
@@ -108,6 +115,9 @@ const postQuery = gql`
         authorName
         date
         parentId
+      }
+      experiments {
+        url
       }
     }
   }

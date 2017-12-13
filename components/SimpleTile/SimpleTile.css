@@ -58,8 +58,6 @@
 
     /*min-height: 3em;*/
     background-color: var(--colour-black);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 
     @media (--screen-md) {
       flex-direction: row;
@@ -76,16 +74,18 @@
     font-size: var(--spacing-md);
     font-weight: 700;
     @apply --font-uppercase;
+    @apply --font-antialiased;
     line-height: 1.2;
     color: var(--colour-white);
   }
 
   .simple-tile__subtitle {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xs);
     font-weight: 100;
     letter-spacing: 0.2em;
     margin-top: 0;
     margin-bottom: 0;
+    opacity: 0.6;
   }
 
   .simple-tile__content {

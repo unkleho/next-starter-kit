@@ -8,7 +8,7 @@ import Tile from '../components/Tile';
 import SimpleTile from '../components/SimpleTile';
 import SectionTitle from '../components/SectionTitle';
 import Button from '../components/Button';
-import { experiments } from '../lib/data';
+// import { experiments } from '../lib/data';
 import { formatDate } from '../lib';
 // import proxyRoutes from '../routes/proxyRoutes';
 import styles from './index.css';
@@ -16,6 +16,7 @@ import styles from './index.css';
 const HomePage = ({
   url,
   posts,
+  experiments,
   loading: isLoading,
 }) => (
   <App pathname={url.pathname} isLoading={isLoading}>
@@ -52,14 +53,12 @@ const HomePage = ({
           <Tile
             title={post.title}
             subtitle={post.date}
-            url={`/blog/${post.slug}`}
+            secondaryUrl={post.experimentUrl && `/blog/${post.slug}`}
+            url={post.experimentUrl ? post.experimentUrl : `/blog/${post.slug}`}
             imageUrl={post.imageUrl}
             imageAltText={post.imageAltText}
             content={post.content}
             size={getTileSize(i)}
-            experimentUrl={post.experimentUrl}
-            blogUrl={`/blog/${post.slug}`}
-            codeUrl={post.codeUrl}
             key={`tile-${i}`}
           />
         ))}
@@ -117,14 +116,14 @@ const HomePage = ({
         {experiments && experiments.slice(0, 3).map((experiment, i) => (
           <Tile
             title={experiment.title}
-            url={`/blog/${experiment.slug}`}
+            subtitle={experiment.date}
+            url={experiment.url}
+            secondaryUrl={experiment.blogUrl}
+            tertiaryUrl={experiment.githubUrl}
             imageUrl={experiment.imageUrl}
             imageAltText={experiment.imageAltText}
             content={experiment.content}
             size={getExperimentTileSize(i)}
-            experimentUrl={experiment.url}
-            blogUrl={`/blog/${experiment.slug}`}
-            codeUrl={experiment.codeUrl}
             key={`experiment-${i}`}
           />
         ))}
@@ -182,6 +181,25 @@ const homeQuery = gql`
         }
       }
     }
+    experiments(limit: 3) {
+      title
+      slug
+      excerpt
+      date
+      url
+      posts {
+        slug
+      }
+      featuredMedia {
+        altText
+        caption
+        sizes {
+          full {
+            sourceUrl
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -191,32 +209,52 @@ export default withData(graphql(homeQuery, {
   props: ({ data }) => {
     return {
       ...data,
-      posts: data && data.posts && data.posts.map((post) => {
+      posts: data && data.posts && data.posts.map((item) => {
 
         let experimentUrl;
         let blogUrl;
         let codeUrl;
 
-        if (post.slug === 'building-painting-by-numbers-2' || post.slug === 'making-meridian') {
+        if (item.slug === 'building-painting-by-numbers-2' || item.slug === 'making-meridian') {
           experimentUrl = 'https://paintingbynumbers.dxlab.sl.nsw.gov.au';
         }
 
-        if (post.slug === 'making-meridian') {
+        if (item.slug === 'making-meridian') {
           codeUrl = 'https://github.com';
         }
 
         return {
-          title: post.title,
-          content: post.excerpt,
-          slug: post.slug,
-          imageUrl: post.featuredMedia && post.featuredMedia.sizes.full.sourceUrl,
-          imageAltText: post.featuredMedia && post.featuredMedia.sizes.full.altText,
+          title: item.title,
+          content: item.excerpt,
+          slug: item.slug,
+          imageUrl: item.featuredMedia && item.featuredMedia.sizes.full.sourceUrl,
+          imageAltText: item.featuredMedia && item.featuredMedia.sizes.full.altText,
           experimentUrl,
           blogUrl,
           codeUrl,
-          date: formatDate(post.date),
+          date: formatDate(item.date),
+        };
+      }),
+      experiments: data.experiments && data.experiments.map((item) => {
+        console.log(item);
+        return {
+          ...mapItemToTile(item),
+          url: item.url,
+          blogUrl: item.posts[0] && `/blog/${item.posts[0].slug}`,
+          githubUrl: item.githubUrl,
         };
       }),
     };
   },
 })(HomePage));
+
+function mapItemToTile(item) {
+  return {
+    title: item.title,
+    content: item.excerpt,
+    slug: item.slug,
+    imageUrl: item.featuredMedia && item.featuredMedia.sizes.full.sourceUrl,
+    imageAltText: item.featuredMedia && item.featuredMedia.sizes.full.altText,
+    date: formatDate(item.date),
+  };
+}

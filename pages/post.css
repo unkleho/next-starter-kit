@@ -38,7 +38,7 @@
 
     @media (--screen-sm) {
       display: inline-block;
-      padding-left: 3rem;
+      padding-left: 0;
       margin-left: -2rem;
       font-size: var(--font-size-xxlg);
     }
@@ -51,6 +51,10 @@
 
   .post__author {
     margin-left: 1rem;
+
+    @media (--screen-sm) {
+      margin-left: -2em;
+    }
   }
 
   .post__date {
@@ -84,6 +88,7 @@
   .post__cta {
     display: flex;
     margin-top: var(--spacing-xlg);
+    margin-bottom: var(--spacing-xxlg);
     padding-left: 1em;
 
     @media (--screen-sm) {
