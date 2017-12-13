@@ -152,6 +152,14 @@ ul.primary-menu {
       }
     }
 
+    & .slnsw-icon-ZoomOL2:hover {
+      color: var(--colour-highlight);
+    }
+
+    & a:hover {
+      text-decoration: none;
+    }
+
     & .primary-menu__divider {
       display: none;
 
