@@ -51,16 +51,16 @@ class Post extends Component {
         <article
           className="post container container--sm"
         >
+          <div className="post__featured-image-holder">
+            <img
+              className="post__featured-image"
+              src={featuredImageUrl}
+              alt={featuredImageDescription}
+            />
+            <div className="post__date">{dateString}</div>
+          </div>
 
           <header className="post__header">
-            <div className="post__featured-image-holder">
-              <img
-                className="post__featured-image"
-                src={featuredImageUrl}
-                alt={featuredImageDescription}
-              />
-              <div className="post__date">{dateString}</div>
-            </div>
             <h1 className="post__title">{title}</h1>
             <div className="post__author">By <a href="">{authorName}</a></div>
 

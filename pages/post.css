@@ -25,7 +25,8 @@
   }
 
   .post__title {
-    display: table-caption;
+    /*display: table-caption;*/
+    display: inline-block;
     position: relative;
     z-index: 5;
     margin-top: -0.2em;
@@ -37,7 +38,6 @@
     line-height: 1.3;
 
     @media (--screen-sm) {
-      display: inline-block;
       padding-left: 0;
       margin-left: -2rem;
       font-size: var(--font-size-xxlg);
@@ -45,7 +45,7 @@
 
     @media (--screen-lg) {
       padding-left: 5rem;
-      margin-left: -4rem;
+      margin-left: -9rem;
     }
   }
 
@@ -54,6 +54,10 @@
 
     @media (--screen-sm) {
       margin-left: -2em;
+    }
+
+    @media (--screen-lg) {
+      margin-left: -4em;
     }
   }
 

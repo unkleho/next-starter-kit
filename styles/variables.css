@@ -7,12 +7,15 @@
    * Colours
    * ------------------------------------------------------------------------ */
 
-  --colour-primary: #ef0083;
+  /*--colour-primary: #ef0083;*/
+  --colour-primary: #e6007e;
   --colour-secondary: green;
   --colour-tertiary: yellow;
-  --colour-highlight: #ef0083;
+  /*--colour-highlight: #ef0083;*/
+  --colour-highlight: #e6007e;
 
-  --colour-black: #120f10;
+  /*--colour-black: #120f10;*/
+  --colour-black: #060606;
   --colour-white: #e6e6e6;
 
   /* Greys */
