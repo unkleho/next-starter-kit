@@ -1,8 +1,10 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import Head from 'next/head';
 
 import Header from '../Header';
 import Footer from '../Footer';
+// import { Router } from '../../routes';
 import styles from './App.css';
 import baseStyles from '../../styles/base.css';
 import globalsStyles from '../../styles/globals.css';
@@ -12,10 +14,17 @@ const SCROLLTOP_THRESHOLD = 100;
 
 class App extends Component {
 
+  static propTypes = {
+    children: PropTypes.array,
+    pathname: PropTypes.string,
+    isLoading: PropTypes.bool,
+  }
+
   constructor() {
     super();
 
     this.state = {
+      // isLoading: false,
       isHeaderBackgroundActive: false,
     };
   }
@@ -28,8 +37,22 @@ class App extends Component {
     });
   }
 
+  // componentDidUpdate() {
+  //   // console.log('componentDidUpdate', this.props.isLoading);
+  //
+  //   Router.onRouteChangeStart = () => {
+  //     console.log('isLoading');
+  //     this.setState({
+  //       isLoading: true,
+  //     });
+  //   };
+  // }
+
   componentDidMount() {
     document.addEventListener('scroll', this.handleOnScroll);
+    // this.setState({
+    //   isLoading: false,
+    // });
   }
 
   componentWillUnmount() {
