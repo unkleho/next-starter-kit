@@ -34,7 +34,7 @@
     /*margin-right: -1em;*/
     background-size: cover;
     background-position: center;
-    height: 8em;
+    /*height: 8em;*/
 
     @media (--screen-sm) {
       width: 100%;

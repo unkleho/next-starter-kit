@@ -37,7 +37,7 @@ class Blog extends Component {
         />
 
         <div className="posts container container--lg">
-          <SectionTitle title="Posts"></SectionTitle>
+          <SectionTitle>Read our posts</SectionTitle>
 
           {posts && (
             <InfiniteScroll
@@ -51,7 +51,7 @@ class Blog extends Component {
                   subtitle={post.date}
                   title={post.title}
                   url={`/blog/${post.slug}`}
-                  imageUrl={post.imageUrl}
+                  imageUrl={post.smallImageUrl}
                   imageAltText={post.imageAltText}
                   content={post.content}
                   key={`tile-${i}`}
@@ -80,7 +80,7 @@ const query = gql`
         altText
         caption
         sizes {
-          full {
+          smallTile {
             sourceUrl
           }
         }

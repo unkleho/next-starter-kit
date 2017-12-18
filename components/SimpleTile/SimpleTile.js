@@ -2,7 +2,8 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Link from '../Link';
-import TileImage from '../TileImage';
+import Image from '../Image';
+// import TileImage from '../TileImage';
 // import Button from '../Button';
 import styles from './SimpleTile.css';
 
@@ -22,23 +23,29 @@ class SimpleTile extends Component {
       subtitle,
       url,
       imageUrl,
-      // imageAltText,
+      imageAltText,
     } = this.props;
 
     return (
       <article className="simple-tile simple-tile--tall">
 
-        <TileImage
+        {/* <TileImage
           imageUrl={imageUrl}
           url={url}
           className="simple-tile__image"
+        /> */}
+
+        <Image
+          src={imageUrl}
+          className="simple-tile__image"
+          alt={imageAltText}
         />
 
         <div className="simple-tile__info">
           <p className="simple-tile__subtitle">{subtitle}</p>
           <h2 className="simple-tile__title">
             <Link to={url}>
-              <a>{title}</a>
+              <a dangerouslySetInnerHTML={{ __html: title }}></a>
             </Link>
           </h2>
         </div>

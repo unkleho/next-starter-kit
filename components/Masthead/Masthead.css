@@ -129,8 +129,8 @@
     }
 
     @media (--screen-md) {
-      left: 55%;
-      width: 40%;
+      right: 7%;
+      width: 30%;
     }
 
     /* Corner Line */

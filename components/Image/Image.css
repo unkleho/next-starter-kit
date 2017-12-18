@@ -1,0 +1,44 @@
+.image {
+  position: relative;
+
+  &.is-loaded {
+    animation: fadeIn 0.3s;
+  }
+
+  &.is-loading {
+    img {
+      display: none;
+    }
+  }
+
+  &.has-aspect-ratio {
+    position: relative;
+    height: 0;
+    width: 100%;
+    padding-top: 100%;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  & img {
+    width: 100%;
+    height: auto;
+    z-index: 1;
+  }
+}
+
+  .maas-image__status {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1;
+  }

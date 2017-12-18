@@ -1,6 +1,5 @@
 import { Component } from 'react';
 
-import Link from '../Link';
 import Menu from '../Menu';
 import styles from './Header.css';
 

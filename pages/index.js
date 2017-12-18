@@ -55,7 +55,7 @@ const HomePage = ({
             subtitle={post.date}
             secondaryUrl={post.experimentUrl && `/blog/${post.slug}`}
             url={post.experimentUrl ? post.experimentUrl : `/blog/${post.slug}`}
-            imageUrl={post.imageUrl}
+            imageUrl={getTileSize(i) === '1x2' ? post.tallImageUrl : post.mediumImageUrl }
             imageAltText={post.imageAltText}
             content={post.content}
             size={getTileSize(i)}
@@ -74,7 +74,7 @@ const HomePage = ({
             subtitle={post.date}
             title={post.title}
             url={`/blog/${post.slug}`}
-            imageUrl={post.imageUrl}
+            imageUrl={post.mediumImageUrl}
             imageAltText={post.imageAltText}
             content={post.content}
             key={`simple-tile-${i}`}
@@ -120,7 +120,7 @@ const HomePage = ({
             url={experiment.url}
             secondaryUrl={experiment.blogUrl}
             tertiaryUrl={experiment.githubUrl}
-            imageUrl={experiment.imageUrl}
+            imageUrl={getExperimentTileSize(i) === '1x2' ? experiment.tallImageUrl : experiment.mediumImageUrl }
             imageAltText={experiment.imageAltText}
             content={experiment.content}
             size={getExperimentTileSize(i)}
@@ -175,6 +175,12 @@ const homeQuery = gql`
         altText
         caption
         sizes {
+          tallTile {
+            sourceUrl
+          }
+          mediumTile {
+            sourceUrl
+          }
           full {
             sourceUrl
           }
@@ -194,6 +200,12 @@ const homeQuery = gql`
         altText
         caption
         sizes {
+          tallTile {
+            sourceUrl
+          }
+          mediumTile {
+            sourceUrl
+          }
           full {
             sourceUrl
           }
@@ -215,6 +227,7 @@ export default withData(graphql(homeQuery, {
         let blogUrl;
         let codeUrl;
 
+        // TODO: Remove this after API is updated
         if (item.slug === 'building-painting-by-numbers-2' || item.slug === 'making-meridian') {
           experimentUrl = 'https://paintingbynumbers.dxlab.sl.nsw.gov.au';
         }
@@ -224,19 +237,13 @@ export default withData(graphql(homeQuery, {
         }
 
         return {
-          title: item.title,
-          content: item.excerpt,
-          slug: item.slug,
-          imageUrl: item.featuredMedia && item.featuredMedia.sizes.full.sourceUrl,
-          imageAltText: item.featuredMedia && item.featuredMedia.sizes.full.altText,
+          ...mapItemToTile(item),
           experimentUrl,
           blogUrl,
           codeUrl,
-          date: formatDate(item.date),
         };
       }),
       experiments: data.experiments && data.experiments.map((item) => {
-        console.log(item);
         return {
           ...mapItemToTile(item),
           url: item.url,
@@ -253,7 +260,8 @@ function mapItemToTile(item) {
     title: item.title,
     content: item.excerpt,
     slug: item.slug,
-    imageUrl: item.featuredMedia && item.featuredMedia.sizes.full.sourceUrl,
+    tallImageUrl: item.featuredMedia && item.featuredMedia.sizes.tallTile.sourceUrl,
+    mediumImageUrl: item.featuredMedia && item.featuredMedia.sizes.mediumTile.sourceUrl,
     imageAltText: item.featuredMedia && item.featuredMedia.sizes.full.altText,
     date: formatDate(item.date),
   };
