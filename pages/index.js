@@ -131,6 +131,27 @@ const HomePage = ({
 
       <Button url="/experiments">All Experiments</Button>
 
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <Masthead
+        title={(
+          <div>
+            WE RUN <a href="/fellowships">FELLOWSHIPS</a>
+          </div>
+        )}
+        text="To support creative and innovative thinking we offer dedicated digital fellowships, the DX Lab Fellowship and the Digital Learning Fellowship."
+        // sideText="Collaborate / Experiment / Create / Engage / Be Open / Surprise"
+        backgroundImageUrl="/static/images/masthead-bookman.jpg"
+        slug="WE RUN FELLOWSHIPS"
+        size="lg"
+      />
+
+      <Button url="/fellowships">Read about our fellowships</Button>
+
     </div>
 
 
