@@ -82,7 +82,7 @@
   background-color: var(--colour-black);
   font-size: var(--font-size-sm);
   text-align: center;
-  transition: 0.5s cubic-bezier(0.86, 0, 0.07, 1); /* easeInOutQuint */;
+  transition: 0.5s cubic-bezier(0.86, 0, 0.07, 1); /* easeInOutQuint */
 
   @media (--screen-sm) {
     position: relative;

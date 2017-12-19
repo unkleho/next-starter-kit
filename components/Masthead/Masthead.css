@@ -83,7 +83,7 @@
     /* Small heading */
     & span {
       font-weight: 100;
-      font-size: var(--font-size-xxs);
+      font-size: var(--font-size-xxxs);
       letter-spacing: 0.5em;
 
       @media (--screen-md) {
@@ -117,7 +117,7 @@
     position: absolute;
     bottom: 10%;
     right: 0;
-    width: 85%;
+    width: 80%;
     border-left: 1px dashed var(--colour-white);
     padding: 0 var(--spacing-md) 0;
     font-size: var(--font-size-sm);
@@ -130,7 +130,11 @@
 
     @media (--screen-md) {
       right: 0%;
-      width: 30%;
+      width: 40%;
+    }
+
+    @media (--screen-lg) {
+      width: 35%;
     }
 
     /* Corner Line */
