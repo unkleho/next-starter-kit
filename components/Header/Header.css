@@ -86,6 +86,9 @@
 
   @media (--screen-sm) {
     position: relative;
+    top: 0;
+    right: 0;
+    opacity: 1;
     display: block;
     margin: 0 auto;
     height: auto;
