@@ -35,11 +35,14 @@ class SimpleTile extends Component {
           className="simple-tile__image"
         /> */}
 
-        <Image
-          src={imageUrl}
-          className="simple-tile__image"
-          alt={imageAltText}
-        />
+        <Link to={url}>
+          <a className="simple-tile__image">
+            <Image
+              src={imageUrl}
+              alt={imageAltText}
+            />
+          </a>
+        </Link>
 
         <div className="simple-tile__info">
           <p className="simple-tile__subtitle">{subtitle}</p>

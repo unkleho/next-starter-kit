@@ -129,8 +129,9 @@
   .post__content {
     position: relative;
     /*max-width: var(--container-width-sm);*/
-    font-size: var(--font-size-md);
-    letter-spacing: -0.02em;
+    /*font-size: var(--font-size-lg);*/
+    font-size: 18px;
+    letter-spacing: -0.03em;
     word-spacing: -0.2em;
     @apply --font-antialiased;
 
@@ -160,7 +161,7 @@
 
       @media (--screen-sm) {
         left: -2rem;
-        width: 3rem;
+        width: 2rem;
       }
     }
   }

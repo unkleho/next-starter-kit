@@ -40,7 +40,7 @@ class Experiments extends Component {
         <div className="posts container container--lg">
           <SectionTitle>Explore our work</SectionTitle>
 
-          {experiments && experiments.reverse().map((item, i) => (
+          {experiments && experiments.map((item, i) => (
             <DisplayTile
               subtitle={item.date}
               title={item.title}

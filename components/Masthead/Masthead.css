@@ -123,13 +123,13 @@
     font-size: var(--font-size-sm);
 
     @media (--screen-sm) {
-      bottom: 6%;
+      bottom: 8%;
       right: 10%;
       width: 55%;
     }
 
     @media (--screen-md) {
-      right: 7%;
+      right: 0%;
       width: 30%;
     }
 

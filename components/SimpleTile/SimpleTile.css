@@ -12,7 +12,7 @@
     lost-column: 1/2;
   }
 
-  &:not(:first-child)::before {
+  /*&:not(:first-child)::before {
     position: absolute;
     top: -1em;
     left: -1em;
@@ -24,7 +24,7 @@
     @media (--screen-sm) {
       display: none;
     }
-  }
+  }*/
 }
 
   .simple-tile__image {

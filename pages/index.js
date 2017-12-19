@@ -27,8 +27,7 @@ const HomePage = ({
         <div>
           <span>The State Library of NSW's</span><br/>
           Experimental<br/>
-          Innovation Lab<br/>
-          <a href="https://twitter.com">#dxlab</a>
+          <a href="https://twitter.com/hashtag/dxlab">Innovation Lab</a>
         </div>
       )}
       text="We build and support new ways of design thinking, experimentation and deep research with digital technologies."
@@ -53,8 +52,9 @@ const HomePage = ({
           <Tile
             title={post.title}
             subtitle={post.date}
-            secondaryUrl={post.experimentUrl && `/blog/${post.slug}`}
             url={post.experimentUrl ? post.experimentUrl : `/blog/${post.slug}`}
+            secondaryUrl={post.experimentUrl && `/blog/${post.slug}`}
+            tertiaryUrl={post.githubUrl}
             imageUrl={getTileSize(i) === '1x2' ? post.tallImageUrl : post.mediumImageUrl }
             imageAltText={post.imageAltText}
             content={post.content}
@@ -84,24 +84,28 @@ const HomePage = ({
 
       <Button url="/blog">Read All Posts</Button>
 
-      <br/>
-      <br/>
-      <br/>
+    </div>
 
-      <Masthead
-        // subtitle="We make experiments"
-        title={(
-          <div>
-            We Make Experiments<br/>
-            <a href="https://twitter.com">#dxlab</a>
-          </div>
-        )}
-        // text="We build and support new ways of design thinking, experimentation and deep research with digital technologies."
-        // sideText="Collaborate / Experiment / Create / Engage / Be Open / Surprise"
-        backgroundImageUrl="/static/images/masthead-meridian-f.jpg"
-        slug="We Make Experiments"
-        size="lg"
-      />
+    <br/>
+    <br/>
+    <br/>
+
+    <Masthead
+      // subtitle="We make experiments"
+      title={(
+        <div>
+          We Make Experiments<br/>
+          <a href="https://twitter.com">#dxlab</a>
+        </div>
+      )}
+      // text="We build and support new ways of design thinking, experimentation and deep research with digital technologies."
+      // sideText="Collaborate / Experiment / Create / Engage / Be Open / Surprise"
+      backgroundImageUrl="/static/images/masthead-meridian-f.jpg"
+      slug="We Make Experiments"
+      size="lg"
+    />
+
+    <div className="container container--lg">
 
       <SectionTitle>Checkout our work!</SectionTitle>
 
@@ -113,7 +117,7 @@ const HomePage = ({
           columnWidth: '.tile',
         }}
       >
-        {experiments && experiments.slice(0, 3).map((experiment, i) => (
+        {experiments && swapArrayElements(experiments, 0, 1).map((experiment, i) => (
           <Tile
             title={experiment.title}
             subtitle={experiment.date}
@@ -131,39 +135,32 @@ const HomePage = ({
 
       <Button url="/experiments">All Experiments</Button>
 
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+    </div>
 
-      <Masthead
-        title={(
-          <div>
-            WE RUN <a href="/fellowships">FELLOWSHIPS</a>
-          </div>
-        )}
-        text="To support creative and innovative thinking we offer dedicated digital fellowships, the DX Lab Fellowship and the Digital Learning Fellowship."
-        // sideText="Collaborate / Experiment / Create / Engage / Be Open / Surprise"
-        backgroundImageUrl="/static/images/masthead-bookman.jpg"
-        slug="WE RUN FELLOWSHIPS"
-        size="lg"
-      />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <Masthead
+      title={(
+        <div>
+          WE RUN <a href="/fellowships">FELLOWSHIPS</a>
+        </div>
+      )}
+      text="To support creative and innovative thinking we offer dedicated digital fellowships, the DX Lab Fellowship and the Digital Learning Fellowship."
+      // sideText="Collaborate / Experiment / Create / Engage / Be Open / Surprise"
+      backgroundImageUrl="/static/images/masthead-bookman.jpg"
+      slug="WE RUN FELLOWSHIPS"
+      size="lg"
+    />
+
+    <div className="container container--lg">
 
       <Button url="/fellowships">Read about our fellowships</Button>
 
     </div>
-
-
-    {/* <h2>Experiments</h2>
-
-    <div className="experiments">
-      {proxyRoutes && Object.keys(proxyRoutes).map((route, i) => (
-        <li>
-            <a href={`${route}`} key={`posts-${i}`}>{route}</a>
-        </li>
-      ))}
-    </div> */}
 
     <style global jsx>{styles}</style>
   </App>
@@ -192,6 +189,10 @@ const homeQuery = gql`
       slug
       excerpt
       date
+      experiments {
+        url
+        githubUrl
+      }
       featuredMedia {
         altText
         caption
@@ -236,32 +237,17 @@ const homeQuery = gql`
   }
 `;
 
-// The `graphql` wrapper executes a GraphQL query and makes the results
-// available on the `data` prop of the wrapped component (ExamplePage)
 export default withData(graphql(homeQuery, {
   props: ({ data }) => {
     return {
       ...data,
       posts: data && data.posts && data.posts.map((item) => {
 
-        let experimentUrl;
-        let blogUrl;
-        let codeUrl;
-
-        // TODO: Remove this after API is updated
-        if (item.slug === 'building-painting-by-numbers-2' || item.slug === 'making-meridian') {
-          experimentUrl = 'https://paintingbynumbers.dxlab.sl.nsw.gov.au';
-        }
-
-        if (item.slug === 'making-meridian') {
-          codeUrl = 'https://github.com';
-        }
-
         return {
           ...mapItemToTile(item),
-          experimentUrl,
-          blogUrl,
-          codeUrl,
+          experimentUrl: item.experiments[0] && item.experiments[0].url,
+          githubUrl: item.experiments[0] && item.experiments[0].githubUrl,
+          // blogUrl,
         };
       }),
       experiments: data.experiments && data.experiments.map((item) => {
@@ -276,6 +262,7 @@ export default withData(graphql(homeQuery, {
   },
 })(HomePage));
 
+// TODO: Move to lib
 function mapItemToTile(item) {
   return {
     title: item.title,
@@ -286,4 +273,10 @@ function mapItemToTile(item) {
     imageAltText: item.featuredMedia && item.featuredMedia.sizes.full.altText,
     date: formatDate(item.date),
   };
+}
+
+function swapArrayElements(a, x, y) {
+  if (a.length === 1) return a;
+  a.splice(y, 1, a.splice(x, 1, a[y])[0]);
+  return a;
 }
