@@ -138,6 +138,37 @@ ul.primary-menu {
   font-size: var(--font-size-lg);
   @apply --font-uppercase;
   text-align: left;
+  transition: 0.3s ease-out;
+  transition-delay: 0.3s;
+
+  &:nth-child(2) {
+    left: 0.5em;
+    /*transition-delay: 0.3s;*/
+  }
+
+  &:nth-child(3) {
+    left: 1em;
+  }
+
+  &:nth-child(4) {
+    left: 1.5em;
+  }
+
+  &:nth-child(5) {
+    left: 2em;
+  }
+
+  &:nth-child(6) {
+    left: 2.5em;
+  }
+
+  &:nth-child(7) {
+    left: 3em;
+  }
+
+  @nest .is-active & {
+    left: 0;
+  }
 
   @media (--screen-sm) {
     display: inline-block;

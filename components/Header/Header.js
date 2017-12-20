@@ -19,7 +19,7 @@ class Header extends Component {
     super();
 
     this.state = {
-      isMenuOpen: false,
+      isMenuOpen: true,
     };
   }
 
