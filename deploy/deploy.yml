@@ -1,4 +1,5 @@
 # Make sure nvm and node (v8.9.3) is installed on server
+# Install pm2 globally (TODO: try running this locally in project)
 # Symlink nvm bins to local bin because Ansible runs under sudo
 # https://github.com/ansible/ansible/issues/29308
 # sudo ln -s ~/.nvm/versions/node/v8.9.3/bin/nvm /usr/local/bin/nvm
