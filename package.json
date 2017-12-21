@@ -6,7 +6,7 @@
     "dev": "npm start",
     "build": "next build",
     "start": "node server.js -p $PORT",
-    "deploy": "ansible-playbook deploy/deploy.yml -vvvv",
+    "deploy": "ansible-playbook deploy/deploy.yml",
     "deploy-staging": "now --dotenv=.env.staging --force",
     "deploy-production": "now --dotenv=.env.production --force",
     "alias-staging": "now alias staging-dxlab.now.sh -r rules.json",
