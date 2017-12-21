@@ -1,0 +1,5 @@
+[production]
+staging.dxlab.sl.nsw.gov.au ansible_user=ubuntu
+
+[staging]
+staging.dxlab.sl.nsw.gov.au ansible_user=ubuntu

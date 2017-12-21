@@ -73,7 +73,7 @@
   position: absolute;
   top: -1em;
   overflow: hidden;
-  pointer-events: none;
+  /*pointer-events: none;*/
   height: 100vh;
   display: block;
   z-index: 100;
@@ -90,6 +90,7 @@
     margin: 0 auto;
     height: auto;
     background-color: transparent;
+    transition: none;
   }
 
   &.is-active {
@@ -111,6 +112,7 @@ ul.primary-menu {
   @media (--screen-sm) {
     margin-top: var(--spacing-xlg);
     right: auto;
+    transition: none;
 
     /* Line decoration */
 
@@ -147,6 +149,7 @@ ul.primary-menu {
   transition-delay: 0.3s;
   background-color: var(--colour-black);
 
+ /* Stagger animtion */
   &:nth-child(2) {
     left: 0.5em;
   }
@@ -180,6 +183,7 @@ ul.primary-menu {
     font-size: var(--font-size-md);
     line-height: 1;
     margin-right: var(--spacing-lg);
+    transition: none;
   }
 
   @media (min-width: 40em) {
