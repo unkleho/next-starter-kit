@@ -69,8 +69,10 @@
         state=link
 
     - name: Delete old pm2 process
-      command: pm2 delete dxlab-website
+      command: ./node_modules/pm2/bin/pm2 delete dxlab-website
       ignore_errors: yes
+      args:
+        chdir: "{{ current_path }}"
 
     - name: Build app
       command: npm run build
@@ -78,7 +80,7 @@
         chdir: "{{ current_path }}"
 
     - name: Start pm2
-      # command: pm2 start {{ current_path }}/server.js --name dxlab-website
-      command: npm run start-pm2
+      command: ./node_modules/pm2/bin/pm2 start {{ current_path }}/server.js --name dxlab-website
+      # command: npm run start-pm2
       args:
         chdir: "{{ current_path }}"
