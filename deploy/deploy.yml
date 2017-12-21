@@ -1,3 +1,10 @@
+# Make sure nvm and node (v8.9.3) is installed on server
+# Install pm2 globally (TODO: try running this locally in project)
+# Symlink nvm bins to local bin because Ansible runs under sudo
+# https://github.com/ansible/ansible/issues/29308
+# sudo ln -s ~/.nvm/versions/node/v8.9.3/bin/nvm /usr/local/bin/nvm
+# sudo ln -s ~/.nvm/versions/node/v8.9.3/bin/node /usr/local/bin/node
+
 ---
 - hosts: production
   vars:
@@ -5,12 +12,6 @@
     known_hosts:
       - name: github.com
         key: github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
-      - name: bitbucket.org
-        key: bitbucket.org ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAubiN81eDcafrgMeLzaFPsw2kNvEcqTKl/VqLat/MaB33pZy0y3rJZtnqwR2qOOvbwKZYKiEO1O6VqNEBxKvJJelCq0dTXWT5pbO2gDXC6h6QDXCaHo6pOHGPUy+YBaGQRGuSusMEASYiWunYN0vCAI8QaXnWMXNMdFP3jHAJH0eDsoiGnLPBlBp4TNm6rYI74nMzgz3B9IikW4WVK+dc8KZJZWYjAuORU3jc1c/NPskD2ASinf8v3xnfXeukU0sJ5N6m5E8VLjObPEO+mN2t/FZTMZLiFqPWc/ALSqnMnnhwrNi2rbfg/rd/IpL8Le3pSBne8+seeFVBoGqzHM9yXw==
-      - name: gitlab.com
-        key: gitlab.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfuCHKVTjquxvt6CM6tdG4SLp1Btn/nOeHHE5UOzRdf
-      - name: gitlab.com
-        key: gitlab.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCsj2bNKTBSpIYDEGk9KxsGh3mySTRgMtXL583qmBpzeQ+jqCMRgBqB98u3z++J1sKlXHWfM9dyhSevkMwSbhoR8XIq/U0tCNyokEi/ueaBMCvbcTHhO7FcwzY92WK4Yt0aGROY5qX2UKSeOvuP4D6TPqKF1onrSzH9bx9XUf2lEdWT/ia1NEKjunUqu1xOB/StKDHMoX4/OKyIzuS0q/T1zOATthvasJFoPrAjkohTyaDUz2LN5JoH839hViyEG82yB+MjcFV5MU3N1l1QL3cVUCh93xSaua1N85qivl+siMkPGbO5xR/En4iEY6K2XPASUEMaieWVNTRCtJ4S8H+9
 
   tasks:
     - name: Set some variable
@@ -46,13 +47,20 @@
         repo: git@github.com:slnsw/dxlab-website.git
         dest: "{{ release_path }}"
 
+    - name: Copy .env
+      copy:
+        src: "../.env.production"
+        dest: "{{ release_path }}/.env"
+        # command: mv .env.production .env
+
     - name: Update npm
-      shell: npm i
-      environment:
-        PATH: "{{ node_home }}/bin:{{ ansible_env.PATH }}"
-      # npm:
-        # path={{ release_path }}
+      # shell: npm i
+      # environment:
+      #   PATH: "~/.nvm/versions/node/v8.9.3/bin:{{ ansible_env.PATH }}"
+      npm:
+        path={{ release_path }}
         # executable="~/.nvm/versions/node/v8.9.3/bin/npm"
+      # become: false
 
     - name: Update symlink
       file:
@@ -61,8 +69,18 @@
         state=link
 
     - name: Delete old pm2 process
-      command: pm2 delete ws-node
+      command: ./node_modules/pm2/bin/pm2 delete dxlab-website
       ignore_errors: yes
+      args:
+        chdir: "{{ current_path }}"
+
+    - name: Build app
+      command: npm run build
+      args:
+        chdir: "{{ current_path }}"
 
     - name: Start pm2
-      command: pm2 start {{ current_path }}/server.js --name dxlab-website
+      command: ./node_modules/pm2/bin/pm2 start {{ current_path }}/server.js --name dxlab-website
+      # command: npm run start-pm2
+      args:
+        chdir: "{{ current_path }}"
