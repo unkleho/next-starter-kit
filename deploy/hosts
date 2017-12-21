@@ -1,5 +1,5 @@
 [production]
-staging.dxlab.sl.nsw.gov.au ansible_user=ubuntu
+staging.dxlab.sl.nsw.gov.au ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/DXLabWordpressProduction.pem
 
 [staging]
-staging.dxlab.sl.nsw.gov.au ansible_user=ubuntu
+staging.dxlab.sl.nsw.gov.au ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/SLNSW.pem
