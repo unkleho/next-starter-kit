@@ -8,6 +8,7 @@ class TileImage extends Component {
   render() {
     const {
       url,
+      target,
       imageUrl,
       className = '',
     } = this.props;
@@ -16,6 +17,7 @@ class TileImage extends Component {
       <Link to={url}>
         <a
           className={`tile-image ${className}`}
+          target={target}
           style={{
             backgroundImage: `url(${imageUrl})`,
           }}

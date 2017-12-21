@@ -11,7 +11,9 @@ class DisplayTile extends Component {
 
   static propTypes = {
     title: PropTypes.string,
-    url: PropTypes.string,
+    primaryUrl: PropTypes.string,
+    primaryTarget: PropTypes.string,
+    primaryText: PropTypes.string,
     imageUrl: PropTypes.string,
     content: PropTypes.string,
     date: PropTypes.string,
@@ -20,26 +22,37 @@ class DisplayTile extends Component {
       '1x2',
     ]),
     secondaryUrl: PropTypes.string,
+    secondaryTarget: PropTypes.string,
+    secondaryText: PropTypes.string,
     tertiaryUrl: PropTypes.string,
+    tertiaryTarget: PropTypes.string,
+    tertiaryText: PropTypes.string,
   }
 
   render() {
     const {
       title,
-      url,
+      primaryUrl,
+      primaryTarget,
+      primaryText,
       imageUrl,
       content,
       date,
       size,
       secondaryUrl,
+      secondaryTarget,
+      secondaryText,
       tertiaryUrl,
+      tertiaryTarget,
+      tertiaryText,
     } = this.props;
 
     return (
       <article className={`display-tile ${size && `display-tile--${size}`}`}>
 
         <TileImage
-          url={url}
+          url={primaryUrl}
+          target={primaryTarget}
           imageUrl={imageUrl}
           className="display-tile__image"
         />
@@ -48,8 +61,8 @@ class DisplayTile extends Component {
           <div className="display-tile__body">
             <header className="display-tile__header">
               <h1 className="display-tile__title">
-                <Link to={url}>
-                  <a>{title}</a>
+                <Link to={primaryUrl}>
+                  <a target={primaryTarget}>{title}</a>
                 </Link>
               </h1>
               <div className="display-tile__date">{date}</div>
@@ -61,12 +74,15 @@ class DisplayTile extends Component {
 
           <div className="display-tile__cta">
             <TileButtonGroup
-              primaryUrl={url}
-              primaryText={'Launch'}
+              primaryUrl={primaryUrl}
+              primaryText={primaryText}
+              primaryTarget={primaryTarget}
               secondaryUrl={secondaryUrl}
-              secondaryText={'Read'}
+              secondaryTarget={secondaryTarget}
+              secondaryText={secondaryText}
               tertiaryUrl={tertiaryUrl}
-              tertiaryText={'Code'}
+              tertiaryText={tertiaryText}
+              tertiaryTarget={tertiaryTarget}
             />
           </div>
         </div>

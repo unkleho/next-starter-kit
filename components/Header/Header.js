@@ -38,10 +38,12 @@ class Header extends Component {
       <header className="header">
 
         <div className="logo logo--dxlab">
-          <img
-            src="/static/images/logo-dxlab.png"
-            alt="DX Lab Logo."
-          />
+          <a href="/">
+           <img
+              src="/static/images/logo-dxlab.png"
+              alt="DX Lab Logo."
+            />
+          </a>
         </div>
 
         <nav className={`header__nav ${this.state.isMenuOpen ? 'is-active' : ''}`}>
@@ -60,11 +62,13 @@ class Header extends Component {
         </nav>
 
         <div className="logo logo--slnsw">
-          <img
-            // className="logo logo--slnsw"
-            src="/static/images/logo-slnsw-white.png"
-            alt="State Library Logo."
-          />
+          <a href="http://sl.nsw.gov.au" target="_blank" rel="noopener noreferrer">
+            <img
+              // className="logo logo--slnsw"
+              src="/static/images/logo-slnsw-white.png"
+              alt="State Library Logo."
+            />
+          </a>
         </div>
 
         <button

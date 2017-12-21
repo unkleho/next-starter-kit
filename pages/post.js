@@ -49,7 +49,7 @@ class Post extends Component {
       <App isLoading={loading} pathname={url.pathname}>
 
         <article
-          className="post container container--sm"
+          className="post container container--md"
         >
           <div className="post__featured-image-holder">
             <img
@@ -62,14 +62,14 @@ class Post extends Component {
 
           <header className="post__header">
             <h1 className="post__title">{title}</h1>
-            <div className="post__author">By <a href="">{authorName}</a></div>
+            <div className="post__author">By <a href={`/search?q=${authorName}`}>{authorName}</a></div>
 
             <div className="post__cta">
               {experimentUrl && (
-                <Button href="">LAUNCH EXPERIMENT</Button>
+                <Button href={experimentUrl} target="_blank">LAUNCH EXPERIMENT</Button>
               )}
               {githubUrl && (
-                <Button href="">CODE</Button>
+                <Button href={githubUrl} target="_blank">CODE</Button>
               )}
             </div>
           </header>
@@ -118,6 +118,7 @@ const postQuery = gql`
       }
       experiments {
         url
+        githubUrl
       }
     }
   }
