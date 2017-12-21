@@ -27,7 +27,7 @@ class Blog extends Component {
           title={(
             <div>
               BLOG<br/>
-              <a href="https://twitter.com">#dxlab</a>
+              <a href="https://twitter.com/hashtag/DXLab">#dxlab</a>
             </div>
           )}
           // text="We build and support new ways of design thinking, experimentation and deep research with digital technologies."

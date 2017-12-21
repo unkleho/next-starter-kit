@@ -104,7 +104,7 @@ class Image extends Component {
 
     return (
 			<div
-        // className={classNames("maas-image", this.props.className, {} // 	"is-loaded": this.state.isLoaded,
+        // className={classNames("dxlab-image", this.props.className, {} // 	"is-loaded": this.state.isLoaded,
         //   "is-loading": !this.state.isLoaded,
         // 	 "is-image-error": this.state.isImageError,
         // 	 "has-aspect-ratio": this.props.aspectRatio,
@@ -127,12 +127,12 @@ class Image extends Component {
         {image}
 
 				{this.state.isImageError && (
-					<div className="maas-image__status">{this.props.noImageContent}</div>
+					<div className="dxlab-image__status">{this.props.noImageContent}</div>
 				)}
 				{this.props.showLoader &&
 				!this.state.isLoaded &&
 				!this.state.isImageError && (
-					<div className="maas-image__status">{this.props.loadingContent}</div>
+					<div className="dxlab-image__status">{this.props.loadingContent}</div>
 				)}
 
         <style global jsx>{styles}</style>

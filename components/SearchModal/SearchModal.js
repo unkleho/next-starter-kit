@@ -93,19 +93,22 @@ class SearchModal extends Component {
             <div>{isLoading}</div>
           )} */}
 
-          {this.props.q && posts && posts.map((post, i) => {
-            return (
-              <SimpleTile
-                subtitle={post.date}
-                title={post.title}
-                url={`/blog/${post.slug}`}
-                imageUrl={post.imageUrl}
-                imageAltText={post.imageAltText}
-                content={post.content}
-                key={`tile-${i}`}
-              />
-            );
-          })}
+          {this.props.q && (posts.length > 0) ? (
+            posts.map((post, i) => {
+              return (
+                <SimpleTile
+                  subtitle={post.date}
+                  title={post.title}
+                  url={`/blog/${post.slug}`}
+                  imageUrl={post.smallImageUrl}
+                  imageAltText={post.imageAltText}
+                  content={post.content}
+                  key={`tile-${i}`}
+                />
+              );
+          })) : (
+            <p>No results found.</p>
+          )}
         </div>
         <style global jsx>{styles}</style>
       </div>
@@ -125,7 +128,7 @@ const query = gql`
       featuredMedia {
         altText
         sizes {
-          full {
+          smallTile {
             sourceUrl
           }
         }

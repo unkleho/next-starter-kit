@@ -23,7 +23,7 @@ class Page extends Component {
     return (
       <App pathname={`/${slug}`} isLoading={isLoading}>
         <Masthead
-          title={(<div>{slug}<br/><a href="">#dxlab</a></div>)}
+          title={(<div>{slug}<br/><a href="https://twitter.com/hashtag/dxlab">#dxlab</a></div>)}
           backgroundImageUrl={images[slug]}
           slug={slug}
         >

@@ -28,7 +28,7 @@ class Experiments extends Component {
           title={(
             <div>
               EXPERIMENTS<br/>
-              <a href="https://twitter.com">#dxlab</a>
+              <a href="https://twitter.com/hashtag/DXLab">#dxlab</a>
             </div>
           )}
           // text="We build and support new ways of design thinking, experimentation and deep research with digital technologies."
@@ -61,7 +61,7 @@ class Experiments extends Component {
               imageAltText={item.imageAltText}
               content={item.content}
               date={item.date}
-              size={i === 0 || i === 1 || i === 3 ? 'lg' : ''}
+              size={i === 0 || i === 1 || i === 2 ? 'lg' : ''}
               key={`tile-${i}`}
             />
           ))}
