@@ -44,7 +44,19 @@ class Experiments extends Component {
             <DisplayTile
               subtitle={item.date}
               title={item.title}
-              url={`/blog/${item.slug}`}
+
+              primaryUrl={item.url}
+              primaryText={'Launch'}
+              primaryTarget={'_blank'}
+              
+              secondaryUrl={`/blog/${item.slug}`}
+              secondaryTarget={''}
+              secondaryText={'Read'}
+              
+              tertiaryUrl={item.githubUrl}
+              tertiaryText={'Code'}
+              tertiaryTarget={'_blank'}
+
               imageUrl={item.imageUrl}
               imageAltText={item.imageAltText}
               content={item.content}
@@ -72,6 +84,10 @@ const query = gql`
       date
       url
       githubUrl
+      posts
+    {
+      slug
+    }
       featuredMedia {
         altText
         caption
@@ -101,7 +117,9 @@ export default withData(graphql(query, {
           title: item.title,
           date: formatDate(item.date),
           content: item.excerpt,
-          slug: item.slug,
+          slug: item.posts[0].slug,
+          url: item.url,
+          githubUrl: item.githubUrl,
           imageUrl: item.featuredMedia && item.featuredMedia.sizes.full.sourceUrl,
           imageAltText: item.featuredMedia && item.featuredMedia.sizes.full.altText,
         };

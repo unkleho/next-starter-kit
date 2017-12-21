@@ -9,15 +9,17 @@ class Footer extends Component {
   render() {
     return (
       <footer className="footer">
-        <div className="footer__cc">CC by 4.0</div>
+        <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">
+          <div className="footer__cc">CC by 4.0</div>
+        </a>
 
         <Menu
           className="footer-menu"
           menuItems={[
-            { name: 'Disclaimer', url: '/disclaimer' },
-            { name: 'Privacy', url: '/disclaimer' },
-            { name: 'Copyright', url: '/disclaimer' },
-            { name: 'Right to information', url: '/disclaimer' },
+            { name: 'Disclaimer', url: 'https://www.sl.nsw.gov.au/disclaimer' },
+            { name: 'Privacy', url: 'https://www.sl.nsw.gov.au/privacy/web-privacy-statement' },
+            { name: 'Copyright', url: 'https://www.sl.nsw.gov.au/copyright' },
+            { name: 'Right to information', url: 'https://www.sl.nsw.gov.au/right-to-information' },
           ]}
         />
 
@@ -30,7 +32,9 @@ class Footer extends Component {
         </div>
 
         <div className="footer__nsw-logo">
-          <img className="" src="/static/images/logo-nsw-white.png" alt="NSW Government logo." />
+          <a href="https://www.nsw.gov.au/" target="_blank" rel="noopener noreferrer">
+            <img className="" src="/static/images/logo-nsw-white.png" alt="NSW Government logo." />
+          </a>
         </div>
 
         <style global jsx>{styles}</style>

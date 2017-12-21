@@ -27,7 +27,7 @@ const HomePage = ({
         <div>
           <span>The State Library of NSW's</span><br/>
           Experimental<br/>
-          <a href="https://twitter.com/hashtag/dxlab">Innovation Lab</a>
+          <a href="/about">Innovation Lab</a>
         </div>
       )}
       text="We build and support new ways of design thinking, experimentation and deep research with digital technologies."
@@ -53,8 +53,10 @@ const HomePage = ({
             title={post.title}
             subtitle={post.date}
             url={post.experimentUrl ? post.experimentUrl : `/blog/${post.slug}`}
+            target={post.experimentUrl ? '_blank' : ''}
             secondaryUrl={post.experimentUrl && `/blog/${post.slug}`}
             tertiaryUrl={post.githubUrl}
+            tertiaryTarget='_blank'
             imageUrl={getTileSize(i) === '1x2' ? post.tallImageUrl : post.mediumImageUrl }
             imageAltText={post.imageAltText}
             content={post.content}
@@ -82,7 +84,7 @@ const HomePage = ({
         ))}
       </div>
 
-      <Button url="/blog">Read All Posts</Button>
+      <Button href="/blog">Read All Posts</Button>
 
     </div>
 
@@ -95,7 +97,7 @@ const HomePage = ({
       title={(
         <div>
           We Make Experiments<br/>
-          <a href="https://twitter.com">#dxlab</a>
+          <a href="https://twitter.com/hashtag/dxlab">#dxlab</a>
         </div>
       )}
       // text="We build and support new ways of design thinking, experimentation and deep research with digital technologies."
@@ -122,8 +124,11 @@ const HomePage = ({
             title={experiment.title}
             subtitle={experiment.date}
             url={experiment.url}
+            target='_blank'
             secondaryUrl={experiment.blogUrl}
+            secondaryTarget=''
             tertiaryUrl={experiment.githubUrl}
+            tertiaryTarget='_blank'
             imageUrl={getExperimentTileSize(i) === '1x2' ? experiment.tallImageUrl : experiment.mediumImageUrl }
             imageAltText={experiment.imageAltText}
             content={experiment.content}
@@ -133,7 +138,7 @@ const HomePage = ({
         ))}
       </Masonry>
 
-      <Button url="/experiments">All Experiments</Button>
+      <Button href="/experiments">All Experiments</Button>
 
     </div>
 
@@ -158,7 +163,7 @@ const HomePage = ({
 
     <div className="container container--lg">
 
-      <Button url="/fellowships">Read about our fellowships</Button>
+      <Button href="/fellowships">Read about our fellowships</Button>
 
     </div>
 
@@ -215,6 +220,7 @@ const homeQuery = gql`
       excerpt
       date
       url
+      githubUrl
       posts {
         slug
       }

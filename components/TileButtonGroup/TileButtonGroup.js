@@ -9,32 +9,38 @@ class TileButtonGroup extends Component {
   static propTypes = {
     primaryUrl: PropTypes.string,
     primaryText: PropTypes.string,
+    primaryTarget: PropTypes.string,
     secondaryUrl: PropTypes.string,
     secondaryText: PropTypes.string,
+    secondaryTarget: PropTypes.string,
     tertiaryUrl: PropTypes.string,
     tertiaryText: PropTypes.string,
+    tertiaryTarget: PropTypes.string,
   }
 
   render() {
     const {
       primaryUrl,
       primaryText,
+      primaryTarget,
       secondaryUrl,
       secondaryText,
+      secondaryTarget,
       tertiaryUrl,
       tertiaryText,
+      tertiaryTarget,
     } = this.props;
 
     return (
       <div className="tile-button-group tile-button-group--alt">
-        <Button url={primaryUrl}>{primaryText}</Button>
+        <Button href={primaryUrl} target={primaryTarget}>{primaryText}</Button>
 
         {secondaryText && (
-          <Button url={secondaryUrl} size="sm">{secondaryText}</Button>
+          <Button href={secondaryUrl} target={secondaryTarget} size="sm">{secondaryText}</Button>
         )}
 
         {tertiaryText && (
-          <Button url={tertiaryUrl} size="sm">{tertiaryText}</Button>
+          <Button href={tertiaryUrl} target={tertiaryTarget} size="sm">{tertiaryText}</Button>
         )}
 
         {/* <div className="tile-button-group__small">
