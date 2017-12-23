@@ -84,12 +84,13 @@ strong, b {
 }
 
 blockquote {
+  width: calc(100% + 1rem);
   font-style: italic;
-  border-left: 3px dashed var(--colour-white);
+  border-left: 2px dashed var(--colour-white);
   margin-left: -1rem;
-  padding-left: calc(2rem - 3px);
+  padding-left: calc(1rem - 2px);
 
-  @media (--screen-md) {
+  @media (--screen-sm) {
     border-width: 1px;
     padding-left: calc(1rem - 1px);
   }

@@ -77,6 +77,10 @@
     @apply --font-antialiased;
     line-height: 1.2;
     color: var(--colour-white);
+
+    @media (--screen-sm) {
+      font-size: var(--spacing-lg);
+    }
   }
 
   .simple-tile__subtitle {

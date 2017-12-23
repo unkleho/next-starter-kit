@@ -25,6 +25,10 @@
     font-size: var(--font-size-sm);
     @apply --font-uppercase;
     line-height: 1;
+
+    &:link, &:visited {
+      color: var(--colour-white);
+    }
   }
 
 ul.footer-menu {

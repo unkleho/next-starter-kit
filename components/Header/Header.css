@@ -71,9 +71,9 @@
 
 .header__nav {
   position: absolute;
-  top: -1em;
+  top: -1.2em;
   overflow: hidden;
-  /*pointer-events: none;*/
+  pointer-events: none;
   height: 100vh;
   display: block;
   z-index: 100;
@@ -87,6 +87,7 @@
     position: relative;
     top: 0;
     display: block;
+    pointer-events: auto;
     margin: 0 auto;
     height: auto;
     background-color: transparent;
@@ -96,6 +97,10 @@
   &.is-active {
     pointer-events: auto;
     background-color: var(--colour-black);
+
+    @media (--screen-sm) {
+      background-color: transparent;
+    }
   }
 }
 
@@ -183,6 +188,7 @@ ul.primary-menu {
     font-size: var(--font-size-md);
     line-height: 1;
     margin-right: var(--spacing-lg);
+    background-color: transparent;
     transition: none;
   }
 

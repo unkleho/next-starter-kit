@@ -46,11 +46,11 @@ class SimpleTile extends Component {
 
         <div className="simple-tile__info">
           <p className="simple-tile__subtitle">{subtitle}</p>
-          <h2 className="simple-tile__title">
+          <h1 className="simple-tile__title">
             <Link to={url}>
               <a dangerouslySetInnerHTML={{ __html: title }}></a>
             </Link>
-          </h2>
+          </h1>
         </div>
 
         <style global jsx>{styles}</style>

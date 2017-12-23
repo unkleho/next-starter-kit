@@ -36,7 +36,7 @@ class Tile extends Component {
       secondaryUrl,
       secondaryTarget,
       tertiaryUrl,
-      tertiaryTarget
+      tertiaryTarget,
       // imageAltText,
     } = this.props;
 

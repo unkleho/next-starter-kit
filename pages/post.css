@@ -131,9 +131,9 @@
     /*max-width: var(--container-width-sm);*/
     font-size: var(--font-size-md);
     /*font-size: 18px;*/
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
     word-spacing: -0.2em;
-    @apply --font-antialiased;
+    /* @apply --font-antialiased; */
 
     @media (--screen-md) {
       font-size: var(--font-size-lg);

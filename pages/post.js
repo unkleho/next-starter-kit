@@ -81,6 +81,10 @@ class Post extends Component {
 
           <ShareBox pathname={url.pathname} />
 
+          <br/>
+          <br/>
+          <br/>
+
           <Comments
             postId={id}
             comments={comments}

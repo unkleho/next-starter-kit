@@ -9,10 +9,6 @@ class Footer extends Component {
   render() {
     return (
       <footer className="footer">
-        <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">
-          <div className="footer__cc">CC by 4.0</div>
-        </a>
-
         <Menu
           className="footer-menu"
           menuItems={[
@@ -22,6 +18,15 @@ class Footer extends Component {
             { name: 'Right to information', url: 'https://www.sl.nsw.gov.au/right-to-information' },
           ]}
         />
+
+        <a
+          href="https://creativecommons.org/licenses/by/4.0/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footer__cc"
+        >
+          <div>CC by 4.0</div>
+        </a>
 
         <div className="footer__social">
           {socialItems.map((item, i) => (
