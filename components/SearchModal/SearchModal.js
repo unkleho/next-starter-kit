@@ -107,7 +107,10 @@ class SearchModal extends Component {
                 />
               );
           })) : (
-            <p>No results found.</p>
+            <p>{this.props.q && (
+              <span>No results found.</span>
+              )}
+            </p>
           )}
         </div>
         <style global jsx>{styles}</style>

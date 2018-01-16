@@ -35,4 +35,7 @@
   height: 2em;
   background-color: var(--colour-grey-darkest);
   border: 1px solid var(--colour-grey-darkest);
+  &:hover {
+    background-color: var(--colour-black);
+  }
 }

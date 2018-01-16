@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 3em;
+  min-height: 7.5em;
 
   @media (--screen-sm) {
     flex-direction: row;
@@ -116,6 +117,7 @@ ul.footer-menu {
 
     & a:hover {
       color: var(--colour-highlight);
+      text-decoration: none;
     }
   }
 
