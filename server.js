@@ -8,6 +8,7 @@ const dev = process.env.NODE_ENV !== 'production' && !process.env.NOW;
 const app = next({ dev });
 const routes = require('./routes');
 const proxyRoutes = require('./routes/proxyRoutes');
+const redirectRoutes = require('./routes/redirectRoutes');
 const handler = routes.getRequestHandler(app);
 
 console.log('----------------------------------');
@@ -31,19 +32,26 @@ app
       server.use(proxy(route, proxyRoutes[route]));
     });
 
+    // Redirect old blog posts that had slug in root dir
+    redirectRoutes.forEach((route) => {
+      server.get(route, (req, res) => {
+        res.redirect(`/blog${route}`);
+      });
+    });
+
     server.get('/example-page/:id', (req, res) => {
-      const mergedQuery = Object.assign({}, req.query, req.params)
+      const mergedQuery = Object.assign({}, req.query, req.params);
       return app.render(req, res, '/example-page', mergedQuery);
-    })
+    });
 
     server.all('*', (req, res) => handler(req, res));
 
-    server.listen(port, err => {
+    server.listen(port, (err) => {
       if (err) throw err;
       console.log(`> Ready on http://localhost:${port}`);
     });
   })
-  .catch(ex => {
+  .catch((ex) => {
     console.error(ex.stack);
     process.exit(1);
   });
