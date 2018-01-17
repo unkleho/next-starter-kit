@@ -39,6 +39,18 @@ app
       });
     });
 
+    server.get('/', (req, res) => {
+      if (req.query.s) {
+        res.redirect(`/search?q=${req.query.s}`);
+      } else {
+        handler(req, res);
+      }
+    });
+
+    server.get('/open-data', (req, res) => {
+        res.redirect('/code');
+    });
+
     server.get('/example-page/:id', (req, res) => {
       const mergedQuery = Object.assign({}, req.query, req.params);
       return app.render(req, res, '/example-page', mergedQuery);
