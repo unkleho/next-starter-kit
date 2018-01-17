@@ -15,8 +15,7 @@
     "heroku-postbuild": "next build",
     "flow": "flow",
     "test": "jest",
-    "test:lint":
-      "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache"
+    "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache"
   },
   "engines": {
     "node": "~8.4.0"
@@ -44,8 +43,7 @@
     "react-infinite-scroller": "^1.1.1",
     "react-masonry-component": "^6.0.1",
     "react-redux": "^5.0.5",
-    "redux": "^3.6.0",
-    "webpack": "^3.8.1"
+    "redux": "^3.6.0"
   },
   "license": "ISC",
   "devDependencies": {
@@ -55,8 +53,7 @@
     "enzyme": "^2.9.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.2.0",
-    "eslint-config-dxlab":
-      "git+ssh://git@github.com/slnsw/eslint-config-dxlab.git#v0.0.8",
+    "eslint-config-dxlab": "git+ssh://git@github.com/slnsw/eslint-config-dxlab.git#v0.0.8",
     "eslint-config-prettier": "^2.9.0",
     "eslint-config-react-app": "^1.0.5",
     "eslint-loader": "^1.9.0",
@@ -81,7 +78,8 @@
     "stylelint": "^7.13.0",
     "stylelint-config-lost": "0.0.3",
     "stylelint-config-standard": "^16.0.0",
-    "stylelint-webpack-plugin": "^0.8.0"
+    "stylelint-webpack-plugin": "^0.8.0",
+    "webpack": "^3.8.1"
   },
   "jest": {
     "transform": {
