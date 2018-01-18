@@ -125,6 +125,12 @@
     }
   }
 
+  .post__error {
+    margin: 8em auto;
+    width: 8em;
+    font-size: var(--font-size-lg);
+  }
+
   /* TODO: Put these in global.css */
   .post__content {
     position: relative;

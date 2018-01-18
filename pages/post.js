@@ -9,6 +9,7 @@ import Button from '../components/Button';
 import Comments from '../components/Comments';
 import { formatDate } from '../lib';
 import styles from './post.css';
+import galleryStyles from '../styles/gallery.css';
 
 class Post extends Component {
 
@@ -51,7 +52,10 @@ class Post extends Component {
         <article
           className="post container container--md"
         >
-          <div className="post__featured-image-holder">
+
+        {id ? (
+          <div>
+           <div className="post__featured-image-holder">
             <img
               className="post__featured-image"
               src={featuredImageUrl}
@@ -89,10 +93,16 @@ class Post extends Component {
             postId={id}
             comments={comments}
           />
+          </div>
+          ) : (
+          <div className="post__error">Post not found.</div>
+          )}
+         
 
         </article>
 
         <style jsx global>{styles}</style>
+        <style jsx global>{galleryStyles}</style>
       </App>
     );
   }
