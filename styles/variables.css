@@ -79,6 +79,7 @@
   --font-size-xlg: calc(var(--font-scale) * var(--font-size-lg));
   --font-size-xxlg: calc(var(--font-scale) * var(--font-size-xlg));
   --font-size-xxxlg: calc(var(--font-scale) * var(--font-size-xxlg));
+  --font-size-xxxxlg: calc(var(--font-scale) * var(--font-size-xxxlg));
 
   /*
    * Font Families
@@ -102,6 +103,7 @@
   --spacing-xlg: calc(var(--spacing-scale) * var(--spacing-lg));
   --spacing-xxlg: calc(var(--spacing-scale) * var(--spacing-xlg));
   --spacing-xxxlg: calc(var(--spacing-scale) * var(--spacing-xxlg));
+  --spacing-xxxxlg: calc(var(--spacing-scale) * var(--spacing-xxxlg));
 
   --body-spacing-sm: 1em;
   --body-spacing-md: 2em;

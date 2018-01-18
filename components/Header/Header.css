@@ -55,7 +55,7 @@
 
   /* Line decoration */
   &::before {
-    content: "";
+    content: '';
     height: 0.5em;
     width: 1px;
     position: absolute;
@@ -154,7 +154,7 @@ ul.primary-menu {
   transition-delay: 0.3s;
   background-color: var(--colour-black);
 
- /* Stagger animtion */
+  /* Stagger animtion */
   &:nth-child(2) {
     left: 0.5em;
   }
@@ -190,6 +190,7 @@ ul.primary-menu {
     margin-right: var(--spacing-lg);
     background-color: transparent;
     transition: none;
+    left: 0 !important; /* Sorry! KC */
   }
 
   @media (min-width: 40em) {
@@ -243,7 +244,7 @@ ul.primary-menu {
         left: 0;
         top: 0;
         display: block;
-        content: "";
+        content: '';
         width: 0.3em;
         height: 3.5em;
         background-color: var(--colour-highlight);
@@ -274,7 +275,7 @@ ul.primary-menu {
     position: absolute;
     top: 0;
     right: 0;
-    content: "";
+    content: '';
     width: 0.5em;
     border-top: 1px solid var(--colour-white);
 
@@ -324,7 +325,8 @@ ul.primary-menu {
     top: 0;
   }
 
-  & span:nth-child(2), & span:nth-child(3) {
+  & span:nth-child(2),
+  & span:nth-child(3) {
     top: 4px;
   }
 

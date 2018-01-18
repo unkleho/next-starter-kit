@@ -4,10 +4,10 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "npm start",
-    "build": "next build",
+    "build": "NODE_ENV=production next build",
     "start": "node server.js -p $PORT",
-    "start-pm2": "pm2 start server.js --name dxlab-website",
-    "deploy-ansible": "ansible-playbook deploy/deploy.yml",
+    "start-pm2": "NODE_ENV=production pm2 start server.js --name dxlab-website",
+    "deploy-ansible": "ansible-playbook deploy/deploy-helper.yml -vvvv",
     "deploy-staging": "now --dotenv=.env.staging --force",
     "deploy-production": "now --dotenv=.env.production --force",
     "alias-staging": "now alias staging-dxlab.now.sh -r rules.json",
@@ -44,8 +44,7 @@
     "react-infinite-scroller": "^1.1.1",
     "react-masonry-component": "^6.0.1",
     "react-redux": "^5.0.5",
-    "redux": "^3.6.0",
-    "webpack": "^3.8.1"
+    "redux": "^3.6.0"
   },
   "license": "ISC",
   "devDependencies": {
@@ -81,7 +80,8 @@
     "stylelint": "^7.13.0",
     "stylelint-config-lost": "0.0.3",
     "stylelint-config-standard": "^16.0.0",
-    "stylelint-webpack-plugin": "^0.8.0"
+    "stylelint-webpack-plugin": "^0.8.0",
+    "webpack": "^3.8.1"
   },
   "jest": {
     "transform": {

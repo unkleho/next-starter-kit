@@ -4,9 +4,11 @@
 # https://github.com/ansible/ansible/issues/29308
 # sudo ln -s ~/.nvm/versions/node/v8.9.3/bin/nvm /usr/local/bin/nvm
 # sudo ln -s ~/.nvm/versions/node/v8.9.3/bin/node /usr/local/bin/node
+# sudo -H vim /etc/environment and then set NODE_ENV=production
+# Tutorial from https://codelike.pro/deploy-nodejs-app-with-ansible-git-pm2/
 
 ---
-- hosts: production
+- hosts: staging
   vars:
     project_path: /srv/www/staging.dxlab.sl.nsw.gov.au
     known_hosts:
@@ -14,11 +16,6 @@
         key: github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
 
   tasks:
-    - name: Set some variable
-      set_fact:
-        release_path: "{{ project_path }}/releases/{{ lookup('pipe','date +%Y%m%d%H%M%S') }}"
-        current_path: "{{ project_path }}/current"
-
     - name: Add known_hosts
       known_hosts:
         name: "{{ item.name }}"
@@ -28,59 +25,63 @@
       become: no
       with_items: "{{ known_hosts | default([]) }}"
 
-    - name: Retrieve current release folder
-      command: readlink -f current
-      register: current_release_path
-      ignore_errors: yes
-      args:
-        chdir: "{{ project_path }}"
+    # Deploy Helper
 
-    - name: Create new folder
-      file:
-        dest={{ release_path }}
-        mode=0755
-        recurse=yes
-        state=directory
+    # Retrieving facts before running a deploy
+    - name: Run 'state=query' to gather facts without changing anything
+      deploy_helper: path={{ project_path }} state=query
 
+    - name: Initialize the deploy root and gather facts
+      deploy_helper:
+        path: "{{ project_path }}"
+
+    # Clone repo into new release directory
     - name: Clone the repository
       git:
         repo: git@github.com:slnsw/dxlab-website.git
-        dest: "{{ release_path }}"
+        dest: "{{ deploy_helper.new_release_path }}"
 
     - name: Copy .env
       copy:
-        src: "../.env.production"
-        dest: "{{ release_path }}/.env"
-        # command: mv .env.production .env
+        src: "../.env.production" # TODO: Add variable for staging
+        dest: "{{ deploy_helper.new_release_path }}/.env"
 
-    - name: Update npm
-      # shell: npm i
-      # environment:
-      #   PATH: "~/.nvm/versions/node/v8.9.3/bin:{{ ansible_env.PATH }}"
-      npm:
-        path={{ release_path }}
-        # executable="~/.nvm/versions/node/v8.9.3/bin/npm"
-      # become: false
+    # Install Node dependencies
+    - name: Install npm
+      command: npm install
+      args:
+        chdir: "{{ deploy_helper.new_release_path }}"
+      # npm:
+      #   path={{ deploy_helper.new_release_path }}
 
-    - name: Update symlink
+    # Build
+    - name: Build app
+      command: npm run build
+      args:
+        chdir: "{{ deploy_helper.new_release_path }}"
+
+    # Add unfinished file
+    - name: Add an unfinished file, to allow cleanup on successful finalize
       file:
-        src={{ release_path }}
-        dest={{ current_path }}
-        state=link
+        path: '{{ deploy_helper.new_release_path }}/{{ deploy_helper.unfinished_filename }}'
+        state: touch
 
+    # Delete old pm2 process
     - name: Delete old pm2 process
       command: ./node_modules/pm2/bin/pm2 delete dxlab-website
       ignore_errors: yes
       args:
-        chdir: "{{ current_path }}"
-
-    - name: Build app
-      command: npm run build
-      args:
-        chdir: "{{ current_path }}"
+        chdir: "{{ deploy_helper.new_release_path }}"
 
     - name: Start pm2
-      command: ./node_modules/pm2/bin/pm2 start {{ current_path }}/server.js --name dxlab-website
-      # command: npm run start-pm2
+      # command: ./node_modules/pm2/bin/pm2 start {{ deploy_helper.new_release_path }}/server.js --name dxlab-website
+      command: npm run start-pm2
       args:
-        chdir: "{{ current_path }}"
+        chdir: "{{ deploy_helper.new_release_path }}"
+
+    # Finalise deploy and symlink to new release directory
+    - name: Finalize the deploy, removing the unfinished file and switching the symlink
+      deploy_helper:
+        path: "{{ project_path }}"
+        release: '{{ deploy_helper.new_release }}'
+        state: finalize

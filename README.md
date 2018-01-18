@@ -12,25 +12,29 @@ $ npm start
 ```
 
 ### ENV Variables
+
 ```
 # .env
-PORT=XXXX
+PORT=5010
 TEST=it works!
 GOOGLE_ANALYTICS_ID=UA-XXXXXXXX-X
-GRAPHQL_URL=https://local.api.com/graphql
+GRAPHQL_URL=http://localhost:5000/graphql or https://12ke3766e4.execute-api.ap-southeast-2.amazonaws.com/staging/graphql
 DXLAB_URL=http://dxlab.sl.nsw.gov.au
 
 # .env.production
-PORT=XXXX
+PORT=3000
 TEST=it works on production!
 GOOGLE_ANALYTICS_ID=UA-XXXXXXXX-X
-GRAPHQL_URL=https://production.api.com/graphql
+GRAPHQL_URL=https://syggbw4nm9.execute-api.ap-southeast-2.amazonaws.com/production/graphql
 DXLAB_URL=http://dxlab.sl.nsw.gov.au
 ```
 
 ## Deployment
 
+Using `ansible`:
+
 Using `now`:
+
 ```
 # Configuration in .env.staging
 # TODO: Remove now.json?
@@ -43,24 +47,26 @@ $ now scale dxlab-website-xxxxxxxxxx.now.sh 1
 ```
 
 Using `heroku`:
+
 ```
 $ git push heroku
 ```
 
 ## Proxies
+
 Express proxies the following sites:
 
-- dxlab.sl.nsw.gov.au/index/
-- dxlab.sl.nsw.gov.au/loom/
-- dxlab.sl.nsw.gov.au/mainstreet/
-- dxlab.sl.nsw.gov.au/meridian/
-- dxlab.sl.nsw.gov.au/muruview/
-- dxlab.sl.nsw.gov.au/pano-scope/
-- dxlab.sl.nsw.gov.au/portico/
-- dxlab.sl.nsw.gov.au/postcards-1001/
-- dxlab.sl.nsw.gov.au/weemala/
-- dxlab.sl.nsw.gov.au/youngsydney/
+* dxlab.sl.nsw.gov.au/index/
+* dxlab.sl.nsw.gov.au/loom/
+* dxlab.sl.nsw.gov.au/mainstreet/
+* dxlab.sl.nsw.gov.au/meridian/
+* dxlab.sl.nsw.gov.au/muruview/
+* dxlab.sl.nsw.gov.au/pano-scope/
+* dxlab.sl.nsw.gov.au/portico/
+* dxlab.sl.nsw.gov.au/postcards-1001/
+* dxlab.sl.nsw.gov.au/weemala/
+* dxlab.sl.nsw.gov.au/youngsydney/
 
 Now alias can proxy using rules.json, but doesn't seem to work for http/https connections.
 
-- [ ] TODO: Once `dxlab.sl.nsw.gov.au` is on https, use Now's `rules.json` rather than Express to proxy as it should be faster.
+* [ ] TODO: Once `dxlab.sl.nsw.gov.au` is on https, use Now's `rules.json` rather than Express to proxy as it should be faster.
