@@ -11,14 +11,13 @@ class Page extends Component {
 
   render() {
     const {
-      url: {
-        query: {
-          slug,
-        },
-      },
+      url,
       content,
       loading: isLoading,
     } = this.props;
+
+    // console.log(url);
+    const slug = url.pathname.substr(1);
 
     return (
       <App pathname={`/${slug}`} isLoading={isLoading}>
@@ -54,10 +53,10 @@ const query = gql`
 // The `graphql` wrapper executes a GraphQL query and makes the results
 // available on the `data` prop of the wrapped component (ExamplePage)
 export default withData(graphql(query, {
-  options: ({ url: { query: { slug } } }) => {
+  options: ({ url: { pathname } }) => {
     return {
       variables: {
-        slug,
+        slug: pathname.substr(1),
       },
     };
   },

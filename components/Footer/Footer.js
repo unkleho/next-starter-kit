@@ -2,22 +2,20 @@ import { Component } from 'react';
 // import PropTypes from 'prop-types';
 
 import styles from './Footer.css';
-import Menu from '../Menu';
+// import Menu from '../Menu';
 
 class Footer extends Component {
 
   render() {
     return (
       <footer className="footer">
-        <Menu
-          className="footer-menu"
-          menuItems={[
-            { name: 'Disclaimer', url: 'https://www.sl.nsw.gov.au/disclaimer' },
-            { name: 'Privacy', url: 'https://www.sl.nsw.gov.au/privacy/web-privacy-statement' },
-            { name: 'Copyright', url: 'https://www.sl.nsw.gov.au/copyright' },
-            { name: 'Right to information', url: 'https://www.sl.nsw.gov.au/right-to-information' },
-          ]}
-        />
+        <ul className="footer-menu">
+          {footerItems.map((item, i) => (
+            <li key={`footer-menu-${i}`}>
+              <a href={item.url}>{item.name}</a>
+            </li>
+          ))}
+        </ul>
 
         <a
           href="https://creativecommons.org/licenses/by/4.0/"
@@ -48,6 +46,13 @@ class Footer extends Component {
   }
 
 }
+
+const footerItems = [
+  { name: 'Disclaimer', url: 'https://www.sl.nsw.gov.au/disclaimer' },
+  { name: 'Privacy', url: 'https://www.sl.nsw.gov.au/privacy/web-privacy-statement' },
+  { name: 'Copyright', url: 'https://www.sl.nsw.gov.au/copyright' },
+  { name: 'Right to information', url: 'https://www.sl.nsw.gov.au/right-to-information' },
+];
 
 const socialItems = [
   {

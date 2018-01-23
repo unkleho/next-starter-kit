@@ -1,11 +1,12 @@
 const routes = require('next-routes')();
 
 routes
-  .add('example-page', '/example-page/:id')
-  .add('blog', '/blog')
+  .add('about', '/about')
   .add('experiments', '/experiments')
+  .add('blog', '/blog')
+  .add('fellowships', '/fellowships')
+  .add('code', '/code')
   .add('search', '/search')
-  .add('post', '/blog/:slug')
-  .add('page', '/:slug');
+  .add('post', '/blog/:slug');
 
 module.exports = routes;

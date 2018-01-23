@@ -13,5 +13,5 @@ module.exports = {
     // FIXME: cssnano messes with pseudo selectors
     // require('cssnano')()
     require('postcss-reporter'),
-  ]
+  ],
 }
