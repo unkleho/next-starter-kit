@@ -9,6 +9,7 @@ const app = next({ dev });
 const routes = require('./routes');
 const proxyRoutes = require('./routes/proxyRoutes');
 const redirectRoutes = require('./routes/redirectRoutes');
+
 const handler = routes.getRequestHandler(app);
 
 console.log('----------------------------------');

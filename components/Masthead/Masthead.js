@@ -6,6 +6,7 @@ import glitchStyles from '../../styles/glitch.css';
 import shuffle from '../../lib/shuffle';
 
 class Masthead extends Component {
+
   static propTypes = {
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
     subtitle: PropTypes.string,
@@ -92,6 +93,7 @@ class Masthead extends Component {
       </div>
     );
   }
+
 }
 
 export default Masthead;

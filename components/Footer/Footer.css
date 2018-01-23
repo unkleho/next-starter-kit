@@ -51,6 +51,7 @@ ul.footer-menu {
 
   & li {
     line-height: 1.7;
+    list-style: none;
 
     @media (--screen-sm) {
       margin-right: 1em;
@@ -65,6 +66,10 @@ ul.footer-menu {
         margin-left: 0;
       }
     }
+  }
+
+  & a:link, & a:visited {
+    color: var(--colour-white);
   }
 
   /* Line decoration */

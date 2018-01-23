@@ -4,7 +4,7 @@ function Submit ({ createPost }) {
   function handleSubmit (e) {
     e.preventDefault()
 
-    let title = e.target.elements.title.value
+    const title = e.target.elements.title.value
     let url = e.target.elements.url.value
 
     if (title === '' || url === '') {
@@ -69,10 +69,10 @@ export default graphql(createPost, {
           const newPost = mutationResult.data.createPost
           return Object.assign({}, previousResult, {
             // Append the new post
-            allPosts: [newPost, ...previousResult.allPosts]
+            allPosts: [newPost, ...previousResult.allPosts],
           })
-        }
-      }
-    })
-  })
+        },
+      },
+    }),
+  }),
 })(Submit)

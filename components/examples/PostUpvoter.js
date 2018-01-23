@@ -45,9 +45,9 @@ export default graphql(upvotePost, {
       optimisticResponse: {
         updatePost: {
           id: ownProps.id,
-          votes: ownProps.votes + 1
-        }
-      }
-    })
-  })
+          votes: ownProps.votes + 1,
+        },
+      },
+    }),
+  }),
 })(PostUpvoter)
