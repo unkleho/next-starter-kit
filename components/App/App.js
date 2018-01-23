@@ -15,7 +15,7 @@ const SCROLLTOP_THRESHOLD = 100;
 class App extends Component {
 
   static propTypes = {
-    children: PropTypes.array,
+    children: PropTypes.array || PropTypes.object,
     title: PropTypes.string,
     pathname: PropTypes.string,
     isLoading: PropTypes.bool,
