@@ -8,9 +8,11 @@
 # Tutorial from https://codelike.pro/deploy-nodejs-app-with-ansible-git-pm2/
 
 ---
-- hosts: staging
+- hosts: "{{ stage }}"
   vars:
-    project_path: /srv/www/staging.dxlab.sl.nsw.gov.au
+    project_path:
+      staging: /srv/www/staging.dxlab.sl.nsw.gov.au
+      production: /srv/www/dxlab.sl.nsw.gov.au
     known_hosts:
       - name: github.com
         key: github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
@@ -29,11 +31,11 @@
 
     # Retrieving facts before running a deploy
     - name: Run 'state=query' to gather facts without changing anything
-      deploy_helper: path={{ project_path }} state=query
+      deploy_helper: path={{ project_path[stage] }} state=query
 
     - name: Initialize the deploy root and gather facts
       deploy_helper:
-        path: "{{ project_path }}"
+        path: "{{ project_path[stage] }}"
 
     # Clone repo into new release directory
     - name: Clone the repository
@@ -43,7 +45,7 @@
 
     - name: Copy .env
       copy:
-        src: "../.env.production" # TODO: Add variable for staging
+        src: "../.env.{{ stage }}" # TODO: Add variable for staging
         dest: "{{ deploy_helper.new_release_path }}/.env"
 
     # Install Node dependencies
@@ -82,6 +84,6 @@
     # Finalise deploy and symlink to new release directory
     - name: Finalize the deploy, removing the unfinished file and switching the symlink
       deploy_helper:
-        path: "{{ project_path }}"
+        path: "{{ project_path[stage] }}"
         release: '{{ deploy_helper.new_release }}'
         state: finalize

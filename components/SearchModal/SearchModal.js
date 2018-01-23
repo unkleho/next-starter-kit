@@ -4,7 +4,7 @@ import { gql, graphql } from 'react-apollo';
 
 // import withData from '../../lib/withData';
 import SimpleTile from '../SimpleTile';
-import { mapPostToTile, debounce } from '../../lib';
+import { mapPostToTile } from '../../lib';
 import styles from './SearchModal.css';
 
 class SearchModal extends Component {
@@ -18,8 +18,9 @@ class SearchModal extends Component {
   constructor(props) {
     super(props);
 
-    this.fetch = debounce(this.fetch, 300);
-    this.fetch(props.q);
+    // NOTE: Previously half-implemented live search, so added debouncing and live queries. Didn't work 100%, so reverting to server side search for now.
+    // this.fetch = debounce(this.fetch, 300);
+    // this.fetch(props.q);
 
     this.state = {
       q: props.q ? props.q : '',
@@ -28,12 +29,12 @@ class SearchModal extends Component {
 
   componentDidMount() {
     // console.log(this.props.q);
-    this.fetch(this.props.q);
+    // this.fetch(this.props.q);
   }
 
-  fetch = (value) => {
-    this.props.searchPosts(value);
-  }
+  // fetch = (value) => {
+  //   // this.props.searchPosts(value);
+  // }
 
   handleSearchBox = (event) => {
     const q = event.target.value;
@@ -44,10 +45,10 @@ class SearchModal extends Component {
     });
   }
 
-  handleForm = () => {
-    this.fetch(this.state.q);
-    // window.location.search = `?q=${q}`;
-  }
+  // handleForm = () => {
+  //   this.fetch(this.state.q);
+  //   // window.location.search = `?q=${q}`;
+  // }
 
   render() {
     const {

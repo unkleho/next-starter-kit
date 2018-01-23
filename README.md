@@ -17,9 +17,10 @@ $ npm start
 # .env
 PORT=5010
 TEST=it works!
-GOOGLE_ANALYTICS_ID=UA-XXXXXXXX-X
 GRAPHQL_URL=http://localhost:5000/graphql or https://12ke3766e4.execute-api.ap-southeast-2.amazonaws.com/staging/graphql
 DXLAB_URL=http://dxlab.sl.nsw.gov.au
+GOOGLE_ANALYTICS_ID=UA-XXXXXXXX-X
+FB_APP_ID=XXXXXXXXXXXXX
 
 # .env.production
 PORT=3000
@@ -27,11 +28,12 @@ TEST=it works on production!
 GOOGLE_ANALYTICS_ID=UA-XXXXXXXX-X
 GRAPHQL_URL=https://syggbw4nm9.execute-api.ap-southeast-2.amazonaws.com/production/graphql
 DXLAB_URL=http://dxlab.sl.nsw.gov.au
+FB_APP_ID=XXXXXXXXXXXXX
 ```
 
 ## Deployment
 
-Using `ansible`:
+Using `ansible`: `npm run deploy-ansible`
 
 Using `now`:
 
