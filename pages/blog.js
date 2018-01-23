@@ -20,8 +20,11 @@ class Blog extends Component {
     } = this.props;
 
     return (
-      <App pathname={url.pathname} isLoading={isLoading}>
-
+      <App
+        pathname={url.pathname}
+        isLoading={isLoading}
+        title="Blog"
+      >
         <Masthead
           // subtitle="Welcome to the DX Lab:"
           title={(

@@ -16,7 +16,11 @@ class SearchPage extends Component {
     // console.log(url);
 
     return (
-      <App pathname={url.pathname} isLoading={isLoading}>
+      <App
+        pathname={url.pathname}
+        isLoading={isLoading}
+        title="Search"
+      >
         <div className="search-page container container--md">
           <SearchModal
             posts={posts}

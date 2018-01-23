@@ -8,21 +8,23 @@ import Masthead from '../components/Masthead';
 import DisplayTile from '../components/DisplayTile';
 import SectionTitle from '../components/SectionTitle';
 import { formatDate } from '../lib';
-// import { experiments } from '../lib/data';
 
 class Experiments extends Component {
 
   render() {
     const {
       url,
-      // posts,
       loading: isLoading,
       // loadMore,
       experiments,
     } = this.props;
 
     return (
-      <App pathname={url.pathname} isLoading={isLoading}>
+      <App
+        pathname={url.pathname}
+        isLoading={isLoading}
+        title="Experiments"
+      >
 
         <Masthead
           title={(
@@ -48,11 +50,11 @@ class Experiments extends Component {
               primaryUrl={item.url}
               primaryText={'Launch'}
               primaryTarget={'_blank'}
-              
+
               secondaryUrl={`/blog/${item.slug}`}
               secondaryTarget={''}
               secondaryText={'Read'}
-              
+
               tertiaryUrl={item.githubUrl}
               tertiaryText={'Code'}
               tertiaryTarget={'_blank'}

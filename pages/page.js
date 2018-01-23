@@ -4,23 +4,28 @@ import { gql, graphql } from 'react-apollo';
 import withData from '../lib/withData';
 import App from '../components/App';
 import Masthead from '../components/Masthead';
-// import Link from '../components/Link';
 import styles from './post.css';
 
 class Page extends Component {
 
   render() {
     const {
+      title,
       url,
       content,
+      excerpt,
       loading: isLoading,
     } = this.props;
 
-    // console.log(url);
     const slug = url.pathname.substr(1);
 
     return (
-      <App pathname={`/${slug}`} isLoading={isLoading}>
+      <App
+        pathname={`/${slug}`}
+        isLoading={isLoading}
+        title={title}
+        metaDescription={excerpt}
+      >
         <Masthead
           title={(<div>{slug}<br/><a href="https://twitter.com/hashtag/dxlab">#dxlab</a></div>)}
           backgroundImageUrl={images[slug]}
@@ -45,6 +50,7 @@ const query = gql`
   query Post($slug: String!) {
     pages(slug: $slug) {
       title
+      excerpt
       content
     }
   }

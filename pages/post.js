@@ -17,6 +17,7 @@ class Post extends Component {
     id: PropTypes.number,
     title: PropTypes.string,
     content: PropTypes.string,
+    excerpt: PropTypes.string,
     featuredMedia: PropTypes.object,
     author: PropTypes.object,
     url: PropTypes.object,
@@ -30,6 +31,7 @@ class Post extends Component {
       id,
       title,
       content,
+      excerpt,
       featuredMedia,
       author,
       url,
@@ -47,8 +49,14 @@ class Post extends Component {
     const dateString = formatDate(date);
 
     return (
-      <App isLoading={loading} pathname={url.pathname}>
-
+      <App
+        isLoading={loading}
+        pathname={url.pathname}
+        title={title}
+        metaDescription={excerpt}
+        metaImageUrl={featuredImageUrl}
+        metaImageAlt={featuredImageDescription}
+      >
         <article
           className="post container container--md"
         >
@@ -97,7 +105,7 @@ class Post extends Component {
           ) : (
           <div className="post__error">Post not found.</div>
           )}
-         
+
 
         </article>
 
@@ -115,6 +123,7 @@ const postQuery = gql`
       id
       title
       content
+      excerpt
       featuredMedia {
         sourceUrl
         description

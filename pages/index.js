@@ -8,9 +8,7 @@ import Tile from '../components/Tile';
 import SimpleTile from '../components/SimpleTile';
 import SectionTitle from '../components/SectionTitle';
 import Button from '../components/Button';
-// import { experiments } from '../lib/data';
 import { formatDate } from '../lib';
-// import proxyRoutes from '../routes/proxyRoutes';
 import styles from './index.css';
 
 const HomePage = ({
@@ -19,8 +17,12 @@ const HomePage = ({
   experiments,
   loading: isLoading,
 }) => (
-  <App pathname={url.pathname} isLoading={isLoading}>
-
+  <App
+    pathname={url.pathname}
+    isLoading={isLoading}
+    title="Home"
+    metaDescription="The State Library of NSW's experimental innovation lab."
+  >
     <Masthead
       // subtitle="Welcome to the DX Lab:"
       title={(

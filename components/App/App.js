@@ -4,7 +4,7 @@ import Head from 'next/head';
 
 import Header from '../Header';
 import Footer from '../Footer';
-// import { Router } from '../../routes';
+import { buildHeadTitle } from '../../lib';
 import styles from './App.css';
 import baseStyles from '../../styles/base.css';
 import globalsStyles from '../../styles/globals.css';
@@ -16,6 +16,7 @@ class App extends Component {
 
   static propTypes = {
     children: PropTypes.array,
+    title: PropTypes.string,
     pathname: PropTypes.string,
     isLoading: PropTypes.bool,
   }
@@ -61,17 +62,42 @@ class App extends Component {
 
   render() {
     const {
+      title,
       children,
       pathname,
       isLoading,
+      metaDescription,
+      metaImageUrl,
+      metaImageAlt,
+      // metaUrl,
     } = this.props;
+
+    // TODO: Maybe put the baseUrl as a variable
+    const metaUrl = `https://dxlab.sl.nsw.gov.au${pathname}`;
 
     return (
       <div className="app" onScroll={this.handleOnScroll}>
         <Head>
-          <title>Home | DX Lab - State Library of NSW</title>
+          <title>{buildHeadTitle(title)}</title>
+
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+          {title && (<meta property="og:title" content={title} />)}
+          {metaDescription && (
+            <meta property="og:description" content={metaDescription} />
+          )}
+          {metaImageUrl && (
+            <meta property="og:image" content={metaImageUrl} />
+          )}
+          {metaUrl && (<meta property="og:url" content={metaUrl} />)}
+          {metaImageAlt && (
+            <meta name="twitter:image:alt" content={metaImageAlt} />)
+          }
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta property="og:site_name" content="DX Lab | State Library of NSW" />
+          <meta property="fb:app_id" content={process.env.FB_APP_ID} />
+          <meta name="twitter:site" content="@statelibrarynsw" />
+
           <link href="https://fonts.googleapis.com/css?family=Lekton:400,400i,700" rel="stylesheet" />
         </Head>
 

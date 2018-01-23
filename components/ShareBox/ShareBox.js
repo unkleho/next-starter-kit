@@ -10,7 +10,7 @@ class ShareBox extends Component {
   }
 
   render() {
-    const fbAppId = 1234567;
+    const fbAppId = process.env.FB_APP_ID;
     // TODO: Use baseUrl variable
     const url = encodeURIComponent(`https://dxlab.sl.nsw.gov.au/${this.props.pathname}`);
     const fbLink = `https://www.facebook.com/dialog/share?app_id=${fbAppId}&display=popup&href=${url}&redirect_uri=${url}`;
