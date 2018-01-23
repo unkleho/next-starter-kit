@@ -9,6 +9,8 @@ class Masthead extends Component {
 
   static propTypes = {
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
+    titleSmall: PropTypes.string,
+    titleHighlight: PropTypes.string,
     subtitle: PropTypes.string,
     text: PropTypes.string,
     sideText: PropTypes.string,
@@ -69,15 +71,17 @@ class Masthead extends Component {
 
         <div
           className={`masthead__content container container--${
-            this.props.size ? this.props.size : 'md'
+            this.props.size ? 'lg' : 'lg'
           }`}
         >
           {this.props.subtitle && (
             <div className="masthead__subtitle">{this.props.subtitle}</div>
           )}
 
-          <h1 className="masthead__title glitch" data-text={this.props.slug}>
-            {this.state.title}
+          <h1 className="masthead__title">
+            <span className="masthead__title__small">{this.props.titleSmall}</span>
+            <span className="masthead__title__main glitch" data-text={this.state.title}>{this.state.title}</span>
+            <span className="masthead__title__highlight">{this.props.titleHighlight}</span>
           </h1>
 
           {this.props.text && (

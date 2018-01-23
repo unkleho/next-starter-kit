@@ -24,18 +24,14 @@ const HomePage = ({
     metaDescription="The State Library of NSW's experimental innovation lab."
   >
     <Masthead
-      // subtitle="Welcome to the DX Lab:"
-      title={(
-        <div>
-          <span>The State Library of NSW's</span><br/>
-          Experimental<br/>
-          <a href="/about">Innovation Lab</a>
-        </div>
-      )}
+      subtitle="Welcome to the DX Lab:"
+      titleSmall="The State Library of NSW's"
+      title="Experimental"
+      titleHighlight="Innovation Lab"
       text="We build and support new ways of design thinking, experimentation and deep research with digital technologies."
       // sideText="Collaborate / Experiment / Create / Engage / Be Open / Surprise"
       backgroundImageUrl="/static/images/masthead-background-01.gif"
-      slug="Experimental Innovation Lab"
+      slug="Experimental"
       size="lg"
     />
 
@@ -93,20 +89,14 @@ const HomePage = ({
     <br/>
     <br/>
     <br/>
+    <br/>
 
     <Masthead
       // subtitle="We make experiments"
-      title={(
-        <div>
-          We Make Experiments<br/>
-          <a href="https://twitter.com/hashtag/dxlab">#dxlab</a>
-        </div>
-      )}
-      // text="We build and support new ways of design thinking, experimentation and deep research with digital technologies."
-      // sideText="Collaborate / Experiment / Create / Engage / Be Open / Surprise"
+      title="We make experiments"
+      titleHighlight="#dxlab"
       backgroundImageUrl="/static/images/masthead-meridian-f.jpg"
       slug="We Make Experiments"
-      size="lg"
     />
 
     <div className="container container--lg">
@@ -151,16 +141,10 @@ const HomePage = ({
     <br />
 
     <Masthead
-      title={(
-        <div>
-          WE RUN <a href="/fellowships">FELLOWSHIPS</a>
-        </div>
-      )}
+      title="We run fellowships"
       text="To support creative and innovative thinking we offer dedicated digital fellowships, the DX Lab Fellowship and the Digital Learning Fellowship."
-      // sideText="Collaborate / Experiment / Create / Engage / Be Open / Surprise"
       backgroundImageUrl="/static/images/masthead-bookman.jpg"
       slug="WE RUN FELLOWSHIPS"
-      size="lg"
     />
 
     <div className="container container--lg">

@@ -74,6 +74,7 @@
   --font-size-xs: calc(var(--font-size-sm) / var(--font-scale));
   --font-size-xxs: calc(var(--font-size-xs) / var(--font-scale));
   --font-size-xxxs: calc(var(--font-size-xxs) / var(--font-scale));
+  --font-size-xxxxs: calc(var(--font-size-xxxs) / var(--font-scale));
 
   --font-size-lg: calc(var(--font-scale) * var(--font-size-md));
   --font-size-xlg: calc(var(--font-scale) * var(--font-size-lg));
