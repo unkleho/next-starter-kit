@@ -44,7 +44,7 @@ class Masthead extends Component {
           title: word,
         });
       }, offset);
-      offset += 20;
+      offset += 35;
     });
   };
 
