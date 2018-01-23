@@ -60,9 +60,12 @@ const query = gql`
 // available on the `data` prop of the wrapped component (ExamplePage)
 export default withData(graphql(query, {
   options: ({ url: { pathname } }) => {
+    const slug = pathname.substr(1);
+
     return {
       variables: {
-        slug: pathname.substr(1),
+        // TODO: Remove this once DB has been updated
+        slug: slug === 'grants' ? 'fellowships' : slug,
       },
     };
   },
@@ -79,6 +82,6 @@ export default withData(graphql(query, {
 const images = {
   about: '/static/images/masthead-loom-bg.jpg',
   experiments: '/static/images/masthead-meridian-f.jpg',
-  fellowships: '/static/images/masthead-bookman.jpg',
+  grants: '/static/images/masthead-bookman.jpg',
   code: '/static/images/masthead-portico.jpg',
 };

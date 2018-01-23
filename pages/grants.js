@@ -2,7 +2,7 @@ import { Component } from 'react';
 
 import Page from './page';
 
-class FellowshipsPage extends Component {
+class GrantsPage extends Component {
 
   render() {
     return (
@@ -12,4 +12,4 @@ class FellowshipsPage extends Component {
 
 }
 
-export default FellowshipsPage;
+export default GrantsPage;

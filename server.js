@@ -48,8 +48,13 @@ app
       }
     });
 
+    // Redirects
     server.get('/open-data', (req, res) => {
-        res.redirect('/code');
+      res.redirect('/code');
+    });
+
+    server.get('/fellowships', (req, res) => {
+      res.redirect('/grants');
     });
 
     server.get('/example-page/:id', (req, res) => {

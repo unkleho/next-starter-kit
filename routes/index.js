@@ -4,7 +4,7 @@ routes
   .add('about', '/about')
   .add('experiments', '/experiments')
   .add('blog', '/blog')
-  .add('fellowships', '/fellowships')
+  .add('grants', '/grants')
   .add('code', '/code')
   .add('search', '/search')
   .add('post', '/blog/:slug');

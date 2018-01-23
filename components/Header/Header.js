@@ -8,7 +8,7 @@ const menuItems = [
   { name: 'About', url: '/about' },
   { name: 'Experiments', url: '/experiments' },
   { name: 'Blog', url: '/blog' },
-  { name: 'Fellowships', url: '/fellowships' },
+  { name: 'Grants', url: '/grants' },
   { name: 'Code', url: '/code' },
   { name: <span><span className="primary-menu__divider">/</span> <span className="slnsw-icon-ZoomOL2"></span></span>, url: '/search' },
 ];

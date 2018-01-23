@@ -141,15 +141,16 @@ const HomePage = ({
     <br />
 
     <Masthead
-      title="We run fellowships"
-      text="To support creative and innovative thinking we offer dedicated digital fellowships, the DX Lab Fellowship and the Digital Learning Fellowship."
+      title="We run grants"
+      titleHighlight="#dxlab"
+      text="To support creative and innovative thinking we offer dedicated digital grants, including the DX Lab Fellowship and the Digital Learning Fellowship."
       backgroundImageUrl="/static/images/masthead-bookman.jpg"
-      slug="WE RUN FELLOWSHIPS"
+      slug="We run grants"
     />
 
     <div className="container container--lg">
 
-      <Button href="/fellowships">Read about our fellowships</Button>
+      <Button href="/grants">Read about our grants</Button>
 
     </div>
 
