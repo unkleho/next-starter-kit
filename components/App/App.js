@@ -5,6 +5,7 @@ import Head from 'next/head';
 import Header from '../Header';
 import Footer from '../Footer';
 import { buildHeadTitle } from '../../lib';
+import { initGA, logPageView } from '../../lib/analytics';
 import styles from './App.css';
 import baseStyles from '../../styles/base.css';
 import globalsStyles from '../../styles/globals.css';
@@ -15,10 +16,13 @@ const SCROLLTOP_THRESHOLD = 100;
 class App extends Component {
 
   static propTypes = {
-    children: PropTypes.array || PropTypes.object,
     title: PropTypes.string,
+    children: PropTypes.array || PropTypes.object,
     pathname: PropTypes.string,
     isLoading: PropTypes.bool,
+    metaDescription: PropTypes.string,
+    metaImageUrl: PropTypes.string,
+    metaImageAlt: PropTypes.string,
   }
 
   constructor() {
@@ -30,12 +34,15 @@ class App extends Component {
     };
   }
 
-  handleOnScroll = (event) => {
-    const scrollTop = event.srcElement.scrollingElement.scrollTop;
+  componentDidMount () {
+    document.addEventListener('scroll', this.handleOnScroll);
 
-    this.setState({
-      isHeaderBackgroundActive: (scrollTop > SCROLLTOP_THRESHOLD),
-    });
+    if (!window.GA_INITIALIZED) {
+      initGA();
+      window.GA_INITIALIZED = true;
+    }
+
+    logPageView();
   }
 
   // componentDidUpdate() {
@@ -49,15 +56,16 @@ class App extends Component {
   //   };
   // }
 
-  componentDidMount() {
-    document.addEventListener('scroll', this.handleOnScroll);
-    // this.setState({
-    //   isLoading: false,
-    // });
-  }
-
   componentWillUnmount() {
     document.removeEventListener('scroll', this.handleOnScroll);
+  }
+
+  handleOnScroll = (event) => {
+    const scrollTop = event.srcElement.scrollingElement.scrollTop;
+
+    this.setState({
+      isHeaderBackgroundActive: (scrollTop > SCROLLTOP_THRESHOLD),
+    });
   }
 
   render() {
