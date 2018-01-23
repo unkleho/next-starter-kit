@@ -38,14 +38,17 @@ class Masthead extends Component {
 
   shuffleText = (t) => {
     const shfl = shuffle(t);
-    let offset = 20;
+    let offset = 30;
+    let offsetInc = 5;
+    const offsetIncInc = 3;
     shfl.forEach((word) => {
       setTimeout(() => {
         this.setState({
           title: word,
         });
       }, offset);
-      offset += 35;
+      offset += offsetInc;
+      offsetInc += offsetIncInc;
     });
   };
 
