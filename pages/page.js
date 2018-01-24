@@ -28,8 +28,9 @@ class Page extends Component {
       >
         <Masthead
           title={(<div>{slug}<br/><a href="https://twitter.com/hashtag/dxlab">#dxlab</a></div>)}
-          backgroundImageUrl={images[slug]}
+          backgroundImageUrl={images[slug].imageUrl}
           slug={slug}
+          caption={images[slug].caption}
         >
         </Masthead>
 
@@ -80,8 +81,22 @@ export default withData(graphql(query, {
 })(Page));
 
 const images = {
-  about: '/static/images/masthead-loom-bg.jpg',
-  experiments: '/static/images/masthead-meridian-f.jpg',
-  grants: '/static/images/masthead-bookman.jpg',
-  code: '/static/images/masthead-portico.jpg',
+  about: {
+    imageUrl: '/static/images/masthead-loom-bg.jpg',
+    url: 'http://dxlab.sl.nsw.gov.au/loom',
+    caption: 'Loom Index view',
+  },
+  experiments: {
+    imageUrl: '/static/images/masthead-meridian-f.jpg',
+    url: 'http://dxlab.sl.nsw.gov.au/meridian',
+    caption: 'Meridian: Miranda Globe'
+  },
+  grants: {
+    imageUrl: '/static/images/masthead-bookman.jpg',
+  },
+  code: {
+    imageUrl: '/static/images/masthead-portico.jpg',
+    url: 'http://dxlab.sl.nsw.gov.au/portico',
+    caption: 'Portico',
+  }
 };

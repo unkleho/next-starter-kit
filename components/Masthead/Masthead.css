@@ -186,3 +186,22 @@
       max-width: var(--container-width-lg);
     }*/
 }
+
+.masthead__caption {
+  position: absolute;
+  bottom: 10%;
+  padding-left: var(--spacing-xlg);
+  font-size: var(--font-size-xs);
+  @apply --font-uppercase;
+
+  &::before {
+    position: absolute;
+    top: var(--spacing-xxxs);
+    left: 0;
+    content: "";
+    width: var(--spacing-sm);
+    height: var(--spacing-sm);
+    border-radius: var(--spacing-sm);
+    background-color: var(--colour-highlight);
+  }
+}
