@@ -26,6 +26,42 @@ class Post extends Component {
     comments: PropTypes.array,
   }
 
+    componentDidMount() {
+      this.addModals();
+    }
+
+    addModals = () => {
+      const div = document.createElement('div');
+      document.body.appendChild(div);
+      div.id = 'postModal';
+      div.className = 'post__modal';
+      div.innerHTML = '<span class="post__modal_close">&times;</span><img id="postModalImg" src=""/>';
+
+      const modal = document.getElementById('postModal');
+      const modalImg = document.getElementById('postModalImg');
+      const span = document.getElementsByClassName("post__modal_close")[0];
+
+      span.onclick = function closeModal() { 
+        modal.style.display = "none";
+      }
+
+      const imgDivs = document.getElementsByClassName("gallery-icon");
+      for (let i = 0, len = imgDivs.length; i < len; i++) {
+        const bigImgUrl = imgDivs[i].childNodes[1].href;
+        const a = imgDivs[i].childNodes[1];
+        // eslint-disable-next-line
+        a.href = "javascript:void(0)";
+        a.onclick = function openModal(){
+        modalImg.src = bigImgUrl;
+        modalImg.onclick = function closeModal() { 
+          modal.style.display = "none";
+        }
+        modal.style.display = "block";
+        }
+      }
+     
+    };
+
   render() {
     const {
       id,
