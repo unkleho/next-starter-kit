@@ -33,6 +33,7 @@ const HomePage = ({
       backgroundImageUrl="/static/images/masthead-background-01.gif"
       slug="Experimental"
       size="lg"
+      caption="Loom Atlas view"
     />
 
     <div className="posts container container--lg">

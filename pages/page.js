@@ -30,6 +30,7 @@ class Page extends Component {
           title={(<div>{slug}<br/><a href="https://twitter.com/hashtag/dxlab">#dxlab</a></div>)}
           backgroundImageUrl={images[slug]}
           slug={slug}
+          caption="Test"
         >
         </Masthead>
 

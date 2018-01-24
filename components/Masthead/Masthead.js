@@ -89,6 +89,10 @@ class Masthead extends Component {
           )}
 
           <p className="masthead__intro-list">{this.props.sideText}</p>
+
+          {this.props.caption && (
+            <div className="masthead__caption">{`_${this.props.caption}`}</div>
+          )}
         </div>
 
         {/* {this.props.children} */}
