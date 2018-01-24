@@ -196,9 +196,6 @@
   font-size: var(--font-size-xs);
   @apply --font-uppercase;
 
-  @media (--screen-sm) {
-  }
-
   &::before {
     position: absolute;
     top: var(--spacing-xxxs);

@@ -44,6 +44,8 @@ h1 {
 
 h2 {
   font-size: var(--font-size-lg);
+  margin-top: var(--spacing-xxlg);
+  line-height: 1.2;
 }
 
 h3 {
