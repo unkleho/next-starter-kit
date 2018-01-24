@@ -26,17 +26,12 @@ class Blog extends Component {
         title="Blog"
       >
         <Masthead
-          // subtitle="Welcome to the DX Lab:"
-          title={(
-            <div>
-              BLOG<br/>
-              <a href="https://twitter.com/hashtag/DXLab">#dxlab</a>
-            </div>
-          )}
-          // text="We build and support new ways of design thinking, experimentation and deep research with digital technologies."
+          title="Blog"
+          // titleHighlight="#DXLAB"
           backgroundImageUrl="/static/images/masthead-portico.jpg"
           slug="BLOG"
           size="md"
+          caption="Portico"
         />
 
         <div className="posts container container--lg">

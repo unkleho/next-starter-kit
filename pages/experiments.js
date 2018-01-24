@@ -27,16 +27,13 @@ class Experiments extends Component {
       >
 
         <Masthead
-          title={(
-            <div>
-              EXPERIMENTS<br/>
-              <a href="https://twitter.com/hashtag/DXLab">#dxlab</a>
-            </div>
-          )}
+          title="Experiments"
+          // titleHighlight="#DXLAB"
           // text="We build and support new ways of design thinking, experimentation and deep research with digital technologies."
           backgroundImageUrl="/static/images/masthead-meridian-f.jpg"
-          slug="EXPERIMENTS"
+          slug="Experiments"
           size="md"
+          caption="Meridian: Miranda Globe"
         />
 
         <div className="posts container container--lg">
