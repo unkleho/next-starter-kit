@@ -89,14 +89,15 @@ const images = {
   experiments: {
     imageUrl: '/static/images/masthead-meridian-f.jpg',
     url: 'http://dxlab.sl.nsw.gov.au/meridian',
-    caption: 'Meridian: Miranda Globe'
+    caption: 'Meridian: Miranda Globe',
   },
   grants: {
     imageUrl: '/static/images/masthead-bookman.jpg',
+    caption: 'Book projection',
   },
   code: {
     imageUrl: '/static/images/masthead-portico.jpg',
     url: 'http://dxlab.sl.nsw.gov.au/portico',
     caption: 'Portico',
-  }
+  },
 };
