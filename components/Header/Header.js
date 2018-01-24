@@ -10,7 +10,7 @@ const menuItems = [
   { name: 'Blog', url: '/blog' },
   { name: 'Grants', url: '/grants' },
   { name: 'Code', url: '/code' },
-  { name: <span><span className="primary-menu__divider">/</span> <span className="slnsw-icon-ZoomOL2"></span></span>, url: '/search' },
+  { name: <span><span className="primary-menu__divider">/</span> <span className="slnsw-icon-ZoomOL2"></span></span>, url: '/search', ariaLabel: 'search' },
 ];
 
 class Header extends Component {
@@ -77,6 +77,7 @@ class Header extends Component {
           aria-haspopup="true"
           aria-controls="primary-menu"
           aria-expanded="false"
+          aria-label="primary menu"
           onClick={this.handleMenuToggle}
         >
           <div>

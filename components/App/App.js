@@ -89,7 +89,7 @@ class App extends Component {
           <title>{buildHeadTitle(title)}</title>
 
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=1"/>
           {title && (<meta property="og:title" content={title} />)}
           {metaDescription && (
             <meta property="og:description" content={metaDescription} />

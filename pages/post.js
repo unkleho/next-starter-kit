@@ -35,7 +35,7 @@ class Post extends Component {
       document.body.appendChild(div);
       div.id = 'postModal';
       div.className = 'post__modal';
-      div.innerHTML = '<span class="post__modal_close">&times;</span><img id="postModalImg" src=""/>';
+      div.innerHTML = '<span class="post__modal_close"><a>&times;</a></span><img id="postModalImg" src=""/>';
 
       const modal = document.getElementById('postModal');
       const modalImg = document.getElementById('postModalImg');
@@ -51,6 +51,7 @@ class Post extends Component {
         const a = imgDivs[i].childNodes[1];
         // eslint-disable-next-line
         a.href = "javascript:void(0)";
+        a.setAttribute('aria-label', 'click to expand image'); 
         a.onclick = function openModal(){
         modalImg.src = bigImgUrl;
         modalImg.onclick = function closeModal() { 

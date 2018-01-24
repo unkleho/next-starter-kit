@@ -264,7 +264,7 @@ function mapItemToTile(item) {
     slug: item.slug,
     tallImageUrl: item.featuredMedia && item.featuredMedia.sizes.tallTile.sourceUrl,
     mediumImageUrl: item.featuredMedia && item.featuredMedia.sizes.mediumTile.sourceUrl,
-    imageAltText: item.featuredMedia && item.featuredMedia.sizes.full.altText,
+    imageAltText: item.featuredMedia && item.featuredMedia.altText,
     date: formatDate(item.date),
   };
 }

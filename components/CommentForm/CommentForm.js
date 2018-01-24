@@ -73,6 +73,7 @@ class CommentForm extends Component {
                 <label htmlFor="name">Name<span>*</span></label>
                 <input
                   name="name"
+                  aria-label="name"
                   type="text"
                   aria-required="true"
                   placeholder="Your name"
@@ -83,6 +84,7 @@ class CommentForm extends Component {
                 <label htmlFor="email">Email<span>*</span></label>
                 <input
                   name="email"
+                  aria-label="email"
                   type="email"
                   aria-required="true"
                   placeholder="Your email"
@@ -94,6 +96,7 @@ class CommentForm extends Component {
                 <textarea
                   placeholder="Write a comment"
                   name="content"
+                  aria-label="content"
                   aria-required="true"
                   rows="4"
                 ></textarea>

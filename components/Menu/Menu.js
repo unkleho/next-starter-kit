@@ -19,6 +19,7 @@ class Menu extends Component {
       ]),
       url: PropTypes.url,
       isActive: PropTypes.bool,
+      ariaLabel: PropTypes.string,
     })).isRequired,
     onMenuItemClick: PropTypes.func,
   }
@@ -56,6 +57,7 @@ class Menu extends Component {
               <Link prefetch to={item.url} key={item.url}>
                 <a
                   className={(pathname === item.url || item.isActive) && 'is-active'}
+                  aria-label={item.ariaLabel}
                 >
                   {item.name}
                 </a>

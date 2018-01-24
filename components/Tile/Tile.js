@@ -49,6 +49,7 @@ class Tile extends Component {
           url={url}
           target={target}
           className="tile__image"
+          ariaLabel={title}
         />
 
         <div className="tile__info">

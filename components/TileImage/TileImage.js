@@ -11,6 +11,7 @@ class TileImage extends Component {
       target,
       imageUrl,
       className = '',
+      ariaLabel = '',
     } = this.props;
 
     return (
@@ -18,6 +19,7 @@ class TileImage extends Component {
         <a
           className={`tile-image ${className}`}
           target={target}
+          aria-label={ariaLabel}
           style={{
             backgroundImage: `url(${imageUrl})`,
           }}
