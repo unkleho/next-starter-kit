@@ -93,6 +93,7 @@ const images = {
   },
   grants: {
     imageUrl: '/static/images/masthead-bookman.jpg',
+    caption: 'Book projection',
   },
   code: {
     imageUrl: '/static/images/masthead-portico.jpg',

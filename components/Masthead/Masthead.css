@@ -124,7 +124,7 @@
 
 .masthead__intro-text {
   position: absolute;
-  bottom: 10%;
+  bottom: 12%;
   right: 0;
   width: 80%;
   border-left: 1px dashed var(--colour-white);
@@ -132,9 +132,10 @@
   font-size: var(--font-size-sm);
 
   @media (--screen-sm) {
-    bottom: 8%;
+    bottom: 12%;
     right: 10%;
     width: 55%;
+    font-size: var(--font-size-md);
   }
 
   @media (--screen-md) {
@@ -190,9 +191,13 @@
 .masthead__caption {
   position: absolute;
   bottom: 10%;
+  right: 0;
   padding-left: var(--spacing-xlg);
   font-size: var(--font-size-xs);
   @apply --font-uppercase;
+
+  @media (--screen-sm) {
+  }
 
   &::before {
     position: absolute;
