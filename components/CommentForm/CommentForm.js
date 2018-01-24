@@ -70,7 +70,7 @@ class CommentForm extends Component {
 
             <form onSubmit={this.handleSubmit}>
               <div className="comment-form__section">
-                <label for="name">Name<span>*</span></label>
+                <label htmlFor="name">Name<span>*</span></label>
                 <input
                   name="name"
                   type="text"
@@ -80,7 +80,7 @@ class CommentForm extends Component {
               </div>
 
               <div className="comment-form__section">
-                <label for="email">Email<span>*</span></label>
+                <label htmlFor="email">Email<span>*</span></label>
                 <input
                   name="email"
                   type="email"
@@ -90,7 +90,7 @@ class CommentForm extends Component {
               </div>
 
               <div className="comment-form__section">
-                <label for="content">Comment<span>*</span></label>
+                <label htmlFor="content">Comment<span>*</span></label>
                 <textarea
                   placeholder="Write a comment"
                   name="content"
