@@ -35,7 +35,6 @@ FB_APP_ID=XXXXXXXXXXXXX
 
 ```
 # SSH into server
-$ sudo su
 # Install nvm and node
 $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 $ . ~/.nvm/nvm.sh # Activate nvm
@@ -45,6 +44,7 @@ $ ln -s ~/.nvm/versions/node/v8.9.3/bin/node /usr/local/bin/node
 # Set up nginx
 $ vim /etc/nginx/sites-available/dxlab.sl.nsw.gov.au.conf
 $ ln -s /etc/nginx/sites-available/dxlab.sl.nsw.gov.au.conf /etc/nginx/sites-enabled/dxlab.sl.nsw.gov.au.conf
+$ chown ubuntu:ubuntu dxlab.sl.nsw.gov.au
 
 ```
 

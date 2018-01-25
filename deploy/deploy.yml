@@ -45,7 +45,7 @@
 
     - name: Copy .env
       copy:
-        src: "../.env.{{ stage }}" # TODO: Add variable for staging
+        src: "../.env.{{ stage }}"
         dest: "{{ deploy_helper.new_release_path }}/.env"
 
     # Install Node dependencies

@@ -1,6 +1,6 @@
 module.exports = {
   parser: 'babel-eslint',
-  extends: ['react-app', 'dxlab', 'prettier/react'],
+  extends: ['react-app', 'prettier/react'],
   globals: {
     document: true,
     window: true,
