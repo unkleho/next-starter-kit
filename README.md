@@ -89,6 +89,7 @@ Express proxies the following sites:
 * dxlab.sl.nsw.gov.au/pano-scope/
 * dxlab.sl.nsw.gov.au/portico/
 * dxlab.sl.nsw.gov.au/postcards-1001/
+* dxlab.sl.nsw.gov.au/search-terms/
 * dxlab.sl.nsw.gov.au/weemala/
 * dxlab.sl.nsw.gov.au/youngsydney/
 
