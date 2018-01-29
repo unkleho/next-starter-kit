@@ -6,7 +6,6 @@ import glitchStyles from '../../styles/glitch.css';
 import shuffle from '../../lib/shuffle';
 
 class Masthead extends Component {
-
   static propTypes = {
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
     titleSmall: PropTypes.string,
@@ -79,9 +78,18 @@ class Masthead extends Component {
           )}
 
           <h1 className="masthead__title">
-            <span className="masthead__title__small">{this.props.titleSmall}</span>
-            <span className="masthead__title__main glitch" data-text={this.state.title}>{this.state.title}</span>
-            <span className="masthead__title__highlight">{this.props.titleHighlight}</span>
+            <span className="masthead__title__small">
+              {this.props.titleSmall}
+            </span>
+            <span
+              className="masthead__title__main glitch"
+              data-text={this.state.title}
+            >
+              {this.state.title}
+            </span>
+            <span className="masthead__title__highlight">
+              {this.props.titleHighlight}
+            </span>
           </h1>
 
           {this.props.text && (
@@ -104,7 +112,6 @@ class Masthead extends Component {
       </div>
     );
   }
-
 }
 
 export default Masthead;

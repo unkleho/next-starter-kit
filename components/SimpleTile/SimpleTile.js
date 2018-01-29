@@ -8,27 +8,19 @@ import Image from '../Image';
 import styles from './SimpleTile.css';
 
 class SimpleTile extends Component {
-
   static propTypes = {
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string,
     url: PropTypes.string.isRequired,
     imageUrl: PropTypes.string,
     imageAltText: PropTypes.string,
-  }
+  };
 
   render() {
-    const {
-      title,
-      subtitle,
-      url,
-      imageUrl,
-      imageAltText,
-    } = this.props;
+    const { title, subtitle, url, imageUrl, imageAltText } = this.props;
 
     return (
       <article className="simple-tile simple-tile--tall">
-
         {/* <TileImage
           imageUrl={imageUrl}
           url={url}
@@ -37,10 +29,7 @@ class SimpleTile extends Component {
 
         <Link to={url}>
           <a className="simple-tile__image">
-            <Image
-              src={imageUrl}
-              alt={imageAltText}
-            />
+            <Image src={imageUrl} alt={imageAltText} />
           </a>
         </Link>
 
@@ -48,17 +37,16 @@ class SimpleTile extends Component {
           <p className="simple-tile__subtitle">{subtitle}</p>
           <h1 className="simple-tile__title">
             <Link to={url}>
-              <a dangerouslySetInnerHTML={{ __html: title }}></a>
+              <a dangerouslySetInnerHTML={{ __html: title }} />
             </Link>
           </h1>
         </div>
 
+        {/* prettier-ignore */}
         <style global jsx>{styles}</style>
-
       </article>
     );
   }
-
 }
 
 export default SimpleTile;

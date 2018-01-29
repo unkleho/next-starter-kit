@@ -4,7 +4,6 @@ import Link from '../Link';
 import styles from './TileImage.css';
 
 class TileImage extends Component {
-
   render() {
     const {
       url,
@@ -29,7 +28,6 @@ class TileImage extends Component {
       </Link>
     );
   }
-
 }
 
 export default TileImage;

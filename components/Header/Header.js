@@ -10,11 +10,19 @@ const menuItems = [
   { name: 'Blog', url: '/blog' },
   { name: 'Grants', url: '/grants' },
   { name: 'Code', url: '/code' },
-  { name: <span><span className="primary-menu__divider">/</span> <span className="slnsw-icon-ZoomOL2"></span></span>, url: '/search', ariaLabel: 'search' },
+  {
+    name: (
+      <span>
+        <span className="primary-menu__divider">/</span>{' '}
+        <span className="slnsw-icon-ZoomOL2" />
+      </span>
+    ),
+    url: '/search',
+    ariaLabel: 'search',
+  },
 ];
 
 class Header extends Component {
-
   constructor() {
     super();
 
@@ -27,32 +35,28 @@ class Header extends Component {
     this.setState({
       isMenuOpen: !this.state.isMenuOpen,
     });
-  }
+  };
 
   render() {
-    const {
-      pathname,
-    } = this.props;
+    const { pathname } = this.props;
 
     return (
       <header className="header">
-
         <div className="logo logo--dxlab">
           <a href="/">
-           <img
-              src="/static/images/logo-dxlab.png"
-              alt="DX Lab Logo."
-            />
+            <img src="/static/images/logo-dxlab.png" alt="DX Lab Logo." />
           </a>
         </div>
 
-        <nav className={`header__nav ${this.state.isMenuOpen ? 'is-active' : ''}`}>
+        <nav
+          className={`header__nav ${this.state.isMenuOpen ? 'is-active' : ''}`}
+        >
           <Menu
             id="primary-menu"
             className="primary-menu"
             menuItemClassName="primary-menu__item"
             labelledby="primary-menu-button"
-            menuItems={menuItems.map(item => ({
+            menuItems={menuItems.map((item) => ({
               ...item,
               isActive: pathname === '/post' && item.url === '/blog',
             }))}
@@ -62,7 +66,11 @@ class Header extends Component {
         </nav>
 
         <div className="logo logo--slnsw">
-          <a href="http://sl.nsw.gov.au" target="_blank" rel="noopener noreferrer">
+          <a
+            href="http://sl.nsw.gov.au"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img
               // className="logo logo--slnsw"
               src="/static/images/logo-slnsw-white.png"
@@ -73,7 +81,9 @@ class Header extends Component {
 
         <button
           id="primary-menu-button"
-          className={`primary-menu-button ${this.state.isMenuOpen ? 'is-open' : ''}`}
+          className={`primary-menu-button ${
+            this.state.isMenuOpen ? 'is-open' : ''
+          }`}
           aria-haspopup="true"
           aria-controls="primary-menu"
           aria-expanded="false"
@@ -81,19 +91,18 @@ class Header extends Component {
           onClick={this.handleMenuToggle}
         >
           <div>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+            <span />
+            <span />
+            <span />
+            <span />
           </div>
         </button>
 
+        {/* prettier-ignore */}
         <style global jsx>{styles}</style>
-
       </header>
     );
   }
-
 }
 
 export default Header;

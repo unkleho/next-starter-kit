@@ -10,7 +10,6 @@ import ExampleComponent from '../components/examples/ExampleComponent';
 import { exampleAction } from '../actions/exampleActions';
 
 class ExamplePage extends Component {
-
   static propTypes = {
     id: PropTypes.string,
   };
@@ -48,7 +47,7 @@ class ExamplePage extends Component {
 
         <h2>Style Guide</h2>
         <h3>Type Scale</h3>
-        {sizes.map(size => (
+        {sizes.map((size) => (
           <p
             className={`font-size-${size}`}
             key={`font-size-${size}`}
@@ -56,7 +55,7 @@ class ExamplePage extends Component {
         ))}
 
         <h3>Colours</h3>
-        {colours.map(colour => (
+        {colours.map((colour) => (
           <div className="boxes" key={`boxes-${colour}`}>
             <h4>{colour}</h4>
 
@@ -92,7 +91,6 @@ class ExamplePage extends Component {
       </ExampleApp>
     );
   }
-
 }
 
 const allObjects = gql`
@@ -112,5 +110,5 @@ export default withData(
         ...data,
       };
     },
-  })(ExamplePage)
+  })(ExamplePage),
 );

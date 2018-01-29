@@ -5,7 +5,6 @@ import Button from '../Button';
 import styles from './TileButtonGroup.css';
 
 class TileButtonGroup extends Component {
-
   static propTypes = {
     primaryUrl: PropTypes.string,
     primaryText: PropTypes.string,
@@ -16,7 +15,7 @@ class TileButtonGroup extends Component {
     tertiaryUrl: PropTypes.string,
     tertiaryText: PropTypes.string,
     tertiaryTarget: PropTypes.string,
-  }
+  };
 
   render() {
     const {
@@ -33,24 +32,30 @@ class TileButtonGroup extends Component {
 
     return (
       <div className="tile-button-group tile-button-group--alt">
-        <Button href={primaryUrl} target={primaryTarget}>{primaryText}</Button>
+        <Button href={primaryUrl} target={primaryTarget}>
+          {primaryText}
+        </Button>
 
         {secondaryUrl && (
-          <Button href={secondaryUrl} target={secondaryTarget} size="sm">{secondaryText}</Button>
+          <Button href={secondaryUrl} target={secondaryTarget} size="sm">
+            {secondaryText}
+          </Button>
         )}
 
         {tertiaryUrl && (
-          <Button href={tertiaryUrl} target={tertiaryTarget} size="sm">{tertiaryText}</Button>
+          <Button href={tertiaryUrl} target={tertiaryTarget} size="sm">
+            {tertiaryText}
+          </Button>
         )}
 
         {/* <div className="tile-button-group__small">
         </div> */}
 
+        {/* prettier-ignore */}
         <style global jsx>{styles}</style>
       </div>
     );
   }
-
 }
 
 export default TileButtonGroup;

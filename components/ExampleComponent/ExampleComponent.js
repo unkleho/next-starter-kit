@@ -4,7 +4,6 @@ import { Component } from 'react';
 import styles from './ExampleComponent.css';
 
 class ExampleComponent extends Component {
-
   // static propTypes = {
   // }
 
@@ -15,7 +14,6 @@ class ExampleComponent extends Component {
       </div>
     );
   }
-
 }
 
 export default ExampleComponent;

@@ -8,7 +8,6 @@ import Link from '../Link';
 import styles from './DisplayTile.css';
 
 class DisplayTile extends Component {
-
   static propTypes = {
     title: PropTypes.string,
     primaryUrl: PropTypes.string,
@@ -17,17 +16,14 @@ class DisplayTile extends Component {
     imageUrl: PropTypes.string,
     content: PropTypes.string,
     date: PropTypes.string,
-    size: PropTypes.oneOf([
-      '2x1',
-      '1x2',
-    ]),
+    size: PropTypes.oneOf(['2x1', '1x2']),
     secondaryUrl: PropTypes.string,
     secondaryTarget: PropTypes.string,
     secondaryText: PropTypes.string,
     tertiaryUrl: PropTypes.string,
     tertiaryTarget: PropTypes.string,
     tertiaryText: PropTypes.string,
-  }
+  };
 
   render() {
     const {
@@ -49,7 +45,6 @@ class DisplayTile extends Component {
 
     return (
       <article className={`display-tile ${size && `display-tile--${size}`}`}>
-
         <TileImage
           url={primaryUrl}
           target={primaryTarget}
@@ -68,9 +63,11 @@ class DisplayTile extends Component {
               <div className="display-tile__date">{date}</div>
             </header>
 
-            <div className="display-tile__content" dangerouslySetInnerHTML={{ __html: content }}></div>
+            <div
+              className="display-tile__content"
+              dangerouslySetInnerHTML={{ __html: content }}
+            />
           </div>
-
 
           <div className="display-tile__cta">
             <TileButtonGroup
@@ -87,12 +84,11 @@ class DisplayTile extends Component {
           </div>
         </div>
 
+        {/* prettier-ignore */}
         <style global jsx>{styles}</style>
-
       </article>
     );
   }
-
 }
 
 export default DisplayTile;

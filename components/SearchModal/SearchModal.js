@@ -8,12 +8,11 @@ import { mapPostToTile } from '../../lib';
 import styles from './SearchModal.css';
 
 class SearchModal extends Component {
-
   static propTypes = {
     posts: PropTypes.array,
     q: PropTypes.string,
     isLoading: PropTypes.bool,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -43,7 +42,7 @@ class SearchModal extends Component {
     this.setState({
       q,
     });
-  }
+  };
 
   // handleForm = () => {
   //   this.fetch(this.state.q);
@@ -89,12 +88,11 @@ class SearchModal extends Component {
         </div>
 
         <div className="search-modal__results">
-
           {/* {isLoading && (
             <div>{isLoading}</div>
           )} */}
 
-          {this.props.q && (posts.length > 0) ? (
+          {this.props.q && posts.length > 0 ? (
             posts.map((post, i) => {
               return (
                 <SimpleTile
@@ -107,18 +105,17 @@ class SearchModal extends Component {
                   key={`tile-${i}`}
                 />
               );
-          })) : (
-            <p>{this.props.q && (
-              <span>No results found.</span>
-              )}
-            </p>
+            })
+          ) : (
+            <p>{this.props.q && <span>No results found.</span>}</p>
           )}
         </div>
+
+        {/* prettier-ignore */}
         <style global jsx>{styles}</style>
       </div>
     );
   }
-
 }
 
 const query = gql`
@@ -153,7 +150,8 @@ export default graphql(query, {
     return {
       ...data,
       // posts: [],
-      posts: data && data.posts && data.posts.map((post) => mapPostToTile(post)),
+      posts:
+        data && data.posts && data.posts.map((post) => mapPostToTile(post)),
       searchPosts(q) {
         // console.log(q);
         return data.fetchMore({

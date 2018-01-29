@@ -7,17 +7,13 @@ import CommentForm from '../CommentForm';
 import styles from './Comments.css';
 
 class Comments extends Component {
-
   static propTypes = {
     comments: PropTypes.array,
     postId: PropTypes.number.isRequired,
   };
 
   render() {
-    const {
-      comments = [],
-      postId,
-    } = this.props;
+    const { comments = [], postId } = this.props;
 
     return (
       <div className="comments">
@@ -26,30 +22,29 @@ class Comments extends Component {
             <SectionTitle>Comments</SectionTitle>
 
             <div className="comments__list">
-              {comments && comments
-                .filter((comment) => {
-                  return comment.parentId === 0;
-                })
-                .map((comment) => {
+              {comments &&
+                comments
+                  .filter((comment) => {
+                    return comment.parentId === 0;
+                  })
+                  .map((comment) => {
+                    // Work out child comments by looking up all comments
+                    // TODO: Find more efficient way
+                    const childComments = comments.filter((c) => {
+                      return comment.id === c.parentId;
+                    });
 
-                  // Work out child comments by looking up all comments
-                  // TODO: Find more efficient way
-                  const childComments = comments.filter(c => {
-                    return comment.id === c.parentId;
-                  });
-
-                  return (
-                    <Comment
-                      key={`comment-${comment.id}`}
-                      id={comment.id}
-                      authorName={comment.authorName}
-                      date={comment.date}
-                      content={comment.content}
-                      childComments={childComments}
-                    />
-                  );
-                })
-              }
+                    return (
+                      <Comment
+                        key={`comment-${comment.id}`}
+                        id={comment.id}
+                        authorName={comment.authorName}
+                        date={comment.date}
+                        content={comment.content}
+                        childComments={childComments}
+                      />
+                    );
+                  })}
             </div>
           </div>
         )}
@@ -61,10 +56,9 @@ class Comments extends Component {
         </div>
 
         <style jsx>{styles}</style>
-    </div>
+      </div>
     );
   }
-
 }
 
 export default Comments;
