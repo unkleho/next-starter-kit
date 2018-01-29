@@ -14,7 +14,8 @@
     "heroku-postbuild": "next build",
     "flow": "flow",
     "test": "jest",
-    "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache"
+    "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
+    "precommit": "lint-staged"
   },
   "engines": {
     "node": "~8.4.0"
@@ -61,11 +62,14 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-only-warn": "^1.0.1",
+    "eslint-plugin-prettier": "^2.5.0",
     "eslint-plugin-react": "^7.5.1",
     "flow-babel-webpack-plugin": "^1.1.0",
     "flow-bin": "^0.50.0",
+    "husky": "^0.14.3",
     "jest": "^20.0.4",
     "jest-css-modules": "^1.1.0",
+    "lint-staged": "^6.1.0",
     "postcss-cssnext": "^3.0.0",
     "postcss-easy-import": "^2.1.0",
     "postcss-loader": "^2.0.6",
@@ -85,5 +89,11 @@
     "transform": {
       ".*": "<rootDir>/node_modules/jest-css-modules"
     }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
   }
 }

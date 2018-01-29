@@ -6,7 +6,9 @@ module.exports = {
     window: true,
     process: true,
   },
+  plugins: ['prettier'],
   rules: {
+    'prettier/prettier': 'error',
     'comma-dangle': ['warn', 'always-multiline'],
     'react/react-in-jsx-scope': 0,
     'react/jsx-max-props-per-line': [1, { maximum: 3 }],
