@@ -7,7 +7,6 @@ import styles from './Image.css';
 // TODO: Lots to fix up here, imported from another project
 
 class Image extends Component {
-
   static propTypes = {
     className: PropTypes.string,
     src: PropTypes.string,
@@ -45,9 +44,9 @@ class Image extends Component {
   }
 
   componentDidMount() {
-		// Client side script may load after image loads, therefore it won't trigger
-		// handleImageLoad, so we gotta add a check here.
-		// http://stackoverflow.com/questions/39777833/image-onload-event-in-isomorphic-react-register-event-after-image-is-loaded
+    // Client side script may load after image loads, therefore it won't trigger
+    // handleImageLoad, so we gotta add a check here.
+    // http://stackoverflow.com/questions/39777833/image-onload-event-in-isomorphic-react-register-event-after-image-is-loaded
     if (this.node.complete) {
       this.handleImageLoad();
     }
@@ -60,7 +59,7 @@ class Image extends Component {
   }
 
   handleImageLoad = () => {
-		// TODO: Chrome doesn't seem to update this onLoad.
+    // TODO: Chrome doesn't seem to update this onLoad.
     this.setState({ isLoaded: true });
   };
 
@@ -76,34 +75,34 @@ class Image extends Component {
     };
 
     // const pictureSource =
-		// 	this.props.sources &&
-		// 	this.props.sources.map((source, i) => {
+    // 	this.props.sources &&
+    // 	this.props.sources.map((source, i) => {
     //     return (
-		// 			<source
-		// 				key={`pictureSource-${i}`}
-		// 				media={source.media}
-		// 				srcSet={source.srcSet}
-		// 			/>
+    // 			<source
+    // 				key={`pictureSource-${i}`}
+    // 				media={source.media}
+    // 				srcSet={source.srcSet}
+    // 			/>
     //     );
     //   });
 
     const image = (
       <img
-				src={this.props.src}
-				alt={this.props.alt}
-				onClick={this.props.onClick}
-				onLoad={this.handleImageLoad}
-				onError={this.props.isHandleImageError && this.handleImageError}
-				width={this.props.width}
-				height={this.props.height}
-				srcSet={this.props.srcSet}
-				sizes={this.props.sizes}
-				ref={node => (this.node = node)}
-			/>
-		);
+        src={this.props.src}
+        alt={this.props.alt}
+        onClick={this.props.onClick}
+        onLoad={this.handleImageLoad}
+        onError={this.props.isHandleImageError && this.handleImageError}
+        width={this.props.width}
+        height={this.props.height}
+        srcSet={this.props.srcSet}
+        sizes={this.props.sizes}
+        ref={(node) => (this.node = node)}
+      />
+    );
 
     return (
-			<div
+      <div
         // className={classNames("dxlab-image", this.props.className, {} // 	"is-loaded": this.state.isLoaded,
         //   "is-loading": !this.state.isLoaded,
         // 	 "is-image-error": this.state.isImageError,
@@ -113,9 +112,9 @@ class Image extends Component {
           ${this.props.className ? this.props.className : ''}
           ${this.state.isLoaded ? 'is-loaded' : 'is-loading'}
         `}
-				style={imageStyle}
-			>
-				{/* {pictureSource ? (
+        style={imageStyle}
+      >
+        {/* {pictureSource ? (
 					<picture>
 						{pictureSource}
 						{image}
@@ -126,20 +125,22 @@ class Image extends Component {
 
         {image}
 
-				{this.state.isImageError && (
-					<div className="dxlab-image__status">{this.props.noImageContent}</div>
-				)}
-				{this.props.showLoader &&
-				!this.state.isLoaded &&
-				!this.state.isImageError && (
-					<div className="dxlab-image__status">{this.props.loadingContent}</div>
-				)}
+        {this.state.isImageError && (
+          <div className="dxlab-image__status">{this.props.noImageContent}</div>
+        )}
+        {this.props.showLoader &&
+          !this.state.isLoaded &&
+          !this.state.isImageError && (
+            <div className="dxlab-image__status">
+              {this.props.loadingContent}
+            </div>
+          )}
 
+        {/* prettier-ignore */}
         <style global jsx>{styles}</style>
-			</div>
+      </div>
     );
   }
-
 }
 
 export default Image;

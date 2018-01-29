@@ -4,11 +4,8 @@ import { Component } from 'react';
 import styles from './SectionTitle.css';
 
 class SectionTitle extends Component {
-
   render() {
-    const {
-      children,
-    } = this.props;
+    const { children } = this.props;
 
     return (
       <h2 className="section-title">
@@ -18,7 +15,6 @@ class SectionTitle extends Component {
       </h2>
     );
   }
-
 }
 
 export default SectionTitle;

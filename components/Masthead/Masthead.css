@@ -179,7 +179,7 @@
 
 .masthead__content {
   position: relative;
-  z-index: 5;
+  /* z-index: 5; */
   height: 100%;
 
   /*@media (--screen-sm) {

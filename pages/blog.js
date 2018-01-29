@@ -10,21 +10,11 @@ import SectionTitle from '../components/SectionTitle';
 import { mapPostToTile } from '../lib';
 
 class Blog extends Component {
-
   render() {
-    const {
-      url,
-      posts,
-      loading: isLoading,
-      loadMore,
-    } = this.props;
+    const { url, posts, loading: isLoading, loadMore } = this.props;
 
     return (
-      <App
-        pathname={url.pathname}
-        isLoading={isLoading}
-        title="Blog"
-      >
+      <App pathname={url.pathname} isLoading={isLoading} title="Blog">
         <Masthead
           title="Blog"
           // titleHighlight="#DXLAB"
@@ -39,10 +29,10 @@ class Blog extends Component {
 
           {posts && (
             <InfiniteScroll
-                pageStart={0}
-                loadMore={loadMore}
-                hasMore={posts.length < 46}
-                loader={<div className="loader">Loading ...</div>}
+              pageStart={0}
+              loadMore={loadMore}
+              hasMore={posts.length < 46}
+              loader={<div className="loader">Loading ...</div>}
             >
               {posts.map((post, i) => (
                 <SimpleTile
@@ -63,7 +53,6 @@ class Blog extends Component {
       </App>
     );
   }
-
 }
 
 // TODO: Create totalPosts field in Graphql
@@ -87,35 +76,38 @@ const query = gql`
   }
 `;
 
-export default withData(graphql(query, {
-  options: () => {
-    return {
-      variables: {
-        offset: 0,
-      },
-    };
-  },
-  props: ({ data }) => {
-    return {
-      ...data,
-      posts: data && data.posts && data.posts.map((post) => mapPostToTile(post)),
-      loadMore() {
-        return data.fetchMore({
-          variables: {
-            offset: data.posts.length,
-          },
-          updateQuery: (previousResult, { fetchMoreResult }) => {
-            if (!fetchMoreResult) {
-              return previousResult;
-            }
+export default withData(
+  graphql(query, {
+    options: () => {
+      return {
+        variables: {
+          offset: 0,
+        },
+      };
+    },
+    props: ({ data }) => {
+      return {
+        ...data,
+        posts:
+          data && data.posts && data.posts.map((post) => mapPostToTile(post)),
+        loadMore() {
+          return data.fetchMore({
+            variables: {
+              offset: data.posts.length,
+            },
+            updateQuery: (previousResult, { fetchMoreResult }) => {
+              if (!fetchMoreResult) {
+                return previousResult;
+              }
 
-            return {
-              ...previousResult,
-              posts: [...previousResult.posts, ...fetchMoreResult.posts],
-            };
-          },
-        });
-      },
-    };
-  },
-})(Blog));
+              return {
+                ...previousResult,
+                posts: [...previousResult.posts, ...fetchMoreResult.posts],
+              };
+            },
+          });
+        },
+      };
+    },
+  })(Blog),
+);

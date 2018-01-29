@@ -31,6 +31,15 @@ app
     // Proxy external apps
     Object.keys(proxyRoutes).forEach((route) => {
       server.use(proxy(route, proxyRoutes[route]));
+      // TODO: Need to decide on what to do here.
+      // if (route.slice(-1) === '/') {
+      //   console.log('has /');
+      // } else {
+      // console.log('no /');
+      // server.get(route, (req, res) => {
+      //   res.redirect(`/${route}/`);
+      // });
+      // }
     });
 
     // Redirect old blog posts that had slug in root dir

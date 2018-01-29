@@ -5,10 +5,9 @@ import { gql, graphql } from 'react-apollo';
 import styles from './CommentForm.css';
 
 class CommentForm extends Component {
-
   static propTypes = {
     postId: PropTypes.number,
-  }
+  };
 
   constructor() {
     super();
@@ -27,50 +26,51 @@ class CommentForm extends Component {
 
     // Check all fields are not empty
     if (email.value && name.value && content.value) {
-
       const parentId = 0;
 
-      this.props.submitComment({
-        authorEmail: email.value,
-        authorName: name.value,
-        content: content.value,
-        postId: this.props.postId,
-        parentId,
-      })
-      .then(() => {
-        this.setState({
-          isFormSubmitted: true,
+      this.props
+        .submitComment({
+          authorEmail: email.value,
+          authorName: name.value,
+          content: content.value,
+          postId: this.props.postId,
+          parentId,
+        })
+        .then(() => {
+          this.setState({
+            isFormSubmitted: true,
+          });
+        })
+        .catch(() => {
+          this.setState({
+            showSubmitError: true,
+          });
         });
-      })
-      .catch(() => {
-        this.setState({
-          showSubmitError: true,
-        });
-      });
-
     } else {
-
       this.setState({
         showWarning: true,
       });
-
     }
 
     // reset form
     // e.target.elements.content.value = '';
-  }
+  };
 
   render() {
     return (
       <div className="comment-form">
-
         {!this.state.isFormSubmitted ? (
           <div>
-            <p className="comment-form__intro">Your email address will not be published. Required fields are marked <span>*</span>.</p>
+            <p className="comment-form__intro">
+              Your email address will not be published. Required fields are
+              marked <span>*</span>.
+            </p>
 
             <form onSubmit={this.handleSubmit}>
               <div className="comment-form__section">
-                <label htmlFor="name">Name<span>*</span></label>
+                <label htmlFor="name">
+                  Name<span>*</span>
+                </label>
                 <input
                   name="name"
                   aria-label="name"
@@ -81,7 +81,9 @@ class CommentForm extends Component {
               </div>
 
               <div className="comment-form__section">
-                <label htmlFor="email">Email<span>*</span></label>
+                <label htmlFor="email">
+                  Email<span>*</span>
+                </label>
                 <input
                   name="email"
                   aria-label="email"
@@ -92,14 +94,16 @@ class CommentForm extends Component {
               </div>
 
               <div className="comment-form__section">
-                <label htmlFor="content">Comment<span>*</span></label>
+                <label htmlFor="content">
+                  Comment<span>*</span>
+                </label>
                 <textarea
                   placeholder="Write a comment"
                   name="content"
                   aria-label="content"
                   aria-required="true"
                   rows="4"
-                ></textarea>
+                />
               </div>
 
               {/* TODO: Try input type submit */}
@@ -116,9 +120,11 @@ class CommentForm extends Component {
               )}
 
               {this.state.showSubmitError && (
-                <div className="warning">There seems to be a problem, please refresh the page and try again.</div>
+                <div className="warning">
+                  There seems to be a problem, please refresh the page and try
+                  again.
+                </div>
               )}
-
             </form>
           </div>
         ) : (
@@ -131,22 +137,21 @@ class CommentForm extends Component {
       </div>
     );
   }
-
 }
 
 const query = gql`
   mutation createComment(
-    $authorEmail: String,
-    $authorName: String!,
-    $content: String!,
-    $postId: Int!,
+    $authorEmail: String
+    $authorName: String!
+    $content: String!
+    $postId: Int!
     $parentId: Int
   ) {
     createComment(
-      authorEmail: $authorEmail,
-      authorName: $authorName,
-      content: $content,
-      postId: $postId,
+      authorEmail: $authorEmail
+      authorName: $authorName
+      content: $content
+      postId: $postId
       parentId: $parentId
     ) {
       id
@@ -159,8 +164,9 @@ const query = gql`
 
 export default graphql(query, {
   props: ({ mutate }) => ({
-    submitComment: (args) => mutate({
-      variables: args,
-    }),
+    submitComment: (args) =>
+      mutate({
+        variables: args,
+      }),
   }),
 })(CommentForm);

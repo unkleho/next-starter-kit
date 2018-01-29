@@ -5,28 +5,26 @@ import Link from '../Link';
 import styles from './Menu.css';
 
 class Menu extends Component {
-
   static propTypes = {
     id: PropTypes.string,
     className: PropTypes.string,
     menuItemClassName: PropTypes.string,
     labelledby: PropTypes.string,
     pathname: PropTypes.string,
-    menuItems: PropTypes.arrayOf(PropTypes.shape({
-      name: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.object,
-      ]),
-      url: PropTypes.url,
-      isActive: PropTypes.bool,
-      ariaLabel: PropTypes.string,
-    })).isRequired,
+    menuItems: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+        url: PropTypes.url,
+        isActive: PropTypes.bool,
+        ariaLabel: PropTypes.string,
+      }),
+    ).isRequired,
     onMenuItemClick: PropTypes.func,
-  }
+  };
 
   static defaultProps = {
     className: '',
-  }
+  };
 
   render() {
     const {
@@ -56,7 +54,9 @@ class Menu extends Component {
             >
               <Link prefetch to={item.url} key={item.url}>
                 <a
-                  className={(pathname === item.url || item.isActive) && 'is-active'}
+                  className={
+                    (pathname === item.url || item.isActive) && 'is-active'
+                  }
                   aria-label={item.ariaLabel}
                 >
                   {item.name}
@@ -70,7 +70,6 @@ class Menu extends Component {
       </ul>
     );
   }
-
 }
 
 export default Menu;

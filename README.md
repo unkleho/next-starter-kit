@@ -52,7 +52,11 @@ $ chown ubuntu:ubuntu dxlab.sl.nsw.gov.au
 
 ## Deployment
 
-Using `ansible`: `npm run deploy-ansible`
+### Ansible
+
+Run `npm run deploy-[stage]`.
+
+Try adding your local `id_rsa.pub` to ubuntu user's `.authorized_keys` file if you get a UNREACHABLE error.
 
 Using `now`:
 

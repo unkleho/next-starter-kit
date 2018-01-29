@@ -5,7 +5,6 @@ import styles from './Footer.css';
 // import Menu from '../Menu';
 
 class Footer extends Component {
-
   render() {
     return (
       <footer className="footer">
@@ -28,30 +27,51 @@ class Footer extends Component {
 
         <div className="footer__social">
           {socialItems.map((item, i) => (
-            <a href={item.url} aria-label={`Follow us on ${item.name}`} key={`social-item-${i}`}>
-              <span className={`slnsw-icon-${item.name.toLowerCase()}`} aria-hidden="true"></span>
+            <a
+              href={item.url}
+              aria-label={`Follow us on ${item.name}`}
+              key={`social-item-${i}`}
+            >
+              <span
+                className={`slnsw-icon-${item.name.toLowerCase()}`}
+                aria-hidden="true"
+              />
             </a>
           ))}
         </div>
 
         <div className="footer__nsw-logo">
-          <a href="https://www.nsw.gov.au/" target="_blank" rel="noopener noreferrer">
-            <img className="" src="/static/images/logo-nsw-white.png" alt="NSW Government logo." />
+          <a
+            href="https://www.nsw.gov.au/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              className=""
+              src="/static/images/logo-nsw-white.png"
+              alt="NSW Government logo."
+            />
           </a>
         </div>
 
+        {/* prettier-ignore */}
         <style global jsx>{styles}</style>
       </footer>
     );
   }
-
 }
 
 const footerItems = [
   { name: 'Disclaimer', url: 'https://www.sl.nsw.gov.au/disclaimer' },
-  { name: 'Privacy', url: 'https://www.sl.nsw.gov.au/privacy/web-privacy-statement' },
+  {
+    name: 'Privacy',
+    url: 'https://www.sl.nsw.gov.au/privacy/web-privacy-statement',
+  },
   { name: 'Copyright', url: 'https://www.sl.nsw.gov.au/copyright' },
-  { name: 'Right to information', url: 'https://www.sl.nsw.gov.au/right-to-information' },
+  {
+    name: 'Right to information',
+    url: 'https://www.sl.nsw.gov.au/right-to-information',
+  },
 ];
 
 const socialItems = [

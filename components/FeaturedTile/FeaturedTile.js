@@ -7,30 +7,19 @@ import Button from '../Button';
 import styles from './FeaturedTile.css';
 
 class FeaturedTile extends Component {
-
   static propTypes = {
     title: PropTypes.string,
     url: PropTypes.string,
     imageUrl: PropTypes.string,
     content: PropTypes.string,
-    size: PropTypes.oneOf([
-      '2x1',
-      '1x2',
-    ]),
-  }
+    size: PropTypes.oneOf(['2x1', '1x2']),
+  };
 
   render() {
-    const {
-      title,
-      url,
-      imageUrl,
-      content,
-      size,
-    } = this.props;
+    const { title, url, imageUrl, content, size } = this.props;
 
     return (
       <article className={`featured-tile ${size && `featured-tile--${size}`}`}>
-
         <TileImage
           url={url}
           imageUrl={imageUrl}
@@ -39,19 +28,21 @@ class FeaturedTile extends Component {
 
         <div className="featured-tile__info">
           <h1>{title}</h1>
-          <div className="featured-tile__content" dangerouslySetInnerHTML={{ __html: content }}></div>
+          <div
+            className="featured-tile__content"
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
 
           <div className="featured-tile__cta">
             <Button>Read</Button>
           </div>
         </div>
 
+        {/* prettier-ignore */}
         <style global jsx>{styles}</style>
-
       </article>
     );
   }
-
 }
 
 export default FeaturedTile;

@@ -12,7 +12,6 @@ import styles from './post.css';
 import galleryStyles from '../styles/gallery.css';
 
 class Post extends Component {
-
   static propTypes = {
     id: PropTypes.number,
     title: PropTypes.string,
@@ -24,44 +23,44 @@ class Post extends Component {
     date: PropTypes.string,
     loading: PropTypes.bool,
     comments: PropTypes.array,
+  };
+
+  componentDidMount() {
+    this.addModals();
   }
 
-    componentDidMount() {
-      this.addModals();
-    }
+  addModals = () => {
+    const div = document.createElement('div');
+    document.body.appendChild(div);
+    div.id = 'postModal';
+    div.className = 'post__modal';
+    div.innerHTML =
+      '<span class="post__modal_close"><a>&times;</a></span><img id="postModalImg" src=""/>';
 
-    addModals = () => {
-      const div = document.createElement('div');
-      document.body.appendChild(div);
-      div.id = 'postModal';
-      div.className = 'post__modal';
-      div.innerHTML = '<span class="post__modal_close"><a>&times;</a></span><img id="postModalImg" src=""/>';
+    const modal = document.getElementById('postModal');
+    const modalImg = document.getElementById('postModalImg');
+    const span = document.getElementsByClassName('post__modal_close')[0];
 
-      const modal = document.getElementById('postModal');
-      const modalImg = document.getElementById('postModalImg');
-      const span = document.getElementsByClassName("post__modal_close")[0];
-
-      span.onclick = function closeModal() { 
-        modal.style.display = "none";
-      }
-
-      const imgDivs = document.getElementsByClassName("gallery-icon");
-      for (let i = 0, len = imgDivs.length; i < len; i++) {
-        const bigImgUrl = imgDivs[i].childNodes[1].href;
-        const a = imgDivs[i].childNodes[1];
-        // eslint-disable-next-line
-        a.href = "javascript:void(0)";
-        a.setAttribute('aria-label', 'click to expand image'); 
-        a.onclick = function openModal(){
-        modalImg.src = bigImgUrl;
-        modalImg.onclick = function closeModal() { 
-          modal.style.display = "none";
-        }
-        modal.style.display = "block";
-        }
-      }
-     
+    span.onclick = function closeModal() {
+      modal.style.display = 'none';
     };
+
+    const imgDivs = document.getElementsByClassName('gallery-icon');
+    for (let i = 0, len = imgDivs.length; i < len; i++) {
+      const bigImgUrl = imgDivs[i].childNodes[1].href;
+      const a = imgDivs[i].childNodes[1];
+      // eslint-disable-next-line
+      a.href = 'javascript:void(0)';
+      a.setAttribute('aria-label', 'click to expand image');
+      a.onclick = function openModal() {
+        modalImg.src = bigImgUrl;
+        modalImg.onclick = function closeModal() {
+          modal.style.display = 'none';
+        };
+        modal.style.display = 'block';
+      };
+    }
+  };
 
   render() {
     const {
@@ -94,64 +93,63 @@ class Post extends Component {
         metaImageUrl={featuredImageUrl}
         metaImageAlt={featuredImageDescription}
       >
-        <article
-          className="post container container--md"
-        >
+        <article className="post container container--md">
+          {id ? (
+            <div>
+              <div className="post__featured-image-holder">
+                <img
+                  className="post__featured-image"
+                  src={featuredImageUrl}
+                  alt={featuredImageDescription}
+                />
+                <div className="post__date">{dateString}</div>
+              </div>
 
-        {id ? (
-          <div>
-           <div className="post__featured-image-holder">
-            <img
-              className="post__featured-image"
-              src={featuredImageUrl}
-              alt={featuredImageDescription}
-            />
-            <div className="post__date">{dateString}</div>
-          </div>
+              <header className="post__header">
+                <h1 className="post__title">{title}</h1>
+                <div className="post__author">
+                  By <a href={`/search?q=${authorName}`}>{authorName}</a>
+                </div>
 
-          <header className="post__header">
-            <h1 className="post__title">{title}</h1>
-            <div className="post__author">By <a href={`/search?q=${authorName}`}>{authorName}</a></div>
+                <div className="post__cta">
+                  {experimentUrl && (
+                    <Button href={experimentUrl} target="_blank">
+                      LAUNCH EXPERIMENT
+                    </Button>
+                  )}
+                  {githubUrl && (
+                    <Button href={githubUrl} target="_blank">
+                      CODE
+                    </Button>
+                  )}
+                </div>
+              </header>
 
-            <div className="post__cta">
-              {experimentUrl && (
-                <Button href={experimentUrl} target="_blank">LAUNCH EXPERIMENT</Button>
-              )}
-              {githubUrl && (
-                <Button href={githubUrl} target="_blank">CODE</Button>
-              )}
+              <div
+                className="post__content"
+                dangerouslySetInnerHTML={{ __html: content }}
+              />
+
+              <ShareBox pathname={url.pathname} />
+
+              <br />
+              <br />
+              <br />
+
+              <Comments postId={id} comments={comments} />
             </div>
-          </header>
-
-          <div
-            className="post__content"
-            dangerouslySetInnerHTML={{ __html: content }}>
-          </div>
-
-          <ShareBox pathname={url.pathname} />
-
-          <br/>
-          <br/>
-          <br/>
-
-          <Comments
-            postId={id}
-            comments={comments}
-          />
-          </div>
           ) : (
-          <div className="post__error">Post not found.</div>
+            <div className="post__error">Post not found.</div>
           )}
-
-
         </article>
 
+        {/* prettier-ignore */}
         <style jsx global>{styles}</style>
+        {/* prettier-ignore */}
         <style jsx global>{galleryStyles}</style>
       </App>
     );
   }
-
 }
 
 const postQuery = gql`
@@ -186,21 +184,23 @@ const postQuery = gql`
 
 // The `graphql` wrapper executes a GraphQL query and makes the results
 // available on the `data` prop of the wrapped component (ExamplePage)
-export default withData(graphql(postQuery, {
-  options: ({ url: { query: { slug } } }) => {
-    // console.log(slug);
-    return {
-      variables: {
-        slug,
-      },
-    };
-  },
-  props: ({ data }) => {
-    const post = data.posts && data.posts[0];
+export default withData(
+  graphql(postQuery, {
+    options: ({ url: { query: { slug } } }) => {
+      // console.log(slug);
+      return {
+        variables: {
+          slug,
+        },
+      };
+    },
+    props: ({ data }) => {
+      const post = data.posts && data.posts[0];
 
-    return {
-      ...data,
-      ...post,
-    };
-  },
-})(Post));
+      return {
+        ...data,
+        ...post,
+      };
+    },
+  })(Post),
+);

@@ -11,12 +11,7 @@ import Button from '../components/Button';
 import { formatDate } from '../lib';
 import styles from './index.css';
 
-const HomePage = ({
-  url,
-  posts,
-  experiments,
-  loading: isLoading,
-}) => (
+const HomePage = ({ url, posts, experiments, loading: isLoading }) => (
   <App
     pathname={url.pathname}
     isLoading={isLoading}
@@ -47,61 +42,73 @@ const HomePage = ({
           columnWidth: '.tile',
         }}
       >
-        {posts && posts.slice(0, 3).map((post, i) => (
-          <Tile
-            title={post.title}
-            subtitle={post.date}
-            url={post.experimentUrl ? post.experimentUrl : `/blog/${post.slug}`}
-            target={post.experimentUrl ? '_blank' : ''}
-            secondaryUrl={post.experimentUrl && `/blog/${post.slug}`}
-            tertiaryUrl={post.githubUrl}
-            tertiaryTarget='_blank'
-            imageUrl={getTileSize(i) === '1x2' ? post.tallImageUrl : post.mediumImageUrl }
-            imageAltText={post.imageAltText}
-            content={post.content}
-            size={getTileSize(i)}
-            key={`tile-${i}`}
-          />
-        ))}
+        {posts &&
+          posts
+            .slice(0, 3)
+            .map((post, i) => (
+              <Tile
+                title={post.title}
+                subtitle={post.date}
+                url={
+                  post.experimentUrl ? post.experimentUrl : `/blog/${post.slug}`
+                }
+                target={post.experimentUrl ? '_blank' : ''}
+                secondaryUrl={post.experimentUrl && `/blog/${post.slug}`}
+                tertiaryUrl={post.githubUrl}
+                tertiaryTarget="_blank"
+                imageUrl={
+                  getTileSize(i) === '1x2'
+                    ? post.tallImageUrl
+                    : post.mediumImageUrl
+                }
+                imageAltText={post.imageAltText}
+                content={post.content}
+                size={getTileSize(i)}
+                key={`tile-${i}`}
+              />
+            ))}
       </Masonry>
 
-      <br/>
+      <br />
 
       <SectionTitle>Blog</SectionTitle>
 
       <div>
-        {posts && posts.slice(3, 7).map((post, i) => (
-          <SimpleTile
-            subtitle={post.date}
-            title={post.title}
-            url={`/blog/${post.slug}`}
-            imageUrl={post.mediumImageUrl}
-            imageAltText={post.imageAltText}
-            content={post.content}
-            key={`simple-tile-${i}`}
-          />
-        ))}
+        {posts &&
+          posts
+            .slice(3, 7)
+            .map((post, i) => (
+              <SimpleTile
+                subtitle={post.date}
+                title={post.title}
+                url={`/blog/${post.slug}`}
+                imageUrl={post.mediumImageUrl}
+                imageAltText={post.imageAltText}
+                content={post.content}
+                key={`simple-tile-${i}`}
+              />
+            ))}
       </div>
 
       <Button href="/blog">Read All Posts</Button>
-
     </div>
 
-    <br/>
-    <br/>
-    <br/>
-    <br/>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 
     <Masthead
       // subtitle="We make experiments"
-      title="We make experiments"
-      titleHighlight="#dxlab"
+      title="We make"
+      titleHighlight="Experiments"
       backgroundImageUrl="/static/images/masthead-meridian-f.jpg"
-      slug="We Make Experiments"
+      slug="We Make"
     />
 
     <div className="container container--lg">
-
       <SectionTitle>Checkout our work!</SectionTitle>
 
       <Masonry
@@ -112,27 +119,31 @@ const HomePage = ({
           columnWidth: '.tile',
         }}
       >
-        {experiments && swapArrayElements(experiments, 0, 1).map((experiment, i) => (
-          <Tile
-            title={experiment.title}
-            subtitle={experiment.date}
-            url={experiment.url}
-            target='_blank'
-            secondaryUrl={experiment.blogUrl}
-            secondaryTarget=''
-            tertiaryUrl={experiment.githubUrl}
-            tertiaryTarget='_blank'
-            imageUrl={getExperimentTileSize(i) === '1x2' ? experiment.tallImageUrl : experiment.mediumImageUrl }
-            imageAltText={experiment.imageAltText}
-            content={experiment.content}
-            size={getExperimentTileSize(i)}
-            key={`experiment-${i}`}
-          />
-        ))}
+        {experiments &&
+          swapArrayElements(experiments, 0, 1).map((experiment, i) => (
+            <Tile
+              title={experiment.title}
+              subtitle={experiment.date}
+              url={experiment.url}
+              target="_blank"
+              secondaryUrl={experiment.blogUrl}
+              secondaryTarget=""
+              tertiaryUrl={experiment.githubUrl}
+              tertiaryTarget="_blank"
+              imageUrl={
+                getExperimentTileSize(i) === '1x2'
+                  ? experiment.tallImageUrl
+                  : experiment.mediumImageUrl
+              }
+              imageAltText={experiment.imageAltText}
+              content={experiment.content}
+              size={getExperimentTileSize(i)}
+              key={`experiment-${i}`}
+            />
+          ))}
       </Masonry>
 
       <Button href="/experiments">All Experiments</Button>
-
     </div>
 
     <br />
@@ -142,19 +153,18 @@ const HomePage = ({
     <br />
 
     <Masthead
-      title="We run grants"
-      titleHighlight="#dxlab"
+      title="We run"
+      titleHighlight="Grants"
       text="To support creative and innovative thinking we offer dedicated digital grants, including the DX Lab Fellowship and the Digital Learning Fellowship."
       backgroundImageUrl="/static/images/masthead-bookman.jpg"
-      slug="We run grants"
+      slug="We run"
     />
 
     <div className="container container--lg">
-
       <Button href="/grants">Read about our grants</Button>
-
     </div>
 
+    {/* prettier-ignore */}
     <style global jsx>{styles}</style>
   </App>
 );
@@ -162,8 +172,8 @@ const HomePage = ({
 function getTileSize(index) {
   if (index === 0 || index === 5) {
     return '1x2';
-  // } else if (index === 3) {
-  //   return '2x1';
+    // } else if (index === 3) {
+    //   return '2x1';
   }
 }
 
@@ -231,30 +241,36 @@ const homeQuery = gql`
   }
 `;
 
-export default withData(graphql(homeQuery, {
-  props: ({ data }) => {
-    return {
-      ...data,
-      posts: data && data.posts && data.posts.map((item) => {
-
-        return {
-          ...mapItemToTile(item),
-          experimentUrl: item.experiments[0] && item.experiments[0].url,
-          githubUrl: item.experiments[0] && item.experiments[0].githubUrl,
-          // blogUrl,
-        };
-      }),
-      experiments: data.experiments && data.experiments.map((item) => {
-        return {
-          ...mapItemToTile(item),
-          url: item.url,
-          blogUrl: item.posts[0] && `/blog/${item.posts[0].slug}`,
-          githubUrl: item.githubUrl,
-        };
-      }),
-    };
-  },
-})(HomePage));
+export default withData(
+  graphql(homeQuery, {
+    props: ({ data }) => {
+      return {
+        ...data,
+        posts:
+          data &&
+          data.posts &&
+          data.posts.map((item) => {
+            return {
+              ...mapItemToTile(item),
+              experimentUrl: item.experiments[0] && item.experiments[0].url,
+              githubUrl: item.experiments[0] && item.experiments[0].githubUrl,
+              // blogUrl,
+            };
+          }),
+        experiments:
+          data.experiments &&
+          data.experiments.map((item) => {
+            return {
+              ...mapItemToTile(item),
+              url: item.url,
+              blogUrl: item.posts[0] && `/blog/${item.posts[0].slug}`,
+              githubUrl: item.githubUrl,
+            };
+          }),
+      };
+    },
+  })(HomePage),
+);
 
 // TODO: Move to lib
 function mapItemToTile(item) {
@@ -262,8 +278,10 @@ function mapItemToTile(item) {
     title: item.title,
     content: item.excerpt,
     slug: item.slug,
-    tallImageUrl: item.featuredMedia && item.featuredMedia.sizes.tallTile.sourceUrl,
-    mediumImageUrl: item.featuredMedia && item.featuredMedia.sizes.mediumTile.sourceUrl,
+    tallImageUrl:
+      item.featuredMedia && item.featuredMedia.sizes.tallTile.sourceUrl,
+    mediumImageUrl:
+      item.featuredMedia && item.featuredMedia.sizes.mediumTile.sourceUrl,
     imageAltText: item.featuredMedia && item.featuredMedia.altText,
     date: formatDate(item.date),
   };
