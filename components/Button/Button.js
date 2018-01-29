@@ -22,9 +22,8 @@ class Button extends Component {
         >
           {children}
 
-          <style global jsx>
-            {styles}
-          </style>
+          {/* prettier-ignore */}
+          <style global jsx>{styles}</style>
         </a>
       </Link>
     );

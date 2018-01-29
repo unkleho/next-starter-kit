@@ -45,12 +45,15 @@ $ ln -s ~/.nvm/versions/node/v8.9.3/bin/node /usr/local/bin/node
 $ vim /etc/nginx/sites-available/dxlab.sl.nsw.gov.au.conf
 $ ln -s /etc/nginx/sites-available/dxlab.sl.nsw.gov.au.conf /etc/nginx/sites-enabled/dxlab.sl.nsw.gov.au.conf
 $ chown ubuntu:ubuntu dxlab.sl.nsw.gov.au
-
 ```
 
 ## Deployment
 
-Using `ansible`: `npm run deploy-ansible`
+### Ansible
+
+Run `npm run deploy-[stage]`.
+
+Try adding your local `id_rsa.pub` to ubuntu user's `.authorized_keys` file if you get a UNREACHABLE error.
 
 Using `now`:
 
