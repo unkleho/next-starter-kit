@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import Head from 'next/head';
 
-import { buildHeadTitle } from '../lib';
+import { buildHeadTitle } from '../../lib';
 
 class HeadMeta extends Component {
   render() {

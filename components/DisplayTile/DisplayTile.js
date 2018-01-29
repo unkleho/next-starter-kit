@@ -8,6 +8,7 @@ import Link from '../Link';
 import styles from './DisplayTile.css';
 
 class DisplayTile extends Component {
+  
   static propTypes = {
     title: PropTypes.string,
     primaryUrl: PropTypes.string,
