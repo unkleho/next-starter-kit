@@ -39,13 +39,15 @@ FB_APP_ID=XXXXXXXXXXXXX
 $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 $ . ~/.nvm/nvm.sh # Activate nvm
 $ nvm install v8.9.3
-$ ln -s ~/.nvm/versions/node/v8.9.3/bin/nvm /usr/local/bin/nvm
-$ ln -s ~/.nvm/versions/node/v8.9.3/bin/node /usr/local/bin/node
+# Symlink node and npm so they can be run by Ansible (as ubuntu user)
+$ sudo ln -s /home/ubuntu/.nvm/versions/node/v8.9.3/bin/node /usr/local/bin/node
+$ sudo ln -s /home/ubuntu/.nvm/versions/node/v8.9.3/bin/npm /usr/local/bin/npm
 # Set up nginx
 $ vim /etc/nginx/sites-available/dxlab.sl.nsw.gov.au.conf
 $ ln -s /etc/nginx/sites-available/dxlab.sl.nsw.gov.au.conf /etc/nginx/sites-enabled/dxlab.sl.nsw.gov.au.conf
+# Make project folder
+$ mkdir /src/www/dxlab.sl.nsw.gov.au
 $ chown ubuntu:ubuntu dxlab.sl.nsw.gov.au
-
 ```
 
 ## Deployment
