@@ -66,9 +66,8 @@ app
       res.redirect('/grants');
     });
 
-    server.get('/example-page/:id', (req, res) => {
-      const mergedQuery = Object.assign({}, req.query, req.params);
-      return app.render(req, res, '/example-page', mergedQuery);
+    server.get('/unstacked', (req, res) => {
+      res.redirect('http://unstacked.dxlab.sl.nsw.gov.au');
     });
 
     server.all('*', (req, res) => handler(req, res));
