@@ -18,7 +18,7 @@ $ npm start
 PORT=5010
 TEST=it works!
 GRAPHQL_URL=http://localhost:5000/graphql or https://12ke3766e4.execute-api.ap-southeast-2.amazonaws.com/staging/graphql
-DXLAB_URL=http://dxlab.sl.nsw.gov.au
+DXLAB_URL=https://staging-wp.dxlab.sl.nsw.gov.au
 GOOGLE_ANALYTICS_ID=UA-XXXXXXXX-X
 FB_APP_ID=XXXXXXXXXXXXX
 
@@ -27,7 +27,7 @@ PORT=3000
 TEST=it works on production!
 GOOGLE_ANALYTICS_ID=UA-XXXXXXXX-X
 GRAPHQL_URL=https://syggbw4nm9.execute-api.ap-southeast-2.amazonaws.com/production/graphql
-DXLAB_URL=http://dxlab.sl.nsw.gov.au
+DXLAB_URL=https://wp.dxlab.sl.nsw.gov.au
 FB_APP_ID=XXXXXXXXXXXXX
 ```
 
