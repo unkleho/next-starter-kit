@@ -27,19 +27,25 @@ app
   .prepare()
   .then(() => {
     const server = express();
+    server.enable('strict routing');
 
     // Proxy external apps
     Object.keys(proxyRoutes).forEach((route) => {
+      // Proxy route to DX Lab WP Server
       server.use(proxy(route, proxyRoutes[route]));
-      // TODO: Need to decide on what to do here.
-      // if (route.slice(-1) === '/') {
-      //   console.log('has /');
-      // } else {
-      // console.log('no /');
-      // server.get(route, (req, res) => {
-      //   res.redirect(`/${route}/`);
-      // });
-      // }
+
+      // But also redirect it to route with trailing slash.
+      // Plays nice with proxying to Nginx WP server
+      server.get(route.slice(0, -1), (req, res) => {
+        res.redirect(`${route.slice(0, -1)}/`);
+      });
+      server.use(proxy(route, proxyRoutes[route]));
+
+      // But also redirect it to route with trailing slash.
+      // Plays nice with proxying to Nginx WP server
+      server.get(route.slice(0, -1), (req, res) => {
+        res.redirect(`${route.slice(0, -1)}/`);
+      });
     });
 
     // Redirect old blog posts that had slug in root dir
