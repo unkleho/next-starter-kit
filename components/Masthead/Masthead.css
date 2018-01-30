@@ -205,6 +205,10 @@
   font-size: var(--font-size-xs);
   @apply --font-uppercase;
 
+  /* @media (--screen-sm) {
+    bottom: 10%;
+  } */
+
   &::before {
     position: absolute;
     top: var(--spacing-xxxs);
