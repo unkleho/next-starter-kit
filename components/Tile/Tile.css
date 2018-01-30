@@ -137,7 +137,7 @@
   .tile__content {
     font-size: var(--font-size-sm);
     margin-bottom: 1em;
-    padding-left: var(--spacing-sm);
+    /* padding-left: var(--spacing-sm); */
     padding-top: var(--spacing-md);
     opacity: 0.7;
 
@@ -156,7 +156,7 @@
   }
 
   .tile__cta {
-    margin-left: var(--spacing-xs);
+    /* margin-left: var(--spacing-xs); */
     width: 66%;
 
     @media (--screen-sm) {

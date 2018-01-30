@@ -54,7 +54,7 @@
     "enzyme": "^2.9.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.2.0",
-    "eslint-config-dxlab": "git+ssh://git@github.com/slnsw/eslint-config-dxlab.git#v0.0.8",
+    "eslint-config-dxlab": "git+ssh://git@github.com/slnsw/eslint-config-dxlab.git#v0.0.9",
     "eslint-config-prettier": "^2.9.0",
     "eslint-config-react-app": "^1.0.5",
     "eslint-loader": "^1.9.0",

@@ -101,6 +101,7 @@ const HomePage = ({ url, posts, experiments, loading: isLoading }) => (
     <br />
 
     <Masthead
+      className="masthead--experiments"
       // subtitle="We make experiments"
       title="We make"
       titleHighlight="Experiments"
@@ -153,6 +154,7 @@ const HomePage = ({ url, posts, experiments, loading: isLoading }) => (
     <br />
 
     <Masthead
+      className="masthead--grants"
       title="We run"
       titleHighlight="Grants"
       text="To support creative and innovative thinking we offer dedicated digital grants, including the DX Lab Fellowship and the Digital Learning Fellowship."

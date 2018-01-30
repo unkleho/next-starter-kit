@@ -138,7 +138,8 @@ input[type=text], input[type=email], textarea {
   border-radius: 0;
 }
 
-input[type=submit] {
+button[type=submit], input[type=submit] {
+  padding: var(--spacing-md);
   font-size: var(--font-size-sm);
   @apply --font-uppercase;
   border: 1px solid var(--colour-white);

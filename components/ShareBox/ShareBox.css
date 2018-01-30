@@ -38,6 +38,7 @@
 
     & a:hover, & a:active {
       color: var(--colour-highlight);
+      text-decoration: none;
     }
   }
 

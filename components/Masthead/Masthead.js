@@ -7,6 +7,7 @@ import shuffle from '../../lib/shuffle';
 
 class Masthead extends Component {
   static propTypes = {
+    className: PropTypes.string,
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
     titleSmall: PropTypes.string,
     titleHighlight: PropTypes.string,
@@ -56,8 +57,9 @@ class Masthead extends Component {
   render() {
     return (
       <div
-        className={`masthead ${this.props.size &&
-          `masthead--${this.props.size}`}`}
+        className={`masthead ${
+          this.props.size ? `masthead--${this.props.size}` : ''
+        } ${this.props.className ? this.props.className : ''}`}
       >
         <div
           className="masthead__bg"

@@ -5,8 +5,8 @@
   z-index: 7;
   display: flex;
   flex-direction: column;
-  margin-top: 3em;
-  min-height: 7.5em;
+  margin-top: 5em;
+  min-height: 6.5em;
 
   @media (--screen-sm) {
     flex-direction: row;
@@ -27,6 +27,10 @@
     @apply --font-uppercase;
     line-height: 1;
 
+    @media (--screen-sm) {
+      top: 3.5em;
+    }
+
     &:link, &:visited {
       color: var(--colour-white);
     }
@@ -36,7 +40,9 @@ ul.footer-menu {
   position: relative;
   display: flex;
   flex-direction: column;
+  margin-top: 0;
   margin-bottom: var(--spacing-sm);
+  padding-left: 0;
   font-size: var(--font-size-sm);
   @apply --font-uppercase;
   text-align: right;
@@ -100,7 +106,7 @@ ul.footer-menu {
       &::before {
         position: absolute;
         left: 0.35em;
-        bottom: -0.7em;
+        bottom: -0.9em;
         content: "";
         width: 2.5em;
         border-bottom: 1px solid var(--colour-white);
