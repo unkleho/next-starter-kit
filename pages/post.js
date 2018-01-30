@@ -130,7 +130,7 @@ class Post extends Component {
                 dangerouslySetInnerHTML={{ __html: content }}
               />
 
-              <ShareBox pathname={url.pathname} />
+              <ShareBox text={title} pathname={`/blog/${url.query.slug}`} />
 
               <br />
               <br />
