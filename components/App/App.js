@@ -96,6 +96,9 @@ class App extends Component {
           {metaDescription && (
             <meta property="og:description" content={metaDescription} />
           )}
+          {metaDescription && (
+            <meta name="description" content={metaDescription} />
+          )}
           {metaImageUrl && <meta property="og:image" content={metaImageUrl} />}
           {metaUrl && <meta property="og:url" content={metaUrl} />}
           {metaImageAlt && (
