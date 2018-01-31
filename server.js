@@ -68,11 +68,23 @@ app
       res.redirect('/code');
     });
 
+    server.get('/open-data/', (req, res) => {
+      res.redirect('/code');
+    });
+
     server.get('/fellowships', (req, res) => {
       res.redirect('/grants');
     });
 
+    server.get('/fellowships/', (req, res) => {
+      res.redirect('/grants');
+    });
+
     server.get('/unstacked', (req, res) => {
+      res.redirect('http://unstacked.dxlab.sl.nsw.gov.au');
+    });
+
+    server.get('/unstacked/', (req, res) => {
       res.redirect('http://unstacked.dxlab.sl.nsw.gov.au');
     });
 
