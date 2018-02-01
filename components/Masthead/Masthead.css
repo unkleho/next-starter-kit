@@ -30,6 +30,7 @@
   max-height: 40em;
 
   @media (--screen-sm) {
+    min-height: 46em;
     max-height: 60em;
   }
 }

@@ -12,7 +12,9 @@ html {
   box-sizing: border-box;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
@@ -33,7 +35,10 @@ body {
   }
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   @apply --font-uppercase;
   font-weight: 700;
 }
@@ -56,7 +61,8 @@ h2:first-child {
   margin-top: 0;
 }
 
-a:link, a:visited {
+a:link,
+a:visited {
   text-decoration: none;
   color: var(--colour-primary);
   transition: 0.3s;
@@ -66,7 +72,8 @@ a:link, a:visited {
   }
 }
 
-a:hover, a:active {
+a:hover,
+a:active {
   text-decoration: underline;
 
   @nest h1 &, h2 & {
@@ -80,7 +87,8 @@ p {
   margin-bottom: var(--font-size-xxlg);
 }
 
-strong, b {
+strong,
+b {
   font-weight: 700;
   letter-spacing: -0.005em;
 }
@@ -108,7 +116,8 @@ figure {
   max-width: 100%;
 }
 
-button, input[type=submit] {
+button,
+input[type='submit'] {
   background: none;
   border: none;
   color: var(--colour-white);
@@ -125,7 +134,9 @@ label {
   @apply --font-uppercase;
 }
 
-input[type=text], input[type=email], textarea {
+input[type='text'],
+input[type='email'],
+textarea {
   width: 100%;
   padding: var(--spacing-sm);
   font-family: var(--font-primary);
@@ -142,7 +153,8 @@ textarea {
   line-height: 1.4;
 }
 
-button[type=submit], input[type=submit] {
+button[type='submit'],
+input[type='submit'] {
   padding: var(--spacing-md);
   font-size: var(--font-size-sm);
   @apply --font-uppercase;

@@ -1,6 +1,7 @@
 @import '../../styles/variables.css';
 
 .header {
+  /* position: relative; */
   position: sticky;
   position: -webkit-sticky;
   top: 1em;
