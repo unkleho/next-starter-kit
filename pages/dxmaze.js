@@ -1,7 +1,6 @@
 import { Component } from 'react';
 
 import App from '../components/App';
-import Masthead from '../components/Masthead';
 import init from '../lib/dxmaze.js';
 
 class Four04 extends Component {
@@ -15,9 +14,16 @@ class Four04 extends Component {
         <div className="container container--lg" id="dxmaze-holder">
           <canvas id="dxmaze" />
         </div>
+        <h1 className="error__title">
+          some experiments fail<br />page not found
+        </h1>
         <style jsx>{`
           #dxmaze {
-            border: 2px solid yellow;
+            margin-top: 2em;
+          }
+          .error__title {
+            text-align: center;
+            padding-top: 1em;
           }
         `}</style>
       </App>
