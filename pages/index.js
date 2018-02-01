@@ -23,7 +23,7 @@ const HomePage = ({ url, posts, experiments, loading: isLoading }) => (
       titleSmall="The State Library of NSW's"
       title="Experimental"
       titleHighlight="Innovation Lab"
-      text="We build and support new ways of design thinking, experimentation and deep research with digital technologies."
+      text="We build and support new ways of design thinking, experimentation and research with digital technologies."
       // sideText="Collaborate / Experiment / Create / Engage / Be Open / Surprise"
       backgroundImageUrl="/static/images/masthead-background-01.gif"
       slug="Experimental"
@@ -49,9 +49,7 @@ const HomePage = ({ url, posts, experiments, loading: isLoading }) => (
               <Tile
                 title={post.title}
                 subtitle={post.date}
-                url={
-                  post.experimentUrl ? post.experimentUrl : `/blog/${post.slug}`
-                }
+                url={`/blog/${post.slug}`}
                 target={post.experimentUrl ? '_blank' : ''}
                 secondaryUrl={post.experimentUrl && `/blog/${post.slug}`}
                 tertiaryUrl={post.githubUrl}
