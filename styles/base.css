@@ -138,6 +138,10 @@ input[type=text], input[type=email], textarea {
   border-radius: 0;
 }
 
+textarea {
+  line-height: 1.4;
+}
+
 button[type=submit], input[type=submit] {
   padding: var(--spacing-md);
   font-size: var(--font-size-sm);
