@@ -12,14 +12,14 @@ class Four04 extends Component {
   render() {
     return (
       <App>
-        <div className="posts container container--lg">
-          <Masthead
-            title="page not found"
-            backgroundImageUrl="/static/images/masthead-search-terms-projection.jpg"
-            slug="page not found"
-          />
+        <div className="container container--lg" id="dxmaze-holder">
           <canvas id="dxmaze" />
         </div>
+        <style jsx>{`
+          #dxmaze {
+            border: 2px solid yellow;
+          }
+        `}</style>
       </App>
     );
   }
