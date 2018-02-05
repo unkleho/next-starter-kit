@@ -15,7 +15,7 @@ class Four04 extends Component {
           <canvas id="dxmaze" />
         </div>
         <h1 className="error__title">
-          some experiments fail<br />page not found
+          some experiments fail.<br />page not found!
         </h1>
         <style jsx>{`
           #dxmaze {
