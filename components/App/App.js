@@ -60,11 +60,13 @@ class App extends Component {
   }
 
   handleOnScroll = (event) => {
-    const scrollTop = event.srcElement.scrollingElement.scrollTop;
+    if (event && event.srcElement && event.srcElement.scrollingElement) {
+      const scrollTop = event.srcElement.scrollingElement.scrollTop;
 
-    this.setState({
-      isHeaderBackgroundActive: scrollTop > SCROLLTOP_THRESHOLD,
-    });
+      this.setState({
+        isHeaderBackgroundActive: scrollTop > SCROLLTOP_THRESHOLD,
+      });
+    }
   };
 
   render() {
