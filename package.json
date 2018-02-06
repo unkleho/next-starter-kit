@@ -1,23 +1,20 @@
 {
   "name": "dxlab-website",
   "author": "Kaho Cheung",
-  "version": "0.10.3",
+  "version": "0.10.4",
   "scripts": {
     "dev": "node server.js -p $PORT",
     "build": "NODE_ENV=production next build",
     "start": "NODE_ENV=production node server.js -p $PORT",
     "start-pm2": "NODE_ENV=production pm2 start server.js --name dxlab-website",
-    "deploy-staging":
-      "ansible-playbook deploy/deploy.yml --extra-vars \"stage=staging\" -vvvv",
-    "deploy-production":
-      "ansible-playbook deploy/deploy.yml --extra-vars \"stage=production\" -vvvv",
+    "deploy-staging": "ansible-playbook deploy/deploy.yml --extra-vars \"stage=staging\" -vvvv",
+    "deploy-production": "ansible-playbook deploy/deploy.yml --extra-vars \"stage=production\" -vvvv",
     "alias-staging": "now alias staging-dxlab.now.sh -r rules.json",
     "alias-production": "now alias dxlab.now.sh -r rules.json",
     "heroku-postbuild": "next build",
     "flow": "flow",
     "test": "jest",
-    "test:lint":
-      "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
+    "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
     "precommit": "lint-staged"
   },
   "engines": {
@@ -57,8 +54,7 @@
     "enzyme": "^2.9.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.2.0",
-    "eslint-config-dxlab":
-      "git+ssh://git@github.com/slnsw/eslint-config-dxlab.git#v0.0.9",
+    "eslint-config-dxlab": "git+ssh://git@github.com/slnsw/eslint-config-dxlab.git#v0.0.9",
     "eslint-config-prettier": "^2.9.0",
     "eslint-config-react-app": "^1.0.5",
     "eslint-loader": "^1.9.0",
@@ -95,6 +91,9 @@
     }
   },
   "lint-staged": {
-    "*.js": ["eslint --fix", "git add"]
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
   }
 }
