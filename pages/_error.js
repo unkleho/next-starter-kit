@@ -1,7 +1,7 @@
 import { Component } from 'react';
 
 import App from '../components/App';
-import init from '../lib/dxmaze.js';
+import init from '../lib/dxmaze';
 
 class Four04 extends Component {
   componentDidMount() {
