@@ -6,17 +6,24 @@ import styles from './ShareBox.css';
 class ShareBox extends Component {
   static propTypes = {
     pathname: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string,
   };
 
   render() {
-    const { pathname, text } = this.props;
+    const { title, text, pathname, imageUrl } = this.props;
     const tweetText = encodeURIComponent(`${text} #dxlab @statelibrarynsw`);
     const fbAppId = process.env.FB_APP_ID;
 
     // TODO: Use baseUrl variable
-    const url = encodeURIComponent(`https://dxlab.sl.nsw.gov.au${pathname}`);
-    const fbLink = `https://www.facebook.com/dialog/share?app_id=${fbAppId}&display=popup&href=${url}&redirect_uri=${url}`;
+    const url = encodeURIComponent(`http://dxlab.sl.nsw.gov.au${pathname}`);
+    const fbLink = `https://www.facebook.com/dialog/share?app_id=${fbAppId}&href=${url}&redirect_uri=${url}&name=%${encodeURIComponent(
+      title,
+    )}&description=${encodeURIComponent(text)}${
+      imageUrl ? `&picture=${imageUrl}` : ''
+    }`;
+
     const twitterLink = `https://twitter.com/intent/tweet?text=${tweetText}&url=${url}`;
 
     return (
