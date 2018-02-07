@@ -13,7 +13,20 @@ class TileImage extends Component {
       ariaLabel = '',
     } = this.props;
 
-    return (
+    // TODO: Make this DRY!
+    return url.startsWith('http') ? (
+      <a
+        href={url}
+        className={`tile-image ${className}`}
+        target={target}
+        aria-label={ariaLabel}
+        style={{
+          backgroundImage: `url(${imageUrl})`,
+        }}
+      >
+        <style jsx>{styles}</style>
+      </a>
+    ) : (
       <Link to={url}>
         <a
           className={`tile-image ${className}`}

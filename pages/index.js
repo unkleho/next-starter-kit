@@ -110,7 +110,7 @@ const HomePage = ({ url, posts, experiments, loading: isLoading }) => (
     />
 
     <div className="container container--lg">
-      <SectionTitle>Checkout our work!</SectionTitle>
+      <SectionTitle>Check out our work!</SectionTitle>
 
       <Masonry
         className="experiment-tiles"

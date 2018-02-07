@@ -59,9 +59,15 @@ class Tile extends Component {
         <div className="tile__info">
           <header>
             <h1 className="tile__title">
-              <Link to={url}>
-                <a target={target}>{title}</a>
-              </Link>
+              {url.startsWith('http') ? (
+                <a href={url} target={target}>
+                  {title}
+                </a>
+              ) : (
+                <Link to={url}>
+                  <a target={target}>{title}</a>
+                </Link>
+              )}
             </h1>
             <div className="tile__subtitle">{subtitle}</div>
           </header>

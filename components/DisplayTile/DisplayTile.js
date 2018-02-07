@@ -56,9 +56,16 @@ class DisplayTile extends Component {
           <div className="display-tile__body">
             <header className="display-tile__header">
               <h1 className="display-tile__title">
-                <Link to={primaryUrl}>
-                  <a target={primaryTarget}>{title}</a>
-                </Link>
+                {/* TODO: Make this DRY! */}
+                {primaryUrl.startsWith('http') ? (
+                  <a href={primaryUrl} target={primaryTarget}>
+                    {title}
+                  </a>
+                ) : (
+                  <Link to={primaryUrl}>
+                    <a target={primaryTarget}>{title}</a>
+                  </Link>
+                )}
               </h1>
               <div className="display-tile__date">{date}</div>
             </header>
