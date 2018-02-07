@@ -6,6 +6,7 @@ const next = require('next');
 const dev = process.env.NODE_ENV !== 'production' && !process.env.NOW;
 const app = next({ dev });
 const routes = require('./routes');
+
 const handler = routes.getRequestHandler(app);
 
 console.log('----------------------------------');
@@ -19,23 +20,23 @@ console.log('----------------------------------');
 const port = process.env.PORT || 3000;
 
 app
-  .prepare()
-  .then(() => {
-    const server = express();
+	.prepare()
+	.then(() => {
+		const server = express();
 
-    server.get('/example-page/:id', (req, res) => {
-      const mergedQuery = Object.assign({}, req.query, req.params)
-      return app.render(req, res, '/example-page', mergedQuery);
-    })
+		server.get('/example-page/:id', (req, res) => {
+			const mergedQuery = Object.assign({}, req.query, req.params);
+			return app.render(req, res, '/example-page', mergedQuery);
+		});
 
-    server.all('*', (req, res) => handler(req, res));
+		server.all('*', (req, res) => handler(req, res));
 
-    server.listen(port, err => {
-      if (err) throw err;
-      console.log(`> Ready on http://localhost:${port}`);
-    });
-  })
-  .catch(ex => {
-    console.error(ex.stack);
-    process.exit(1);
-  });
+		server.listen(port, (err) => {
+			if (err) throw err;
+			console.log(`> Ready on http://localhost:${port}`);
+		});
+	})
+	.catch((ex) => {
+		console.error(ex.stack);
+		process.exit(1);
+	});

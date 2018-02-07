@@ -8,7 +8,7 @@ function Submit({ createPost }) {
 		let url = e.target.elements.url.value;
 
 		if (title === '' || url === '') {
-			window.alert('Both fields are required.');
+			// window.alert('Both fields are required.');
 			return false;
 		}
 
