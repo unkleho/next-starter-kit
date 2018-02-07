@@ -13,6 +13,7 @@ export default class MyDocument extends Document {
     return (
       <html lang="en">
         <head>
+          {/* This custom <head> tag forces IE=edge to be the first meta tag, otherwise site will run in IE7 compatibility mode within *.sl.nsw.gov.au domain on IE. */}
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         </head>
         <Head />
