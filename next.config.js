@@ -1,4 +1,5 @@
 require('dotenv').config();
+// eslint-disable-line
 const webpack = require('webpack');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 // const FlowBabelWebpackPlugin = require('flow-babel-webpack-plugin');
@@ -7,12 +8,16 @@ const withCSS = require('@zeit/next-css');
 
 module.exports = withCSS({
 	webpack: (config, { dev }) => {
-		config.plugins = config.plugins.filter(
+		const customConfig = {
+			...config,
+		};
+
+		customConfig.plugins = config.plugins.filter(
 			(plugin) => plugin.constructor.name !== 'UglifyJsPlugin',
 		);
 
 		// Environment variables
-		config.plugins.push(new webpack.EnvironmentPlugin(process.env));
+		customConfig.plugins.push(new webpack.EnvironmentPlugin(process.env));
 
 		if (dev) {
 			config.plugins.push(
@@ -27,7 +32,7 @@ module.exports = withCSS({
 			// Commented for now
 			// config.plugins.push(new FlowBabelWebpackPlugin());
 
-			config.module.rules.push({
+			customConfig.module.rules.push({
 				enforce: 'pre',
 				test: /\.js$/,
 				exclude: /node_modules/,
@@ -35,6 +40,6 @@ module.exports = withCSS({
 			});
 		}
 
-		return config;
+		return customConfig;
 	},
 });
