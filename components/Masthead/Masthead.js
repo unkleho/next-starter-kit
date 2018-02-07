@@ -19,26 +19,8 @@ class Masthead extends Component {
 
   constructor() {
     super();
-    //  this.state = { title: ' ' };
   }
 
-  /*
-  shuffleText = (t) => {
-    const shfl = shuffle(t);
-    let offset = 30;
-    let offsetInc = 5;
-    const offsetIncInc = 3;
-    shfl.forEach((word) => {
-      setTimeout(() => {
-        this.setState({
-          title: word,
-        });
-      }, offset);
-      offset += offsetInc;
-      offsetInc += offsetIncInc;
-    });
-  };
-*/
   render() {
     return (
       <div

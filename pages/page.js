@@ -25,13 +25,7 @@ class Page extends Component {
         metaDescription={excerpt}
       >
         <Masthead
-          title={
-            <div>
-              {slug}
-              <br />
-              <a href="https://twitter.com/hashtag/dxlab">#dxlab</a>
-            </div>
-          }
+          title={slug}
           backgroundImageUrl={images[slug].imageUrl}
           slug={slug}
           caption={images[slug].caption}
