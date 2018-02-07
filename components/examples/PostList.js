@@ -87,15 +87,15 @@ export default graphql(allPosts, {
   options: {
     variables: {
       skip: 0,
-      first: POSTS_PER_PAGE
-    }
+      first: POSTS_PER_PAGE,
+    },
   },
   props: ({ data }) => ({
     data,
     loadMorePosts: () => {
       return data.fetchMore({
         variables: {
-          skip: data.allPosts.length
+          skip: data.allPosts.length,
         },
         updateQuery: (previousResult, { fetchMoreResult }) => {
           if (!fetchMoreResult) {
@@ -103,10 +103,10 @@ export default graphql(allPosts, {
           }
           return Object.assign({}, previousResult, {
             // Append the new posts results to the old one
-            allPosts: [...previousResult.allPosts, ...fetchMoreResult.allPosts]
+            allPosts: [...previousResult.allPosts, ...fetchMoreResult.allPosts],
           })
-        }
+        },
       })
-    }
-  })
+    },
+  }),
 })(PostList)

@@ -25,6 +25,15 @@ module.exports = withCSS({
       // FIXME: Getting hot-reloader errors if Flow catches something
       // Commented for now
       // config.plugins.push(new FlowBabelWebpackPlugin());
+
+      config.module.rules.push(
+        {
+          enforce: "pre",
+          test: /\.js$/,
+          exclude: /node_modules/,
+          loader: "eslint-loader",
+        }
+      )
     }
 
     return config
