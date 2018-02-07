@@ -59,7 +59,7 @@ class Tile extends Component {
         <div className="tile__info">
           <header>
             <h1 className="tile__title">
-              {url.startsWith('http') ? (
+              {url.match('^http') ? (
                 <a href={url} target={target}>
                   {title}
                 </a>

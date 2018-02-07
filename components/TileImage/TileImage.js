@@ -14,7 +14,7 @@ class TileImage extends Component {
     } = this.props;
 
     // TODO: Make this DRY!
-    return url.startsWith('http') ? (
+    return url.match('^http') ? (
       <a
         href={url}
         className={`tile-image ${className}`}

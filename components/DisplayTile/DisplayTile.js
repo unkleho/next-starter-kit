@@ -57,7 +57,7 @@ class DisplayTile extends Component {
             <header className="display-tile__header">
               <h1 className="display-tile__title">
                 {/* TODO: Make this DRY! */}
-                {primaryUrl.startsWith('http') ? (
+                {primaryUrl.match('^http') ? (
                   <a href={primaryUrl} target={primaryTarget}>
                     {title}
                   </a>
