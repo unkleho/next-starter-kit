@@ -13,8 +13,11 @@ class Tile extends Component {
     subtitle: PropTypes.string,
     url: PropTypes.string,
     target: PropTypes.string,
+    primaryText: PropTypes.string,
+    secondaryText: PropTypes.string,
     secondaryUrl: PropTypes.string,
     secondaryTarget: PropTypes.string,
+    tertiaryText: PropTypes.string,
     tertiaryUrl: PropTypes.string,
     tertiaryTarget: PropTypes.string,
     imageUrl: PropTypes.string,
@@ -32,8 +35,11 @@ class Tile extends Component {
       imageUrl,
       content,
       size,
+      primaryText,
+      secondaryText,
       secondaryUrl,
       secondaryTarget,
+      tertiaryText,
       tertiaryUrl,
       tertiaryTarget,
       // imageAltText,
@@ -68,13 +74,14 @@ class Tile extends Component {
           <div className="tile__cta">
             <TileButtonGroup
               primaryUrl={url}
-              primaryText={secondaryUrl ? 'Launch' : 'Read'}
+              primaryText={primaryText}
+              // primaryText={secondaryUrl ? 'Read' : 'Launch'}
               primaryTarget={target}
               secondaryUrl={secondaryUrl}
-              secondaryText={secondaryUrl && 'Read'}
+              secondaryText={secondaryText}
               secondaryTarget={secondaryTarget}
               tertiaryUrl={tertiaryUrl}
-              tertiaryText={tertiaryUrl && 'Code'}
+              tertiaryText={tertiaryText}
               tertiaryTarget={tertiaryTarget}
             />
           </div>

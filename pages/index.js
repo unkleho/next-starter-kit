@@ -43,28 +43,30 @@ const HomePage = ({ url, posts, experiments, loading: isLoading }) => (
         }}
       >
         {posts &&
-          posts
-            .slice(0, 3)
-            .map((post, i) => (
-              <Tile
-                title={post.title}
-                subtitle={post.date}
-                url={`/blog/${post.slug}`}
-                target={post.experimentUrl ? '_blank' : ''}
-                secondaryUrl={post.experimentUrl && `/blog/${post.slug}`}
-                tertiaryUrl={post.githubUrl}
-                tertiaryTarget="_blank"
-                imageUrl={
-                  getTileSize(i) === '1x2'
-                    ? post.tallImageUrl
-                    : post.mediumImageUrl
-                }
-                imageAltText={post.imageAltText}
-                content={post.content}
-                size={getTileSize(i)}
-                key={`tile-${i}`}
-              />
-            ))}
+          posts.slice(0, 3).map((post, i) => (
+            <Tile
+              title={post.title}
+              subtitle={post.date}
+              url={`/blog/${post.slug}`}
+              // target={post.experimentUrl ? '_blank' : ''}
+              primaryText="Read"
+              secondaryUrl={post.experimentUrl}
+              secondaryText="Launch"
+              secondaryTarget="_blank"
+              tertiaryText="Code"
+              tertiaryUrl={post.githubUrl}
+              tertiaryTarget="_blank"
+              imageUrl={
+                getTileSize(i) === '1x2'
+                  ? post.tallImageUrl
+                  : post.mediumImageUrl
+              }
+              imageAltText={post.imageAltText}
+              content={post.content}
+              size={getTileSize(i)}
+              key={`tile-${i}`}
+            />
+          ))}
       </Masonry>
 
       <br />
@@ -125,8 +127,11 @@ const HomePage = ({ url, posts, experiments, loading: isLoading }) => (
               subtitle={experiment.date}
               url={experiment.url}
               target="_blank"
+              primaryText="Launch"
+              secondaryText="Read"
               secondaryUrl={experiment.blogUrl}
               secondaryTarget=""
+              tertiaryText="Code"
               tertiaryUrl={experiment.githubUrl}
               tertiaryTarget="_blank"
               imageUrl={

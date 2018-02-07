@@ -2,11 +2,11 @@
 
 .tile-button-group {
   display: flex;
-  flex-wrap: wrap;
   height: 3em;
   font-size: var(--font-size-sm);
 
   @media (--screen-sm) {
+    flex-wrap: wrap;
     justify-content: flex-end;
     height: auto;
   }
@@ -41,7 +41,7 @@
   }
 }
 
-  /*.tile-button-group__small {
+/*.tile-button-group__small {
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -53,8 +53,8 @@
       flex-direction: row;
     }*/
 
-    /* Buttons */
-    /*& .button--sm:first-child {
+/* Buttons */
+/*& .button--sm:first-child {
       margin-bottom: 0.3em;
 
       @media (--screen-md) {
@@ -63,8 +63,8 @@
       }
     }*/
 
-    /* Half size button if there are two siblings */
-    /*& .button--sm:first-child:nth-last-child(2), & .button--sm:first-child:nth-last-child(2) ~ .button--sm {
+/* Half size button if there are two siblings */
+/*& .button--sm:first-child:nth-last-child(2), & .button--sm:first-child:nth-last-child(2) ~ .button--sm {
       margin-left: 0.3em;
 
       @media (--screen-md) {

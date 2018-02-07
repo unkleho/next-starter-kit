@@ -1,7 +1,6 @@
 @import '../../styles/variables.css';
 
 .header {
-  /* position: relative; */
   position: sticky;
   position: -webkit-sticky;
   top: 1em;
@@ -12,11 +11,13 @@
   @media (--screen-sm) {
     top: -2em;
     flex-direction: column;
+    flex-flow: wrap;
     align-items: flex-start;
   }
 
   @media (--screen-lg) {
     top: 1em;
+    flex-flow: nowrap;
     flex-direction: row;
     align-items: center;
   }
@@ -38,21 +39,34 @@
   }
 }
 
+.logo--dxlab {
+  @media (--screen-sm) {
+    flex: 1;
+    order: 1;
+  }
+}
+
 .logo--slnsw {
   margin-left: var(--spacing-sm);
   padding-left: var(--spacing-sm);
 
   @media (--screen-sm) {
-    position: absolute;
+    position: relative;
+    order: 2;
+    /* position: absolute;
     top: 0;
     right: 0;
     margin-left: 0;
-    padding-left: 0;
+    padding-left: 0; */
   }
 
   @media (--screen-lg) {
-    position: relative;
+    order: 3;
   }
+
+  /* @media (--screen-lg) {
+    position: relative;
+  } */
 
   /* Line decoration */
   &::before {
@@ -87,12 +101,17 @@
   @media (--screen-sm) {
     position: relative;
     top: 0;
+    order: 3;
     display: block;
     pointer-events: auto;
     margin: 0 auto;
     height: auto;
     background-color: transparent;
     transition: none;
+  }
+
+  @media (--screen-lg) {
+    order: 2;
   }
 
   &.is-active {

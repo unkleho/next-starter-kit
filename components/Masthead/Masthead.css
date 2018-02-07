@@ -26,10 +26,10 @@
 }
 
 .masthead--lg {
-  height: 92vh;
-  max-height: 40em;
+  height: 36em;
 
   @media (--screen-sm) {
+    height: 92vh;
     min-height: 46em;
     max-height: 60em;
   }
@@ -134,8 +134,8 @@
 
 .masthead__intro-text {
   position: absolute;
-  bottom: 12%;
-  right: 0;
+  bottom: 16%;
+  left: 0;
   width: 80%;
   border-left: 1px dashed var(--colour-white);
   padding: 0 var(--spacing-md) 0;
@@ -143,6 +143,7 @@
 
   @media (--screen-sm) {
     bottom: 12%;
+    left: auto;
     right: 10%;
     width: 55%;
     font-size: var(--font-size-md);
