@@ -12,6 +12,9 @@ export default class MyDocument extends Document {
   render() {
     return (
       <html lang="en">
+        <head>
+          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        </head>
         <Head />
         <body>
           <Main />
