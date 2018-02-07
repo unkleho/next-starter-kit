@@ -2,7 +2,7 @@
 
 /* eslint-disable import/no-extraneous-dependencies, import/no-unresolved */
 import type { Element } from 'React';
-import styles from './ExampleComponent.css';
+// import styles from './ExampleComponent.css';
 
 type Props = {
   children?: Element<any>,
@@ -16,6 +16,6 @@ export default ({ children, title }: Props) => (
 
     {children}
 
-    <style jsx>{styles}</style>
+    {/* <style jsx>{styles}</style> */}
   </div>
 );

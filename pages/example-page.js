@@ -2,7 +2,7 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { gql, graphql } from 'react-apollo';
 
-import styles from './example-page.css';
+import './example-page.css';
 import withData, { createApolloReduxStore } from '../lib/withData';
 import ExampleApp from '../components/examples/ExampleApp';
 import Link from '../components/Link';
@@ -91,8 +91,6 @@ class ExamplePage extends Component {
             );
           })}
         </ul>
-
-        <style jsx>{styles}</style>
 
       </ExampleApp>
     );

@@ -1,5 +1,5 @@
 import Link from '../Link';
-import styles from './Header.css';
+import './Header.css';
 
 export default ({ pathname }) => {
 
@@ -15,12 +15,10 @@ export default ({ pathname }) => {
       {menuItems.map((item) => {
         return (
           <Link prefetch to={item.url} key={item.url}>
-            <a className={pathname === item.url && 'is-active'}>{item.name}</a>
+            <a className={pathname === item.url ? 'is-active' : undefined}>{item.name}</a>
           </Link>
         );
       })}
-
-      <style jsx>{styles}</style>
 
     </header>
   );
