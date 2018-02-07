@@ -1,3 +1,4 @@
+import { Component } from 'react';
 import { gql, graphql } from 'react-apollo';
 import Masonry from 'react-masonry-component';
 
@@ -9,167 +10,179 @@ import SimpleTile from '../components/SimpleTile';
 import SectionTitle from '../components/SectionTitle';
 import Button from '../components/Button';
 import { formatDate } from '../lib';
+import shuffle from '../lib/shuffle';
 import styles from './index.css';
 
-const HomePage = ({ url, posts, experiments, loading: isLoading }) => (
-  <App
-    pathname={url.pathname}
-    isLoading={isLoading}
-    title="Home"
-    metaDescription="The State Library of NSW's experimental innovation lab."
-  >
-    <Masthead
-      subtitle="Welcome to the DX Lab:"
-      titleSmall="The State Library of NSW's"
-      title="Experimental"
-      titleHighlight="Innovation Lab"
-      text="We build and support new ways of design thinking, experimentation and deep research with digital technologies."
-      // sideText="Collaborate / Experiment / Create / Engage / Be Open / Surprise"
-      backgroundImageUrl="/static/images/masthead-background-01.gif"
-      slug="Experimental"
-      size="lg"
-      caption="Loom Atlas view"
-    />
+class HomePage extends Component {
+  componentDidMount() {
+    shuffle();
+  }
 
-    <div className="posts container container--lg">
-      <SectionTitle>Latest</SectionTitle>
-
-      <Masonry
-        className="featured-tiles"
-        options={{
-          percentPosition: true,
-          itemSelector: '.tile',
-          columnWidth: '.tile',
-        }}
+  render() {
+    const { url, posts, experiments, loading: isLoading } = this.props;
+    return (
+      <App
+        pathname={url.pathname}
+        isLoading={isLoading}
+        title="Home"
+        metaDescription="The State Library of NSW's experimental innovation lab."
       >
-        {posts &&
-          posts
-            .slice(0, 3)
-            .map((post, i) => (
-              <Tile
-                title={post.title}
-                subtitle={post.date}
-                url={
-                  post.experimentUrl ? post.experimentUrl : `/blog/${post.slug}`
-                }
-                target={post.experimentUrl ? '_blank' : ''}
-                secondaryUrl={post.experimentUrl && `/blog/${post.slug}`}
-                tertiaryUrl={post.githubUrl}
-                tertiaryTarget="_blank"
-                imageUrl={
-                  getTileSize(i) === '1x2'
-                    ? post.tallImageUrl
-                    : post.mediumImageUrl
-                }
-                imageAltText={post.imageAltText}
-                content={post.content}
-                size={getTileSize(i)}
-                key={`tile-${i}`}
-              />
-            ))}
-      </Masonry>
+        <Masthead
+          subtitle="Welcome to the DX Lab:"
+          titleSmall="The State Library of NSW's"
+          title="Experimental"
+          titleHighlight="Innovation Lab"
+          text="We build and support new ways of design thinking, experimentation and deep research with digital technologies."
+          // sideText="Collaborate / Experiment / Create / Engage / Be Open / Surprise"
+          backgroundImageUrl="/static/images/masthead-background-01.gif"
+          slug="Experimental"
+          size="lg"
+          caption="Loom Atlas view"
+        />
 
-      <br />
+        <div className="posts container container--lg">
+          <SectionTitle>Latest</SectionTitle>
 
-      <SectionTitle>Blog</SectionTitle>
+          <Masonry
+            className="featured-tiles"
+            options={{
+              percentPosition: true,
+              itemSelector: '.tile',
+              columnWidth: '.tile',
+            }}
+          >
+            {posts &&
+              posts
+                .slice(0, 3)
+                .map((post, i) => (
+                  <Tile
+                    title={post.title}
+                    subtitle={post.date}
+                    url={
+                      post.experimentUrl
+                        ? post.experimentUrl
+                        : `/blog/${post.slug}`
+                    }
+                    target={post.experimentUrl ? '_blank' : ''}
+                    secondaryUrl={post.experimentUrl && `/blog/${post.slug}`}
+                    tertiaryUrl={post.githubUrl}
+                    tertiaryTarget="_blank"
+                    imageUrl={
+                      getTileSize(i) === '1x2'
+                        ? post.tallImageUrl
+                        : post.mediumImageUrl
+                    }
+                    imageAltText={post.imageAltText}
+                    content={post.content}
+                    size={getTileSize(i)}
+                    key={`tile-${i}`}
+                  />
+                ))}
+          </Masonry>
 
-      <div>
-        {posts &&
-          posts
-            .slice(3, 7)
-            .map((post, i) => (
-              <SimpleTile
-                subtitle={post.date}
-                title={post.title}
-                url={`/blog/${post.slug}`}
-                imageUrl={post.mediumImageUrl}
-                imageAltText={post.imageAltText}
-                content={post.content}
-                key={`simple-tile-${i}`}
-              />
-            ))}
-      </div>
+          <br />
 
-      <Button href="/blog">Read All Posts</Button>
-    </div>
+          <SectionTitle>Blog</SectionTitle>
 
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+          <div>
+            {posts &&
+              posts
+                .slice(3, 7)
+                .map((post, i) => (
+                  <SimpleTile
+                    subtitle={post.date}
+                    title={post.title}
+                    url={`/blog/${post.slug}`}
+                    imageUrl={post.mediumImageUrl}
+                    imageAltText={post.imageAltText}
+                    content={post.content}
+                    key={`simple-tile-${i}`}
+                  />
+                ))}
+          </div>
 
-    <Masthead
-      className="masthead--experiments"
-      // subtitle="We make experiments"
-      title="We make"
-      titleHighlight="Experiments"
-      backgroundImageUrl="/static/images/masthead-meridian-f.jpg"
-      slug="We Make"
-    />
+          <Button href="/blog">Read All Posts</Button>
+        </div>
 
-    <div className="container container--lg">
-      <SectionTitle>Checkout our work!</SectionTitle>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
 
-      <Masonry
-        className="experiment-tiles"
-        options={{
-          percentPosition: true,
-          itemSelector: '.tile',
-          columnWidth: '.tile',
-        }}
-      >
-        {experiments &&
-          swapArrayElements(experiments, 0, 1).map((experiment, i) => (
-            <Tile
-              title={experiment.title}
-              subtitle={experiment.date}
-              url={experiment.url}
-              target="_blank"
-              secondaryUrl={experiment.blogUrl}
-              secondaryTarget=""
-              tertiaryUrl={experiment.githubUrl}
-              tertiaryTarget="_blank"
-              imageUrl={
-                getExperimentTileSize(i) === '1x2'
-                  ? experiment.tallImageUrl
-                  : experiment.mediumImageUrl
-              }
-              imageAltText={experiment.imageAltText}
-              content={experiment.content}
-              size={getExperimentTileSize(i)}
-              key={`experiment-${i}`}
-            />
-          ))}
-      </Masonry>
+        <Masthead
+          className="masthead--experiments"
+          // subtitle="We make experiments"
+          title="We make"
+          titleHighlight="Experiments"
+          backgroundImageUrl="/static/images/masthead-meridian-f.jpg"
+          slug="We Make"
+        />
 
-      <Button href="/experiments">All Experiments</Button>
-    </div>
+        <div className="container container--lg">
+          <SectionTitle>Checkout our work!</SectionTitle>
 
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+          <Masonry
+            className="experiment-tiles"
+            options={{
+              percentPosition: true,
+              itemSelector: '.tile',
+              columnWidth: '.tile',
+            }}
+          >
+            {experiments &&
+              swapArrayElements(experiments, 0, 1).map((experiment, i) => (
+                <Tile
+                  title={experiment.title}
+                  subtitle={experiment.date}
+                  url={experiment.url}
+                  target="_blank"
+                  secondaryUrl={experiment.blogUrl}
+                  secondaryTarget=""
+                  tertiaryUrl={experiment.githubUrl}
+                  tertiaryTarget="_blank"
+                  imageUrl={
+                    getExperimentTileSize(i) === '1x2'
+                      ? experiment.tallImageUrl
+                      : experiment.mediumImageUrl
+                  }
+                  imageAltText={experiment.imageAltText}
+                  content={experiment.content}
+                  size={getExperimentTileSize(i)}
+                  key={`experiment-${i}`}
+                />
+              ))}
+          </Masonry>
 
-    <Masthead
-      className="masthead--grants"
-      title="We run"
-      titleHighlight="Grants"
-      text="To support creative and innovative thinking we offer dedicated digital grants, including the DX Lab Fellowship and the Digital Learning Fellowship."
-      backgroundImageUrl="/static/images/masthead-bookman.jpg"
-      slug="We run"
-    />
+          <Button href="/experiments">All Experiments</Button>
+        </div>
 
-    <div className="container container--lg">
-      <Button href="/grants">Read about our grants</Button>
-    </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
 
-    {/* prettier-ignore */}
-    <style global jsx>{styles}</style>
-  </App>
-);
+        <Masthead
+          className="masthead--grants"
+          title="We run"
+          titleHighlight="Grants"
+          text="To support creative and innovative thinking we offer dedicated digital grants, including the DX Lab Fellowship and the Digital Learning Fellowship."
+          backgroundImageUrl="/static/images/masthead-bookman.jpg"
+          slug="We run"
+        />
+
+        <div className="container container--lg">
+          <Button href="/grants">Read about our grants</Button>
+        </div>
+
+        {/* prettier-ignore */}
+        <style global jsx>{styles}</style>
+      </App>
+    );
+  }
+}
 
 function getTileSize(index) {
   if (index === 0 || index === 5) {

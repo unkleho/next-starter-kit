@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import styles from './Masthead.css';
 import glitchStyles from '../../styles/glitch.css';
-import shuffle from '../../lib/shuffle';
 
 class Masthead extends Component {
   static propTypes = {
@@ -20,24 +19,10 @@ class Masthead extends Component {
 
   constructor() {
     super();
-    this.state = { title: ' ' };
+    //  this.state = { title: ' ' };
   }
 
-  componentDidMount() {
-    this.shuffleText(this.props.slug);
-  }
-
-  // componentDidUpdate(oldProps, state, nextProps) {
-  //   console.log(oldProps);
-  //   // const t = {
-  //   //  ...this.props.title
-  //   // }
-
-  //   // console.log(t.title)
-
-  //   // this.shuffleText(t.title)
-  // }
-
+  /*
   shuffleText = (t) => {
     const shfl = shuffle(t);
     let offset = 30;
@@ -53,7 +38,7 @@ class Masthead extends Component {
       offsetInc += offsetIncInc;
     });
   };
-
+*/
   render() {
     return (
       <div
@@ -85,9 +70,9 @@ class Masthead extends Component {
             </span>
             <span
               className="masthead__title__main glitch"
-              data-text={this.state.title}
+              data-text={this.props.title}
             >
-              {this.state.title}
+              {this.props.title}
             </span>
             <span className="masthead__title__highlight">
               {this.props.titleHighlight}

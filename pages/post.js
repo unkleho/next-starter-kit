@@ -8,6 +8,7 @@ import ShareBox from '../components/ShareBox';
 import Button from '../components/Button';
 import Comments from '../components/Comments';
 import { formatDate } from '../lib';
+import initMaze from '../lib/dxmaze';
 import styles from './post.css';
 import galleryStyles from '../styles/gallery.css';
 
@@ -27,6 +28,7 @@ class Post extends Component {
 
   componentDidMount() {
     this.addModals();
+    initMaze();
   }
 
   addModals = () => {
@@ -139,10 +141,25 @@ class Post extends Component {
               <Comments postId={id} comments={comments} />
             </div>
           ) : (
-            <div className="post__error">Post not found.</div>
+            <div>
+              <div className="container container--lg" id="dxmaze-holder">
+                <canvas id="dxmaze" />
+              </div>
+              <h1 className="error__title">
+                some experiments fail.<br />page not found!
+              </h1>
+            </div>
           )}
         </article>
-
+        <style jsx>{`
+          #dxmaze {
+            margin-top: 2em;
+          }
+          .error__title {
+            text-align: center;
+            padding-top: 1em;
+          }
+        `}</style>
         {/* prettier-ignore */}
         <style jsx global>{styles}</style>
         {/* prettier-ignore */}
