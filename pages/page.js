@@ -65,8 +65,7 @@ export default withData(
 
       return {
         variables: {
-          // TODO: Remove this once DB has been updated
-          slug: slug === 'grants' ? 'fellowships' : slug,
+          slug,
         },
       };
     },
