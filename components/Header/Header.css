@@ -44,6 +44,11 @@
     flex: 1;
     order: 1;
   }
+
+  @media (--screen-md) {
+    flex: none;
+    padding-right: 1.5em; /* Makes logo same width as SL logo */
+  }
 }
 
 .logo--slnsw {
