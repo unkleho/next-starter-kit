@@ -19,7 +19,7 @@ html {
 }
 
 body {
-  margin: 1em;
+  margin: 0 1em 1em;
   background-color: var(--colour-black);
   color: var(--colour-white);
   font-family: var(--font-primary);
