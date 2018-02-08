@@ -1,6 +1,7 @@
 @import '../../styles/variables.css';
 
 .header {
+  position: relative;
   position: sticky;
   position: -webkit-sticky;
   top: 1em;
@@ -9,6 +10,9 @@
   align-items: center;
 
   @media (--screen-sm) {
+    position: inherit;
+    position: sticky;
+    position: -webkit-sticky;
     top: -2em;
     flex-direction: column;
     flex-flow: wrap;
