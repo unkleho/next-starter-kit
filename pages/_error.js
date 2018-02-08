@@ -14,16 +14,19 @@ class Four04 extends Component {
         <div className="container container--lg" id="dxmaze-holder">
           <canvas id="dxmaze" />
         </div>
-        <h1 className="error__title">
-          some experiments fail.<br />page not found!
-        </h1>
+        <h1>Some experiments fail.</h1>
+        <h2>Page not found!</h2>
         <style jsx>{`
           #dxmaze {
-            margin-top: 2em;
+            margin-top: 0;
           }
-          .error__title {
+          h1,
+          h2 {
             text-align: center;
-            padding-top: 1em;
+            padding-top: 0;
+          }
+          h2 {
+            margin-top: 0;
           }
         `}</style>
       </App>
