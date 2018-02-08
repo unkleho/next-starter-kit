@@ -45,7 +45,7 @@
     order: 1;
   }
 
-  @media (--screen-md) {
+  @media (--screen-lg) {
     flex: none;
     padding-right: 1.5em; /* Makes logo same width as SL logo */
   }
