@@ -1,10 +1,9 @@
 import ExampleApp from '../components/examples/ExampleApp';
 import Header from '../components/Header';
-import withData from '../lib/withData';
 
 import './index.css';
 
-export default withData((props) => (
+export default (props) => (
 	<ExampleApp>
 		<Header pathname={props.url.pathname} />
 
@@ -12,4 +11,4 @@ export default withData((props) => (
 			Next <span>Starter</span> Kit
 		</h1>
 	</ExampleApp>
-));
+);

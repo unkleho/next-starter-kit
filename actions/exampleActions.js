@@ -4,3 +4,7 @@ export const exampleAction = (payload) => {
 		payload,
 	};
 };
+
+export const addCount = () => (dispatch) => {
+	return dispatch({ type: 'ADD' });
+};

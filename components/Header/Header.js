@@ -4,7 +4,6 @@ import './Header.css';
 export default ({ pathname }) => {
 	const menuItems = [
 		{ name: 'Home', url: '/' },
-		{ name: 'About', url: '/about' },
 		{ name: 'Example Page', url: '/example-page' },
 	];
 

@@ -12,8 +12,7 @@ import ExampleApp from '../components/examples/ExampleApp';
 import Link from '../components/Link';
 import Header from '../components/Header';
 import ExampleComponent from '../components/examples/ExampleComponent';
-import { addCount } from '../actions';
-import { exampleAction } from '../actions/exampleActions';
+import { exampleAction, addCount } from '../actions/exampleActions';
 
 class ExamplePage extends Component {
 	static propTypes = {
@@ -123,7 +122,11 @@ const allObjects = gql`
 
 // The `graphql` wrapper executes a GraphQL query and makes the results
 // available on the `data` prop of the wrapped component (ExamplePage)
-export default withRedux(initStore, (state) => state, mapDispatchToProps)(
+export default withRedux(
+	initStore,
+	(state) => state.example,
+	mapDispatchToProps,
+)(
 	withApollo(
 		graphql(allObjects, {
 			props: ({ data }) => {
