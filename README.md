@@ -3,11 +3,13 @@
 Opinionated starter kit for the Next.js React framework. Next.js is great, but still needs a bit of configuring. This starter kit includes all my go-to tech for new projects.
 
 * next.js
+* next-css
 * React
 * Redux
 * GraphQL
 * React Apollo
 * dotenv
+* postcss
 * cssnext
 * Lost Grid
 * ESLint
@@ -77,7 +79,7 @@ $ git push heroku
 ## Notes
 
 * Big update to Next5 helped remove lots of hacks to get CSS import working. (9/2/18)
-* Flow seems to be broken (9/2/18)
+* May need to serve compiled stylesheet from static folder (https://github.com/zeit/next-plugins/tree/master/packages/next-css)
 
 ## Based on Next.js example:
 

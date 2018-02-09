@@ -11,7 +11,7 @@ import withApollo from '../lib/withApollo';
 import ExampleApp from '../components/examples/ExampleApp';
 import Link from '../components/Link';
 import Header from '../components/Header';
-// import ExampleComponent from '../components/examples/ExampleComponent';
+import ExampleComponent from '../components/examples/ExampleComponent';
 import { addCount } from '../actions';
 import { exampleAction } from '../actions/exampleActions';
 
@@ -81,7 +81,7 @@ class ExamplePage extends Component {
 				))}
 
 				<h2>Example Component</h2>
-				{/* <ExampleComponent title="Title" /> */}
+				<ExampleComponent title="Title" />
 
 				<Link to="/example-page/1">
 					<a>Example Page 1 Link</a>
