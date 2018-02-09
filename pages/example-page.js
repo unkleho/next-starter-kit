@@ -1,13 +1,16 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import { gql, graphql } from 'react-apollo';
+import withRedux from 'next-redux-wrapper';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 
 import './example-page.css';
-import withData, { createApolloReduxStore } from '../lib/withData';
+import { initStore } from '../lib/store';
+import withApollo from '../lib/withApollo';
 import ExampleApp from '../components/examples/ExampleApp';
 import Link from '../components/Link';
 import Header from '../components/Header';
-import ExampleComponent from '../components/examples/ExampleComponent';
+// import ExampleComponent from '../components/examples/ExampleComponent';
 import { exampleAction } from '../actions/exampleActions';
 
 class ExamplePage extends Component {
@@ -21,8 +24,12 @@ class ExamplePage extends Component {
 		this.state = {};
 	}
 
-	static getInitialProps({ query: { id = null }, serverState }) {
-		const store = createApolloReduxStore(serverState);
+	static getInitialProps({
+		query: { id = null },
+		serverState,
+		store,
+		isServer,
+	}) {
 		store.dispatch(exampleAction('payload'));
 
 		return {
@@ -74,7 +81,7 @@ class ExamplePage extends Component {
 				))}
 
 				<h2>Example Component</h2>
-				<ExampleComponent title="Title" />
+				{/* <ExampleComponent title="Title" /> */}
 
 				<Link to="/example-page/1">
 					<a>Example Page 1 Link</a>
@@ -106,12 +113,14 @@ const allObjects = gql`
 
 // The `graphql` wrapper executes a GraphQL query and makes the results
 // available on the `data` prop of the wrapped component (ExamplePage)
-export default withData(
-	graphql(allObjects, {
-		props: ({ data }) => {
-			return {
-				...data,
-			};
-		},
-	})(ExamplePage),
+export default withRedux(initStore, (state) => state, null)(
+	withApollo(
+		graphql(allObjects, {
+			props: ({ data }) => {
+				return {
+					...data,
+				};
+			},
+		})(ExamplePage),
+	),
 );

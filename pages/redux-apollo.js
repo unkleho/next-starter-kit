@@ -1,6 +1,8 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import withRedux from 'next-redux-wrapper';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 
 import {
 	initStore,
@@ -9,10 +11,6 @@ import {
 	serverRenderClock,
 } from '../lib/store';
 import ExampleApp from '../components/examples/ExampleApp';
-// import Header from '../components/Header';
-// import Page from '../components/Page';
-// import Submit from '../components/Submit';
-// import PostList from '../components/PostList';
 import withApollo from '../lib/withApollo';
 
 class Index extends React.Component {
@@ -24,7 +22,7 @@ class Index extends React.Component {
 	}
 
 	componentDidMount() {
-		this.timer = this.props.startClock();
+		// this.timer = this.props.startClock();
 	}
 
 	componentWillUnmount() {
@@ -32,14 +30,10 @@ class Index extends React.Component {
 	}
 
 	render() {
-		console.log(this.props);
 		return (
 			<ExampleApp>
 				Hi {this.props.count}
-				{/* <Header />
-				<Page title="Index" />
-				<Submit />
-				<PostList /> */}
+				{this.props.objects.map((object) => <div>{object.displayTitle}</div>)}
 			</ExampleApp>
 		);
 	}
@@ -52,6 +46,22 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
+const allObjects = gql`
+	query objects {
+		objects(limit: 10) {
+			displayTitle
+		}
+	}
+`;
+
 export default withRedux(initStore, (state) => state, mapDispatchToProps)(
-	withApollo(Index),
+	withApollo(
+		graphql(allObjects, {
+			props: ({ data }) => {
+				return {
+					...data,
+				};
+			},
+		})(Index),
+	),
 );
