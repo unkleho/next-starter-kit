@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import withRedux from 'next-redux-wrapper';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
+import { bindActionCreators } from 'redux';
 
 import './example-page.css';
 import { initStore } from '../lib/store';
@@ -11,6 +12,7 @@ import ExampleApp from '../components/examples/ExampleApp';
 import Link from '../components/Link';
 import Header from '../components/Header';
 // import ExampleComponent from '../components/examples/ExampleComponent';
+import { addCount } from '../actions';
 import { exampleAction } from '../actions/exampleActions';
 
 class ExamplePage extends Component {
@@ -24,23 +26,21 @@ class ExamplePage extends Component {
 		this.state = {};
 	}
 
-	static getInitialProps({
-		query: { id = null },
-		serverState,
-		store,
-		isServer,
-	}) {
+	static getInitialProps({ query: { id = null }, store, isServer }) {
 		store.dispatch(exampleAction('payload'));
+		console.log(isServer);
 
 		return {
 			id,
 		};
 	}
 
+	handleCountClick = () => {
+		this.props.addCount();
+	};
+
 	render() {
 		const { id, url, objects } = this.props;
-
-		// console.log(objects);
 
 		const sizes = ['xxs', 'xs', 'sm', 'md', 'lg', 'xlg', 'xxlg'];
 		const colours = ['primary', 'secondary', 'tertiary', 'highlight'];
@@ -87,6 +87,10 @@ class ExamplePage extends Component {
 					<a>Example Page 1 Link</a>
 				</Link>
 
+				<h2>Redux Test</h2>
+				<p>this.props.count: {this.props.count}</p>
+				<a onClick={this.handleCountClick}>Click here to increase</a>
+
 				<h2>dotenv Test</h2>
 				<p>{process.env.TEST}</p>
 
@@ -103,6 +107,12 @@ class ExamplePage extends Component {
 	}
 }
 
+const mapDispatchToProps = (dispatch) => {
+	return {
+		addCount: bindActionCreators(addCount, dispatch),
+	};
+};
+
 const allObjects = gql`
 	query {
 		objects(limit: 10) {
@@ -113,7 +123,7 @@ const allObjects = gql`
 
 // The `graphql` wrapper executes a GraphQL query and makes the results
 // available on the `data` prop of the wrapped component (ExamplePage)
-export default withRedux(initStore, (state) => state, null)(
+export default withRedux(initStore, (state) => state, mapDispatchToProps)(
 	withApollo(
 		graphql(allObjects, {
 			props: ({ data }) => {

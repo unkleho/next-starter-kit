@@ -2,18 +2,19 @@
 
 Opinionated starter kit for the Next.js React framework. Next.js is great, but still needs a bit of configuring. This starter kit includes all my go-to tech for new projects.
 
-- next.js
-- React
-- Redux
-- GraphQL
-- React Apollo
-- dotenv
-- cssnext
-- Lost Grid
-- ESLint
-- Stylelint
-- Jest
-- Flow
+* next.js
+* React
+* Redux
+* GraphQL
+* React Apollo
+* dotenv
+* cssnext
+* Lost Grid
+* ESLint
+* Prettier
+* Stylelint
+* Jest
+* Flow
 
 ## Getting Started
 
@@ -25,6 +26,7 @@ $ npm start
 ```
 
 ### ENV Variables
+
 ```
 # .env
 PORT=XXXX
@@ -40,6 +42,7 @@ GRAPHQL_URL=https://production.api.com/graphql
 ```
 
 ### Set up as upstream repo
+
 ```
 # Set up
 $ git remote add upstream git@github.com:unkleho/next-starter-kit.git
@@ -56,6 +59,7 @@ $ git push
 ## Deployment
 
 Using `now`:
+
 ```
 # Configuration in now.js
 $ now sh
@@ -65,10 +69,16 @@ $ npm run alias
 ```
 
 Using `heroku`:
+
 ```
 $ git push heroku
 ```
 
-## Based on nextjs-postcss branch
-https://github.com/almeynman/nextjs-postcss
-https://blog.intellection.kz/next-js-and-css-modules-37e785a98bb0
+## Notes
+
+* Big update to Next5 helped remove lots of hacks to get CSS import working. (9/2/18)
+* Flow seems to be broken (9/2/18)
+
+## Based on Next.js example:
+
+https://github.com/zeit/next.js/tree/canary/examples/with-apollo-and-redux
