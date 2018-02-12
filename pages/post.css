@@ -74,6 +74,7 @@
   letter-spacing: 0.2em;
   transform: rotate(-90deg);
   transform-origin: top right;
+  color: var(--colour-grey-lighter);
   background-color: var(--colour-black);
 
   @media (--screen-sm) {
@@ -168,15 +169,20 @@
 /* TODO: Put these in global.css */
 .post__content {
   position: relative;
-  /*max-width: var(--container-width-sm);*/
   font-size: var(--font-size-md);
-  /*font-size: 18px;*/
+  line-height: 1.45;
   letter-spacing: -0.02em;
   word-spacing: -0.2em;
-  /* @apply --font-antialiased; */
+  hyphens: auto;
+
+  @media (--screen-sm) {
+    line-height: inherit;
+    hyphens: none;
+  }
 
   @media (--screen-md) {
     font-size: var(--font-size-lg);
+    line-height: inherit;
   }
 
   & img {

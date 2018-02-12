@@ -115,7 +115,6 @@ class HomePage extends Component {
 
         <div className="container container--lg">
           <SectionTitle>Check out our work!</SectionTitle>
-
           <Masonry
             className="experiment-tiles"
             options={{

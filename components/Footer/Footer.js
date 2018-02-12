@@ -99,10 +99,10 @@ const socialItems = [
     name: 'Pinterest',
     url: 'http://pinterest.com/statelibrarynsw',
   },
-  {
-    name: 'Vimeo',
-    url: 'http://www.vimeo.com/statelibrarynsw',
-  },
+  // {
+  //   name: 'Vimeo',
+  //   url: 'http://www.vimeo.com/statelibrarynsw',
+  // },
   {
     name: 'RSS',
     url: 'http://dxlab.sl.nsw.gov.au/feed/', // TODO: Update new URL
