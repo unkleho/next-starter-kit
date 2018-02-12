@@ -10,14 +10,9 @@ import SimpleTile from '../components/SimpleTile';
 import SectionTitle from '../components/SectionTitle';
 import Button from '../components/Button';
 import { formatDate } from '../lib';
-import shuffle from '../lib/shuffle';
 import styles from './index.css';
 
 class HomePage extends Component {
-  componentDidMount() {
-    shuffle();
-  }
-
   render() {
     const { url, posts, experiments, loading: isLoading } = this.props;
     return (
@@ -52,32 +47,30 @@ class HomePage extends Component {
             }}
           >
             {posts &&
-              posts
-                .slice(0, 3)
-                .map((post, i) => (
-                  <Tile
-                    title={post.title}
-                    subtitle={post.date}
-                    url={
-                      post.experimentUrl
-                        ? post.experimentUrl
-                        : `/blog/${post.slug}`
-                    }
-                    target={post.experimentUrl ? '_blank' : ''}
-                    secondaryUrl={post.experimentUrl && `/blog/${post.slug}`}
-                    tertiaryUrl={post.githubUrl}
-                    tertiaryTarget="_blank"
-                    imageUrl={
-                      getTileSize(i) === '1x2'
-                        ? post.tallImageUrl
-                        : post.mediumImageUrl
-                    }
-                    imageAltText={post.imageAltText}
-                    content={post.content}
-                    size={getTileSize(i)}
-                    key={`tile-${i}`}
-                  />
-                ))}
+              posts.slice(0, 3).map((post, i) => (
+                <Tile
+                  title={post.title}
+                  subtitle={post.date}
+                  url={`/blog/${post.slug}`}
+                  // target={post.experimentUrl ? '_blank' : ''}
+                  primaryText="Read"
+                  secondaryUrl={post.experimentUrl}
+                  secondaryText="Launch"
+                  secondaryTarget="_blank"
+                  tertiaryText="Code"
+                  tertiaryUrl={post.githubUrl}
+                  tertiaryTarget="_blank"
+                  imageUrl={
+                    getTileSize(i) === '1x2'
+                      ? post.tallImageUrl
+                      : post.mediumImageUrl
+                  }
+                  imageAltText={post.imageAltText}
+                  content={post.content}
+                  size={getTileSize(i)}
+                  key={`tile-${i}`}
+                />
+              ))}
           </Masonry>
 
           <br />
@@ -138,8 +131,11 @@ class HomePage extends Component {
                   subtitle={experiment.date}
                   url={experiment.url}
                   target="_blank"
+                  primaryText="Launch"
+                  secondaryText="Read"
                   secondaryUrl={experiment.blogUrl}
                   secondaryTarget=""
+                  tertiaryText="Code"
                   tertiaryUrl={experiment.githubUrl}
                   tertiaryTarget="_blank"
                   imageUrl={

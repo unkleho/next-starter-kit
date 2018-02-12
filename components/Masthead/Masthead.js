@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import shuffle from '../../lib/shuffle';
 import styles from './Masthead.css';
 import glitchStyles from '../../styles/glitch.css';
 
@@ -17,8 +18,8 @@ class Masthead extends Component {
     size: PropTypes.string,
   };
 
-  constructor() {
-    super();
+  componentDidMount() {
+    shuffle(this.props.slug.replace(/ /g, '-'));
   }
 
   render() {
@@ -51,12 +52,29 @@ class Masthead extends Component {
               {this.props.titleSmall}
             </span>
             <span
-              className="masthead__title__main glitch"
+              className={`masthead__title__main ${
+                this.props.slug
+                  ? `masthead__title__main--${this.props.slug.replace(
+                      / /g,
+                      '-',
+                    )}`
+                  : ''
+              }
+               glitch`}
               data-text={this.props.title}
             >
               {this.props.title}
             </span>
-            <span className="masthead__title__highlight">
+            <span
+              className={`masthead__title__highlight ${
+                this.props.slug
+                  ? `masthead__title__highlight--${this.props.slug.replace(
+                      / /g,
+                      '-',
+                    )}`
+                  : ''
+              }`}
+            >
               {this.props.titleHighlight}
             </span>
           </h1>

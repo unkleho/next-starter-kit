@@ -14,7 +14,18 @@ class Button extends Component {
   render() {
     const { children, href, size, target } = this.props;
 
-    return (
+    // TODO: Make this DRY
+    return href.startsWith('http') ? (
+      <a
+        href={href}
+        className={`button ${size ? `button--${size}` : ''}`}
+        target={target}
+      >
+        {children}
+        {/* prettier-ignore */}
+        <style global jsx>{styles}</style>
+      </a>
+    ) : (
       <Link to={href}>
         <a
           className={`button ${size ? `button--${size}` : ''}`}

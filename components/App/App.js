@@ -60,11 +60,13 @@ class App extends Component {
   }
 
   handleOnScroll = (event) => {
-    const scrollTop = event.srcElement.scrollingElement.scrollTop;
+    if (event && event.srcElement && event.srcElement.scrollingElement) {
+      const scrollTop = event.srcElement.scrollingElement.scrollTop;
 
-    this.setState({
-      isHeaderBackgroundActive: scrollTop > SCROLLTOP_THRESHOLD,
-    });
+      this.setState({
+        isHeaderBackgroundActive: scrollTop > SCROLLTOP_THRESHOLD,
+      });
+    }
   };
 
   render() {
@@ -86,7 +88,6 @@ class App extends Component {
       <div className="app" onScroll={this.handleOnScroll}>
         <Head>
           <title>{buildHeadTitle(title)}</title>
-
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
           <meta
             name="viewport"

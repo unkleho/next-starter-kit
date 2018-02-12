@@ -1,11 +1,11 @@
 {
   "name": "dxlab-website",
   "author": "Kaho Cheung",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
-    "dev": "npm start",
+    "dev": "node server.js -p $PORT",
     "build": "NODE_ENV=production next build",
-    "start": "node server.js -p $PORT",
+    "start": "NODE_ENV=production node server.js -p $PORT",
     "start-pm2": "NODE_ENV=production pm2 start server.js --name dxlab-website",
     "deploy-staging": "ansible-playbook deploy/deploy.yml --extra-vars \"stage=staging\" -vvvv",
     "deploy-production": "ansible-playbook deploy/deploy.yml --extra-vars \"stage=production\" -vvvv",

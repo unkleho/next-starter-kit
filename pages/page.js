@@ -4,14 +4,9 @@ import { gql, graphql } from 'react-apollo';
 import withData from '../lib/withData';
 import App from '../components/App';
 import Masthead from '../components/Masthead';
-import shuffle from '../lib/shuffle';
 import styles from './post.css';
 
 class Page extends Component {
-  componentDidMount() {
-    shuffle();
-  }
-
   render() {
     const { title, url, content, excerpt, loading: isLoading } = this.props;
 

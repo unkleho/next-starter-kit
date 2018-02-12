@@ -8,8 +8,6 @@ class SearchPage extends Component {
   render() {
     const { url, posts, loading: isLoading } = this.props;
 
-    // console.log(url);
-
     return (
       <App pathname={url.pathname} isLoading={isLoading} title="Search">
         <div className="search-page container container--md">

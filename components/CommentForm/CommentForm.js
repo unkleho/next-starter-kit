@@ -102,7 +102,7 @@ class CommentForm extends Component {
                   name="content"
                   aria-label="content"
                   aria-required="true"
-                  rows="4"
+                  rows="6"
                 />
               </div>
 
