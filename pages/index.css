@@ -1,18 +1,5 @@
 @import '../styles/variables.css';
 
-/*article {
-  lost-column: 1/3;
-
-  margin-bottom: var(--spacing-md);
-
-  & h2 {
-    font-family: 'Lekton';
-    font-weight: 400;
-    margin-top: 0;
-    font-size: var(--font-size-md);
-  }
-}*/
-
 .masthead__title {
   /* Adjust glitch effect */
   &.glitch::after,
@@ -41,4 +28,10 @@
 
 .posts {
   lost-utility: clearfix;
+}
+
+.home-page__button-holder {
+  @media (--screen-md) {
+    max-width: 35%;
+  }
 }

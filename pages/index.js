@@ -6,6 +6,7 @@ import withData from '../lib/withData';
 import App from '../components/App';
 import Masthead from '../components/Masthead';
 import Tile from '../components/Tile';
+import MainTile from '../components/MainTile';
 import SimpleTile from '../components/SimpleTile';
 import SectionTitle from '../components/SectionTitle';
 import Button from '../components/Button';
@@ -15,6 +16,7 @@ import styles from './index.css';
 class HomePage extends Component {
   render() {
     const { url, posts, experiments, loading: isLoading } = this.props;
+
     return (
       <App
         pathname={url.pathname}
@@ -38,44 +40,42 @@ class HomePage extends Component {
         <div className="posts container container--lg">
           <SectionTitle>Latest</SectionTitle>
 
-          <Masonry
+          {/* <Masonry
             className="featured-tiles"
             options={{
               percentPosition: true,
               itemSelector: '.tile',
               columnWidth: '.tile',
             }}
-          >
-            {posts &&
-              posts.slice(0, 3).map((post, i) => (
-                <Tile
-                  title={post.title}
-                  subtitle={post.date}
-                  url={`/blog/${post.slug}`}
-                  // target={post.experimentUrl ? '_blank' : ''}
-                  primaryText="Read"
-                  secondaryUrl={post.experimentUrl}
-                  secondaryText="Launch"
-                  secondaryTarget="_blank"
-                  tertiaryText="Code"
-                  tertiaryUrl={post.githubUrl}
-                  tertiaryTarget="_blank"
-                  imageUrl={
-                    getTileSize(i) === '1x2'
-                      ? post.tallImageUrl
-                      : post.mediumImageUrl
-                  }
-                  imageAltText={post.imageAltText}
-                  content={post.content}
-                  size={getTileSize(i)}
-                  key={`tile-${i}`}
-                />
-              ))}
-          </Masonry>
+          > */}
+          {posts &&
+            posts.slice(0, 3).map((post, i) => (
+              <MainTile
+                title={post.title}
+                subtitle={post.date}
+                url={`/blog/${post.slug}`}
+                // target={post.experimentUrl ? '_blank' : ''}
+                primaryText="Read"
+                secondaryUrl={post.experimentUrl}
+                secondaryText="Launch"
+                secondaryTarget="_blank"
+                tertiaryText="Code"
+                tertiaryUrl={post.githubUrl}
+                tertiaryTarget="_blank"
+                imageUrl={
+                  getTileSize(i) === '1x2'
+                    ? post.tallImageUrl
+                    : post.mediumImageUrl
+                }
+                imageAltText={post.imageAltText}
+                content={post.content}
+                size={getTileSize(i)}
+                key={`tile-${i}`}
+              />
+            ))}
+          {/* </Masonry> */}
 
-          <br />
-
-          <SectionTitle>Blog</SectionTitle>
+          <SectionTitle>More posts</SectionTitle>
 
           <div>
             {posts &&
@@ -94,7 +94,9 @@ class HomePage extends Component {
                 ))}
           </div>
 
-          <Button href="/blog">Read All Posts</Button>
+          <div className="home-page__button-holder">
+            <Button href="/blog">Read All Posts</Button>
+          </div>
         </div>
 
         <br />
@@ -115,42 +117,44 @@ class HomePage extends Component {
 
         <div className="container container--lg">
           <SectionTitle>Check out our work!</SectionTitle>
-          <Masonry
+          {/* <Masonry
             className="experiment-tiles"
             options={{
               percentPosition: true,
               itemSelector: '.tile',
               columnWidth: '.tile',
             }}
-          >
-            {experiments &&
-              swapArrayElements(experiments, 0, 1).map((experiment, i) => (
-                <Tile
-                  title={experiment.title}
-                  subtitle={experiment.date}
-                  url={experiment.url}
-                  target="_blank"
-                  primaryText="Launch"
-                  secondaryText="Read"
-                  secondaryUrl={experiment.blogUrl}
-                  secondaryTarget=""
-                  tertiaryText="Code"
-                  tertiaryUrl={experiment.githubUrl}
-                  tertiaryTarget="_blank"
-                  imageUrl={
-                    getExperimentTileSize(i) === '1x2'
-                      ? experiment.tallImageUrl
-                      : experiment.mediumImageUrl
-                  }
-                  imageAltText={experiment.imageAltText}
-                  content={experiment.content}
-                  size={getExperimentTileSize(i)}
-                  key={`experiment-${i}`}
-                />
-              ))}
-          </Masonry>
+          > */}
+          {experiments &&
+            experiments.map((experiment, i) => (
+              <MainTile
+                title={experiment.title}
+                subtitle={experiment.date}
+                url={experiment.url}
+                target="_blank"
+                primaryText="Launch"
+                secondaryText="Read"
+                secondaryUrl={experiment.blogUrl}
+                secondaryTarget=""
+                tertiaryText="Code"
+                tertiaryUrl={experiment.githubUrl}
+                tertiaryTarget="_blank"
+                imageUrl={
+                  getExperimentTileSize(i) === '1x2'
+                    ? experiment.tallImageUrl
+                    : experiment.mediumImageUrl
+                }
+                imageAltText={experiment.imageAltText}
+                content={experiment.content}
+                size={getExperimentTileSize(i)}
+                key={`experiment-${i}`}
+              />
+            ))}
+          {/* </Masonry> */}
 
-          <Button href="/experiments">All Experiments</Button>
+          <div className="home-page__button-holder">
+            <Button href="/experiments">All Experiments</Button>
+          </div>
         </div>
 
         <br />
@@ -169,7 +173,9 @@ class HomePage extends Component {
         />
 
         <div className="container container--lg">
-          <Button href="/grants">Read about our grants</Button>
+          <div className="home-page__button-holder">
+            <Button href="/grants">Read about our grants</Button>
+          </div>
         </div>
 
         {/* prettier-ignore */}
@@ -188,7 +194,7 @@ function getTileSize(index) {
 }
 
 function getExperimentTileSize(index) {
-  if (index === 1 || index === 5) {
+  if (index === 0 || index === 5) {
     return '1x2';
   } else if (index === 3) {
     return '2x1';
