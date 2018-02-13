@@ -76,6 +76,7 @@ class Post extends Component {
       loading,
       comments,
       experiments,
+      posts,
     } = this.props;
 
     const featuredImageUrl = featuredMedia && featuredMedia.sourceUrl;
@@ -85,7 +86,7 @@ class Post extends Component {
     const githubUrl = experiments && experiments[0] && experiments[0].githubUrl;
     const dateString = formatDate(date);
 
-    if (!id) {
+    if (posts && posts.length === 0) {
       return <Four04 />;
     }
 
@@ -191,7 +192,6 @@ const postQuery = gql`
 export default withData(
   graphql(postQuery, {
     options: ({ url: { query: { slug } } }) => {
-      // console.log(slug);
       return {
         variables: {
           slug,

@@ -16,7 +16,7 @@ class DisplayTile extends Component {
     imageUrl: PropTypes.string,
     content: PropTypes.string,
     date: PropTypes.string,
-    size: PropTypes.oneOf(['2x1', '1x2']),
+    size: PropTypes.oneOf(['lg', '']),
     secondaryUrl: PropTypes.string,
     secondaryTarget: PropTypes.string,
     secondaryText: PropTypes.string,
