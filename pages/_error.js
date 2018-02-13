@@ -2,6 +2,7 @@ import { Component } from 'react';
 
 import App from '../components/App';
 import initMaze from '../lib/dxmaze';
+import styles from './_error.css';
 
 class Four04 extends Component {
   componentDidMount() {
@@ -16,19 +17,7 @@ class Four04 extends Component {
         </div>
         <h1>Some experiments fail.</h1>
         <h2>Page not found!</h2>
-        <style jsx>{`
-          #dxmaze {
-            margin-top: 0;
-          }
-          h1,
-          h2 {
-            text-align: center;
-            padding-top: 0;
-          }
-          h2 {
-            margin-top: 0;
-          }
-        `}</style>
+        <style jsx>{styles}</style>
       </App>
     );
   }

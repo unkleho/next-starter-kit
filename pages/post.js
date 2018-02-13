@@ -8,7 +8,7 @@ import ShareBox from '../components/ShareBox';
 import Button from '../components/Button';
 import Comments from '../components/Comments';
 import { formatDate } from '../lib';
-import initMaze from '../lib/dxmaze';
+import Four04 from './_error';
 import styles from './post.css';
 import galleryStyles from '../styles/gallery.css';
 
@@ -28,7 +28,6 @@ class Post extends Component {
 
   componentDidMount() {
     this.addModals();
-    initMaze();
   }
 
   addModals = () => {
@@ -86,6 +85,10 @@ class Post extends Component {
     const githubUrl = experiments && experiments[0] && experiments[0].githubUrl;
     const dateString = formatDate(date);
 
+    if (!id) {
+      return <Four04 />;
+    }
+
     return (
       <App
         isLoading={loading}
@@ -96,74 +99,54 @@ class Post extends Component {
         metaImageAlt={featuredImageDescription}
       >
         <article className="post container container--md">
-          {id ? (
-            <div>
-              <div className="post__featured-image-holder">
-                <img
-                  className="post__featured-image"
-                  src={featuredImageUrl}
-                  alt={featuredImageDescription}
-                />
-                <div className="post__date">{dateString}</div>
+          <div>
+            <div className="post__featured-image-holder">
+              <img
+                className="post__featured-image"
+                src={featuredImageUrl}
+                alt={featuredImageDescription}
+              />
+              <div className="post__date">{dateString}</div>
+            </div>
+
+            <header className="post__header">
+              <h1 className="post__title">{title}</h1>
+              <div className="post__author">
+                By <a href={`/search?q=${authorName}`}>{authorName}</a>
               </div>
 
-              <header className="post__header">
-                <h1 className="post__title">{title}</h1>
-                <div className="post__author">
-                  By <a href={`/search?q=${authorName}`}>{authorName}</a>
-                </div>
-
-                <div className="post__cta">
-                  {experimentUrl && (
-                    <Button href={experimentUrl} target="_blank">
-                      LAUNCH EXPERIMENT
-                    </Button>
-                  )}
-                  {githubUrl && (
-                    <Button href={githubUrl} target="_blank">
-                      CODE
-                    </Button>
-                  )}
-                </div>
-              </header>
-
-              <div
-                className="post__content"
-                dangerouslySetInnerHTML={{ __html: content }}
-              />
-
-              <ShareBox
-                title={title}
-                text={excerpt}
-                pathname={`/blog/${url.query.slug}`}
-              />
-
-              <br />
-              <br />
-              <br />
-
-              <Comments postId={id} comments={comments} />
-            </div>
-          ) : (
-            <div>
-              <div className="container container--lg" id="dxmaze-holder">
-                <canvas id="dxmaze" />
+              <div className="post__cta">
+                {experimentUrl && (
+                  <Button href={experimentUrl} target="_blank">
+                    LAUNCH EXPERIMENT
+                  </Button>
+                )}
+                {githubUrl && (
+                  <Button href={githubUrl} target="_blank">
+                    CODE
+                  </Button>
+                )}
               </div>
-              <h1 className="error__title">
-                some experiments fail.<br />page not found!
-              </h1>
-            </div>
-          )}
+            </header>
+
+            <div
+              className="post__content"
+              dangerouslySetInnerHTML={{ __html: content }}
+            />
+
+            <ShareBox
+              title={title}
+              text={excerpt}
+              pathname={`/blog/${url.query.slug}`}
+            />
+
+            <br />
+            <br />
+            <br />
+
+            <Comments postId={id} comments={comments} />
+          </div>
         </article>
-        <style jsx>{`
-          #dxmaze {
-            margin-top: 2em;
-          }
-          .error__title {
-            text-align: center;
-            padding-top: 1em;
-          }
-        `}</style>
         {/* prettier-ignore */}
         <style jsx global>{styles}</style>
         {/* prettier-ignore */}
