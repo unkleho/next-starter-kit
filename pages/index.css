@@ -10,19 +10,23 @@
 
 .masthead--grants {
   & .masthead__title {
-    top: 5%;
+    top: 20%;
 
     @media (--screen-sm) {
-      top: 50%;
+      top: 30%;
     }
   }
 }
 
+.home-page__main-tiles {
+  margin-bottom: 3em;
+}
+
 .featured-tiles,
-.experiment-tiles {
+.experiment-tiles10 {
   margin-left: calc(-1 * (var(--gutter-masonry) / 2));
   margin-right: calc(-1 * (var(--gutter-masonry) / 2));
-  /*margin-left: -0.5em;
+  /*margin-left: -0.3em;
   margin-right: -0.5em;*/
 }
 

@@ -6,6 +6,7 @@ import withData from '../lib/withData';
 import App from '../components/App';
 import Masthead from '../components/Masthead';
 import DisplayTile from '../components/DisplayTile';
+import MainTile from '../components/MainTile';
 import SectionTitle from '../components/SectionTitle';
 import { formatDate } from '../lib';
 
@@ -35,10 +36,14 @@ class Experiments extends Component {
 
           {experiments &&
             experiments.map((item, i) => (
-              <DisplayTile
+              <MainTile
                 subtitle={item.date}
                 title={item.title}
-                primaryUrl={item.url}
+                // primaryUrl={item.url}
+                // TODO: Need to create field in GraphQL and Wordpress!
+                size={i === 0 || i === 6 || i === 4 ? '1x2' : ''}
+                // size={i === 0 || i === 1 || i === 2 ? 'lg' : ''}
+                url={item.url}
                 primaryText={'Launch'}
                 primaryTarget={'_blank'}
                 secondaryUrl={`/blog/${item.slug}`}
@@ -51,7 +56,6 @@ class Experiments extends Component {
                 imageAltText={item.imageAltText}
                 content={item.content}
                 date={item.date}
-                size={i === 0 || i === 1 || i === 2 ? 'lg' : ''}
                 key={`tile-${i}`}
               />
             ))}

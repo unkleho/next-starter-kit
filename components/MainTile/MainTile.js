@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Link from '../Link';
 import TileImage from '../TileImage';
-// import Button from '../Button';
+import Button from '../Button';
 import TileButtonGroup from '../TileButtonGroup';
 import styles from './MainTile.css';
 
@@ -11,6 +11,7 @@ class MainTile extends Component {
   static propTypes = {
     title: PropTypes.string,
     subtitle: PropTypes.string,
+    showTitleButton: PropTypes.bool,
     url: PropTypes.string,
     target: PropTypes.string,
     primaryText: PropTypes.string,
@@ -30,6 +31,7 @@ class MainTile extends Component {
     const {
       title,
       subtitle,
+      showTitleButton,
       url,
       target,
       imageUrl,
@@ -46,7 +48,6 @@ class MainTile extends Component {
     } = this.props;
 
     return (
-      // <article className="tile tile--tall">
       <article className={`main-tile ${size && `main-tile--${size}`}`}>
         <TileImage
           imageUrl={imageUrl}
@@ -59,7 +60,7 @@ class MainTile extends Component {
         <div className="main-tile__info">
           <header className="main-tile__header">
             <h1 className="main-tile__title">
-              {url.match('^http') ? (
+              {url && url.match('^http') ? (
                 <a href={url} target={target}>
                   {title}
                 </a>
@@ -70,6 +71,11 @@ class MainTile extends Component {
               )}
             </h1>
             <div className="main-tile__subtitle">{subtitle}</div>
+            {showTitleButton && (
+              <div className="main-tile__title-button">
+                <Button>Launch Experiment</Button>
+              </div>
+            )}
           </header>
 
           <div
@@ -79,7 +85,7 @@ class MainTile extends Component {
 
           <div className="main-tile__cta">
             <TileButtonGroup
-              primaryUrl={url}
+              primaryUrl={showTitleButton ? '' : url}
               primaryText={primaryText}
               // primaryText={secondaryUrl ? 'Read' : 'Launch'}
               primaryTarget={target}

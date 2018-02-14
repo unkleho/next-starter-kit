@@ -49,14 +49,15 @@
 
 .post__author {
   margin-left: 1rem;
+  font-size: var(--font-size-sm);
 
   @media (--screen-sm) {
     margin-left: 0;
   }
 
-  /* @media (--screen-md) {
-    margin-left: -2em;
-  } */
+  @media (--screen-md) {
+    font-size: var(--font-size-md);
+  }
 
   @media (--screen-lg) {
     margin-left: -4em;
@@ -173,11 +174,9 @@
   line-height: 1.45;
   letter-spacing: -0.02em;
   word-spacing: -0.2em;
-  hyphens: auto;
 
   @media (--screen-sm) {
     line-height: inherit;
-    hyphens: none;
   }
 
   @media (--screen-md) {

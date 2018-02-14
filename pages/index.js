@@ -48,36 +48,39 @@ class HomePage extends Component {
               columnWidth: '.tile',
             }}
           > */}
-          {posts &&
-            posts.slice(0, 3).map((post, i) => (
-              <MainTile
-                title={post.title}
-                subtitle={post.date}
-                url={`/blog/${post.slug}`}
-                // target={post.experimentUrl ? '_blank' : ''}
-                primaryText="Read"
-                secondaryUrl={post.experimentUrl}
-                secondaryText="Launch"
-                secondaryTarget="_blank"
-                tertiaryText="Code"
-                tertiaryUrl={post.githubUrl}
-                tertiaryTarget="_blank"
-                imageUrl={
-                  getTileSize(i) === '1x2'
-                    ? post.tallImageUrl
-                    : post.mediumImageUrl
-                }
-                imageAltText={post.imageAltText}
-                content={post.content}
-                size={getTileSize(i)}
-                key={`tile-${i}`}
-              />
-            ))}
+
+          <div className="home-page__main-tiles">
+            {posts &&
+              posts.slice(0, 3).map((post, i) => (
+                <MainTile
+                  title={post.title}
+                  subtitle={post.date}
+                  url={`/blog/${post.slug}`}
+                  // target={post.experimentUrl ? '_blank' : ''}
+                  primaryText="Read"
+                  secondaryUrl={post.experimentUrl}
+                  secondaryText="Launch"
+                  secondaryTarget="_blank"
+                  tertiaryText="Code"
+                  tertiaryUrl={post.githubUrl}
+                  tertiaryTarget="_blank"
+                  imageUrl={
+                    getTileSize(i) === '1x2'
+                      ? post.tallImageUrl
+                      : post.mediumImageUrl
+                  }
+                  imageAltText={post.imageAltText}
+                  content={post.content}
+                  size={getTileSize(i)}
+                  key={`tile-${i}`}
+                />
+              ))}
+          </div>
           {/* </Masonry> */}
 
           <SectionTitle>More posts</SectionTitle>
 
-          <div>
+          <div className="home-page__simple-posts">
             {posts &&
               posts
                 .slice(3, 7)
@@ -131,6 +134,7 @@ class HomePage extends Component {
                 title={experiment.title}
                 subtitle={experiment.date}
                 url={experiment.url}
+                // showTitleButton={true}
                 target="_blank"
                 primaryText="Launch"
                 secondaryText="Read"
