@@ -32,9 +32,11 @@ class TileButtonGroup extends Component {
 
     return (
       <div className="tile-button-group tile-button-group--alt">
-        <Button href={primaryUrl} target={primaryTarget}>
-          {primaryText}
-        </Button>
+        {primaryUrl && (
+          <Button href={primaryUrl} target={primaryTarget}>
+            {primaryText}
+          </Button>
+        )}
 
         {secondaryUrl && (
           <Button href={secondaryUrl} target={secondaryTarget} size="sm">

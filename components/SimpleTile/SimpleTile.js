@@ -34,12 +34,12 @@ class SimpleTile extends Component {
         </Link>
 
         <div className="simple-tile__info">
-          <p className="simple-tile__subtitle">{subtitle}</p>
           <h1 className="simple-tile__title">
             <Link to={url}>
               <a dangerouslySetInnerHTML={{ __html: title }} />
             </Link>
           </h1>
+          <p className="simple-tile__subtitle">{subtitle}</p>
         </div>
 
         {/* prettier-ignore */}

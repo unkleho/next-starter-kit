@@ -15,7 +15,7 @@ class Button extends Component {
     const { children, href, size, target } = this.props;
 
     // TODO: Make this DRY
-    return href.match('^http') ? (
+    return href && href.match('^http') ? (
       <a
         href={href}
         className={`button ${size ? `button--${size}` : ''}`}

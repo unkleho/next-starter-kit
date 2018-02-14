@@ -77,6 +77,15 @@ Using `heroku`:
 $ git push heroku
 ```
 
+## Hygen generator
+
+To generate a new component
+
+```
+# Make sure hygen is installed
+$ hygen component new --name NewComponent
+```
+
 ## Proxies
 
 Express proxies the following sites:

@@ -1,18 +1,5 @@
 @import '../styles/variables.css';
 
-/*article {
-  lost-column: 1/3;
-
-  margin-bottom: var(--spacing-md);
-
-  & h2 {
-    font-family: 'Lekton';
-    font-weight: 400;
-    margin-top: 0;
-    font-size: var(--font-size-md);
-  }
-}*/
-
 .masthead__title {
   /* Adjust glitch effect */
   &.glitch::after,
@@ -23,22 +10,32 @@
 
 .masthead--grants {
   & .masthead__title {
-    top: 5%;
+    top: 20%;
 
     @media (--screen-sm) {
-      top: 50%;
+      top: 30%;
     }
   }
 }
 
+.home-page__main-tiles {
+  margin-bottom: 3em;
+}
+
 .featured-tiles,
-.experiment-tiles {
+.experiment-tiles10 {
   margin-left: calc(-1 * (var(--gutter-masonry) / 2));
   margin-right: calc(-1 * (var(--gutter-masonry) / 2));
-  /*margin-left: -0.5em;
+  /*margin-left: -0.3em;
   margin-right: -0.5em;*/
 }
 
 .posts {
   lost-utility: clearfix;
+}
+
+.home-page__button-holder {
+  @media (--screen-md) {
+    max-width: 35%;
+  }
 }
