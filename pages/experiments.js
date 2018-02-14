@@ -1,11 +1,10 @@
 import { Component } from 'react';
 import { gql, graphql } from 'react-apollo';
-// import InfiniteScroll from 'react-infinite-scroller';
 
 import withData from '../lib/withData';
 import App from '../components/App';
 import Masthead from '../components/Masthead';
-import DisplayTile from '../components/DisplayTile';
+// import DisplayTile from '../components/DisplayTile';
 import MainTile from '../components/MainTile';
 import SectionTitle from '../components/SectionTitle';
 import { formatDate } from '../lib';

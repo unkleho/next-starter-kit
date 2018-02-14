@@ -1,11 +1,9 @@
 import { Component } from 'react';
 import { gql, graphql } from 'react-apollo';
-import Masonry from 'react-masonry-component';
 
 import withData from '../lib/withData';
 import App from '../components/App';
 import Masthead from '../components/Masthead';
-import Tile from '../components/Tile';
 import MainTile from '../components/MainTile';
 import SimpleTile from '../components/SimpleTile';
 import SectionTitle from '../components/SectionTitle';
@@ -40,15 +38,6 @@ class HomePage extends Component {
         <div className="posts container container--lg">
           <SectionTitle>Latest</SectionTitle>
 
-          {/* <Masonry
-            className="featured-tiles"
-            options={{
-              percentPosition: true,
-              itemSelector: '.tile',
-              columnWidth: '.tile',
-            }}
-          > */}
-
           <div className="home-page__main-tiles">
             {posts &&
               posts.slice(0, 3).map((post, i) => (
@@ -76,7 +65,6 @@ class HomePage extends Component {
                 />
               ))}
           </div>
-          {/* </Masonry> */}
 
           <SectionTitle>More posts</SectionTitle>
 
@@ -305,10 +293,4 @@ function mapItemToTile(item) {
     imageAltText: item.featuredMedia && item.featuredMedia.altText,
     date: formatDate(item.date),
   };
-}
-
-function swapArrayElements(a, x, y) {
-  if (a.length === 1) return a;
-  a.splice(y, 1, a.splice(x, 1, a[y])[0]);
-  return a;
 }
