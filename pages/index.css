@@ -8,7 +8,11 @@
   }
 }
 
-.masthead--grants {
+/* .home-page__masthead--main {
+
+} */
+
+.home-page__masthead--grants {
   & .masthead__title {
     top: 20%;
 

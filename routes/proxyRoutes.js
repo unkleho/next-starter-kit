@@ -46,4 +46,8 @@ module.exports = {
     target: process.env.DXLAB_URL,
     changeOrigin: true,
   },
+  '/visionaries-explorer/': {
+    target: process.env.DXLAB_URL,
+    changeOrigin: true,
+  },
 };

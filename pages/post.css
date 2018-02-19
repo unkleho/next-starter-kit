@@ -33,7 +33,7 @@
   padding-left: 2rem;
   background-color: var(--colour-black);
   font-size: var(--font-size-xxlg);
-  line-height: 1.1;
+  line-height: 1;
 
   @media (--screen-sm) {
     /* padding-left: 0; */

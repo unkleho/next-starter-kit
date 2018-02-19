@@ -39,13 +39,13 @@ app
       server.get(route.slice(0, -1), (req, res) => {
         res.redirect(`${route.slice(0, -1)}/`);
       });
-      server.use(proxy(route, proxyRoutes[route]));
+      // server.use(proxy(route, proxyRoutes[route]));
 
       // But also redirect it to route with trailing slash.
       // Plays nice with proxying to Nginx WP server
-      server.get(route.slice(0, -1), (req, res) => {
-        res.redirect(`${route.slice(0, -1)}/`);
-      });
+      // server.get(route.slice(0, -1), (req, res) => {
+      //   res.redirect(`${route.slice(0, -1)}/`);
+      // });
     });
 
     // Redirect old blog posts that had slug in root dir

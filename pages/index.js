@@ -23,6 +23,7 @@ class HomePage extends Component {
         metaDescription="The State Library of NSW's experimental innovation lab."
       >
         <Masthead
+          className="home-page__masthead--main"
           subtitle="Welcome to the DX Lab:"
           titleSmall="The State Library of NSW's"
           title="Experimental"
@@ -98,7 +99,7 @@ class HomePage extends Component {
         <br />
 
         <Masthead
-          className="masthead--experiments"
+          className="home-page__masthead--experiments"
           // subtitle="We make experiments"
           title="We make"
           titleHighlight="Experiments"
@@ -156,7 +157,7 @@ class HomePage extends Component {
         <br />
 
         <Masthead
-          className="masthead--grants"
+          className="home-page__masthead--grants"
           title="We run"
           titleHighlight="Grants"
           text="To support creative and innovative thinking we offer dedicated digital grants, including the DX Lab Fellowship and the Digital Learning Fellowship."

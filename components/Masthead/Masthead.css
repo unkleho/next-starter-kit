@@ -138,6 +138,7 @@
   bottom: 16%;
   left: 0;
   width: 80%;
+  padding: 0 var(--spacing-md) 0 0;
   font-size: var(--font-size-sm);
   line-height: 1.4em;
 
@@ -147,8 +148,7 @@
     /* right: 10%; */
     width: 55%;
     font-size: var(--font-size-md);
-    padding: 0 var(--spacing-md) 0;
-    border-left: 1px dashed var(--colour-white);
+    /* border-left: 1px dashed var(--colour-white); */
   }
 
   @media (--screen-md) {
@@ -167,9 +167,9 @@
     top: -0.6em;
     right: 0;
     height: 1em;
-    width: 1em;
+    width: var(--spacing-xlg);
     border-top: 1px solid var(--colour-white);
-    border-right: 1px solid var(--colour-white);
+    border-right: 1px dashed var(--colour-white);
   }
 }
 
@@ -192,13 +192,7 @@
 
 .masthead__content {
   position: relative;
-  /* z-index: 5; */
   height: 100%;
-
-  /*@media (--screen-sm) {
-      margin: 0 auto;
-      max-width: var(--container-width-lg);
-    }*/
 }
 
 .masthead__caption {

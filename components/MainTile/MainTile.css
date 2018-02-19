@@ -4,7 +4,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  margin-bottom: var(--spacing-xlg);
+  margin-bottom: var(--spacing-xxlg);
   height: 20em;
 
   @media (--screen-sm) {
@@ -146,7 +146,7 @@
   }
 
   @nest .main-tile--1x2 & {
-    font-size: var(--font-size-xlg);
+    font-size: var(--font-size-xxlg);
     margin-left: calc(-1 * var(--spacing-xs));
     padding-left: var(--spacing-xs);
 
@@ -198,6 +198,10 @@
   & p {
     margin-top: 0;
     margin-bottom: 0;
+  }
+
+  @nest .main-tile--1x2 & {
+    font-size: var(--font-size-md);
   }
 }
 
