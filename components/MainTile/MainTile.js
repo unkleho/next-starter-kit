@@ -27,6 +27,23 @@ class MainTile extends Component {
     size: PropTypes.string,
   };
 
+  constructor() {
+    super();
+    this.state = { isMouseOver: false };
+  }
+
+  handleMouseOverImage = () => {
+    this.setState({
+      isMouseOver: true,
+    });
+  };
+
+  handleMouseOutImage = () => {
+    this.setState({
+      isMouseOver: false,
+    });
+  };
+
   render() {
     const {
       title,
@@ -48,13 +65,19 @@ class MainTile extends Component {
     } = this.props;
 
     return (
-      <article className={`main-tile ${size && `main-tile--${size}`}`}>
+      <article
+        className={`main-tile ${size && `main-tile--${size}`} ${
+          this.state.isMouseOver ? 'main-tile--active' : ''
+        }`}
+      >
         <TileImage
           imageUrl={imageUrl}
           url={url}
           target={target}
           className="main-tile__image"
           ariaLabel={title}
+          onMouseOver={this.handleMouseOverImage}
+          onMouseOut={this.handleMouseOutImage}
         />
 
         <div className="main-tile__info">

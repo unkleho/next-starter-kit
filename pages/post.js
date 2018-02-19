@@ -30,6 +30,10 @@ class Post extends Component {
     this.addModals();
   }
 
+  componentWillUnmount() {
+    this.removeModal();
+  }
+
   addModals = () => {
     const div = document.createElement('div');
     document.body.appendChild(div);
@@ -60,6 +64,13 @@ class Post extends Component {
         };
         modal.style.display = 'block';
       };
+    }
+  };
+
+  removeModal = () => {
+    const modalToKill = document.getElementById('postModal');
+    if (modalToKill) {
+      modalToKill.parentNode.removeChild(modalToKill);
     }
   };
 

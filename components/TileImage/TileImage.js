@@ -4,6 +4,18 @@ import Link from '../Link';
 import styles from './TileImage.css';
 
 class TileImage extends Component {
+  handleMouseOver = () => {
+    if (typeof this.props.onMouseOver === 'function') {
+      this.props.onMouseOver();
+    }
+  };
+
+  handleMouseOut = () => {
+    if (typeof this.props.onMouseOut === 'function') {
+      this.props.onMouseOut();
+    }
+  };
+
   render() {
     const {
       url,
@@ -23,6 +35,8 @@ class TileImage extends Component {
         style={{
           backgroundImage: `url(${imageUrl})`,
         }}
+        onMouseOver={this.handleMouseOver}
+        onMouseOut={this.handleMouseOut}
       >
         <style jsx>{styles}</style>
       </a>
@@ -35,6 +49,8 @@ class TileImage extends Component {
           style={{
             backgroundImage: `url(${imageUrl})`,
           }}
+          onMouseOver={this.handleMouseOver}
+          onMouseOut={this.handleMouseOut}
         >
           <style jsx>{styles}</style>
         </a>
