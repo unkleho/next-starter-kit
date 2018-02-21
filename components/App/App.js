@@ -122,6 +122,10 @@ class App extends Component {
             href="https://fonts.googleapis.com/css?family=Lekton:400,400i,700"
             rel="stylesheet"
           />
+          <link
+            href="https://fonts.googleapis.com/css?family=Barlow:400,400i,500,500i"
+            rel="stylesheet"
+          />
         </Head>
 
         <Header pathname={pathname} />

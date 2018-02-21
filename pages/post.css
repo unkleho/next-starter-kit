@@ -172,8 +172,10 @@
   position: relative;
   font-size: var(--font-size-md);
   line-height: 1.45;
-  letter-spacing: -0.02em;
-  word-spacing: -0.2em;
+  font-family: 'Barlow';
+  @apply (--font-antialiased);
+  /* letter-spacing: -0.02em;
+  word-spacing: -0.2em; */
 
   @media (--screen-sm) {
     line-height: inherit;
