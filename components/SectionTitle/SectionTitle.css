@@ -6,7 +6,7 @@
   font-size: var(--font-size-sm);
   @apply --font-uppercase;
   line-height: 1;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
 
   @media (--screen-sm) {
     margin-left: -var(--spacing-md);
@@ -15,31 +15,33 @@
   /* Left line decoration */
   &::before {
     position: absolute;
-    top: -1.5em;
+    top: calc(-1 * var(--spacing-xlg));
     content: '';
     height: var(--spacing-sm);
+    width: var(--spacing-lg);
     border-left: 1px solid var(--colour-primary);
 
     @media (--screen-sm) {
-      top: 2em;
+      top: calc(var(--spacing-xxlg) + 1px);
       height: 1.5em;
+      border-left: 1px solid var(--colour-primary);
     }
   }
 
   /* Right line decoration */
   &::after {
     position: absolute;
-    top: -1.5em;
+    top: calc(-1 * var(--spacing-md));
     right: -1.3em;
     content: '';
-    width: 3em;
+    width: var(--spacing-xlg);
     border-top: 1px dashed var(--colour-white);
 
     @media (--screen-sm) {
       border-top: none;
       top: 0;
       right: 0;
-      width: 2em;
+      width: var(--spacing-xlg);
     }
   }
 }

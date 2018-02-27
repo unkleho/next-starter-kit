@@ -38,14 +38,13 @@ class Experiments extends Component {
               <MainTile
                 subtitle={item.date}
                 title={item.title}
-                // primaryUrl={item.url}
-                // TODO: Need to create field in GraphQL and Wordpress!
-                size={i === 0 || i === 6 || i === 4 ? '1x2' : ''}
+                // TODO: This is hardcoded! Need to create field in GraphQL and Wordpress!
+                size={getTileSize(item.slug)}
                 // size={i === 0 || i === 1 || i === 2 ? 'lg' : ''}
                 url={item.url}
                 primaryText={'Launch'}
                 primaryTarget={'_blank'}
-                secondaryUrl={`/blog/${item.slug}`}
+                secondaryUrl={item.blogUrl}
                 secondaryTarget={''}
                 secondaryText={'Read'}
                 tertiaryUrl={item.githubUrl}
@@ -112,9 +111,10 @@ export default withData(
               title: item.title,
               date: formatDate(item.date),
               content: item.excerpt,
-              slug: item.posts[0].slug,
+              slug: item.slug,
               url: item.url,
               githubUrl: item.githubUrl,
+              blogUrl: item.posts && `/blog/${item.posts[0].slug}`,
               imageUrl:
                 item.featuredMedia && item.featuredMedia.sizes.full.sourceUrl,
               imageAltText:
@@ -142,3 +142,16 @@ export default withData(
     },
   })(Experiments),
 );
+
+// Very naughty bit of hard-coding here
+function getTileSize(slug) {
+  if (
+    slug === 'painting-by-numbers' ||
+    slug === 'unstacked' ||
+    slug === 'loom'
+  ) {
+    return '1x2';
+  }
+
+  return '';
+}

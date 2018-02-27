@@ -173,6 +173,7 @@
   font-size: var(--font-size-md);
   line-height: 1.45;
   font-family: 'Barlow';
+  color: var(--colour-grey-lightest);
   @apply (--font-antialiased);
   /* letter-spacing: -0.02em;
   word-spacing: -0.2em; */

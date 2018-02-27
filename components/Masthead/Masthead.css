@@ -30,7 +30,7 @@
 
   @media (--screen-sm) {
     height: 92vh;
-    min-height: 46em;
+    min-height: 50em;
     max-height: 60em;
   }
 }
@@ -72,7 +72,7 @@
   letter-spacing: 0.25em;
   line-height: 1;
   /* font-size: var(--font-size-xlg); */
-  font-size: 1.8em;
+  font-size: 1.9em;
 
   @media (--screen-sm) {
     font-size: var(--font-size-xxxlg);
@@ -84,7 +84,7 @@
   }
 
   @nest .masthead--lg & {
-    top: 45%;
+    top: 50%;
   }
 
   & a:link,
@@ -140,10 +140,13 @@
   width: 80%;
   padding: 0 var(--spacing-md) 0 0;
   font-size: var(--font-size-sm);
+  font-family: var(--font-secondary);
+  font-weight: 300;
+  letter-spacing: 0.05em;
   line-height: 1.4em;
 
   @media (--screen-sm) {
-    bottom: 12%;
+    bottom: 11%;
     left: auto;
     /* right: 10%; */
     width: 55%;
@@ -197,9 +200,9 @@
 
 .masthead__caption {
   position: absolute;
-  bottom: 10%;
+  bottom: var(--spacing-xxxlg);
   right: 0;
-  padding-left: var(--spacing-xlg);
+  padding-right: var(--spacing-xlg);
   font-size: var(--font-size-xs);
   @apply --font-uppercase;
 
@@ -210,7 +213,7 @@
   &::before {
     position: absolute;
     top: var(--spacing-xxxs);
-    left: 0;
+    right: 0;
     content: '';
     width: var(--spacing-sm);
     height: var(--spacing-sm);

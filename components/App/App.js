@@ -123,7 +123,7 @@ class App extends Component {
             rel="stylesheet"
           />
           <link
-            href="https://fonts.googleapis.com/css?family=Barlow:400,400i,500,500i"
+            href="https://fonts.googleapis.com/css?family=Barlow:300,300i,400,400i,500,500i"
             rel="stylesheet"
           />
         </Head>
