@@ -129,16 +129,16 @@
     top: -1.6em;
     content: '';
     height: 1em;
-    border-left: 1px solid var(--colour-highlight);
+    border-left: 1px solid var(--colour-white);
   }
 }
 
 .masthead__intro-text {
   position: absolute;
-  bottom: 16%;
+  bottom: 15%;
   left: 0;
   width: 80%;
-  padding: 0 var(--spacing-md) 0;
+  padding: 0 var(--spacing-md) 0 0;
   font-size: var(--font-size-sm);
   font-family: var(--font-secondary);
   font-weight: 300;
@@ -176,14 +176,14 @@
   }
 
   /* Left Line */
-  &::before {
+  /* &::before {
     position: absolute;
     content: '';
     left: 0;
     bottom: 0.45em;
     height: calc(100% - 0.7em);
     border-left: 1px dashed var(--colour-white);
-  }
+  } */
 }
 
 .masthead__intro-list {

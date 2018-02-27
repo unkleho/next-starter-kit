@@ -28,7 +28,7 @@
   display: inline-block;
   position: relative;
   z-index: 5;
-  margin: -0.2em 1em 0 -1rem;
+  margin: -0.2em 1em 0 -1.05rem;
   padding-top: 0.15em;
   padding-left: 2rem;
   background-color: var(--colour-black);
