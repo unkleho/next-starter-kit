@@ -93,18 +93,25 @@ class App extends Component {
             name="viewport"
             content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=1"
           />
+
           {title && <meta property="og:title" content={title} />}
+
           {metaDescription && (
             <meta property="og:description" content={metaDescription} />
           )}
+
           {metaDescription && (
             <meta name="description" content={metaDescription} />
           )}
+
           {metaImageUrl && <meta property="og:image" content={metaImageUrl} />}
+
           {metaUrl && <meta property="og:url" content={metaUrl} />}
+
           {metaImageAlt && (
             <meta name="twitter:image:alt" content={metaImageAlt} />
           )}
+
           <meta name="twitter:card" content="summary_large_image" />
           <meta
             property="og:site_name"

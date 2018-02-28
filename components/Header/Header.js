@@ -58,7 +58,9 @@ class Header extends Component {
             labelledby="primary-menu-button"
             menuItems={menuItems.map((item) => ({
               ...item,
-              isActive: pathname === '/post' && item.url === '/blog',
+              isActive:
+                // Enable 'blog' to be highlighted on blog posts
+                pathname.split('/')[1] === 'blog' && item.url === '/blog',
             }))}
             pathname={pathname}
             onMenuItemClick={this.handleMenuToggle}

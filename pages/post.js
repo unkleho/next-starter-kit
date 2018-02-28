@@ -104,7 +104,7 @@ class Post extends Component {
     return (
       <App
         isLoading={loading}
-        pathname={url.pathname}
+        pathname={`/blog/${url.query.slug}`}
         title={title}
         metaDescription={excerpt}
         metaImageUrl={featuredImageUrl}
