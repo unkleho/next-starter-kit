@@ -3,7 +3,6 @@ import { gql, graphql } from 'react-apollo';
 import withData from '../../lib/withData';
 import App from '../../components/App';
 import Link from '../../components/Link';
-// import Header from '../../components/Header';
 import styles from './search.css';
 
 const SearchPage = ({ url, items, loading: isLoading }) => (
@@ -13,8 +12,6 @@ const SearchPage = ({ url, items, loading: isLoading }) => (
     title="Search"
     metaDescription="{excerpt}"
   >
-    {/* <Header pathname={url.pathname} /> */}
-
     <div className="search-page">
       <div className="search-form">
         <form method="get" action="/collection/search">
