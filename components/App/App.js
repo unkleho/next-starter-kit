@@ -87,8 +87,9 @@ class App extends Component {
     return (
       <div className="app" onScroll={this.handleOnScroll}>
         <Head>
+          {/* <meta httpEquiv="X-UA-Compatible" content="IE=edge" /> */}
           <title>{buildHeadTitle(title)}</title>
-          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+          <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=1"
@@ -170,5 +171,16 @@ class App extends Component {
     );
   }
 }
+
+// const buildMeta = ({
+//   title,
+//   metaDescription,
+//   metaImageUrl,
+//   metaUrl,
+//   metaImageAlt,
+// }) => {
+//   return (
+//   )
+// }
 
 export default App;

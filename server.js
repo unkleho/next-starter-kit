@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const next = require('next');
 const proxy = require('http-proxy-middleware');
+const uaCompatible = require('ua-compatible');
 
 const dev = process.env.NODE_ENV !== 'production' && !process.env.NOW;
 const app = next({ dev });
@@ -29,6 +30,9 @@ app
     const server = express();
     server.enable('strict routing');
 
+    // Adds X-UA-Compatible: IE=edge, chrome=1 header for our IE friends.
+    server.use(uaCompatible);
+
     // Proxy external apps
     Object.keys(proxyRoutes).forEach((route) => {
       // Proxy route to DX Lab WP Server
@@ -39,13 +43,6 @@ app
       server.get(route.slice(0, -1), (req, res) => {
         res.redirect(`${route.slice(0, -1)}/`);
       });
-      // server.use(proxy(route, proxyRoutes[route]));
-
-      // But also redirect it to route with trailing slash.
-      // Plays nice with proxying to Nginx WP server
-      // server.get(route.slice(0, -1), (req, res) => {
-      //   res.redirect(`${route.slice(0, -1)}/`);
-      // });
     });
 
     // Redirect old blog posts that had slug in root dir
