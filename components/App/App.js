@@ -82,7 +82,7 @@ class App extends Component {
     } = this.props;
 
     // TODO: Maybe put the baseUrl as a variable
-    const metaUrl = `https://dxlab.sl.nsw.gov.au${pathname}`;
+    const metaUrl = `${process.env.BASE_URL}${pathname}`;
 
     return (
       <div className="app" onScroll={this.handleOnScroll}>
@@ -171,16 +171,5 @@ class App extends Component {
     );
   }
 }
-
-// const buildMeta = ({
-//   title,
-//   metaDescription,
-//   metaImageUrl,
-//   metaUrl,
-//   metaImageAlt,
-// }) => {
-//   return (
-//   )
-// }
 
 export default App;

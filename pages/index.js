@@ -21,6 +21,7 @@ class HomePage extends Component {
         isLoading={isLoading}
         title="Home"
         metaDescription="The State Library of NSW's experimental innovation lab."
+        metaImageUrl="/static/images/masthead-background-01.gif"
       >
         <Masthead
           className="home-page__masthead--main"
