@@ -8,13 +8,19 @@ import Masthead from '../components/Masthead';
 import SimpleTile from '../components/SimpleTile';
 import SectionTitle from '../components/SectionTitle';
 import { mapPostToTile } from '../lib';
+import config from '../lib/config';
 
 class Blog extends Component {
   render() {
     const { url, posts, loading: isLoading, loadMore } = this.props;
 
     return (
-      <App pathname={url.pathname} isLoading={isLoading} title="Blog">
+      <App
+        pathname={url.pathname}
+        isLoading={isLoading}
+        title="Blog"
+        metaImageUrl={`${config.baseUrl}/static/images/masthead-portico.jpg`}
+      >
         <Masthead
           title="Blog"
           // titleHighlight="#DXLAB"

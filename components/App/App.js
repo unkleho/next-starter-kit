@@ -81,8 +81,8 @@ class App extends Component {
       // metaUrl,
     } = this.props;
 
-    // TODO: Maybe put the baseUrl as a variable
-    const metaUrl = `${process.env.BASE_URL}${pathname}`;
+    const baseUrl = process.env.BASE_URL || 'https://dxlab.sl.nsw.gov.au';
+    const metaUrl = `${baseUrl}${pathname}`;
 
     return (
       <div className="app" onScroll={this.handleOnScroll}>
@@ -94,6 +94,7 @@ class App extends Component {
             name="viewport"
             content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=1"
           />
+          <meta property="og:type" content="website" />
 
           {title && <meta property="og:title" content={title} />}
 
@@ -105,7 +106,9 @@ class App extends Component {
             <meta name="description" content={metaDescription} />
           )}
 
-          {metaImageUrl && <meta property="og:image" content={metaImageUrl} />}
+          {metaImageUrl && (
+            <meta property="og:image" content={`${metaImageUrl}`} />
+          )}
 
           {metaUrl && <meta property="og:url" content={metaUrl} />}
 

@@ -5,6 +5,7 @@ import withData from '../lib/withData';
 import App from '../components/App';
 import Masthead from '../components/Masthead';
 import styles from './post.css';
+import config from '../lib/config';
 
 class Page extends Component {
   render() {
@@ -18,6 +19,7 @@ class Page extends Component {
         isLoading={isLoading}
         title={title}
         metaDescription={excerpt}
+        metaImageUrl={`${config.baseUrl}${images[slug].imageUrl}`}
       >
         <Masthead
           title={slug}

@@ -38,7 +38,7 @@ class Header extends Component {
   };
 
   render() {
-    const { pathname } = this.props;
+    const { pathname = '' } = this.props;
 
     return (
       <header className="header">

@@ -8,6 +8,7 @@ import Masthead from '../components/Masthead';
 import MainTile from '../components/MainTile';
 import SectionTitle from '../components/SectionTitle';
 import { formatDate } from '../lib';
+import config from '../lib/config';
 
 class Experiments extends Component {
   render() {
@@ -19,7 +20,12 @@ class Experiments extends Component {
     } = this.props;
 
     return (
-      <App pathname={url.pathname} isLoading={isLoading} title="Experiments">
+      <App
+        pathname={url.pathname}
+        isLoading={isLoading}
+        title="Experiments"
+        metaImageUrl={`${config.baseUrl}/static/images/masthead-meridian-f.jpg`}
+      >
         <Masthead
           title="Experiments"
           // titleHighlight="#DXLAB"

@@ -10,8 +10,13 @@ import SectionTitle from '../components/SectionTitle';
 import Button from '../components/Button';
 import { formatDate } from '../lib';
 import styles from './index.css';
+import config from '../lib/config';
 
 class HomePage extends Component {
+  static defaultProps = {
+    url: {},
+  };
+
   render() {
     const { url, posts, experiments, loading: isLoading } = this.props;
 
@@ -21,7 +26,9 @@ class HomePage extends Component {
         isLoading={isLoading}
         title="Home"
         metaDescription="The State Library of NSW's experimental innovation lab."
-        metaImageUrl="/static/images/masthead-background-01.gif"
+        metaImageUrl={`${
+          config.baseUrl
+        }/static/images/masthead-background-01.gif`}
       >
         <Masthead
           className="home-page__masthead--main"
