@@ -12,21 +12,27 @@ const SearchPage = ({ url, items, loading: isLoading }) => (
     title="Search"
     metaDescription="{excerpt}"
   >
-    <div className="search-page">
-      <div className="search-form">
-        <form method="get" action="/collection/search">
-          <input type="text" name="q" defaultValue={url.query.q} />
-          <input type="submit" />
-        </form>
-      </div>
+    <div className="search-page container container--md">
+      <h1>Search Collection</h1>
+
+      <form method="get" action="/collection/search" className="search-form">
+        <input
+          type="text"
+          name="q"
+          defaultValue={url.query.q}
+          className="search-form__input"
+        />
+        <input type="submit" className="button" />
+      </form>
 
       {items &&
         items.map(
           ({ id, sourceRecordId, title, images, type, description }, i) => (
             <article key={`posts-${i}`}>
-              <Link
+              <Link to={`/collection/item/${id}`}>
+                {/* <Link
                 to={`http://archival.sl.nsw.gov.au/Details/archive/${sourceRecordId}`}
-              >
+              > */}
                 <a>
                   <div className="item__image-holder">
                     {images && images[0].url ? (
@@ -52,7 +58,7 @@ const SearchPage = ({ url, items, loading: isLoading }) => (
   </App>
 );
 
-const homeQuery = gql`
+const query = gql`
   query Search($q: String) {
     primoSearch(search: $q) {
       id
@@ -71,7 +77,7 @@ const homeQuery = gql`
 // The `graphql` wrapper executes a GraphQL query and makes the results
 // available on the `data` prop of the wrapped component (ExamplePage)
 export default withData(
-  graphql(homeQuery, {
+  graphql(query, {
     options: ({ url: { query: { q } } }) => {
       return {
         variables: {

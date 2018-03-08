@@ -7,6 +7,7 @@ routes
   .add('grants', '/grants')
   .add('code', '/code')
   .add('search', '/search')
-  .add('post', '/blog/:slug');
+  .add('post', '/blog/:slug')
+  .add('collection/item', '/collection/item/:item');
 
 module.exports = routes;
