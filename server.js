@@ -4,6 +4,7 @@ const express = require('express');
 const next = require('next');
 const proxy = require('http-proxy-middleware');
 const uaCompatible = require('ua-compatible');
+const helmet = require('helmet');
 
 const dev = process.env.NODE_ENV !== 'production' && !process.env.NOW;
 const app = next({ dev });
@@ -28,10 +29,14 @@ app
   .prepare()
   .then(() => {
     const server = express();
-    server.enable('strict routing');
+
+    // Add Security headers
+    server.use(helmet());
 
     // Adds X-UA-Compatible: IE=edge, chrome=1 header for our IE friends.
     server.use(uaCompatible);
+
+    server.enable('strict routing');
 
     // Proxy external apps
     Object.keys(proxyRoutes).forEach((route) => {

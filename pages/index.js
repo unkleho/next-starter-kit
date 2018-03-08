@@ -5,6 +5,7 @@ import withData from '../lib/withData';
 import App from '../components/App';
 import Masthead from '../components/Masthead';
 import MainTile from '../components/MainTile';
+// import DisplayTile from '../components/DisplayTile';
 import SimpleTile from '../components/SimpleTile';
 import SectionTitle from '../components/SectionTitle';
 import Button from '../components/Button';
@@ -117,14 +118,6 @@ class HomePage extends Component {
 
         <div className="container container--lg">
           <SectionTitle>Check out our work!</SectionTitle>
-          {/* <Masonry
-            className="experiment-tiles"
-            options={{
-              percentPosition: true,
-              itemSelector: '.tile',
-              columnWidth: '.tile',
-            }}
-          > */}
           {experiments &&
             experiments.map((experiment, i) => (
               <MainTile
@@ -151,7 +144,6 @@ class HomePage extends Component {
                 key={`experiment-${i}`}
               />
             ))}
-          {/* </Masonry> */}
 
           <div className="home-page__button-holder">
             <Button href="/experiments">All Experiments</Button>
