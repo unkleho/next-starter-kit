@@ -10,7 +10,7 @@
   @media (--screen-sm) {
     flex-direction: row;
     height: 18em;
-    margin-bottom: var(--spacing-xlg);
+    margin-bottom: var(--spacing-xxxxlg);
   }
 }
 
