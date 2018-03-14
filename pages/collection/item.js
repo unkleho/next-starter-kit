@@ -17,41 +17,19 @@ class CollectionItemPage extends Component {
     };
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.id !== this.props.item.id) {
-      const images =
-        this.props.item &&
-        this.props.item.images.map((image) => {
-          // return sizeOf(image.url);
-          // img.onload = () => {
-          //   console.log(img.width, img.height);
-          // this.setState({
-          //   images: [
-          //     // ...this.state.images,
-          //     {
-          //       src: image.url,
-          //       thumbnail: image.url,
-          //       w: img.width,
-          //       h: img.height,
-          //     },
-          //   ],
-          // });
-          // };
-          // img.src = image.url;
-        });
-    }
-  }
-
   render() {
     const { isLoading, item } = this.props;
 
-    const images = item.images.map((image) => {
-      return {
-        src: image.url,
-        w: image.width,
-        h: image.height,
-      };
-    });
+    const images =
+      item &&
+      item.images.length > 0 &&
+      item.images.map((image) => {
+        return {
+          src: image.url,
+          w: image.width,
+          h: image.height,
+        };
+      });
 
     return (
       <App pathname="/search" isLoading={isLoading} title="Collection Item">
@@ -65,7 +43,7 @@ class CollectionItemPage extends Component {
 
         {item && (
           <div className="collection-item container container--md">
-            {item.images && (
+            {images.length > 0 && (
               <PhotoSwipeGallery
                 items={images}
                 thumbnailContent={(image) => {
