@@ -2,7 +2,7 @@ module.exports = {
 	parser: 'babel-eslint',
 	extends: [
 		'react-app',
-		'dxlab',
+		'unkleho',
 	],
 	globals: {
 		document: true,
