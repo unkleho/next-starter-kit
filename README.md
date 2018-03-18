@@ -1,14 +1,14 @@
 # Next Starter Kit
 
-Opinionated starter kit for the Next.js React framework. Next.js is great, but still needs a bit of configuring. This starter kit includes all my go-to tech for new projects.
+Opinionated starter kit for the Next.js React framework. This starter kit includes all my go-to tech for new projects.
 
-* next.js
-* next-css
+* Next.js
 * React
 * Redux
 * GraphQL
 * React Apollo
 * dotenv
+* next-css
 * postcss
 * cssnext
 * Lost Grid
