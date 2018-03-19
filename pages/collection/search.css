@@ -21,7 +21,7 @@
 .search-page__facet-list {
   @media (--screen-sm) {
     flex: 1;
-    margin-right: var(--spacing-xlg);
+    margin-right: var(--spacing-xxxxlg);
     font-size: var(--font-size-sm);
   }
 }
@@ -35,8 +35,8 @@
   color: var(--colour-grey);
 }
 
-.search-page__facet__value-name {
-}
+/* .search-page__facet__value-name {
+} */
 
 .search-page__items {
   @media (--screen-sm) {
@@ -68,7 +68,7 @@
   lost-column: 1/4;
 
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 
   & img {
