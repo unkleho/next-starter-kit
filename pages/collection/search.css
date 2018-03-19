@@ -9,9 +9,39 @@
   }
 }
 
+.search-page__results {
+  display: flex;
+}
+
 .search-form__input {
   flex: 3;
   margin-right: var(--spacing-md);
+}
+
+.search-page__facet-list {
+  @media (--screen-sm) {
+    flex: 1;
+    margin-right: var(--spacing-xlg);
+    font-size: var(--font-size-sm);
+  }
+}
+
+.search-page__facet {
+  margin-bottom: var(--spacing-xxlg);
+}
+
+.search-page__facet__title {
+  margin-top: 0;
+  color: var(--colour-grey);
+}
+
+.search-page__facet__value-name {
+}
+
+.search-page__items {
+  @media (--screen-sm) {
+    flex: 4;
+  }
 }
 
 .item {

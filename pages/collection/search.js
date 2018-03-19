@@ -5,14 +5,14 @@ import App from '../../components/App';
 import Link from '../../components/Link';
 import styles from './search.css';
 
-const SearchPage = ({ url, items, loading: isLoading }) => (
+const SearchPage = ({ url, items, facets, loading: isLoading }) => (
   <App
     pathname="/search"
     isLoading={isLoading}
     title="Search"
     metaDescription="{excerpt}"
   >
-    <div className="search-page container container--md">
+    <div className="search-page container container--lg">
       <br />
       <h2>Search Collection</h2>
 
@@ -26,34 +26,54 @@ const SearchPage = ({ url, items, loading: isLoading }) => (
         <input type="submit" className="button" />
       </form>
 
-      {items &&
-        items.map(
-          ({ id, sourceRecordId, title, images, type, description }, i) => (
-            <article className="item" key={`posts-${i}`}>
-              <Link to={`/collection/item/${id}`}>
-                {/* <Link
-                to={`http://archival.sl.nsw.gov.au/Details/archive/${sourceRecordId}`}
-              > */}
-                <a>
-                  <div className="item__image-holder">
-                    {images && images[0] && images[0].url ? (
-                      <img src={images[0].url} alt={title} />
-                    ) : (
-                      <div>No Image</div>
-                    )}
-                  </div>
+      <div className="search-page__results">
+        <div className="search-page__facet-list">
+          {facets &&
+            facets.map((facet) => (
+              <div className="search-page__facet">
+                <h3 className="search-page__facet__title">{facet.name}</h3>
+                <div className="search-page__facet__values">
+                  {facet.values.map((value) => (
+                    <div className="search-page__facet__value-name">
+                      {value.name} ({value.count})
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+        </div>
 
-                  <div className="item__info">
-                    <div className="item__type">{type}</div>
-                    <h2>{title}</h2>
-                    <p dangerouslySetInnerHTML={{ __html: description }} />
-                    <p className="item__id">{id}</p>
-                  </div>
-                </a>
-              </Link>
-            </article>
-          ),
-        )}
+        <div className="search-page__items">
+          {items &&
+            items.map(
+              ({ id, sourceRecordId, title, images, type, description }, i) => (
+                <article className="item" key={`posts-${i}`}>
+                  <Link to={`/collection/item/${id}`}>
+                    {/* <Link
+		                to={`http://archival.sl.nsw.gov.au/Details/archive/${sourceRecordId}`}
+		              > */}
+                    <a>
+                      <div className="item__image-holder">
+                        {images && images[0] && images[0].url ? (
+                          <img src={images[0].url} alt={title} />
+                        ) : (
+                          <div>No Image</div>
+                        )}
+                      </div>
+
+                      <div className="item__info">
+                        <div className="item__type">{type}</div>
+                        <h2>{title}</h2>
+                        <p dangerouslySetInnerHTML={{ __html: description }} />
+                        <p className="item__id">{id}</p>
+                      </div>
+                    </a>
+                  </Link>
+                </article>
+              ),
+            )}
+        </div>
+      </div>
     </div>
 
     <style jsx>{styles}</style>
@@ -61,8 +81,8 @@ const SearchPage = ({ url, items, loading: isLoading }) => (
 );
 
 const query = gql`
-  query Search($q: String) {
-    primoSearch(search: $q) {
+  query Search($q: String, $facets: [PrimoFacetType]) {
+    primoSearch(search: $q, facets: $facets) {
       records {
         id
         sourceId
@@ -74,6 +94,13 @@ const query = gql`
           url
         }
       }
+      facets {
+        name
+        values {
+          name
+          count
+        }
+      }
     }
   }
 `;
@@ -82,18 +109,20 @@ const query = gql`
 // available on the `data` prop of the wrapped component (ExamplePage)
 export default withData(
   graphql(query, {
-    options: ({ url: { query: { q } } }) => {
+    options: ({ url: { query: { q, facets } } }) => {
       return {
         variables: {
           q,
+          facets: buildFacetQuery(facets),
         },
       };
     },
     props: ({ data, ownProps }) => {
-      if (data.primoSearch) {
+      if (ownProps.url.query.q && data.primoSearch) {
         return {
           ...data,
-          items: ownProps.url.query.q && data.primoSearch.records,
+          items: data.primoSearch.records,
+          facets: data.primoSearch.facets,
         };
       }
 
@@ -101,3 +130,18 @@ export default withData(
     },
   })(SearchPage),
 );
+
+const buildFacetQuery = (facetUrlArgs) => {
+  if (facetUrlArgs && facetUrlArgs.length > 0) {
+    return facetUrlArgs.map((facetUrlArg) => {
+      const facet = facetUrlArg.split(',');
+
+      return {
+        name: facet[0],
+        value: facet[1],
+      };
+    });
+  }
+
+  return null;
+};
