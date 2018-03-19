@@ -1,0 +1,20 @@
+@import '../../styles/variables.css';
+
+.collection-item__gallery {
+  margin-bottom: var(--spacing-xlg);
+}
+
+.collection-item__type {
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  @apply (--font-uppercase);
+}
+
+.collection-item__id {
+  @apply (--font-uppercase);
+}
+
+.collection-item__title {
+  margin-top: 0;
+  line-height: 1.2;
+}

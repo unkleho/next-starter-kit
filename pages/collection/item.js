@@ -6,7 +6,7 @@ import Head from 'next/head';
 
 import withData from '../../lib/withData';
 import App from '../../components/App';
-import styles from './search.css';
+import styles from './item.css';
 
 class CollectionItemPage extends Component {
   constructor() {
@@ -43,25 +43,31 @@ class CollectionItemPage extends Component {
 
         {item && (
           <div className="collection-item container container--md">
-            {images.length > 0 && (
-              <PhotoSwipeGallery
-                items={images}
-                thumbnailContent={(image) => {
-                  return (
-                    <img
-                      src={image.src}
-                      className="collection-item__image"
-                      alt="This should be something meaningful"
-                    />
-                  );
-                }}
-              />
-            )}
+            <div className="collection-item__gallery">
+              {images.length > 0 && (
+                <PhotoSwipeGallery
+                  items={images}
+                  thumbnailContent={(image) => {
+                    return (
+                      <img
+                        src={image.src}
+                        className="collection-item__image"
+                        alt="This should be something meaningful"
+                      />
+                    );
+                  }}
+                />
+              )}
+            </div>
 
-            <p>{item.type}</p>
-            <h1>{item.title}</h1>
+            <h1 className="collection-item__title">{item.title}</h1>
+            <p className="collection-item__type">Type: {item.type}</p>
+            <p className="collection-item__id">Id: {item.id}</p>
 
             <p>{item.description}</p>
+
+            <h2>Subjects</h2>
+            <ul>{item.subjects.map((subject) => <li>{subject}</li>)}</ul>
           </div>
         )}
 
@@ -101,11 +107,12 @@ const query = gql`
       title
       type
       description
-      images {
+      images(size: FULL) {
         url
         width
         height
       }
+      subjects
     }
   }
 `;

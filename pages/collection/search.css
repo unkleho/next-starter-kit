@@ -14,7 +14,7 @@
   margin-right: var(--spacing-md);
 }
 
-article {
+.item {
   lost-utility: clearfix;
 
   margin-bottom: var(--spacing-md);
@@ -56,4 +56,9 @@ article {
   text-transform: uppercase;
   color: var(--colour-white);
   font-size: var(--font-size-sm);
+}
+
+.item__id {
+  color: var(--colour-grey);
+  margin-bottom: 0;
 }
