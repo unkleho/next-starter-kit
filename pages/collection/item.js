@@ -22,6 +22,7 @@ class CollectionItemPage extends Component {
 
     const images =
       item &&
+      item.images &&
       item.images.length > 0 &&
       item.images.map((image) => {
         return {
@@ -43,31 +44,41 @@ class CollectionItemPage extends Component {
 
         {item && (
           <div className="collection-item container container--md">
+            <button
+              className="collection-item__back-button"
+              onClick={() => window.history.back()}
+            >
+              &#9664; Back to search
+            </button>
             <div className="collection-item__gallery">
-              {images.length > 0 && (
-                <PhotoSwipeGallery
-                  items={images}
-                  thumbnailContent={(image) => {
-                    return (
-                      <img
-                        src={image.src}
-                        className="collection-item__image"
-                        alt="This should be something meaningful"
-                      />
-                    );
-                  }}
-                />
-              )}
+              {images &&
+                images.length > 0 && (
+                  <PhotoSwipeGallery
+                    items={images}
+                    thumbnailContent={(image) => {
+                      return (
+                        <img
+                          src={image.src}
+                          className="collection-item__image"
+                          alt="This should be something meaningful"
+                        />
+                      );
+                    }}
+                  />
+                )}
             </div>
 
             <h1 className="collection-item__title">{item.title}</h1>
             <p className="collection-item__type">Type: {item.type}</p>
             <p className="collection-item__id">Id: {item.id}</p>
 
-            <p>{item.description}</p>
+            <p dangerouslySetInnerHTML={{ __html: item.description }} />
 
             <h2>Subjects</h2>
-            <ul>{item.subjects.map((subject) => <li>{subject}</li>)}</ul>
+            <ul>
+              {item.subjects &&
+                item.subjects.map((subject) => <li>{subject}</li>)}
+            </ul>
           </div>
         )}
 

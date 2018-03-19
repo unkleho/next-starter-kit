@@ -1,5 +1,14 @@
 @import '../../styles/variables.css';
 
+.collection-item__back-button {
+  display: block;
+  margin-bottom: var(--spacing-md);
+  padding: 0;
+  font-size: var(--font-size-sm);
+  @apply (--font-uppercase);
+  color: var(--colour-highlight);
+}
+
 .collection-item__gallery {
   margin-bottom: var(--spacing-xlg);
 }

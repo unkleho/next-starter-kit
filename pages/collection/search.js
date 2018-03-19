@@ -13,7 +13,8 @@ const SearchPage = ({ url, items, loading: isLoading }) => (
     metaDescription="{excerpt}"
   >
     <div className="search-page container container--md">
-      <h1>Search Collection</h1>
+      <br />
+      <h2>Search Collection</h2>
 
       <form method="get" action="/collection/search" className="search-form">
         <input
@@ -45,7 +46,7 @@ const SearchPage = ({ url, items, loading: isLoading }) => (
                   <div className="item__info">
                     <div className="item__type">{type}</div>
                     <h2>{title}</h2>
-                    <p>{description}</p>
+                    <p dangerouslySetInnerHTML={{ __html: description }} />
                     <p className="item__id">{id}</p>
                   </div>
                 </a>
@@ -89,10 +90,14 @@ export default withData(
       };
     },
     props: ({ data, ownProps }) => {
-      return {
-        ...data,
-        items: ownProps.url.query.q && data.primoSearch.records,
-      };
+      if (data.primoSearch) {
+        return {
+          ...data,
+          items: ownProps.url.query.q && data.primoSearch.records,
+        };
+      }
+
+      return null;
     },
   })(SearchPage),
 );
