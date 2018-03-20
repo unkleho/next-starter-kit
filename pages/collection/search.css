@@ -35,8 +35,37 @@
   color: var(--colour-grey);
 }
 
-/* .search-page__facet__value-name {
-} */
+.search-page__facet__value-name {
+  & a:link,
+  & a:visited {
+    display: block;
+    /* padding-top: var(--spacing-xxxs); */
+    padding-bottom: var(--spacing-xxxs);
+    color: var(--colour-white);
+    /* border-top: 1px solid var(--colour-grey-darkest); */
+  }
+}
+
+.search-page__facet__toggle {
+  text-transform: lowercase;
+  margin-top: var(--spacing-xxs);
+  padding: 0;
+  color: var(--colour-highlight);
+}
+
+.search-page__selected-facets {
+  margin-bottom: var(--spacing-md);
+}
+
+/* Move to global function */
+.search-page__facet-button {
+  display: inline-block;
+  margin-right: var(--spacing-sm);
+  padding: var(--spacing-md);
+  border: 1px solid var(--colour-primary);
+  font-size: var(--font-size-sm);
+  @apply (--font-uppercase);
+}
 
 .search-page__items {
   @media (--screen-sm) {
@@ -83,12 +112,15 @@
 }
 
 .item__type {
-  text-transform: uppercase;
+  @apply (--font-uppercase);
   color: var(--colour-white);
   font-size: var(--font-size-sm);
+  font-weight: 700;
 }
 
 .item__id {
+  @apply (--font-uppercase);
+  font-size: var(--font-size-sm);
   color: var(--colour-grey);
   margin-bottom: 0;
 }
