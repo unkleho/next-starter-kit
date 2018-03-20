@@ -86,7 +86,7 @@ class SearchPage extends Component {
                             ...url.query,
                             facets: [
                               ...(facetParams || []),
-                              `${facet.name},${encodeURIComponent(value.name)}`,
+                              `${facet.slug},${encodeURIComponent(value.slug)}`,
                             ],
                           };
                           const urlString = queryString.stringify(urlObject, {
@@ -102,7 +102,10 @@ class SearchPage extends Component {
                             >
                               <Link to={`${url.pathname}?${urlString}`}>
                                 <a>
-                                  {value.name} ({value.count})
+                                  {value.name}{' '}
+                                  <span className="search-page__facet__value-count">
+                                    ({value.count})
+                                  </span>
                                 </a>
                               </Link>
                             </div>
@@ -218,8 +221,10 @@ const query = gql`
       }
       facets {
         name
+        slug
         values {
           name
+          slug
           count
         }
       }
