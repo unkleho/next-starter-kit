@@ -13,6 +13,36 @@
   display: flex;
 }
 
+.search-page__results__loader {
+  position: relative;
+  height: 1px;
+  margin-bottom: -1px;
+  z-index: 10;
+  background: linear-gradient(
+    270deg,
+    var(--colour-black),
+    var(--colour-highlight),
+    var(--colour-black)
+  );
+  background-size: 400% 400%;
+
+  animation: AnimationName 2s ease infinite;
+
+  @keyframes AnimationName {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
+
 .search-form__input {
   flex: 3;
   margin-right: var(--spacing-md);
@@ -48,23 +78,33 @@
 
 .search-page__facet__toggle {
   text-transform: lowercase;
-  margin-top: var(--spacing-xxs);
+  /* margin-top: var(--spacing-xxxs); */
   padding: 0;
   color: var(--colour-highlight);
 }
 
 .search-page__selected-facets {
-  margin-bottom: var(--spacing-md);
+  /* margin-bottom: var(--spacing-md); */
 }
 
 /* Move to global function */
 .search-page__facet-button {
   display: inline-block;
   margin-right: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
   padding: var(--spacing-md);
   border: 1px solid var(--colour-primary);
   font-size: var(--font-size-sm);
   @apply (--font-uppercase);
+}
+
+.search-page__results__items {
+  transition: 0.3s;
+  opacity: 1;
+}
+
+.search-page__results__items--is-loading {
+  opacity: 0.2;
 }
 
 .search-page__items {
@@ -81,6 +121,7 @@
   padding-top: var(--spacing-md);
 
   & a {
+    display: flex;
     height: 100%;
   }
 
@@ -88,17 +129,25 @@
     font-family: 'Lekton';
     font-weight: 400;
     margin-top: 0;
-    font-size: var(--font-size-lg);
+    /* font-size: var(--font-size-md); */
     color: var(--colour-primary);
+
+    @media (--screen-sm) {
+      font-size: var(--font-size-lg);
+    }
   }
 }
 
 .item__image-holder {
-  lost-column: 1/4;
-
   display: flex;
+  flex: 1;
+  margin-right: var(--spacing-md);
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
+
+  @media (--screen-sm) {
+    margin-right: var(--spacing-xlg);
+  }
 
   & img {
     width: 100%;
@@ -106,14 +155,18 @@
 }
 
 .item__info {
-  lost-column: 3/4;
-
+  flex: 3;
+  font-size: var(--font-size-sm);
   color: var(--colour-white);
+
+  @media (--screen-sm) {
+    font-size: var(--font-size-md);
+  }
 }
 
 .item__type {
   @apply (--font-uppercase);
-  color: var(--colour-white);
+  color: var(--colour-grey);
   font-size: var(--font-size-sm);
   font-weight: 700;
 }

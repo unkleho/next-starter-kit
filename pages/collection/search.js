@@ -33,7 +33,7 @@ class SearchPage extends Component {
     return (
       <App
         pathname="/search"
-        isLoading={isLoading}
+        // isLoading={isLoading}
         title="Search"
         metaDescription="{excerpt}"
       >
@@ -56,7 +56,10 @@ class SearchPage extends Component {
           </form>
 
           <div className="search-page__results">
-            <div className="search-page__facet-list">
+            <div
+              className="search-page__facet-list"
+              // style={{ display: 'none' }}
+            >
               {facets &&
                 facets.map((facet) => {
                   // Check if facet.name is in facetsShowAll, if so, show all facet values.
@@ -162,39 +165,49 @@ class SearchPage extends Component {
                 </div>
               )}
 
-              {items &&
-                items.map(
-                  (
-                    { id, sourceRecordId, title, images, type, description },
-                    i,
-                  ) => (
-                    <article className="item" key={`posts-${i}`}>
-                      <Link to={`/collection/item/${id}`}>
-                        {/* <Link
-				                to={`http://archival.sl.nsw.gov.au/Details/archive/${sourceRecordId}`}
-				              > */}
-                        <a>
-                          <div className="item__image-holder">
-                            {images && images[0] && images[0].url ? (
-                              <img src={images[0].url} alt={title} />
-                            ) : (
-                              <div>No Image</div>
-                            )}
-                          </div>
+              {isLoading && <div className="search-page__results__loader" />}
 
-                          <div className="item__info">
-                            <div className="item__type">{type}</div>
-                            <h2>{title}</h2>
-                            <p
-                              dangerouslySetInnerHTML={{ __html: description }}
-                            />
-                            <p className="item__id">{id}</p>
-                          </div>
-                        </a>
-                      </Link>
-                    </article>
-                  ),
-                )}
+              <div
+                className={`search-page__results__items ${
+                  isLoading ? 'search-page__results__items--is-loading' : ''
+                }`}
+              >
+                {items &&
+                  items.map(
+                    (
+                      { id, sourceRecordId, title, images, type, description },
+                      i,
+                    ) => (
+                      <article className="item" key={`posts-${i}`}>
+                        <Link to={`/collection/item/${id}`}>
+                          {/* <Link
+					                to={`http://archival.sl.nsw.gov.au/Details/archive/${sourceRecordId}`}
+					              > */}
+                          <a>
+                            <div className="item__image-holder">
+                              {images && images[0] && images[0].url ? (
+                                <img src={images[0].url} alt={title} />
+                              ) : (
+                                <div>No Image</div>
+                              )}
+                            </div>
+
+                            <div className="item__info">
+                              <div className="item__type">{type}</div>
+                              <h2>{title}</h2>
+                              <p
+                                dangerouslySetInnerHTML={{
+                                  __html: description,
+                                }}
+                              />
+                              <p className="item__id">{id}</p>
+                            </div>
+                          </a>
+                        </Link>
+                      </article>
+                    ),
+                  )}
+              </div>
             </div>
           </div>
         </div>
