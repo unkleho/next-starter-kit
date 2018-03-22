@@ -1,21 +1,36 @@
 import { Component } from 'react';
 import { gql, graphql } from 'react-apollo';
 import queryString from 'query-string';
+import InfiniteScroll from 'react-infinite-scroller';
 
 import withData from '../../lib/withData';
 import App from '../../components/App';
 import Link from '../../components/Link';
 import styles from './search.css';
 
-class SearchPage extends Component {
+class CollectionSearchPage extends Component {
   constructor() {
     super();
 
     this.state = {
+      showMobileFacetList: false,
+      showDesktopFacetList: true,
       facetsShowAll: [],
       initialFacetValueCount: 5,
     };
   }
+
+  handleDesktopFacetListToggle = () => {
+    this.setState({
+      showDesktopFacetList: !this.state.showDesktopFacetList,
+    });
+  };
+
+  handleMobileFacetListToggle = () => {
+    this.setState({
+      showMobileFacetList: !this.state.showMobileFacetList,
+    });
+  };
 
   handleFacetToggle = (facetName) => {
     this.setState({
@@ -24,11 +39,25 @@ class SearchPage extends Component {
   };
 
   render() {
-    const { url, items, facets, loading: isLoading } = this.props;
+    const {
+      url,
+      items,
+      facets,
+      loading: isLoading,
+      totalItems,
+      loadMore,
+    } = this.props;
     const selectedFacets = wrapArray(url.query.facets).map((f) =>
       convertStringToFacet(f),
     );
-    const { facetsShowAll, initialFacetValueCount } = this.state;
+    const {
+      facetsShowAll,
+      initialFacetValueCount,
+      showMobileFacetList,
+      showDesktopFacetList,
+    } = this.state;
+
+    console.log(showMobileFacetList);
 
     return (
       <App
@@ -37,29 +66,63 @@ class SearchPage extends Component {
         title="Search"
         metaDescription="{excerpt}"
       >
-        <div className="search-page container container--lg">
-          <br />
-          <h2>Search Collection</h2>
+        <div className="collection-search-page container container--lg">
+          <h1 className="collection-search-page__title">Search Collection</h1>
 
           <form
             method="get"
             action="/collection/search"
-            className="search-form"
+            className="collection-search-page__form"
           >
             <input
               type="text"
               name="q"
+              placeholder="Start searching"
               defaultValue={url.query.q}
-              className="search-form__input"
+              className="collection-search-page__form__input"
             />
             <input type="submit" className="button" />
           </form>
 
-          <div className="search-page__results">
-            <div
-              className="search-page__facet-list"
-              // style={{ display: 'none' }}
+          <div className="collection-search-page__info">
+            <button
+              className="collection-search-page__toggle-facet-list-button collection-search-page__toggle-facet-list-button--mobile"
+              onClick={this.handleMobileFacetListToggle}
             >
+              {showMobileFacetList ? '< Hide' : '> Show'} Facets
+            </button>
+
+            <button
+              className="collection-search-page__toggle-facet-list-button collection-search-page__toggle-facet-list-button--desktop"
+              onClick={this.handleDesktopFacetListToggle}
+            >
+              {showDesktopFacetList ? '< Hide' : '> Show'} Facets
+            </button>
+
+            <div className="collection-search-page__total-items">
+              {numberWithCommas(totalItems)} results
+            </div>
+          </div>
+
+          <div className="collection-search-page__results">
+            <div
+              className={`collection-search-page__facet-list ${
+                showDesktopFacetList
+                  ? 'collection-search-page__facet-list--is-desktop-active'
+                  : ''
+              } ${
+                showMobileFacetList
+                  ? 'collection-search-page__facet-list--is-mobile-active'
+                  : ''
+              }`}
+            >
+              <button
+                className="collection-search-page__facet-list__mobile-button"
+                onClick={this.handleMobileFacetListToggle}
+              >
+                {showMobileFacetList ? '< Hide' : '> Show'} Facets
+              </button>
+
               {facets &&
                 facets.map((facet) => {
                   // Check if facet.name is in facetsShowAll, if so, show all facet values.
@@ -70,14 +133,14 @@ class SearchPage extends Component {
 
                   return (
                     <div
-                      className="search-page__facet"
-                      key={`search-page__facet-${facet.name}`}
+                      className="collection-search-page__facet"
+                      key={`collection-search-page__facet-${facet.name}`}
                     >
-                      <h3 className="search-page__facet__title">
+                      <h3 className="collection-search-page__facet__title">
                         {facet.name}
                       </h3>
 
-                      <div className="search-page__facet__values">
+                      <div className="collection-search-page__facet__values">
                         {facetValues.map((value) => {
                           // Change to array if string
                           const facetParams =
@@ -98,16 +161,18 @@ class SearchPage extends Component {
 
                           return (
                             <div
-                              className="search-page__facet__value-name"
-                              key={`search-page__facet__value-name-${
+                              className="collection-search-page__facet__value-name"
+                              key={`collection-search-page__facet__value-name-${
                                 value.name
                               }`}
                             >
                               <Link to={`${url.pathname}?${urlString}`}>
                                 <a>
                                   {value.name}{' '}
-                                  <span className="search-page__facet__value-count">
-                                    ({value.count})
+                                  <span className="collection-search-page__facet__value-count">
+                                    <span>
+                                      ({numberWithCommas(value.count)})
+                                    </span>
                                   </span>
                                 </a>
                               </Link>
@@ -118,7 +183,7 @@ class SearchPage extends Component {
 
                       {facet.values.length >= initialFacetValueCount && (
                         <button
-                          className="search-page__facet__toggle"
+                          className="collection-search-page__facet__toggle"
                           onClick={() => this.handleFacetToggle(facet.name)}
                         >
                           {showAll ? 'less' : 'more'}
@@ -129,9 +194,9 @@ class SearchPage extends Component {
                 })}
             </div>
 
-            <div className="search-page__items">
+            <div className="collection-search-page__items">
               {selectedFacets.length > 0 && (
-                <div className="search-page__selected-facets">
+                <div className="collection-search-page__selected-facets">
                   {selectedFacets.map((selectedFacet) => {
                     const urlObject = {
                       ...url.query,
@@ -154,9 +219,11 @@ class SearchPage extends Component {
                     return (
                       <Link
                         to={`${url.pathname}?${urlString}`}
-                        key={`search-page__facet-button-${selectedFacet.value}`}
+                        key={`collection-search-page__facet-button-${
+                          selectedFacet.value
+                        }`}
                       >
-                        <a className="search-page__facet-button">
+                        <a className="collection-search-page__facet-button">
                           {selectedFacet.name}: {selectedFacet.value} (x)
                         </a>
                       </Link>
@@ -165,48 +232,75 @@ class SearchPage extends Component {
                 </div>
               )}
 
-              {isLoading && <div className="search-page__results__loader" />}
+              {isLoading && (
+                <div className="collection-search-page__results__loader" />
+              )}
 
               <div
-                className={`search-page__results__items ${
-                  isLoading ? 'search-page__results__items--is-loading' : ''
+                className={`collection-search-page__results__items ${
+                  isLoading
+                    ? 'collection-search-page__results__items--is-loading'
+                    : ''
                 }`}
               >
-                {items &&
-                  items.map(
-                    (
-                      { id, sourceRecordId, title, images, type, description },
-                      i,
-                    ) => (
-                      <article className="item" key={`posts-${i}`}>
-                        <Link to={`/collection/item/${id}`}>
-                          {/* <Link
+                {items && (
+                  <InfiniteScroll
+                    pageStart={0}
+                    loadMore={loadMore}
+                    hasMore={items.length < 100}
+                    loader={
+                      <div className="collection-search-page__results__loader">
+                        <div className="collection-search-page__results__loader__text">
+                          Loading <span>.</span>
+                          <span>.</span>
+                          <span>.</span>
+                        </div>
+                      </div>
+                    }
+                  >
+                    {items.map(
+                      (
+                        {
+                          id,
+                          sourceRecordId,
+                          title,
+                          images,
+                          type,
+                          description,
+                        },
+                        i,
+                      ) => (
+                        <article className="item" key={`posts-${i}`}>
+                          <Link to={`/collection/item/${id}`}>
+                            {/* <Link
 					                to={`http://archival.sl.nsw.gov.au/Details/archive/${sourceRecordId}`}
 					              > */}
-                          <a>
-                            <div className="item__image-holder">
-                              {images && images[0] && images[0].url ? (
-                                <img src={images[0].url} alt={title} />
-                              ) : (
-                                <div>No Image</div>
-                              )}
-                            </div>
+                            <a>
+                              <div className="item__image-holder">
+                                {images && images[0] && images[0].url ? (
+                                  <img src={images[0].url} alt={title} />
+                                ) : (
+                                  <div>No Image</div>
+                                )}
+                              </div>
 
-                            <div className="item__info">
-                              <div className="item__type">{type}</div>
-                              <h2>{title}</h2>
-                              <p
-                                dangerouslySetInnerHTML={{
-                                  __html: description,
-                                }}
-                              />
-                              <p className="item__id">{id}</p>
-                            </div>
-                          </a>
-                        </Link>
-                      </article>
-                    ),
-                  )}
+                              <div className="item__info">
+                                <div className="item__type">{type}</div>
+                                <h2>{title}</h2>
+                                <p
+                                  dangerouslySetInnerHTML={{
+                                    __html: description,
+                                  }}
+                                />
+                                <p className="item__id">{id}</p>
+                              </div>
+                            </a>
+                          </Link>
+                        </article>
+                      ),
+                    )}
+                  </InfiniteScroll>
+                )}
               </div>
             </div>
           </div>
@@ -219,8 +313,8 @@ class SearchPage extends Component {
 }
 
 const query = gql`
-  query Search($q: String, $facets: [PrimoFacetType]) {
-    primoSearch(search: $q, facets: $facets) {
+  query Search($q: String, $facets: [PrimoFacetType], $offset: Int) {
+    primoSearch(search: $q, facets: $facets, offset: $offset) {
       records {
         id
         sourceId
@@ -241,6 +335,9 @@ const query = gql`
           count
         }
       }
+      info {
+        total
+      }
     }
   }
 `;
@@ -254,6 +351,7 @@ export default withData(
         variables: {
           q,
           facets: buildFacetQuery(facets),
+          offset: 0,
         },
       };
     },
@@ -263,12 +361,35 @@ export default withData(
           ...data,
           items: data.primoSearch.records,
           facets: data.primoSearch.facets,
+          totalItems: data.primoSearch.info.total,
+          loadMore() {
+            return data.fetchMore({
+              variables: {
+                offset: data.primoSearch.records.length,
+              },
+              updateQuery: (previousResult, { fetchMoreResult }) => {
+                if (!fetchMoreResult) {
+                  return previousResult;
+                }
+
+                return {
+                  ...previousResult,
+                  primoSearch: {
+                    records: [
+                      ...previousResult.primoSearch.records,
+                      ...fetchMoreResult.primoSearch.records,
+                    ],
+                  },
+                };
+              },
+            });
+          },
         };
       }
 
       return null;
     },
-  })(SearchPage),
+  })(CollectionSearchPage),
 );
 
 const buildFacetQuery = (facetUrlArgs) => {
@@ -307,4 +428,8 @@ const addOrRemove = (array, value) => {
   }
 
   return array;
+};
+
+const numberWithCommas = (x) => {
+  return x && x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };

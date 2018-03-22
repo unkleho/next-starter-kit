@@ -1,6 +1,22 @@
 @import '../../styles/variables.css';
 
-.search-form {
+.collection-search-page {
+  padding-top: var(--spacing-md);
+  @media (--screen-sm) {
+    padding-top: var(--spacing-lg);
+  }
+}
+
+.collection-search-page__title {
+  font-size: var(--font-size-sm);
+
+  @media (--screen-sm) {
+    font-size: var(--font-size-md);
+  }
+}
+
+/* Form */
+.collection-search-page__form {
   display: flex;
   margin-bottom: var(--spacing-md);
 
@@ -9,11 +25,18 @@
   }
 }
 
-.search-page__results {
+.collection-search-page__form__input {
+  flex: 4;
+  margin-right: var(--spacing-md);
+}
+
+/* Results */
+.collection-search-page__results {
   display: flex;
 }
 
-.search-page__results__loader {
+/* Loader */
+.collection-search-page__results__loader {
   position: relative;
   height: 1px;
   margin-bottom: -1px;
@@ -25,6 +48,7 @@
     var(--colour-black)
   );
   background-size: 400% 400%;
+  @apply (--font-uppercase);
 
   animation: AnimationName 2s ease infinite;
 
@@ -43,52 +67,222 @@
   }
 }
 
-.search-form__input {
-  flex: 3;
-  margin-right: var(--spacing-md);
-}
+.collection-search-page__results__loader__text {
+  color: var(--colour-grey-light);
+  font-size: var(--font-size-sm);
+  padding-top: var(--spacing-md);
 
-.search-page__facet-list {
-  @media (--screen-sm) {
-    flex: 1;
-    margin-right: var(--spacing-xxxxlg);
-    font-size: var(--font-size-sm);
+  & span {
+    /**
+	     * Use the blink animation, which is defined above
+	     */
+    animation-name: blink;
+    /**
+	     * The animation should take 1.4 seconds
+	     */
+    animation-duration: 1.4s;
+    /**
+	     * It will repeat itself forever
+	     */
+    animation-iteration-count: infinite;
+    /**
+	     * This makes sure that the starting style (opacity: .2)
+	     * of the animation is applied before the animation starts.
+	     * Otherwise we would see a short flash or would have
+	     * to set the default styling of the dots to the same
+	     * as the animation. Same applies for the ending styles.
+	     */
+    animation-fill-mode: both;
+  }
+
+  & span:nth-child(2) {
+    /**
+	     * Starts the animation of the third dot
+	     * with a delay of .2s, otherwise all dots
+	     * would animate at the same time
+	     */
+    animation-delay: 0.2s;
+  }
+
+  & span:nth-child(3) {
+    /**
+	     * Starts the animation of the third dot
+	     * with a delay of .4s, otherwise all dots
+	     * would animate at the same time
+	     */
+    animation-delay: 0.4s;
   }
 }
 
-.search-page__facet {
-  margin-bottom: var(--spacing-xxlg);
+@keyframes blink {
+  /**
+     * At the start of the animation the dot
+     * has an opacity of .2
+     */
+  0% {
+    opacity: 0.2;
+  }
+  /**
+     * At 20% the dot is fully visible and
+     * then fades out slowly
+     */
+  20% {
+    opacity: 1;
+  }
+  /**
+     * Until it reaches an opacity of .2 and
+     * the animation can start again
+     */
+  100% {
+    opacity: 0.2;
+  }
 }
 
-.search-page__facet__title {
+/* Info  */
+.collection-search-page__info {
+  display: flex;
+  margin-bottom: var(--spacing-sm);
+}
+
+.collection-search-page__toggle-facet-list-button {
+  flex: 1;
+  padding: var(--spacing-sm) 0;
+  @apply (--font-uppercase);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  text-align: left;
+  color: var(--colour-highlight);
+
+  @media (--screen-sm) {
+    position: relative;
+    top: 0;
+    /* padding-bottom: var(--spacing-lg); */
+  }
+}
+
+.collection-search-page__toggle-facet-list-button--mobile {
+  display: block;
+
+  @media (--screen-sm) {
+    display: none;
+  }
+}
+
+.collection-search-page__toggle-facet-list-button--desktop {
+  display: none;
+
+  @media (--screen-sm) {
+    display: block;
+  }
+}
+
+.collection-search-page__total-items {
+  flex: 1;
+  padding: var(--spacing-sm) 0;
+  @apply (--font-uppercase);
+  font-size: var(--font-size-sm);
+  text-align: right;
+
+  @media (--screen-sm) {
+    flex: 3;
+		text-align: left;
+  }
+}
+
+/* Facets */
+.collection-search-page__facet-list {
+  position: fixed;
+  z-index: 20;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 100%;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  padding: var(--spacing-lg);
+  background-color: var(--colour-black);
+  border-right: 1px solid var(--colour-grey-darkest);
+  font-size: var(--font-size-sm);
+
+  @media (--screen-sm) {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    width: 100%;
+    border-right: none;
+    padding: 0;
+  }
+}
+
+.collection-search-page__facet-list--is-desktop-active {
+  @media (--screen-sm) {
+    display: block;
+  }
+}
+
+.collection-search-page__facet-list--is-mobile-active {
+  display: block;
+}
+
+.collection-search-page__facet-list__mobile-button {
+  /* position: sticky; */
+  top: 0;
+  width: 100%;
+  margin-bottom: var(--spacing-xlg);
+  padding-bottom: var(--spacing-md);
+  background-color: var(--colour-black);
+  border-bottom: 1px solid var(--colour-grey-darkest);
+  @apply (--font-uppercase);
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  text-align: left;
+
+  @media (--screen-sm) {
+    display: none;
+  }
+}
+
+.collection-search-page__facet {
+  margin-bottom: var(--spacing-xxlg);
+  margin-right: var(--spacing-xxxxlg);
+}
+
+.collection-search-page__facet__title {
   margin-top: 0;
   color: var(--colour-grey);
 }
 
-.search-page__facet__value-name {
+.collection-search-page__facet__value-name {
+  line-height: var(--line-height-sm);
+
   & a:link,
   & a:visited {
     display: block;
     /* padding-top: var(--spacing-xxxs); */
-    padding-bottom: var(--spacing-xxxs);
+    padding-bottom: var(--spacing-xs);
     color: var(--colour-white);
     /* border-top: 1px solid var(--colour-grey-darkest); */
   }
+
+  & span {
+    color: var(--colour-grey-light);
+  }
 }
 
-.search-page__facet__toggle {
+.collection-search-page__facet__toggle {
   text-transform: lowercase;
   /* margin-top: var(--spacing-xxxs); */
   padding: 0;
   color: var(--colour-highlight);
 }
 
-.search-page__selected-facets {
+.collection-search-page__selected-facets {
   /* margin-bottom: var(--spacing-md); */
 }
 
 /* Move to global function */
-.search-page__facet-button {
+.collection-search-page__facet-button {
   display: inline-block;
   margin-right: var(--spacing-sm);
   margin-bottom: var(--spacing-md);
@@ -98,18 +292,19 @@
   @apply (--font-uppercase);
 }
 
-.search-page__results__items {
+/* Results */
+.collection-search-page__results__items {
   transition: 0.3s;
   opacity: 1;
 }
 
-.search-page__results__items--is-loading {
+.collection-search-page__results__items--is-loading {
   opacity: 0.2;
 }
 
-.search-page__items {
+.collection-search-page__items {
   @media (--screen-sm) {
-    flex: 4;
+    flex: 3;
   }
 }
 
