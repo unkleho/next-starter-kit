@@ -6,6 +6,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 import withData from '../../lib/withData';
 import App from '../../components/App';
 import Link from '../../components/Link';
+import { Router } from '../../routes';
 import styles from './search.css';
 
 class CollectionSearchPage extends Component {
@@ -13,6 +14,7 @@ class CollectionSearchPage extends Component {
     super();
 
     this.state = {
+      inputTextValue: '',
       showMobileFacetList: false,
       showDesktopFacetList: true,
       facetsShowAll: [],
@@ -36,6 +38,25 @@ class CollectionSearchPage extends Component {
     this.setState({
       facetsShowAll: addOrRemove(this.state.facetsShowAll, facetName),
     });
+  };
+
+  handleFormSubmit = (event) => {
+    const query = queryString.stringify(
+      {
+        ...this.props.url.query,
+        q: this.state.inputTextValue,
+      },
+      {
+        encode: false,
+      },
+    );
+
+    Router.pushRoute(`/collection/search?${query}`);
+    event.preventDefault();
+  };
+
+  handleInputTextChange = (event) => {
+    this.setState({ inputTextValue: event.target.value });
   };
 
   render() {
@@ -70,15 +91,17 @@ class CollectionSearchPage extends Component {
           <h1 className="collection-search-page__title">Search Collection</h1>
 
           <form
-            method="get"
-            action="/collection/search"
+            // method="get"
+            // action="/collection/search"
             className="collection-search-page__form"
+            onSubmit={this.handleFormSubmit}
           >
             <input
               type="text"
               name="q"
               placeholder="Start searching"
               defaultValue={url.query.q}
+              onChange={this.handleInputTextChange}
               className="collection-search-page__form__input"
             />
             <input type="submit" className="button" />
@@ -247,7 +270,10 @@ class CollectionSearchPage extends Component {
                   <InfiniteScroll
                     pageStart={0}
                     loadMore={loadMore}
-                    hasMore={items.length < 100}
+                    hasMore={
+                      // Max items to show is 100, but if totalItems is less, use totalItems
+                      items.length < (totalItems < 100 ? totalItems : 100)
+                    }
                     loader={
                       <div className="collection-search-page__results__loader">
                         <div className="collection-search-page__results__loader__text">
@@ -292,12 +318,16 @@ class CollectionSearchPage extends Component {
                                     </div>
                                   )}
 
-                                  {/* {totalImages > 1 && <div>{totalImages}</div>} */}
+                                  {totalImages > 1 && (
+                                    <div className="item__image-holder__total-images">
+                                      +{totalImages - 1} Images
+                                    </div>
+                                  )}
                                 </div>
 
                                 <div className="item__info">
                                   <div className="item__type">{type}</div>
-                                  <h2>{title}</h2>
+                                  <h1 className="item__title">{title}</h1>
                                   <p
                                     dangerouslySetInnerHTML={{
                                       __html: description,
