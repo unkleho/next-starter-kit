@@ -47,17 +47,17 @@ class CollectionSearchPage extends Component {
       totalItems,
       loadMore,
     } = this.props;
+
     const selectedFacets = wrapArray(url.query.facets).map((f) =>
       convertStringToFacet(f),
     );
+
     const {
       facetsShowAll,
       initialFacetValueCount,
       showMobileFacetList,
       showDesktopFacetList,
     } = this.state;
-
-    console.log(showMobileFacetList);
 
     return (
       <App
@@ -269,35 +269,47 @@ class CollectionSearchPage extends Component {
                           description,
                         },
                         i,
-                      ) => (
-                        <article className="item" key={`posts-${i}`}>
-                          <Link to={`/collection/item/${id}`}>
-                            {/* <Link
-					                to={`http://archival.sl.nsw.gov.au/Details/archive/${sourceRecordId}`}
-					              > */}
-                            <a>
-                              <div className="item__image-holder">
-                                {images && images[0] && images[0].url ? (
-                                  <img src={images[0].url} alt={title} />
-                                ) : (
-                                  <div>No Image</div>
-                                )}
-                              </div>
+                      ) => {
+                        const imageUrl = images && images[0] && images[0].url;
+                        const totalImages = images && images.length;
 
-                              <div className="item__info">
-                                <div className="item__type">{type}</div>
-                                <h2>{title}</h2>
-                                <p
-                                  dangerouslySetInnerHTML={{
-                                    __html: description,
-                                  }}
-                                />
-                                <p className="item__id">{id}</p>
-                              </div>
-                            </a>
-                          </Link>
-                        </article>
-                      ),
+                        return (
+                          <article className="item" key={`posts-${i}`}>
+                            <Link to={`/collection/item/${id}`}>
+                              <a>
+                                <div
+                                  className={`item__image-holder ${
+                                    imageUrl
+                                      ? ''
+                                      : 'item__image-holder--no-image'
+                                  }`}
+                                >
+                                  {imageUrl ? (
+                                    <img src={imageUrl} alt={title} />
+                                  ) : (
+                                    <div className="item__image-holder__no-image">
+                                      <span>No Image</span>
+                                    </div>
+                                  )}
+
+                                  {/* {totalImages > 1 && <div>{totalImages}</div>} */}
+                                </div>
+
+                                <div className="item__info">
+                                  <div className="item__type">{type}</div>
+                                  <h2>{title}</h2>
+                                  <p
+                                    dangerouslySetInnerHTML={{
+                                      __html: description,
+                                    }}
+                                  />
+                                  <p className="item__id">{id}</p>
+                                </div>
+                              </a>
+                            </Link>
+                          </article>
+                        );
+                      },
                     )}
                   </InfiniteScroll>
                 )}

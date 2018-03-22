@@ -185,7 +185,7 @@
 
   @media (--screen-sm) {
     flex: 3;
-		text-align: left;
+    text-align: left;
   }
 }
 
@@ -231,12 +231,14 @@
   width: 100%;
   margin-bottom: var(--spacing-xlg);
   padding-bottom: var(--spacing-md);
+  padding-left: 0;
   background-color: var(--colour-black);
   border-bottom: 1px solid var(--colour-grey-darkest);
   @apply (--font-uppercase);
   font-size: var(--font-size-md);
   font-weight: 700;
   text-align: left;
+  color: var(--colour-highlight);
 
   @media (--screen-sm) {
     display: none;
@@ -346,6 +348,18 @@
 
   & img {
     width: 100%;
+  }
+}
+
+.item__image-holder--no-image {
+  background-color: var(--colour-grey-darkest);
+  justify-content: center;
+  align-items: center;
+  max-height: 8em;
+
+  & span {
+    font-size: var(--spacing-sm);
+    color: var(--colour-grey);
   }
 }
 
