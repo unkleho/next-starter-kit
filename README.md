@@ -78,6 +78,7 @@ $ git push heroku
 
 ## Notes
 
+* Strange Apollo bug with accessing `props.query.url` in `graphql` HOC `options`, server-side rendering halts and relies on client. Fix is to use `getInitialProps` and return url params, to be accessed by `graphql` HOC.
 * Big update to Next5 helped remove lots of hacks to get CSS import working. (9/2/18)
 * May need to serve compiled stylesheet from static folder (https://github.com/zeit/next-plugins/tree/master/packages/next-css)
 
