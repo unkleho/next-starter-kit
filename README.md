@@ -82,6 +82,16 @@ $ git push heroku
 * Big update to Next5 helped remove lots of hacks to get CSS import working. (9/2/18)
 * May need to serve compiled stylesheet from static folder (https://github.com/zeit/next-plugins/tree/master/packages/next-css)
 
+## Changelog
+
+### 31/10/18
+
+* Updated to Next JS 7 from 5. Removing `.babelrc` seems to fix `.env["development"].presets must be an array, or undefined` error.
+* Updated React from 16.2 to 16.6
+* Updated next-css
+
+- Removed Flow
+
 ## Based on Next.js example:
 
 https://github.com/zeit/next.js/tree/canary/examples/with-apollo-and-redux
