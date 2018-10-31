@@ -89,8 +89,9 @@ $ git push heroku
 * Updated to Next JS 7 from 5. Removing `.babelrc` seems to fix `.env["development"].presets must be an array, or undefined` error.
 * Updated React from 16.2 to 16.6
 * Updated next-css
-
-- Removed Flow
+* Removed Flow
+* Removed cssnano to fix critical vulnerability
+* Updated jest from 20 to 23.6, fixes lots of vulnerabilities
 
 ## Based on Next.js example:
 
