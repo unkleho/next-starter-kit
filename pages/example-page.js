@@ -83,12 +83,13 @@ class ExamplePage extends Component {
 				<ExampleComponent title="Title" />
 
 				<Link to="/example-page/1">
+					{/* eslint-disable jsx-a11y/anchor-is-valid */}
 					<a>Example Page 1 Link</a>
 				</Link>
 
 				<h2>Redux Test</h2>
 				<p>this.props.count: {this.props.count}</p>
-				<a onClick={this.handleCountClick}>Click here to increase</a>
+				<button onClick={this.handleCountClick}>Click here to increase</button>
 
 				<h2>dotenv Test</h2>
 				<p>{process.env.TEST}</p>

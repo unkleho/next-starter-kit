@@ -1,18 +1,10 @@
 module.exports = {
 	parser: 'babel-eslint',
-	extends: [
-		'react-app',
-		'unkleho',
-	],
-	globals: {
-		document: true,
-		window: true,
-		process: true,
-	},
+	extends: ['react-app', '@slnsw/dxlab', 'prettier'],
+	plugins: ['prettier'],
 	rules: {
-		'comma-dangle': ['warn', 'always-multiline'],
+		// 'comma-dangle': ['warn', 'always-multiline'],
 		'react/react-in-jsx-scope': 0,
-		'react/jsx-max-props-per-line': [1, { maximum: 3 }],
-    'import/no-extraneous-dependencies': 0,
+		// 'react/jsx-max-props-per-line': [1, { maximum: 3 }],
 	},
 };
