@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'next/router';
 import withRedux from 'next-redux-wrapper';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
@@ -39,14 +40,14 @@ class ExamplePage extends Component {
 	};
 
 	render() {
-		const { id, url, objects } = this.props;
+		const { id, router, objects } = this.props;
 
 		const sizes = ['xxs', 'xs', 'sm', 'md', 'lg', 'xlg', 'xxlg'];
 		const colours = ['primary', 'secondary', 'tertiary', 'highlight'];
 
 		return (
 			<ExampleApp>
-				<Header pathname={url.pathname} />
+				<Header pathname={router.pathname} />
 
 				<h1 className="title">
 					Page <span>{id}</span>
@@ -135,6 +136,6 @@ export default withRedux(
 					...data,
 				};
 			},
-		})(ExamplePage),
+		})(withRouter(ExamplePage)),
 	),
 );
