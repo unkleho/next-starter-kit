@@ -2,7 +2,6 @@ require('dotenv').config();
 // eslint-disable-line
 const webpack = require('webpack');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-// const FlowBabelWebpackPlugin = require('flow-babel-webpack-plugin');
 
 const withCSS = require('@zeit/next-css');
 
