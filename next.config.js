@@ -1,7 +1,7 @@
 require('dotenv').config();
 // eslint-disable-line
 const webpack = require('webpack');
-const StyleLintPlugin = require('stylelint-webpack-plugin');
+// const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 const withCSS = require('@zeit/next-css');
 
@@ -19,13 +19,13 @@ module.exports = withCSS({
 		customConfig.plugins.push(new webpack.EnvironmentPlugin(process.env));
 
 		if (dev) {
-			config.plugins.push(
-				new StyleLintPlugin({
-					configFile: './.stylelintrc.js',
-					files: ['**/*.css'],
-					emitErrors: false,
-				}),
-			);
+			// config.plugins.push(
+			// 	new StyleLintPlugin({
+			// 		configFile: './.stylelintrc.js',
+			// 		files: ['**/*.css'],
+			// 		emitErrors: false,
+			// 	}),
+			// );
 
 			// FIXME: Getting hot-reloader errors if Flow catches something
 			// Commented for now

@@ -35,6 +35,7 @@
 		"next": "^7.0.2",
 		"next-redux-wrapper": "^1.3.5",
 		"next-routes": "^1.4.2",
+		"next-serverless": "^1.0.0",
 		"normalize.css": "^7.0.0",
 		"prop-types": "^15.6.2",
 		"react": "^16.6.0",
