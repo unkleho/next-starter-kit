@@ -1,4 +1,6 @@
-import Link from '../Link';
+import Link from 'next-serverless/link';
+
+// import Link from '../Link';
 import './Header.css';
 
 export default ({ pathname }) => {
@@ -11,7 +13,7 @@ export default ({ pathname }) => {
 		<header className="header">
 			{menuItems.map((item) => {
 				return (
-					<Link prefetch to={item.url} key={item.url}>
+					<Link prefetch href={item.url} key={item.url}>
 						{/* eslint-disable jsx-a11y/anchor-is-valid */}
 						<a className={pathname === item.url ? 'is-active' : undefined}>
 							{item.name}
