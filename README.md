@@ -16,7 +16,6 @@ Opinionated starter kit for the Next.js React framework. This starter kit includ
 * Prettier
 * Stylelint
 * Jest
-* Flow
 
 ## Getting Started
 
@@ -42,6 +41,12 @@ TEST=it works on production!
 GOOGLE_ANALYTICS_ID=UA-XXXXXXXX-X
 GRAPHQL_URL=https://production.api.com/graphql
 ```
+
+### Feature Branches
+
+Certain features are accessible via branches:
+
+* `serverless`: Slightly different setup for deployment using Serverless framework.
 
 ### Set up as upstream repo
 
