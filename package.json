@@ -84,10 +84,6 @@
 		"stylelint-webpack-plugin": "^0.10.5"
 	},
 	"lint-staged": {
-		"*.js": [
-			"eslint --fix",
-			"git add",
-			"npm test"
-		]
+		"*.js": ["eslint --fix", "npm test", "git add"]
 	}
 }
