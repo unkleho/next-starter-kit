@@ -89,7 +89,13 @@ $ git push heroku
 
 ## Changelog
 
-### 31/10/18
+### [1.3.0] 2018-12-22
+
+* Fix Jest by adding `jest.config.js`, `jest.setup.js` and adding css transforms.
+* Set up pre-commit tests
+* Clean up package.json
+
+### [1.2.0] 2018/10/31
 
 * Updated to Next JS 7 from 5. Removing `.babelrc` seems to fix `.env["development"].presets must be an array, or undefined` error.
 * Updated React from 16.2 to 16.6

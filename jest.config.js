@@ -9,4 +9,8 @@ module.exports = {
 		// Prevent css module parse errors
 		'.*': '<rootDir>/node_modules/jest-css-modules',
 	},
+	moduleNameMapper: {
+		// Bypass css for testing
+		'.+\\.(css|styl|less|sass|scss)$': '<rootDir>/__mocks__/styleMock.js',
+	},
 };
