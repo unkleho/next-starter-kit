@@ -9,9 +9,9 @@
 		"heroku-postbuild": "next build",
 		"deploy": "now",
 		"alias": "now alias next-starter-kit.now.sh -r rules.json",
-		"flow": "flow",
 		"test": "jest",
-		"test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
+		"test:lint":
+			"eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
 		"precommit": "lint-staged"
 	},
 	"engines": {
@@ -47,9 +47,13 @@
 	},
 	"license": "ISC",
 	"devDependencies": {
+		"@babel/core": "^7.2.2",
 		"@slnsw/eslint-config-dxlab": "1.0.1",
+		"babel-core": "^7.0.0-bridge.0",
 		"babel-eslint": "^9.0.0",
+		"babel-jest": "^23.6.0",
 		"enzyme": "^3.3.0",
+		"enzyme-adapter-react-16": "^1.7.1",
 		"eslint": "^5.8.0",
 		"eslint-config-airbnb-base": "^13.1.0",
 		"eslint-config-prettier": "^2.9.0",
@@ -64,6 +68,7 @@
 		"husky": "^0.14.3",
 		"jest": "^23.6.0",
 		"jest-css-modules": "^1.1.0",
+		"jest-transform-css": "^2.0.0",
 		"lint-staged": "^7.3.0",
 		"lost": "^8.3.0",
 		"postcss-cssnext": "^3.1.0",
@@ -79,15 +84,7 @@
 		"stylelint-config-standard": "^16.0.0",
 		"stylelint-webpack-plugin": "^0.10.5"
 	},
-	"jest": {
-		"transform": {
-			".*": "<rootDir>/node_modules/jest-css-modules"
-		}
-	},
 	"lint-staged": {
-		"*.js": [
-			"eslint --fix",
-			"git add"
-		]
+		"*.js": ["eslint --fix", "git add"]
 	}
 }
