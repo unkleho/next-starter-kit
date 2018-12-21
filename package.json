@@ -74,6 +74,7 @@
 		"prettier": "^1.10.2",
 		"raw-loader": "^0.5.1",
 		"react-test-renderer": "^16.2.0",
+		"react-testing-library": "^5.4.1",
 		"stylelint": "^9.7.1",
 		"stylelint-config-lost": "0.0.3",
 		"stylelint-config-standard": "^16.0.0",
