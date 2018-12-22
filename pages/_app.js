@@ -1,11 +1,11 @@
 import App, { Container } from 'next/app';
 import React from 'react';
-// import { ApolloProvider } from 'react-apollo';
+import { ApolloProvider } from 'react-apollo';
 import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 import { withRouter } from 'next/router';
 
-// import withApolloClient from '../lib/withApolloClient';
+import withApolloClient from '../lib/withApolloClient';
 import { initStore } from '../lib/store';
 
 class MyApp extends App {
@@ -18,20 +18,19 @@ class MyApp extends App {
 	}
 
 	render() {
-		const { Component, pageProps, store, router } = this.props;
-
-		// console.log(this.props);
+		const { Component, pageProps, store, router, apolloClient } = this.props;
 
 		return (
 			<Container>
-				<Provider store={store}>
-					{/* <ApolloProvider client={apolloClient}> */}
-					<Component {...pageProps} router={router} />
-					{/* </ApolloProvider> */}
-				</Provider>
+				<ApolloProvider client={apolloClient}>
+					<Provider store={store}>
+						<Component {...pageProps} router={router} store={store} />
+					</Provider>
+				</ApolloProvider>
 			</Container>
 		);
 	}
 }
 
-export default withRedux(initStore)(withRouter(MyApp));
+// export default withRedux(initStore)(withApolloClient(withRouter(MyApp)));
+export default withApolloClient(withRedux(initStore)(withRouter(MyApp)));

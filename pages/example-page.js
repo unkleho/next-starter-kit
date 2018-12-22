@@ -7,7 +7,7 @@ import gql from 'graphql-tag';
 import { bindActionCreators } from 'redux';
 
 import './example-page.css';
-import withApollo from '../lib/withApollo';
+// import withApollo from '../lib/withApollo';
 import ExampleApp from '../components/examples/ExampleApp';
 import Link from '../components/Link';
 import Header from '../components/Header';
@@ -17,13 +17,10 @@ import { exampleAction, addCount } from '../actions/exampleActions';
 class ExamplePage extends Component {
 	static propTypes = {
 		id: PropTypes.string,
+		router: PropTypes.object,
+		objects: PropTypes.array,
+		addCount: PropTypes.func,
 	};
-
-	constructor() {
-		super();
-
-		this.state = {};
-	}
 
 	static getInitialProps({ query: { id = null }, store, isServer }) {
 		store.dispatch(exampleAction('payload'));
@@ -32,6 +29,12 @@ class ExamplePage extends Component {
 		return {
 			id,
 		};
+	}
+
+	constructor() {
+		super();
+
+		this.state = {};
 	}
 
 	handleCountClick = () => {
@@ -123,14 +126,22 @@ const allObjects = gql`
 
 // The `graphql` wrapper executes a GraphQL query and makes the results
 // available on the `data` prop of the wrapped component (ExamplePage)
-export default connect((state) => state.example, mapDispatchToProps)(
-	withApollo(
-		graphql(allObjects, {
-			props: ({ data }) => {
-				return {
-					...data,
-				};
-			},
-		})(ExamplePage),
-	),
-);
+// export default connect((state) => state.example, mapDispatchToProps)(
+// 	// withApollo(
+// 	graphql(allObjects, {
+// 		props: ({ data }) => {
+// 			return {
+// 				...data,
+// 			};
+// 		},
+// 	})(ExamplePage),
+// 	// ),
+// );
+
+export default graphql(allObjects, {
+	props: ({ data }) => {
+		return {
+			...data,
+		};
+	},
+})(connect((state) => state.example, mapDispatchToProps)(ExamplePage));
