@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'next/router';
+// import { withRouter } from 'next/router';
 import { graphql } from 'react-apollo';
 import { connect } from 'react-redux';
 import gql from 'graphql-tag';
@@ -131,6 +131,6 @@ export default connect((state) => state.example, mapDispatchToProps)(
 					...data,
 				};
 			},
-		})(withRouter(ExamplePage)),
+		})(ExamplePage),
 	),
 );
