@@ -1,13 +1,12 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'next/router';
-import withRedux from 'next-redux-wrapper';
 import { graphql } from 'react-apollo';
+import { connect } from 'react-redux';
 import gql from 'graphql-tag';
 import { bindActionCreators } from 'redux';
 
 import './example-page.css';
-import { initStore } from '../lib/store';
 import withApollo from '../lib/withApollo';
 import ExampleApp from '../components/examples/ExampleApp';
 import Link from '../components/Link';
@@ -124,11 +123,7 @@ const allObjects = gql`
 
 // The `graphql` wrapper executes a GraphQL query and makes the results
 // available on the `data` prop of the wrapped component (ExamplePage)
-export default withRedux(
-	initStore,
-	(state) => state.example,
-	mapDispatchToProps,
-)(
+export default connect((state) => state.example, mapDispatchToProps)(
 	withApollo(
 		graphql(allObjects, {
 			props: ({ data }) => {
