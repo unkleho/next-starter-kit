@@ -11,7 +11,8 @@
 		"alias": "now alias next-starter-kit.now.sh -r rules.json",
 		"test": "jest",
 		"test:watch": "jest --watch",
-		"test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
+		"test:lint":
+			"eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
 		"precommit": "lint-staged"
 	},
 	"engines": {
@@ -85,10 +86,6 @@
 		"stylelint-webpack-plugin": "^0.10.5"
 	},
 	"lint-staged": {
-		"*.js": [
-			"eslint --fix",
-			"npm test",
-			"git add"
-		]
+		"*.js": ["eslint --fix", "git add", "npm test"]
 	}
 }
