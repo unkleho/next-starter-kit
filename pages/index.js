@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import { withRouter } from 'next/router';
 
 import ExampleApp from '../components/examples/ExampleApp';
 import Header from '../components/Header';
@@ -26,4 +25,4 @@ export class HomePage extends Component {
 	}
 }
 
-export default withRouter(HomePage);
+export default HomePage;

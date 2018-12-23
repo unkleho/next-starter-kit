@@ -1,11 +1,18 @@
 /* eslint-env jest */
 
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { MockedProvider } from 'react-apollo/test-utils';
+// import withRedux from 'next-redux-wrapper';
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
+import { withRouter } from 'next/router';
 
 import ExampleComponent from '../components/examples/ExampleComponent';
 import { HomePage } from '../pages/index';
+import ExamplePage from '../pages/example-page';
+// import { initStore } from '../lib/store';
 
 describe('With Enzyme', () => {
 	it('ExampleComponent shows "Example Component"', () => {
@@ -18,6 +25,33 @@ describe('With Enzyme', () => {
 		const app = shallow(<HomePage />);
 
 		expect(app.find('h1').text()).toEqual('Next Starter Kit');
+	});
+
+	it('Shows example page', () => {
+		const mockStore = configureStore();
+		const ExamplePageWithRouter = withRouter(ExamplePage);
+		const store = mockStore({});
+
+		// const app = renderer.create(
+		// 	<MockedProvider>
+		// 		<Provider store={store}>
+		// 			<ExamplePageWithRouter />
+		// 		</Provider>
+		// 	</MockedProvider>,
+		// );
+
+		// const tree = app.toJSON();
+		// expect(tree).toMatchSnapshot();
+
+		const app = mount(
+			<MockedProvider>
+				<Provider store={store}>
+					<ExamplePageWithRouter />
+				</Provider>
+			</MockedProvider>,
+		);
+
+		expect(app.find('.title').text()).toEqual('Page ');
 	});
 });
 

@@ -22,6 +22,10 @@ class ExamplePage extends Component {
 		addCount: PropTypes.func,
 	};
 
+	static defaultProps = {
+		router: {},
+	};
+
 	static getInitialProps({ query: { id = null }, store, isServer }) {
 		store.dispatch(exampleAction('payload'));
 		console.log(isServer);
