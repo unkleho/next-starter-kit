@@ -99,11 +99,11 @@ class ExamplePage extends Component {
 				<button onClick={this.handleCountClick}>Click here to increase</button>
 
 				<h2>dotenv Test</h2>
-				<p>{process.env.TEST}</p>
+				<p data-id="dotenv">{process.env.TEST}</p>
 
 				<h2>GraphQL Test</h2>
 				<p>{process.env.GRAPHQL_URL}</p>
-				<ul>
+				<ul data-id="graphql-objects">
 					{objects &&
 						objects.map(({ displayTitle }, i) => {
 							return <li key={i}>{displayTitle}</li>;
@@ -120,29 +120,16 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
-const allObjects = gql`
+export const GET_OBJECTS_QUERY = gql`
 	query {
 		objects(limit: 10) {
 			displayTitle
+			__typename
 		}
 	}
 `;
 
-// The `graphql` wrapper executes a GraphQL query and makes the results
-// available on the `data` prop of the wrapped component (ExamplePage)
-// export default connect((state) => state.example, mapDispatchToProps)(
-// 	// withApollo(
-// 	graphql(allObjects, {
-// 		props: ({ data }) => {
-// 			return {
-// 				...data,
-// 			};
-// 		},
-// 	})(ExamplePage),
-// 	// ),
-// );
-
-export default graphql(allObjects, {
+export default graphql(GET_OBJECTS_QUERY, {
 	props: ({ data }) => {
 		return {
 			...data,

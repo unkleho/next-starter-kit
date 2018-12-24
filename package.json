@@ -9,8 +9,9 @@
 		"heroku-postbuild": "next build",
 		"deploy": "now",
 		"alias": "now alias next-starter-kit.now.sh -r rules.json",
-		"test": "jest",
-		"test:watch": "jest --watch",
+		"jest": "node -r dotenv/config ./node_modules/.bin/jest",
+		"test": "npm run jest -- --bail --findRelatedTests",
+		"test:watch": "npm run jest -- --watch",
 		"test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
 		"precommit": "lint-staged"
 	},
@@ -83,13 +84,14 @@
 		"stylelint": "^9.7.1",
 		"stylelint-config-lost": "0.0.3",
 		"stylelint-config-standard": "^16.0.0",
-		"stylelint-webpack-plugin": "^0.10.5"
+		"stylelint-webpack-plugin": "^0.10.5",
+		"waait": "^1.0.2"
 	},
 	"lint-staged": {
 		"*.js": [
 			"eslint --fix",
 			"git add",
-			"jest --bail --findRelatedTests"
+			"npm test"
 		]
 	}
 }
