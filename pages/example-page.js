@@ -1,13 +1,11 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-// import { withRouter } from 'next/router';
 import { graphql } from 'react-apollo';
 import { connect } from 'react-redux';
 import gql from 'graphql-tag';
 import { bindActionCreators } from 'redux';
 
 import './example-page.css';
-// import withApollo from '../lib/withApollo';
 import ExampleApp from '../components/examples/ExampleApp';
 import Link from '../components/Link';
 import Header from '../components/Header';
@@ -46,7 +44,7 @@ class ExamplePage extends Component {
 	};
 
 	render() {
-		const { id, router, objects } = this.props;
+		const { id, router, objects, count } = this.props;
 
 		const sizes = ['xxs', 'xs', 'sm', 'md', 'lg', 'xlg', 'xxlg'];
 		const colours = ['primary', 'secondary', 'tertiary', 'highlight'];
@@ -91,12 +89,20 @@ class ExamplePage extends Component {
 
 				<Link to="/example-page/1">
 					{/* eslint-disable jsx-a11y/anchor-is-valid */}
-					<a>Example Page 1 Link</a>
+					<a className="example-page__page-1-link">Example Page 1 Link</a>
 				</Link>
 
 				<h2>Redux Test</h2>
-				<p>this.props.count: {this.props.count}</p>
-				<button onClick={this.handleCountClick}>Click here to increase</button>
+				<p>
+					this.props.count:{' '}
+					<span className="example-page__redux-count">{count}</span>
+				</p>
+				<button
+					className="example-page__count-button"
+					onClick={this.handleCountClick}
+				>
+					Click here to increase
+				</button>
 
 				<h2>dotenv Test</h2>
 				<p data-id="dotenv">{process.env.TEST}</p>
