@@ -130,7 +130,7 @@ export const GET_OBJECTS_QUERY = gql`
 	query {
 		objects(limit: 10) {
 			displayTitle
-			__typename
+			# __typename
 		}
 	}
 `;

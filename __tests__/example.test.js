@@ -39,11 +39,9 @@ describe('With Enzyme', () => {
 						objects: [
 							{
 								displayTitle: 'Test 1',
-								__typename: 'object',
 							},
 							{
 								displayTitle: 'Test 2',
-								__typename: 'object',
 							},
 						],
 					},
@@ -59,7 +57,7 @@ describe('With Enzyme', () => {
 
 		// Mount component, wrapping it with mocked Apollo and Redux providers
 		const wrapper = mount(
-			<MockedProvider mocks={mocks} addTypename={true}>
+			<MockedProvider mocks={mocks} addTypename={false}>
 				<Provider store={store}>
 					<ExamplePageWithRouter />
 				</Provider>
