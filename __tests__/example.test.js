@@ -13,6 +13,31 @@ import { HomePage } from '../pages/index';
 import ExamplePage, { GET_OBJECTS_QUERY } from '../pages/example-page';
 import { initStore } from '../lib/store';
 
+// Set up mocked Apollo query and data
+const mocks = [
+	{
+		request: {
+			query: GET_OBJECTS_QUERY,
+			variables: {},
+		},
+		result: {
+			data: {
+				objects: [
+					{
+						displayTitle: 'Test 1',
+					},
+					{
+						displayTitle: 'Test 2',
+					},
+				],
+			},
+		},
+	},
+];
+
+// Set up Redux store
+const store = initStore();
+
 describe('With Enzyme', () => {
 	it('ExampleComponent shows "Example Component"', () => {
 		const app = shallow(<ExampleComponent />);
@@ -27,31 +52,6 @@ describe('With Enzyme', () => {
 	});
 
 	it('Shows example page, testing dotenv, Apollo data and next/router.', async () => {
-		// Set up mocked Apollo query and data
-		const mocks = [
-			{
-				request: {
-					query: GET_OBJECTS_QUERY,
-					variables: {},
-				},
-				result: {
-					data: {
-						objects: [
-							{
-								displayTitle: 'Test 1',
-							},
-							{
-								displayTitle: 'Test 2',
-							},
-						],
-					},
-				},
-			},
-		];
-
-		// Set up Redux store
-		const store = initStore();
-
 		// Wrap with withRouter to ensure router object exists
 		const ExamplePageWithRouter = withRouter(ExamplePage);
 
@@ -84,6 +84,22 @@ describe('With Enzyme', () => {
 		// Simulate Next router link
 		wrapper.find('.example-page__page-1-link').simulate('click');
 		expect(Router.router.push.mock.calls[0][1]).toEqual('/example-page/1');
+	});
+
+	it('Shows example page with id prop', () => {
+		// Wrap with withRouter to ensure router object exists
+		const ExamplePageWithRouter = withRouter(ExamplePage);
+
+		// Mount component, wrapping it with mocked Apollo and Redux providers
+		const wrapper = mount(
+			<MockedProvider mocks={mocks} addTypename={false}>
+				<Provider store={store}>
+					<ExamplePageWithRouter id="1" />
+				</Provider>
+			</MockedProvider>,
+		);
+
+		expect(wrapper.find('.title').text()).toEqual('Page 1');
 	});
 });
 
