@@ -12,8 +12,7 @@
 		"jest": "node -r dotenv/config ./node_modules/.bin/jest",
 		"test": "npm run jest -- --bail --findRelatedTests",
 		"test:watch": "npm run jest -- --watch",
-		"test:lint":
-			"eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
+		"test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
 		"precommit": "lint-staged"
 	},
 	"engines": {
@@ -77,6 +76,7 @@
 		"postcss-easy-import": "^2.1.0",
 		"postcss-loader": "^2.0.6",
 		"postcss-mixins": "^6.0.1",
+		"postcss-preset-env": "^6.5.0",
 		"postcss-reporter": "^5.0.0",
 		"prettier": "^1.10.2",
 		"raw-loader": "^0.5.1",

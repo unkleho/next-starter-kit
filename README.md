@@ -63,6 +63,16 @@ $ git commit -am "Upstream merge"
 $ git push
 ```
 
+## Features
+
+### GraphQL
+
+Using Apollo's suite of GraphQL libraries.
+
+### Redux
+
+### dotenv
+
 ## Deployment
 
 Using `now`:
