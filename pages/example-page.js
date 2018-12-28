@@ -57,6 +57,8 @@ class ExamplePage extends Component {
 					Page <span>{id}</span>
 				</h1>
 
+				<p className="example-page__router-pathname">{router.pathname}</p>
+
 				<h2>Style Guide</h2>
 				<h3>Type Scale</h3>
 				{sizes.map((size) => (
@@ -130,7 +132,6 @@ export const GET_OBJECTS_QUERY = gql`
 	query {
 		objects(limit: 10) {
 			displayTitle
-			# __typename
 		}
 	}
 `;

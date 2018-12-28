@@ -5,7 +5,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { MockedProvider } from 'react-apollo/test-utils';
 import { Provider } from 'react-redux';
-import Router, { withRouter } from 'next/router';
+import Router from 'next/router';
 import wait from 'waait';
 
 import ExampleComponent from '../components/examples/ExampleComponent';
@@ -38,6 +38,16 @@ const mocks = [
 // Set up Redux store
 const store = initStore();
 
+export class MockedWrapper extends React.Component {
+	render() {
+		return (
+			<MockedProvider mocks={mocks} addTypename={false}>
+				<Provider store={store}>{this.props.children}</Provider>
+			</MockedProvider>
+		);
+	}
+}
+
 describe('With Enzyme', () => {
 	it('ExampleComponent shows "Example Component"', () => {
 		const app = shallow(<ExampleComponent />);
@@ -52,16 +62,10 @@ describe('With Enzyme', () => {
 	});
 
 	it('Shows example page, testing dotenv, Apollo data and next/router.', async () => {
-		// Wrap with withRouter to ensure router object exists
-		const ExamplePageWithRouter = withRouter(ExamplePage);
-
-		// Mount component, wrapping it with mocked Apollo and Redux providers
 		const wrapper = mount(
-			<MockedProvider mocks={mocks} addTypename={false}>
-				<Provider store={store}>
-					<ExamplePageWithRouter />
-				</Provider>
-			</MockedProvider>,
+			<MockedWrapper>
+				<ExamplePage />
+			</MockedWrapper>,
 		);
 
 		// Test loading state
@@ -87,16 +91,10 @@ describe('With Enzyme', () => {
 	});
 
 	it('Shows example page with id prop', () => {
-		// Wrap with withRouter to ensure router object exists
-		const ExamplePageWithRouter = withRouter(ExamplePage);
-
-		// Mount component, wrapping it with mocked Apollo and Redux providers
 		const wrapper = mount(
-			<MockedProvider mocks={mocks} addTypename={false}>
-				<Provider store={store}>
-					<ExamplePageWithRouter id="1" />
-				</Provider>
-			</MockedProvider>,
+			<MockedWrapper>
+				<ExamplePage id="1" />
+			</MockedWrapper>,
 		);
 
 		expect(wrapper.find('.title').text()).toEqual('Page 1');
