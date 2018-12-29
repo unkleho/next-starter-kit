@@ -47,7 +47,8 @@ class ExamplePage extends Component {
 		const { id, router, objects, count } = this.props;
 
 		const sizes = ['xxs', 'xs', 'sm', 'md', 'lg', 'xlg', 'xxlg'];
-		const colours = ['primary', 'secondary', 'tertiary', 'highlight'];
+		const colours = ['primary', 'secondary', 'highlight', 'grey'];
+		const shades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 
 		return (
 			<ExampleApp>
@@ -74,12 +75,17 @@ class ExamplePage extends Component {
 						<h4>{colour}</h4>
 
 						<div>
-							{[...Array(7)].map((shade, i) => {
+							{[...Array(10)].map((shade, i) => {
 								return (
 									<div
 										className={`box box--colour-${colour}`}
 										key={`box--colour-${colour}-${i}`}
-									/>
+										style={{
+                      color: i >= 5 ? 'white' : 'inherit',
+                    }}
+									>
+										{colour} {shades[i]}
+									</div>
 								);
 							})}
 						</div>

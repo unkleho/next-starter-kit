@@ -1,4 +1,5 @@
 /* eslint global-require: 0 */
+/* eslint import/no-extraneous-dependencies: 0 */
 
 module.exports = {
 	plugins: [
@@ -8,13 +9,11 @@ module.exports = {
 		require('postcss-mixins'),
 		require('postcss-preset-env')({
 			stage: 0,
-			// features: {
-			// 	autoprefixer: false, // Next.js already runs autoprefixer
-			// },
+			features: {
+				'color-mod-function': { unresolved: 'warn' },
+			},
 		}),
 		require('lost'),
-		// FIXME: cssnano messes with pseudo selectors
-		// require('cssnano')()
 		require('postcss-reporter'),
 	],
 };

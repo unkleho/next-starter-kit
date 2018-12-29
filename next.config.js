@@ -27,10 +27,6 @@ module.exports = withCSS({
 				}),
 			);
 
-			// FIXME: Getting hot-reloader errors if Flow catches something
-			// Commented for now
-			// config.plugins.push(new FlowBabelWebpackPlugin());
-
 			customConfig.module.rules.push({
 				enforce: 'pre',
 				test: /\.js$/,

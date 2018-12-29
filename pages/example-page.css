@@ -68,12 +68,12 @@ p {
   background-color: var(--colour-secondary);
 }
 
-.box--colour-tertiary {
-  background-color: var(--colour-tertiary);
-}
-
 .box--colour-highlight {
   background-color: var(--colour-highlight);
+}
+
+.box--colour-grey {
+  background-color: var(--colour-grey);
 }
 
 @define-mixin create-box $colour-name, $colour, $index {
@@ -83,30 +83,46 @@ p {
   }
 }
 
-@mixin create-box primary, var(--colour-primary-lightest), 1;
-@mixin create-box primary, var(--colour-primary-lighter), 2;
-@mixin create-box primary, var(--colour-primary-light), 3;
-@mixin create-box primary, var(--colour-primary-dark), 5;
-@mixin create-box primary, var(--colour-primary-darker), 6;
-@mixin create-box primary, var(--colour-primary-darkest), 7;
+@mixin create-box primary, var(--colour-primary-50), 1;
+@mixin create-box primary, var(--colour-primary-100), 2;
+@mixin create-box primary, var(--colour-primary-200), 3;
+@mixin create-box primary, var(--colour-primary-300), 4;
+@mixin create-box primary, var(--colour-primary-400), 5;
+@mixin create-box primary, var(--colour-primary-500), 6;
+@mixin create-box primary, var(--colour-primary-600), 7;
+@mixin create-box primary, var(--colour-primary-700), 8;
+@mixin create-box primary, var(--colour-primary-800), 9;
+@mixin create-box primary, var(--colour-primary-900), 10;
 
-@mixin create-box secondary, var(--colour-secondary-lightest), 1;
-@mixin create-box secondary, var(--colour-secondary-lighter), 2;
-@mixin create-box secondary, var(--colour-secondary-light), 3;
-@mixin create-box secondary, var(--colour-secondary-dark), 5;
-@mixin create-box secondary, var(--colour-secondary-darker), 6;
-@mixin create-box secondary, var(--colour-secondary-darkest), 7;
+@mixin create-box secondary, var(--colour-secondary-50), 1;
+@mixin create-box secondary, var(--colour-secondary-100), 2;
+@mixin create-box secondary, var(--colour-secondary-200), 3;
+@mixin create-box secondary, var(--colour-secondary-300), 4;
+@mixin create-box secondary, var(--colour-secondary-400), 5;
+@mixin create-box secondary, var(--colour-secondary-500), 6;
+@mixin create-box secondary, var(--colour-secondary-600), 7;
+@mixin create-box secondary, var(--colour-secondary-700), 8;
+@mixin create-box secondary, var(--colour-secondary-800), 9;
+@mixin create-box secondary, var(--colour-secondary-900), 10;
 
-@mixin create-box tertiary, var(--colour-tertiary-lightest), 1;
-@mixin create-box tertiary, var(--colour-tertiary-lighter), 2;
-@mixin create-box tertiary, var(--colour-tertiary-light), 3;
-@mixin create-box tertiary, var(--colour-tertiary-dark), 5;
-@mixin create-box tertiary, var(--colour-tertiary-darker), 6;
-@mixin create-box tertiary, var(--colour-tertiary-darkest), 7;
+@mixin create-box highlight, var(--colour-highlight-50), 1;
+@mixin create-box highlight, var(--colour-highlight-100), 2;
+@mixin create-box highlight, var(--colour-highlight-200), 3;
+@mixin create-box highlight, var(--colour-highlight-300), 4;
+@mixin create-box highlight, var(--colour-highlight-400), 5;
+@mixin create-box highlight, var(--colour-highlight-500), 6;
+@mixin create-box highlight, var(--colour-highlight-600), 7;
+@mixin create-box highlight, var(--colour-highlight-700), 8;
+@mixin create-box highlight, var(--colour-highlight-800), 9;
+@mixin create-box highlight, var(--colour-highlight-900), 10;
 
-@mixin create-box highlight, var(--colour-highlight-lightest), 1;
-@mixin create-box highlight, var(--colour-highlight-lighter), 2;
-@mixin create-box highlight, var(--colour-highlight-light), 3;
-@mixin create-box highlight, var(--colour-highlight-dark), 5;
-@mixin create-box highlight, var(--colour-highlight-darker), 6;
-@mixin create-box highlight, var(--colour-highlight-darkest), 7;
+@mixin create-box grey, var(--colour-grey-50), 1;
+@mixin create-box grey, var(--colour-grey-100), 2;
+@mixin create-box grey, var(--colour-grey-200), 3;
+@mixin create-box grey, var(--colour-grey-300), 4;
+@mixin create-box grey, var(--colour-grey-400), 5;
+@mixin create-box grey, var(--colour-grey-500), 6;
+@mixin create-box grey, var(--colour-grey-600), 7;
+@mixin create-box grey, var(--colour-grey-700), 8;
+@mixin create-box grey, var(--colour-grey-800), 9;
+@mixin create-box grey, var(--colour-grey-900), 10;
