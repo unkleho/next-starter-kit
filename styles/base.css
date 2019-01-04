@@ -19,34 +19,58 @@ html {
 }
 
 body {
-  margin: 3em;
+  margin: var(--spacing-3);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
 }
 
 h1 {
   color: var(--colour-primary);
   font-size: var(--font-size-xxlg);
   line-height: var(--line-height-xxlg);
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: var(--spacing-2);
 }
 
 h2 {
   font-size: var(--font-size-xlg);
   line-height: var(--line-height-xlg);
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-1);
 }
 
 h3 {
   font-size: var(--font-size-lg);
   line-height: var(--line-height-lg);
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-2);
 }
 
-p {
+h4 {
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-md);
+  margin-bottom: var(--spacing-1);
+}
+
+p,
+ul,
+ol,
+dd,
+figure,
+pre,
+table,
+fieldset,
+hr {
   font-size: var(--font-size-md);
   line-height: var(--line-height-md);
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-2);
+}
+
+section {
+  margin-bottom: var(--spacing-2);
 }

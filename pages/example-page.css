@@ -47,6 +47,8 @@
 
 .example-page__boxes {
   lost-utility: clearfix;
+
+  margin-bottom: 2rem;
 }
 
 .example-page__box {

@@ -3,10 +3,10 @@
 .header {
   font-size: var(--font-size-md);
   line-height: var(--line-height-md);
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-1);
 
   & a {
-    margin-right: 1em;
+    margin-right: var(--spacing-1);
     color: var(--colour-primary);
 
     &.is-active {

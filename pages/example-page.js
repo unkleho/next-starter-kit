@@ -84,68 +84,78 @@ class ExamplePage extends Component {
 					</section>
 
 					<h2>Style Guide</h2>
-					<h3>Type Scale</h3>
-					{sizes.map((size) => (
-						<p
-							className={`font-size-${size}`}
-							key={`font-size-${size}`}
-						>{`font-size-${size}`}</p>
-					))}
+					<section>
+						<h3>Type Scale</h3>
+						{sizes.map((size) => (
+							<p
+								className={`font-size-${size}`}
+								key={`font-size-${size}`}
+							>{`font-size-${size}`}</p>
+						))}
+					</section>
 
-					<h3>Colours</h3>
-					{colours.map((colour) => (
-						<div className="example-page__boxes" key={`boxes-${colour}`}>
-							<h4>{colour}</h4>
+					<section>
+						<h3>Colours</h3>
+						{colours.map((colour) => (
+							<div className="example-page__boxes" key={`boxes-${colour}`}>
+								<h4>{colour}</h4>
 
-							<div>
-								{[...Array(10)].map((shade, i) => {
-									return (
-										<div
-											className={`example-page__box example-page__box--colour-${colour}`}
-											key={`box--colour-${colour}-${i}`}
-											style={{
-                        color: i >= 5 ? 'white' : 'inherit',
-                      }}
-										>
-											{colour} {shades[i]}
-										</div>
-									);
-								})}
+								<div>
+									{[...Array(10)].map((shade, i) => {
+										return (
+											<div
+												className={`example-page__box example-page__box--colour-${colour}`}
+												key={`box--colour-${colour}-${i}`}
+												style={{
+                          color: i >= 5 ? 'white' : 'inherit',
+                        }}
+											>
+												{colour} {shades[i]}
+											</div>
+										);
+									})}
+								</div>
 							</div>
-						</div>
-					))}
+						))}
+					</section>
 
-					<h2>Example Component</h2>
-					<ExampleComponent title="Title" />
+					<section>
+						<h2>Example Component</h2>
+						<ExampleComponent title="Title" />
 
-					<Link to="/example-page/1">
-						{/* eslint-disable jsx-a11y/anchor-is-valid */}
-						<a className="example-page__page-1-link">Example Page 1 Link</a>
-					</Link>
+						<Link to="/example-page/1">
+							{/* eslint-disable jsx-a11y/anchor-is-valid */}
+							<a className="example-page__page-1-link">Example Page 1 Link</a>
+						</Link>
+					</section>
 
-					<h2>Redux Test</h2>
-					<p>
-						this.props.count:{' '}
-						<span className="example-page__redux-count">{count}</span>
-					</p>
-					<button
-						className="example-page__count-button"
-						onClick={this.handleCountClick}
-					>
-						Click here to increase
-					</button>
+					<section>
+						<h2>Redux Test</h2>
+						<p>
+							this.props.count:{' '}
+							<span className="example-page__redux-count">{count}</span>
+						</p>
+						<button
+							className="example-page__count-button"
+							onClick={this.handleCountClick}
+						>
+							Click here to increase
+						</button>
+					</section>
 
-					<h2>dotenv Test</h2>
-					<p data-testid="dotenv">{process.env.TEST}</p>
+					<section>
+						<h2>dotenv Test</h2>
+						<p data-testid="dotenv">{process.env.TEST}</p>
 
-					<h2>GraphQL Test</h2>
-					<p>{process.env.GRAPHQL_URL}</p>
-					<ul data-testid="graphql-objects">
-						{objects &&
-							objects.map(({ displayTitle }, i) => {
-								return <li key={i}>{displayTitle}</li>;
-							})}
-					</ul>
+						<h2>GraphQL Test</h2>
+						<p>{process.env.GRAPHQL_URL}</p>
+						<ul data-testid="graphql-objects">
+							{objects &&
+								objects.map(({ displayTitle }, i) => {
+									return <li key={i}>{displayTitle}</li>;
+								})}
+						</ul>
+					</section>
 				</main>
 			</ExampleApp>
 		);
