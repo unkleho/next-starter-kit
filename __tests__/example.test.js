@@ -69,14 +69,14 @@ describe('With Enzyme', () => {
 		);
 
 		// Test loading state
-		expect(wrapper.find('[data-id="graphql-objects"]').text()).toEqual('');
+		expect(wrapper.find('[data-testid="graphql-objects"]').text()).toEqual('');
 
 		// Wait for Apollo promise to resolve and get results
 		await wait(0);
 
-		expect(wrapper.find('.title').text()).toEqual('Page ');
-		expect(wrapper.find('[data-id="dotenv"]').text()).toEqual('test');
-		expect(wrapper.find('[data-id="graphql-objects"]').text()).toEqual(
+		expect(wrapper.find('.example-page__title').text()).toEqual('Page ');
+		expect(wrapper.find('[data-testid="dotenv"]').text()).toEqual('test');
+		expect(wrapper.find('[data-testid="graphql-objects"]').text()).toEqual(
 			'Test 1Test 2',
 		);
 
@@ -97,7 +97,7 @@ describe('With Enzyme', () => {
 			</MockedWrapper>,
 		);
 
-		expect(wrapper.find('.title').text()).toEqual('Page 1');
+		expect(wrapper.find('.example-page__title').text()).toEqual('Page 1');
 	});
 });
 

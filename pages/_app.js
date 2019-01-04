@@ -32,5 +32,4 @@ class MyApp extends App {
 	}
 }
 
-// export default withRedux(initStore)(withApolloClient(withRouter(MyApp)));
 export default withApolloClient(withRedux(initStore)(withRouter(MyApp)));

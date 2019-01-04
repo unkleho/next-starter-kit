@@ -54,75 +54,99 @@ class ExamplePage extends Component {
 			<ExampleApp>
 				<Header pathname={router.pathname} />
 
-				<h1 className="title">
-					Page <span>{id}</span>
-				</h1>
+				<main className="example-page">
+					<h1 className="example-page__title">
+						Page <span>{id}</span>
+					</h1>
 
-				<p className="example-page__router-pathname">{router.pathname}</p>
+					<section>
+						<p>
+							Lomo cardigan keffiyeh fingerstache vape portland actually PBR&B
+							knausgaard art party four dollar toast. Af chia air plant marfa,
+							craft beer kale chips lyft bespoke biodiesel cliche fanny pack
+							mixtape kombucha cred jean shorts.
+						</p>
+						<p>
+							Subway tile drinking vinegar copper mug, mustache typewriter tbh
+							leggings meggings distillery selfies 8-bit church-key flannel.
+							Meggings mumblecore selfies keytar cornhole craft beer vice pork
+							belly artisan, forage ethical helvetica. Succulents single-origin
+							coffee cronut forage banh mi shaman tumblr fingerstache heirloom
+							kogi four dollar toast migas. Pour-over 90's synth kogi yuccie.
+						</p>
+						<p>
+							Offal tbh wolf before they sold out, 3 wolf moon master cleanse
+							freegan leggings jean shorts humblebrag palo santo swag succulents
+							banjo.
+						</p>
 
-				<h2>Style Guide</h2>
-				<h3>Type Scale</h3>
-				{sizes.map((size) => (
-					<p
-						className={`font-size-${size}`}
-						key={`font-size-${size}`}
-					>{`font-size-${size}`}</p>
-				))}
+						<p className="example-page__router-pathname">{router.pathname}</p>
+					</section>
 
-				<h3>Colours</h3>
-				{colours.map((colour) => (
-					<div className="boxes" key={`boxes-${colour}`}>
-						<h4>{colour}</h4>
+					<h2>Style Guide</h2>
+					<h3>Type Scale</h3>
+					{sizes.map((size) => (
+						<p
+							className={`font-size-${size}`}
+							key={`font-size-${size}`}
+						>{`font-size-${size}`}</p>
+					))}
 
-						<div>
-							{[...Array(10)].map((shade, i) => {
-								return (
-									<div
-										className={`box box--colour-${colour}`}
-										key={`box--colour-${colour}-${i}`}
-										style={{
-                      color: i >= 5 ? 'white' : 'inherit',
-                    }}
-									>
-										{colour} {shades[i]}
-									</div>
-								);
-							})}
+					<h3>Colours</h3>
+					{colours.map((colour) => (
+						<div className="example-page__boxes" key={`boxes-${colour}`}>
+							<h4>{colour}</h4>
+
+							<div>
+								{[...Array(10)].map((shade, i) => {
+									return (
+										<div
+											className={`example-page__box example-page__box--colour-${colour}`}
+											key={`box--colour-${colour}-${i}`}
+											style={{
+                        color: i >= 5 ? 'white' : 'inherit',
+                      }}
+										>
+											{colour} {shades[i]}
+										</div>
+									);
+								})}
+							</div>
 						</div>
-					</div>
-				))}
+					))}
 
-				<h2>Example Component</h2>
-				<ExampleComponent title="Title" />
+					<h2>Example Component</h2>
+					<ExampleComponent title="Title" />
 
-				<Link to="/example-page/1">
-					{/* eslint-disable jsx-a11y/anchor-is-valid */}
-					<a className="example-page__page-1-link">Example Page 1 Link</a>
-				</Link>
+					<Link to="/example-page/1">
+						{/* eslint-disable jsx-a11y/anchor-is-valid */}
+						<a className="example-page__page-1-link">Example Page 1 Link</a>
+					</Link>
 
-				<h2>Redux Test</h2>
-				<p>
-					this.props.count:{' '}
-					<span className="example-page__redux-count">{count}</span>
-				</p>
-				<button
-					className="example-page__count-button"
-					onClick={this.handleCountClick}
-				>
-					Click here to increase
-				</button>
+					<h2>Redux Test</h2>
+					<p>
+						this.props.count:{' '}
+						<span className="example-page__redux-count">{count}</span>
+					</p>
+					<button
+						className="example-page__count-button"
+						onClick={this.handleCountClick}
+					>
+						Click here to increase
+					</button>
 
-				<h2>dotenv Test</h2>
-				<p data-id="dotenv">{process.env.TEST}</p>
+					<h2>dotenv Test</h2>
+					<p data-testid="dotenv">{process.env.TEST}</p>
 
-				<h2>GraphQL Test</h2>
-				<p>{process.env.GRAPHQL_URL}</p>
-				<ul data-id="graphql-objects">
-					{objects &&
-						objects.map(({ displayTitle }, i) => {
-							return <li key={i}>{displayTitle}</li>;
-						})}
-				</ul>
+					<h2>GraphQL Test</h2>
+					<p>{process.env.GRAPHQL_URL}</p>
+					<ul data-testid="graphql-objects">
+						{objects &&
+							objects.map(({ displayTitle }, i) => {
+								return <li key={i}>{displayTitle}</li>;
+							})}
+					</ul>
+				</main>
 			</ExampleApp>
 		);
 	}

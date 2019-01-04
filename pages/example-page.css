@@ -1,25 +1,23 @@
 @import '../styles/variables.css';
 
-.paragraph {
-  /* composes: font-color from './global.css'; */
-  font-size: 20px;
+.example-page {
+  max-width: 40em;
 }
 
-h1 {
-  color: var(--colour-primary);
-}
-
-p {
+.example-page p {
   &.font-size-xxs {
     font-size: var(--font-size-xxs);
+    line-height: var(--line-height-xxs);
   }
 
   &.font-size-xs {
     font-size: var(--font-size-xs);
+    line-height: var(--line-height-xs);
   }
 
   &.font-size-sm {
     font-size: var(--font-size-sm);
+    line-height: var(--line-height-sm);
   }
 
   &.font-size-md {
@@ -39,7 +37,7 @@ p {
   }
 }
 
-.title {
+.example-page__title {
   color: var(--colour-primary);
 
   & span {
@@ -47,11 +45,11 @@ p {
   }
 }
 
-.boxes {
+.example-page__boxes {
   lost-utility: clearfix;
 }
 
-.box {
+.example-page__box {
   background-color: var(--colour-secondary);
   padding: var(--spacing-md);
 
@@ -60,24 +58,24 @@ p {
   }
 }
 
-.box--colour-primary {
+.example-page__box--colour-primary {
   background-color: var(--colour-primary);
 }
 
-.box--colour-secondary {
+.example-page__box--colour-secondary {
   background-color: var(--colour-secondary);
 }
 
-.box--colour-highlight {
+.example-page__box--colour-highlight {
   background-color: var(--colour-highlight);
 }
 
-.box--colour-grey {
+.example-page__box--colour-grey {
   background-color: var(--colour-grey);
 }
 
 @define-mixin create-box $colour-name, $colour, $index {
-  .box--colour-$(colour-name):nth-child($index) {
+  .example-page__box--colour-$(colour-name):nth-child($index) {
     background-color: $colour;
     @mixin-content;
   }

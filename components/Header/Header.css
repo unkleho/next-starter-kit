@@ -1,6 +1,10 @@
 @import '../../styles/variables.css';
 
 .header {
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-md);
+  margin-bottom: 1rem;
+
   & a {
     margin-right: 1em;
     color: var(--colour-primary);

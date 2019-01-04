@@ -6,6 +6,7 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 const withCSS = require('@zeit/next-css');
 
 module.exports = withCSS({
+	// cssModules: true,
 	webpack: (config, { dev }) => {
 		const customConfig = {
 			...config,

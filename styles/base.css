@@ -8,7 +8,9 @@ html {
   box-sizing: border-box;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
@@ -18,4 +20,33 @@ html {
 
 body {
   margin: 3em;
+}
+
+h1 {
+  color: var(--colour-primary);
+  font-size: var(--font-size-xxlg);
+  line-height: var(--line-height-xxlg);
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-size: var(--font-size-xlg);
+  line-height: var(--line-height-xlg);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-lg);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-md);
+  margin-top: 0;
+  margin-bottom: 1rem;
 }

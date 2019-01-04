@@ -7,6 +7,8 @@
    * Colours
    * ------------------------------------------------------------------------ */
 
+  --line-height: 1.3em;
+
   --colour-primary: #2196f3;
   --colour-secondary: #f44336;
   --colour-highlight: #ffc107;
@@ -147,8 +149,9 @@
    * Font Sizes
    * ------------------------------------------------------------------------ */
 
+  --grid-height: 1rem;
   --font-scale: 1.3;
-  --font-size-md: 1em;
+  --font-size-md: 1rem;
 
   --font-size-sm: calc(var(--font-size-md) / var(--font-scale));
   --font-size-xs: calc(var(--font-size-sm) / var(--font-scale));
@@ -157,6 +160,14 @@
   --font-size-lg: calc(var(--font-scale) * var(--font-size-md));
   --font-size-xlg: calc(var(--font-scale) * var(--font-size-lg));
   --font-size-xxlg: calc(var(--font-scale) * var(--font-size-xlg));
+
+  --line-height-xxs: calc(var(--grid-height) * 1);
+  --line-height-xs: calc(var(--grid-height) * 1);
+  --line-height-sm: calc(var(--grid-height) * 1);
+  --line-height-md: calc(var(--grid-height) * 2);
+  --line-height-lg: calc(var(--grid-height) * 2);
+  --line-height-xlg: calc(var(--grid-height) * 2);
+  --line-height-xxlg: calc(var(--grid-height) * 3);
 
   /*
    * Spacing
