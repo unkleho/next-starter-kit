@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import Head from 'next/head';
 
 import HeadMetaFields from '../HeadMetaFields';
@@ -17,7 +18,7 @@ export default ({
 	twitterUsername,
 }) => {
 	return (
-		<main>
+		<Fragment>
 			<Head>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 				<HeadMetaFields
@@ -32,6 +33,6 @@ export default ({
 				/>
 			</Head>
 			{children}
-		</main>
+		</Fragment>
 	);
 };

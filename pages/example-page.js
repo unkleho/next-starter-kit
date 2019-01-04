@@ -6,7 +6,7 @@ import gql from 'graphql-tag';
 import { bindActionCreators } from 'redux';
 
 import './example-page.css';
-import ExampleApp from '../components/examples/ExampleApp';
+import App from '../components/App';
 import Link from '../components/Link';
 import Header from '../components/Header';
 import ExampleComponent from '../components/examples/ExampleComponent';
@@ -51,7 +51,12 @@ class ExamplePage extends Component {
 		const shades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 
 		return (
-			<ExampleApp>
+			<App
+				title="Example Page"
+				description="Lomo cardigan keffiyeh fingerstache vape portland actually PBR&B
+			knausgaard art party four dollar toast."
+				url={router.pathname}
+			>
 				<Header pathname={router.pathname} />
 
 				<main className="example-page">
@@ -157,7 +162,7 @@ class ExamplePage extends Component {
 						</ul>
 					</section>
 				</main>
-			</ExampleApp>
+			</App>
 		);
 	}
 }

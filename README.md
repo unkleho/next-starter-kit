@@ -34,6 +34,7 @@ $ npm start
 PORT=XXXX
 TEST=it works!
 GOOGLE_ANALYTICS_ID=UA-XXXXXXXX-X
+FB_APP_ID=XXXXXXXXX
 GRAPHQL_URL=https://local.api.com/graphql
 
 # .env.production

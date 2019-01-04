@@ -6,6 +6,7 @@ import renderer from 'react-test-renderer';
 import { MockedProvider } from 'react-apollo/test-utils';
 import { Provider } from 'react-redux';
 import Router from 'next/router';
+import ReactGA from 'react-ga';
 import wait from 'waait';
 
 import ExampleComponent from '../components/examples/ExampleComponent';
@@ -38,6 +39,7 @@ const mocks = [
 // Set up Redux store
 const store = initStore();
 
+// Set up MockedWrapper component
 export class MockedWrapper extends React.Component {
 	render() {
 		return (
@@ -47,6 +49,8 @@ export class MockedWrapper extends React.Component {
 		);
 	}
 }
+
+const GOOGLE_ANALYTICS_ID = process.env.GOOGLE_ANALYTICS_ID;
 
 describe('With Enzyme', () => {
 	it('ExampleComponent shows "Example Component"', () => {
@@ -88,6 +92,14 @@ describe('With Enzyme', () => {
 		// Simulate Next router link
 		wrapper.find('.example-page__page-1-link').simulate('click');
 		expect(Router.router.push.mock.calls[0][1]).toEqual('/example-page/1');
+
+		if (GOOGLE_ANALYTICS_ID) {
+			expect(ReactGA.initialize.mock.calls[0][0]).toEqual(GOOGLE_ANALYTICS_ID);
+			expect(ReactGA.pageview.mock.calls[0][0]).toEqual('/');
+		}
+
+		// TODO:
+		// - Add test for HeadMetaFields
 	});
 
 	it('Shows example page with id prop', () => {
