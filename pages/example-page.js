@@ -112,8 +112,8 @@ class ExamplePage extends Component {
 												className={`example-page__box example-page__box--colour-${colour}`}
 												key={`box--colour-${colour}-${i}`}
 												style={{
-                          color: i >= 5 ? 'white' : 'inherit',
-                        }}
+													color: i >= 5 ? 'white' : 'inherit',
+												}}
 											>
 												{colour} {shades[i]}
 											</div>
