@@ -5,6 +5,7 @@
 ### Added
 
 * Added `postcss-nested` and tweaked `variables.css`
+* Added `styles/root.css` and only imported it in `App.js`. Was getting imported multiple times.
 
 ## [1.4.3] 2019-02-08
 
