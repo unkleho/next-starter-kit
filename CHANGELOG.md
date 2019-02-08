@@ -1,6 +1,12 @@
 # Changelog
 
-## [1.4.1] 2019-02-08
+## [1.4.4] 2019-02-08
+
+### Added
+
+* Added `postcss-nested` and tweaked `variables.css`
+
+## [1.4.3] 2019-02-08
 
 ### Changed
 

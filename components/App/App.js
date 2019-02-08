@@ -2,6 +2,7 @@ import { Component } from 'react';
 
 import AppBase from '../AppBase';
 
+import '../../styles/root.css';
 import '../../styles/base.css';
 import '../../styles/helpers.css';
 
@@ -28,7 +29,7 @@ class App extends Component {
 				imageAlt={imageAlt}
 				siteName={siteName}
 			>
-				<div className={['app', className || '']}>{children}</div>
+				<div className={['app', className || ''].join(' ')}>{children}</div>
 			</AppBase>
 		);
 	}
