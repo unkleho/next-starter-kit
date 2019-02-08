@@ -6,6 +6,7 @@ module.exports = {
 		require('postcss-easy-import')({
 			prefix: '_',
 		}), // keep this first
+		require('postcss-nested'),
 		require('postcss-mixins'),
 		require('postcss-preset-env')({
 			stage: 0,

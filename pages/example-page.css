@@ -1,8 +1,11 @@
 @import '../styles/variables.css';
 
 .example-page {
-	display: inline;
 	max-width: 40em;
+
+	@media (--screen-sm) {
+		max-width: 50em;
+	}
 }
 
 .example-page p {
