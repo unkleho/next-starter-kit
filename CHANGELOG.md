@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.4.1] 2019-02-08
+
+### Changed
+
+* Updated React to 16.8 to get Hooks goodness
+* Update `_templates/component.ejs.t` to use tabs
+* Fix `next.config.js` stylelint config
+
+### Added
+
+* `stylelint-config-prettier` to disable stylelint formatting rules and let Prettier do its thang
+* Add className to `App`
+* Add `eslint-plugin-flowtype` to satisfy `eslint-config-react-app`
+
+### Removed
+
+* `/lib/initRedux.js` no longer needed
+
 ## [1.4.0] 2018-12-27
 
 ### Changed

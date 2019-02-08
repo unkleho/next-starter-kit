@@ -20,7 +20,7 @@ module.exports = withCSS({
 		customConfig.plugins.push(new webpack.EnvironmentPlugin(process.env));
 
 		if (dev) {
-			config.plugins.push(
+			customConfig.plugins.push(
 				new StyleLintPlugin({
 					configFile: './.stylelintrc.js',
 					files: ['**/*.css'],

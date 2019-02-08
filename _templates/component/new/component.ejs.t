@@ -7,17 +7,17 @@ import { Component } from 'react';
 import './<%= name %>.css';
 
 class <%= name %> extends Component {
-  // static propTypes = {};
+	// static propTypes = {};
 
-  render() {
-    // const {} = this.props;
+	render() {
+		// const {} = this.props;
 
-    return (
-      <div className="<%= h.inflection.underscore(name).replace(/_/g, '-') %>">
-        <span></span>
-      </div>
-    )
-  }
+		return (
+			<div className="<%= h.inflection.underscore(name).replace(/_/g, '-') %>">
+				<span></span>
+			</div>
+		)
+	}
 }
 
 export default <%= name %>

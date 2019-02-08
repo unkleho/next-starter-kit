@@ -8,6 +8,7 @@ import '../../styles/helpers.css';
 class App extends Component {
 	render() {
 		const {
+			className,
 			children,
 			title,
 			description,
@@ -19,6 +20,7 @@ class App extends Component {
 
 		return (
 			<AppBase
+				className={className}
 				title={title}
 				description={description}
 				url={url}
@@ -26,7 +28,7 @@ class App extends Component {
 				imageAlt={imageAlt}
 				siteName={siteName}
 			>
-				{children}
+				<div className={['app', className || '']}>{children}</div>
 			</AppBase>
 		);
 	}

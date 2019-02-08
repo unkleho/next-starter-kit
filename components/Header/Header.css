@@ -1,16 +1,16 @@
 @import '../../styles/variables.css';
 
 .header {
-  font-size: var(--font-size-md);
-  line-height: var(--line-height-md);
-  margin-bottom: var(--spacing-1);
+	margin-bottom: var(--spacing-1);
+	font-size: var(--font-size-md);
+	line-height: var(--line-height-md);
 
-  & a {
-    margin-right: var(--spacing-1);
-    color: var(--colour-primary);
+	& a {
+		margin-right: var(--spacing-1);
+		color: var(--colour-primary);
 
-    &.is-active {
-      color: var(--colour-highlight);
-    }
-  }
+		&.is-active {
+			color: var(--colour-highlight);
+		}
+	}
 }

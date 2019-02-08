@@ -1,6 +1,7 @@
 module.exports = {
 	extends: [
 		'stylelint-config-standard',
+		'stylelint-config-rational-order',
 		'stylelint-config-lost',
 		'stylelint-config-prettier',
 	],
