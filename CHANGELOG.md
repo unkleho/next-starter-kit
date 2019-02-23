@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.4.5] 2019-02-23
+
+### Added
+
+* Add browserslist setting in `package.json` to ensure `autoprefixer` does its thang.
+
 ## [1.4.4] 2019-02-08
 
 ### Added
