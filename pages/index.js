@@ -1,28 +1,27 @@
-import { Component } from 'react';
+import React from 'react';
 
 import App from '../components/App';
 import Header from '../components/Header';
+// import { useWindowSize } from '../lib/hooks';
 
 import './index.css';
 
-export class HomePage extends Component {
-	static defaultProps = {
-		router: {},
-	};
+const HomePage = ({ router = {} }) => {
+	// Enzyme doesn't support Hooks yet. Re-enable once it does
+	// or migrate to react-testing-library
+	// const size = useWindowSize();
 
-	render() {
-		const { router } = this.props;
+	// console.log(size);
 
-		return (
-			<App title="Home" url={router.pathname}>
-				<Header pathname={router.pathname} />
+	return (
+		<App title="Home" url={router.pathname}>
+			<Header pathname={router.pathname} />
 
-				<h1>
-					Next <span>Starter</span> Kit
-				</h1>
-			</App>
-		);
-	}
-}
+			<h1>
+				Next <span>Starter</span> Kit
+			</h1>
+		</App>
+	);
+};
 
 export default HomePage;
