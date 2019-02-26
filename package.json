@@ -11,8 +11,7 @@
 		"alias": "now alias next-starter-kit.now.sh -r rules.json",
 		"test": "node -r dotenv/config ./node_modules/.bin/jest",
 		"test:watch": "npm run test -- --watch",
-		"test:lint":
-			"eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
+		"test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
 		"lint-staged-test": "npm run test -- --bail --findRelatedTests",
 		"precommit": "lint-staged"
 	},
@@ -55,7 +54,7 @@
 		"babel-core": "^7.0.0-bridge.0",
 		"babel-eslint": "^9.0.0",
 		"babel-jest": "^23.6.0",
-		"enzyme": "^3.3.0",
+		"enzyme": "^3.9.0",
 		"enzyme-adapter-react-16": "^1.7.1",
 		"eslint": "^5.8.0",
 		"eslint-config-airbnb-base": "^13.1.0",
@@ -85,7 +84,7 @@
 		"raw-loader": "^0.5.1",
 		"react-test-renderer": "^16.2.0",
 		"redux-mock-store": "^1.5.3",
-		"stylelint": "^9.7.1",
+		"stylelint": "^9.10.1",
 		"stylelint-config-lost": "0.0.3",
 		"stylelint-config-prettier": "^4.0.0",
 		"stylelint-config-rational-order": "0.0.4",
@@ -101,5 +100,9 @@
 			"npm lint-staged-test"
 		]
 	},
-	"browserslist": ["> 1%", "last 2 versions", "IE 11"]
+	"browserslist": [
+		"> 1%",
+		"last 2 versions",
+		"IE 11"
+	]
 }

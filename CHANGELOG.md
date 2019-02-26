@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.6] 2019-02-26
+
+### Changed
+
+* Update from Next 7 to 8
+* Ran `npm audit fix`
+
 ## [1.4.5] 2019-02-23
 
 ### Added
