@@ -9,10 +9,11 @@
 		"heroku-postbuild": "next build",
 		"deploy": "now",
 		"alias": "now alias next-starter-kit.now.sh -r rules.json",
-		"jest": "node -r dotenv/config ./node_modules/.bin/jest",
-		"test": "npm run jest -- --bail --findRelatedTests",
-		"test:watch": "npm run jest -- --watch",
-		"test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
+		"test": "node -r dotenv/config ./node_modules/.bin/jest",
+		"test:watch": "npm run test -- --watch",
+		"test:lint":
+			"eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
+		"lint-staged-test": "npm run test -- --bail --findRelatedTests",
 		"precommit": "lint-staged"
 	},
 	"engines": {
@@ -97,12 +98,8 @@
 			"eslint --fix",
 			"stylelint **/*.css --fix",
 			"git add",
-			"npm test"
+			"npm lint-staged-test"
 		]
 	},
-	"browserslist": [
-		"> 1%",
-		"last 2 versions",
-		"IE 11"
-	]
+	"browserslist": ["> 1%", "last 2 versions", "IE 11"]
 }
