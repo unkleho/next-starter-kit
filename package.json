@@ -11,7 +11,8 @@
 		"alias": "now alias next-starter-kit.now.sh -r rules.json",
 		"test": "node -r dotenv/config ./node_modules/.bin/jest",
 		"test:watch": "npm run test -- --watch",
-		"test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
+		"test:lint":
+			"eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
 		"lint-staged-test": "npm run test -- --bail --findRelatedTests",
 		"precommit": "lint-staged"
 	},
@@ -63,7 +64,6 @@
 		"eslint-plugin-flowtype": "^2.50.3",
 		"eslint-plugin-import": "^2.14.0",
 		"eslint-plugin-jsx-a11y": "^6.1.2",
-		"eslint-plugin-only-warn": "^1.0.1",
 		"eslint-plugin-prettier": "^2.6.0",
 		"eslint-plugin-react": "^7.11.1",
 		"husky": "^0.14.3",
@@ -99,9 +99,5 @@
 			"npm run lint-staged-test"
 		]
 	},
-	"browserslist": [
-		"> 1%",
-		"last 2 versions",
-		"IE 11"
-	]
+	"browserslist": ["> 1%", "last 2 versions", "IE 11"]
 }
