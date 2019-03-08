@@ -4,7 +4,7 @@
 
 ### Changed
 
-* Update `next.config.js` settings to ensure eslint/stylelint errors still hot reload
+* Update `next.config.js` settings to ensure eslint/stylelint errors still hot reload. Note that Next 8 solves eslint-loader issue of not hot reloading on warning.
 * Update eslint config with `airbnb` config
 
 ### Removed
