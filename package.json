@@ -1,7 +1,7 @@
 {
 	"name": "next-starter-kit",
 	"author": "Kaho Cheung",
-	"version": "1.4.6",
+	"version": "1.4.7",
 	"scripts": {
 		"dev": "npm start",
 		"build": "next build",
@@ -11,8 +11,7 @@
 		"alias": "now alias next-starter-kit.now.sh -r rules.json",
 		"test": "node -r dotenv/config ./node_modules/.bin/jest",
 		"test:watch": "npm run test -- --watch",
-		"test:lint":
-			"eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
+		"test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --ignore-pattern dist --cache",
 		"lint-staged-test": "npm run test -- --bail --findRelatedTests",
 		"precommit": "lint-staged"
 	},
@@ -100,5 +99,9 @@
 			"npm run lint-staged-test"
 		]
 	},
-	"browserslist": ["> 1%", "last 2 versions", "IE 11"]
+	"browserslist": [
+		"> 1%",
+		"last 2 versions",
+		"IE 11"
+	]
 }
