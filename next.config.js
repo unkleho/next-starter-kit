@@ -1,3 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
+
 require('dotenv').config();
 // eslint-disable-line
 const webpack = require('webpack');
@@ -24,6 +26,7 @@ module.exports = withCSS({
 				new StyleLintPlugin({
 					configFile: './.stylelintrc.js',
 					files: ['**/*.css'],
+					// Errors are piped to Webpack's warning message handler
 					emitErrors: false,
 				}),
 			);
@@ -33,6 +36,10 @@ module.exports = withCSS({
 				test: /\.js$/,
 				exclude: /node_modules/,
 				loader: 'eslint-loader',
+				options: {
+					// Errors are piped to Webpack's warning message handler
+					emitWarning: true,
+				},
 			});
 		}
 

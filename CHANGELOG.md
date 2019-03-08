@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.4.7] 2019-02-09
+
+### Changed
+
+* Update `next.config.js` settings to ensure eslint/stylelint errors still hot reload
+* Update eslint config with `airbnb` config
+
+### Removed
+
+* `eslint-config-dxlab` no longer needed. Using custom config.
+
 ## [1.4.6] 2019-02-26
 
 ### Changed
