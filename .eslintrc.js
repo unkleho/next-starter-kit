@@ -1,10 +1,28 @@
 module.exports = {
 	parser: 'babel-eslint',
-	extends: ['react-app', '@slnsw/dxlab', 'prettier'],
-	plugins: ['prettier'],
+	extends: ['airbnb-base', 'react-app', 'plugin:prettier/recommended'],
 	rules: {
-		// 'comma-dangle': ['warn', 'always-multiline'],
+		'import/prefer-default-export': 0,
+		'arrow-body-style': 0,
+		'no-console': 0,
 		'react/react-in-jsx-scope': 0,
-		// 'react/jsx-max-props-per-line': [1, { maximum: 3 }],
+		'class-methods-use-this': [
+			'error',
+			{
+				exceptMethods: [
+					'render',
+					'getInitialState',
+					'getDefaultProps',
+					'getChildContext',
+					'componentWillMount',
+					'componentDidMount',
+					'componentWillReceiveProps',
+					'shouldComponentUpdate',
+					'componentWillUpdate',
+					'componentDidUpdate',
+					'componentWillUnmount',
+				],
+			},
+		],
 	},
 };

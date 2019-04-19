@@ -11,7 +11,7 @@ export default ({ pathname }) => {
 		<header className="header">
 			{menuItems.map((item) => {
 				return (
-					<Link prefetch to={item.url} key={item.url}>
+					<Link to={item.url} key={item.url}>
 						{/* eslint-disable jsx-a11y/anchor-is-valid */}
 						<a className={pathname === item.url ? 'is-active' : undefined}>
 							{item.name}
