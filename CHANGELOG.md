@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.4.8] 2019-05-28
+
+* Replace Enzyme with `react-testing-library` and update tests.
+* Update Hygen template to create functional component (instead of class) and add new component test file.
+
 ## [1.4.7] 2019-03-09
 
 ### Changed

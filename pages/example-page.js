@@ -26,7 +26,6 @@ class ExamplePage extends Component {
 
 	static getInitialProps({ query: { id = null }, store, isServer }) {
 		store.dispatch(exampleAction('payload'));
-		console.log(isServer);
 
 		return {
 			id,
@@ -60,7 +59,7 @@ class ExamplePage extends Component {
 				<Header pathname={router.pathname} />
 
 				<main className="example-page">
-					<h1 className="example-page__title">
+					<h1 className="example-page__title" data-testid="title">
 						Page <span>{id}</span>
 					</h1>
 
@@ -138,7 +137,9 @@ class ExamplePage extends Component {
 						<h2>Redux Test</h2>
 						<p>
 							this.props.count:{' '}
-							<span className="example-page__redux-count">{count}</span>
+							<span className="example-page__redux-count" data-testid="count">
+								{count}
+							</span>
 						</p>
 						<button
 							className="example-page__count-button"

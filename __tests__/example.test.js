@@ -1,7 +1,7 @@
 /* eslint-env jest */
 
-import { shallow, mount } from 'enzyme';
 import React from 'react';
+import { render, cleanup, fireEvent } from 'react-testing-library';
 import renderer from 'react-test-renderer';
 import { MockedProvider } from 'react-apollo/test-utils';
 import { Provider } from 'react-redux';
@@ -50,73 +50,72 @@ export class MockedWrapper extends React.Component {
 	}
 }
 
-const GOOGLE_ANALYTICS_ID = process.env.GOOGLE_ANALYTICS_ID;
+const { GOOGLE_ANALYTICS_ID } = process.env;
 
-describe('With Enzyme', () => {
-	it('ExampleComponent shows "Example Component"', () => {
-		const app = shallow(<ExampleComponent />);
+afterEach(cleanup);
 
-		expect(app.find('p').text()).toEqual('Example Component');
+describe('ExampleComponent', () => {
+	it('shows "Test"', () => {
+		const { getByTestId } = render(<ExampleComponent title="Test" />);
+
+		expect(getByTestId('title').innerHTML).toEqual('Test');
 	});
 
-	it('Shows home page', () => {
-		const app = shallow(<HomePage />);
-
-		expect(app.find('h1').text()).toEqual('Next Starter Kit');
+	it('matches snapshot', () => {
+		const component = renderer.create(<ExampleComponent />);
+		const tree = component.toJSON();
+		expect(tree).toMatchSnapshot();
 	});
+});
 
-	it('Shows example page, testing dotenv, Apollo data and next/router.', async () => {
-		const wrapper = mount(
+describe('HomePage', () => {
+	it('renders HomePage component', () => {
+		const { getByText } = render(<HomePage />);
+
+		expect(getByText('Starter')).toBeDefined();
+	});
+});
+
+describe('ExamplePage', () => {
+	it('renders ExamplePage, testing Redux, dotenv, Apollo data and next/router.', async () => {
+		const props = ExamplePage.getInitialProps({
+			query: { id: '1' },
+			store,
+			isServer: false,
+		});
+
+		const { getByTestId, getByText } = render(
 			<MockedWrapper>
-				<ExamplePage />
+				<ExamplePage {...props} />
 			</MockedWrapper>,
 		);
 
+		expect(getByTestId('title').textContent).toEqual('Page 1');
+		expect(getByTestId('dotenv').textContent).toEqual('test');
+
 		// Test loading state
-		expect(wrapper.find('[data-testid="graphql-objects"]').text()).toEqual('');
-
-		// Wait for Apollo promise to resolve and get results
-		await wait(0);
-
-		expect(wrapper.find('.example-page__title').text()).toEqual('Page ');
-		expect(wrapper.find('[data-testid="dotenv"]').text()).toEqual('test');
-		expect(wrapper.find('[data-testid="graphql-objects"]').text()).toEqual(
-			'Test 1Test 2',
-		);
-
-		// Simulate redux click
-		expect(wrapper.find('.example-page__count-button').length).toEqual(1);
-		wrapper.find('.example-page__count-button').simulate('click');
-		expect(wrapper.find('.example-page__redux-count').text()).toEqual('1');
-
-		// Simulate Next router link
-		wrapper.find('.example-page__page-1-link').simulate('click');
-		expect(Router.router.push.mock.calls[0][1]).toEqual('/example-page/1');
+		expect(getByTestId('graphql-objects').textContent).toEqual('');
 
 		if (GOOGLE_ANALYTICS_ID) {
 			expect(ReactGA.initialize.mock.calls[0][0]).toEqual(GOOGLE_ANALYTICS_ID);
 			expect(ReactGA.pageview.mock.calls[0][0]).toEqual('/');
 		}
 
-		// TODO:
-		// - Add test for HeadMetaFields
+		// Wait for Apollo promise to resolve and get results
+		await wait(0);
+
+		expect(getByTestId('graphql-objects').textContent).toEqual('Test 1Test 2');
+
+		// Simulate redux counter click
+		expect(getByTestId('count').textContent).toEqual('0');
+		fireEvent.click(getByText('Click here to increase'));
+		expect(getByTestId('count').textContent).toEqual('1');
+
+		// Simulate Next router link
+		fireEvent.click(getByText('Example Page 1 Link'));
+		expect(Router.router.push.mock.calls[0][1]).toEqual('/example-page/1');
 	});
 
-	it('Shows example page with id prop', () => {
-		const wrapper = mount(
-			<MockedWrapper>
-				<ExamplePage id="1" />
-			</MockedWrapper>,
-		);
-
-		expect(wrapper.find('.example-page__title').text()).toEqual('Page 1');
-	});
-});
-
-describe('With Snapshot Testing', () => {
-	it('ExampleComponent shows "Example Component"', () => {
-		const component = renderer.create(<ExampleComponent />);
-		const tree = component.toJSON();
-		expect(tree).toMatchSnapshot();
-	});
+	// TODO:
+	// - Add test for HeadMetaFields
 });

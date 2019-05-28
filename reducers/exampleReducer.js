@@ -6,7 +6,6 @@ const exampleInitialState = {
 export default (state = exampleInitialState, action) => {
 	switch (action.type) {
 		case 'EXAMPLE_ACTION':
-			console.log('EXAMPLE_ACTION');
 			return state;
 		case 'ADD':
 			return {

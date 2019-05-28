@@ -1,23 +1,17 @@
 ---
 to: components/<%= name %>/<%= name %>.js
 ---
-import { Component } from 'react';
-// import PropTypes from 'prop-types';
+import * as React from 'react';
+import PropTypes from 'prop-types';
 
 import './<%= name %>.css';
 
-class <%= name %> extends Component {
-	// static propTypes = {};
+const <%= name %> = ({ className }) => {
+	return <div className={['<%= h.inflection.underscore(name).replace(/_/g, '-') %>', className || ''].join(' ')}> </div>;
+};
 
-	render() {
-		// const {} = this.props;
+<%= name %>.propTypes = {
+	className: PropTypes.string,
+};
 
-		return (
-			<div className="<%= h.inflection.underscore(name).replace(/_/g, '-') %>">
-				<span></span>
-			</div>
-		)
-	}
-}
-
-export default <%= name %>
+export default <%= name %>;
