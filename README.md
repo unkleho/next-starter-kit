@@ -17,6 +17,7 @@ Opinionated starter kit for the Next.js React framework. This starter kit includ
 * Stylelint
 * Lint Staged
 * Jest
+* React Testing Library
 
 ## Getting Started
 

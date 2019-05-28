@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.4.9] 2019-05-28
+
+* Update Next JS to 8.1
+
 ## [1.4.8] 2019-05-28
 
 * Replace Enzyme with `react-testing-library` and update tests.
