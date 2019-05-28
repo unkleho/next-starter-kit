@@ -95,7 +95,11 @@ While I'm bit old fashioned, I use [PostCSS Preset Env](https://github.com/cssto
 
 ### Jest
 
-I'm a big believer of test driven development for backend applications. It is a bit trickier for frontend, however, [Jest](https://jestjs.io/) is well set up in this repo with example component and integration tests.
+I'm a big believer of test driven development for backend applications. It is a bit trickier for frontend, however, [Jest](https://jestjs.io/) is well set up in this repo with example component and integration tests that work with Redux and Apollo.
+
+### React Testing Library
+
+[Excellent library](https://testing-library.com/docs/react-testing-library/intro) that tests the DOM, rather than implementation, leading to tests that simulate real world usage.
 
 ### Prettier
 
