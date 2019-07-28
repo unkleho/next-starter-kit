@@ -11,7 +11,7 @@ import wait from 'waait';
 
 import ExampleComponent from '../components/examples/ExampleComponent';
 import HomePage from '../pages/index';
-import ExamplePage, { GET_OBJECTS_QUERY } from '../pages/example-page';
+import ExamplePage, { GET_OBJECTS_QUERY } from '../pages/examples';
 import { initStore } from '../lib/store';
 
 // Set up mocked Apollo query and data

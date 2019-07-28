@@ -5,12 +5,12 @@ import { connect } from 'react-redux';
 import gql from 'graphql-tag';
 import { bindActionCreators } from 'redux';
 
-import './example-page.css';
-import App from '../components/App';
-import Link from '../components/Link';
-import Header from '../components/Header';
-import ExampleComponent from '../components/examples/ExampleComponent';
-import { exampleAction, addCount } from '../actions/exampleActions';
+import './index.css';
+import App from '../../components/App';
+import Link from '../../components/Link';
+import Header from '../../components/Header';
+import ExampleComponent from '../../components/examples/ExampleComponent';
+import { exampleAction, addCount } from '../../actions/exampleActions';
 
 class ExamplePage extends Component {
 	static propTypes = {
