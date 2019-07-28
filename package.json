@@ -1,7 +1,7 @@
 {
 	"name": "next-starter-kit",
 	"author": "Kaho Cheung",
-	"version": "1.4.9",
+	"version": "1.5.0",
 	"scripts": {
 		"dev": "npm start",
 		"build": "next build",
