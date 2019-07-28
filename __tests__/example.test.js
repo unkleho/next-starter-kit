@@ -1,7 +1,7 @@
 /* eslint-env jest */
 
 import React from 'react';
-import { render, cleanup, fireEvent } from 'react-testing-library';
+import { render, cleanup, fireEvent } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import { MockedProvider } from 'react-apollo/test-utils';
 import { Provider } from 'react-redux';
@@ -56,9 +56,9 @@ afterEach(cleanup);
 
 describe('ExampleComponent', () => {
 	it('shows "Test"', () => {
-		const { getByTestId } = render(<ExampleComponent title="Test" />);
+		const { getByText } = render(<ExampleComponent title="Test" />);
 
-		expect(getByTestId('title').innerHTML).toEqual('Test');
+		expect(getByText('Test').innerHTML).toBeDefined();
 	});
 
 	it('matches snapshot', () => {
@@ -90,7 +90,6 @@ describe('ExamplePage', () => {
 			</MockedWrapper>,
 		);
 
-		expect(getByTestId('title').textContent).toEqual('Page 1');
 		expect(getByTestId('dotenv').textContent).toEqual('test');
 
 		// Test loading state
@@ -113,7 +112,7 @@ describe('ExamplePage', () => {
 
 		// Simulate Next router link
 		fireEvent.click(getByText('Example Page 1 Link'));
-		expect(Router.router.push.mock.calls[0][1]).toEqual('/example-page/1');
+		expect(Router.router.push.mock.calls[0][1]).toEqual('/examples/1');
 	});
 
 	// TODO:

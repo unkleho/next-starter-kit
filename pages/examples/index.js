@@ -127,7 +127,7 @@ class ExamplePage extends Component {
 						<h2>Example Component</h2>
 						<ExampleComponent title="Title" />
 
-						<Link to="/example-page/1">
+						<Link to="/examples/1">
 							{/* eslint-disable jsx-a11y/anchor-is-valid */}
 							<a className="example-page__page-1-link">Example Page 1 Link</a>
 						</Link>

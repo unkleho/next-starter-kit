@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.5.0] 2019-07-28
+
+* Update Next JS to 9.02
+* Replace `react-testing-library` with `@testing-library/react`
+
 ## [1.4.9] 2019-05-28
 
 * Update Next JS to 8.1
