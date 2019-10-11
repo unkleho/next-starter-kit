@@ -1,0 +1,29 @@
+@import '../../styles/global.scss';
+
+.examplePage {
+	max-width: 40em;
+
+	section {
+		margin-bottom: $baseline-8;
+	}
+}
+
+.title {
+	& span {
+		color: $colour-secondary;
+	}
+}
+
+.colourHolder {
+	display: flex;
+	margin-bottom: $baseline-1;
+
+	p {
+		margin: 0 0 0 $baseline-1;
+	}
+}
+
+.colourBox {
+	width: $baseline-3;
+	height: $baseline-3;
+}

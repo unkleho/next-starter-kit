@@ -1,7 +1,8 @@
 ---
-to: components/<%= name %>/<%= name %>.css
+to: components/<%= name %>/<%= name %>.scss
 ---
-@import '../../styles/variables.css';
+@import '../../styles/global.scss';
 
-/* .<%= h.inflection.underscore(name).replace(/_/g, '-') %> {
-} */
+.<%= h.changeCase.camel(name) %> {
+  display: block;
+}

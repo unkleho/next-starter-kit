@@ -1,17 +1,16 @@
 ---
-to: components/<%= name %>/<%= name %>.js
+to: components/<%= name %>/<%= name %>.tsx
 ---
 import * as React from 'react';
-import PropTypes from 'prop-types';
 
-import './<%= name %>.css';
+import css from './<%= name %>.scss';
 
-const <%= name %> = ({ className }) => {
-	return <div className={['<%= h.inflection.underscore(name).replace(/_/g, '-') %>', className || ''].join(' ')}> </div>;
+type Props = {
+  className?: string;
 };
 
-<%= name %>.propTypes = {
-	className: PropTypes.string,
+const <%= name %>: React.FunctionComponent<Props> = ({ className }) => {
+  return <div className={[css.<%= h.changeCase.camel(name) %>, className || ''].join(' ')}></div>;
 };
 
 export default <%= name %>;
