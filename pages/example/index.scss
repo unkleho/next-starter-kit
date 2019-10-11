@@ -1,7 +1,8 @@
 @import '../../styles/global.scss';
 
 .examplePage {
-	max-width: 40em;
+	max-width: 75ch;
+	margin: 0 auto;
 
 	section {
 		margin-bottom: $baseline-8;

@@ -29,9 +29,15 @@ const ExamplePage: React.FunctionComponent<Props> = ({ id }) => {
 			</h1>
 
 			<section>
-				<Link href="/example/1">
-					<a>Example Page 1 Link</a>
-				</Link>
+				{id === '1' ? (
+					<Link href="/example" as="/example">
+						<a>Example Page Link</a>
+					</Link>
+				) : (
+					<Link href="/example/[id]" as="/example/1">
+						<a>Example Page 1 Link</a>
+					</Link>
+				)}
 
 				<p>
 					Lomo cardigan keffiyeh fingerstache vape portland actually PBR&B
