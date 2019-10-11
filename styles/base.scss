@@ -1,0 +1,55 @@
+@import './global.scss';
+
+/*
+ * BASE STYLES
+ * Override HTML tags here
+ * ========================================================================== */
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+body {
+	margin: $baseline-2;
+	color: $colour-black;
+	font-size: $font-size-base;
+	font-family: $font-family-primary;
+	line-height: $baseline-3;
+}
+
+h1 {
+	font-size: $font-size-xxxlg;
+}
+
+h2 {
+	font-size: $font-size-xxlg;
+}
+
+h3 {
+	font-size: $font-size-xlg;
+}
+
+h4 {
+	font-size: $font-size-lg;
+}
+
+h5 {
+	font-size: $font-size-md;
+}
+
+a:link,
+a:visited {
+	color: $colour-primary;
+	text-decoration: none;
+}
+
+a:hover,
+a:active {
+	text-decoration: underline;
+}

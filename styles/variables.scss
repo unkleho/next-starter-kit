@@ -1,0 +1,140 @@
+/*
+ * VARIABLES
+ * Shared variables for all pages and components
+ * ========================================================================== */
+
+/*
+ * Colours
+ * ------------------------------------------------------------------------ */
+
+$colour-pink: #d10fc9;
+$colour-purple: #5f0fd1;
+$colour-blue: #0fa6d1;
+$colour-green: #0fd165;
+$colour-yellow: #e7d210;
+$colour-orange: #ff5c13;
+
+$colour-white: #eee;
+$colour-black: #050505;
+
+$colour-primary: $colour-pink;
+$colour-secondary: $colour-purple;
+$colour-highlight: $colour-orange;
+
+$colour-grey-50: #f6f6f6;
+$colour-grey-100: #eee;
+$colour-grey-200: #ccc;
+$colour-grey-300: #aaa;
+$colour-grey-400: #999;
+$colour-grey-500: #777;
+$colour-grey-600: #666;
+$colour-grey-700: #555;
+$colour-grey-800: #333;
+$colour-grey-900: #222;
+
+/*
+ * Baseline
+ * ------------------------------------------------------------------------ */
+
+$baseline: 8px;
+$baseline-half: $baseline/2;
+$baseline-1: $baseline;
+$baseline-2: $baseline * 2;
+$baseline-3: $baseline * 3;
+$baseline-4: $baseline * 4;
+$baseline-5: $baseline * 5;
+$baseline-6: $baseline * 6;
+$baseline-7: $baseline * 7;
+$baseline-8: $baseline * 8;
+
+/*
+  * Fonts
+  * ------------------------------------------------------------------------ */
+
+$font-scale: 1.3;
+$font-size-base: 16px;
+$font-size-md: 1rem;
+
+$font-size-sm: (1 / $font-scale) * $font-size-md;
+$font-size-xs: (1 / $font-scale) * $font-size-sm;
+$font-size-xxs: (1 / $font-scale) * $font-size-xs;
+$font-size-lg: $font-scale * $font-size-md;
+$font-size-xlg: $font-scale * $font-size-lg;
+$font-size-xxlg: $font-scale * $font-size-xlg;
+$font-size-xxxlg: $font-scale * $font-size-xxlg;
+$font-size-xxxxlg: $font-scale * $font-size-xxxlg;
+
+$font-family-primary: Arial, Helvetica, sans-serif;
+
+/*
+ * Containers
+ * ------------------------------------------------------------------------ */
+
+$container-width-xs: 20rem;
+$container-width-sm: 30rem;
+$container-width-md: 40rem;
+$container-width-lg: 60rem;
+$container-width-xlg: 80rem;
+$container-width-xxlg: 100rem;
+$container-width-xxxlg: 120rem;
+
+/*
+ * Borders
+ * ------------------------------------------------------------------------ */
+
+$border: 1px solid $colour-grey-200;
+
+$border-radius-md: $baseline/4;
+$border-radius-lg: $baseline/2;
+$border-radius: $border-radius-md;
+
+/*
+ * Animation
+ * ------------------------------------------------------------------------ */
+
+$ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1); /* easeInOutQuint */
+
+/*
+ * Exported Variables for JavaScript
+ * ------------------------------------------------------------------------ */
+
+:export {
+	/* stylelint-disable */
+	baseline: $baseline;
+	container-width-xs: $container-width-xs;
+	container-width-sm: $container-width-sm;
+	container-width-md: $container-width-md;
+	container-width-lg: $container-width-lg;
+	container-width-xlg: $container-width-xlg;
+	container-width-xxlg: $container-width-xxlg;
+	font-scale: $font-scale;
+	font-size-xxs: $font-size-xxs;
+	font-size-xs: $font-size-xs;
+	font-size-sm: $font-size-sm;
+	font-size-md: $font-size-md;
+	font-size-lg: $font-size-lg;
+	font-size-xlg: $font-size-xlg;
+	font-size-xxlg: $font-size-xxlg;
+	font-size-xxxlg: $font-size-xxxlg;
+	font-size-xxxxlg: font-size-xxxxlg;
+	font-family-primary: $font-family-primary;
+	colour-primary: $colour-primary;
+	colour-secondary: $colour-secondary;
+	colour-highlight: $colour-highlight;
+	colour-black: $colour-black;
+	colour-white: $colour-white;
+	colour-grey-50: $colour-grey-50;
+	colour-grey-100: $colour-grey-100;
+	colour-grey-200: $colour-grey-200;
+	colour-grey-300: $colour-grey-300;
+	colour-grey-400: $colour-grey-400;
+	colour-grey-500: $colour-grey-500;
+	colour-grey-600: $colour-grey-600;
+	colour-grey-700: $colour-grey-700;
+	colour-grey-800: $colour-grey-800;
+	colour-grey-900: $colour-grey-900;
+	border-radius: $border-radius;
+	border-radius-md: $border-radius-md;
+	border-radius-lg: $border-radius-lg;
+	/* stylelint-enable */
+}

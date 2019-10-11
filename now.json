@@ -1,8 +1,3 @@
 {
-  "name": "next-starter-kit",
-  "dotenv": ".env.production",
-  "file": [
-    ".env.production"
-  ],
-  "public": true
+	"version": 2
 }
