@@ -16,6 +16,10 @@ Opinionated starter kit for the Next.js React framework. This starter kit includ
 - Jest
 - React Testing Library
 
+## Version 1
+
+[This version](https://github.com/unkleho/next-starter-kit/tree/v1.5.0) has cool things like Apollo GraphQL and Redux, however I removed them for Version 2 because it is hard to keep up with Apollo and I'm using Redux less and less. It still has some goodies though, especially setting up the providers in \_app and testing scripts.
+
 ## Getting Started
 
 ```
