@@ -2,19 +2,19 @@
 
 Opinionated starter kit for the Next.js React framework. This starter kit includes all my go-to tech for new projects.
 
-- Next.js
-- React
-- Typescript
-- dotenv
-- next-css
-- next-scss
-- ESLint
-- Prettier
-- Stylelint
-- Husky
-- Lint Staged
-- Jest
-- React Testing Library
+- [Next.js](https://github.com/zeit/next.js)
+- [React](https://github.com/facebook/react)
+- [TypeScript](https://github.com/microsoft/TypeScript)
+- [next-css](https://github.com/zeit/next-plugins/blob/master/packages/next-css)
+- [next-sass](https://github.com/zeit/next-plugins/blob/master/packages/next-sass)
+- [dotenv](https://github.com/motdotla/dotenv)
+- [ESLint](https://github.com/eslint/eslint)
+- [Prettier](https://github.com/prettier/prettier)
+- [Stylelint](https://github.com/stylelint/stylelint)
+- [Husky](https://github.com/typicode/husky)
+- [Lint Staged](https://github.com/okonet/lint-staged)
+- [Jest](https://github.com/facebook/jest)
+- [React Testing Library](https://github.com/testing-library/react-testing-library)
 
 ## Version 1
 
