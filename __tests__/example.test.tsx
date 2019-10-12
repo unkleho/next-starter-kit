@@ -25,8 +25,11 @@ describe('ExamplePage', () => {
 			</RouterContext.Provider>,
 		);
 
-		expect(getByTestId('dotenv').textContent).toEqual(TEST);
 		expect(getByText('Pathname: /example')).toBeDefined();
+
+		if (TEST) {
+			expect(getByTestId('dotenv').textContent).toEqual(TEST);
+		}
 
 		if (GOOGLE_ANALYTICS_ID) {
 			expect(ReactGA.initialize.mock.calls[0][0]).toEqual(GOOGLE_ANALYTICS_ID);
