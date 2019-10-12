@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.0.3] 2019-10-12
+
+- Add useAnalytics hook and remove `analytics.js` and `AnalyticsSender`
+
 ## [2.0.2] 2019-10-12
 
 - Add HeadMeta component for social meta tags
