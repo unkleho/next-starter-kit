@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.2] 2019-10-12
+
+- Add HeadMeta component for social meta tags
+
+## [2.0.1] 2019-10-12
+
+- Update home page
+
 ## [2.0.0] 2019-10-11
 
 - Update Next JS to 9.1.1
