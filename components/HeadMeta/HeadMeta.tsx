@@ -22,7 +22,6 @@ const HeadMeta: React.FunctionComponent<Props> = ({
 		<Head>
 			<title>{title}</title>
 
-			{/* Note: Tried creating a component to place all these meta tags, but only worked server side */}
 			{/* Facebook */}
 			{title && <meta property="og:title" content={title} />}
 			{description && <meta property="og:description" content={description} />}
