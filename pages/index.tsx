@@ -3,11 +3,15 @@ import Link from 'next/link';
 
 import App from '../components/App';
 
+import pkg from '../package.json';
+
 import css from './index.scss';
 
 const Home = () => (
 	<App title="Home" className={css.home}>
 		<h1>Next Starter Kit</h1>
+
+		<p>v{pkg.version}</p>
 
 		<p>
 			<Link href="/example">
