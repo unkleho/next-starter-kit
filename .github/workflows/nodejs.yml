@@ -27,3 +27,14 @@ jobs:
         npm test
       env:
         CI: true
+  
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v1
+      - name: Deploy on Zeit
+        uses: actions/zeit-now@master
+        env:
+          ZEIT_TOKEN: ${{ secrets.ZEIT_TOKEN }}
