@@ -3,7 +3,9 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import HeadMeta from '../HeadMeta';
-import AnalyticsSender from '../AnalyticsSender';
+// import AnalyticsSender from '../AnalyticsSender';
+
+import useAnalytics from '../../lib/hooks/useAnalytics';
 
 import css from './App.scss';
 
@@ -28,6 +30,7 @@ const App: React.FunctionComponent<Props> = ({
 }) => {
 	const router = useRouter();
 	const url = router && router.pathname;
+	useAnalytics(url);
 
 	return (
 		<div className={[css.app, className || ''].join(' ')}>
@@ -46,7 +49,7 @@ const App: React.FunctionComponent<Props> = ({
 				siteName={siteName}
 			></HeadMeta>
 
-			<AnalyticsSender url={url} />
+			{/* <AnalyticsSender url={url} /> */}
 			{children}
 		</div>
 	);

@@ -1,4 +1,16 @@
+import * as React from 'react';
 import ReactGA from 'react-ga';
+
+const useAnalytics = (url) => {
+	React.useEffect(() => {
+		if (!window.GA_INITIALIZED) {
+			initGA();
+			window.GA_INITIALIZED = true;
+		}
+
+		logPageView();
+	}, [url]);
+};
 
 export const initGA = () => {
 	if (process.env.GOOGLE_ANALYTICS_ID) {
@@ -29,3 +41,5 @@ export const logException = (description = '', fatal = false) => {
 		}
 	}
 };
+
+export default useAnalytics;
