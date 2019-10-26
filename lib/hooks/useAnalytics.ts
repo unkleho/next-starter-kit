@@ -1,6 +1,12 @@
 import * as React from 'react';
 import ReactGA from 'react-ga';
 
+declare global {
+	interface Window {
+		GA_INITIALIZED: boolean;
+	}
+}
+
 const useAnalytics = (url) => {
 	React.useEffect(() => {
 		if (!window.GA_INITIALIZED) {
