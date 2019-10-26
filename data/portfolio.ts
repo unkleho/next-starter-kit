@@ -1,7 +1,16 @@
 const portfolio = {
 	works: [
 		{
+			title: 'MAAS Website',
+			organisation: 'Museum of Applied Arts and Sciences',
+			type: 'website',
+			description: null,
+			year: 2014,
+			tags: ['web-development'],
+		},
+		{
 			title: 'MAAS Collection',
+			organisation: 'Museum of Applied Arts and Sciences',
 			type: 'website',
 			description: null,
 			year: 2017,
@@ -16,6 +25,7 @@ const portfolio = {
 		},
 		{
 			title: 'DX Lab',
+			organisation: 'State Library of NSW',
 			type: 'website',
 			description: null,
 			year: 2018,
@@ -23,6 +33,7 @@ const portfolio = {
 		},
 		{
 			title: 'Meridian',
+			organisation: 'State Library of NSW',
 			type: 'website',
 			description: null,
 			year: 2017,
@@ -30,6 +41,7 @@ const portfolio = {
 		},
 		{
 			title: '#NewSelfWales',
+			organisation: 'State Library of NSW',
 			type: 'website',
 			description: null,
 			year: 2018,
@@ -111,6 +123,13 @@ const portfolio = {
 			description: null,
 			year: null,
 			tags: ['design'],
+		},
+		{
+			title: 'Grace of the Guru',
+			type: 'video',
+			description: null,
+			year: null,
+			tags: ['music'],
 		},
 		{
 			title: 'Big Bad Rag',
